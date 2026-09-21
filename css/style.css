@@ -359,19 +359,31 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
-/* Checkpoint Selector Bar */
+/* Checkpoint Selector Bar - Mobile First Horizontal Scroller */
 .checkpoint-nav {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.checkpoint-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .cp-btn {
-  flex: 1;
+  flex: 0 0 auto;
+  min-width: 110px;
+  max-width: 140px;
+  scroll-snap-align: start;
   background: var(--surface-card);
   border: 1px solid var(--surface-glass-border);
   border-radius: var(--radius-md);
-  padding: 10px 8px;
+  padding: 10px 10px;
   text-align: center;
   cursor: pointer;
   transition: var(--transition-fast);
@@ -721,8 +733,37 @@ body {
 
 .quiz-footer-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
   margin-top: 14px;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.secondary-btn:disabled,
+.secondary-btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .primary-btn {
@@ -736,10 +777,63 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 14px var(--accent-indigo-glow);
   transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .primary-btn:active {
   transform: scale(0.97);
+}
+
+/* Cram Subject Selector Bar */
+.cram-subject-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cram-subject-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cram-sub-btn {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--surface-card);
+  color: var(--text-muted);
+  border: 1px solid var(--surface-glass-border);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.cram-sub-btn.active {
+  background: linear-gradient(135deg, var(--accent-amber), #ea580c);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35);
+}
+
+.cram-q-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
 }
 
 /* Quiz Completion Modal / Card */

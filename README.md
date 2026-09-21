@@ -27,7 +27,7 @@
 | :--- | :--- | :--- | :---: | :---: |
 | **SPI101** | **Social and Professional Issues 1** | **Fri 2:30PM - 5:30PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
 | **MS101** | **Discrete Mathematics** | **Mon 6:00PM - 9:00PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
-| **IPT102** | Integrative Programming & Tech 2 | Tue 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
+| **IPT102** | **Integrative Programming & Tech 2** | **Tue 2:30PM-5:30PM & 7PM-9PM** | 🟢 **ACTIVE** | **5 Checkpoints Ready** |
 | **AR101** | Architecture and Organization | Thu 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
 | **SIA101** | Systems Integration and Architecture 1 | Wed 12:30PM-2:30PM & 4:30PM-7:30PM | ⚪ Slot Ready | Planned |
 | **SOCSCI3** | The Contemporary World | Fri 6:00PM - 9:00PM | ⚪ Slot Ready | Planned |

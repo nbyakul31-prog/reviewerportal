@@ -193,8 +193,13 @@
       </div>
 
       <div class="quiz-header-bar">
-        <span id="quiz-progress-label" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Question 1 of 10</span>
-        <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700;">Pass: 70%</span>
+        <div>
+          <span id="quiz-progress-label" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Question 1 of 10</span>
+          <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; margin-left: 8px;">Pass: 70%</span>
+        </div>
+        <button class="sub-tab" style="padding: 4px 10px; font-size: 0.74rem;" onclick="window.reviewerApp.shuffleAndGenerateQuiz()" title="Generate varied shuffled questions">
+          🎲 Shuffle & New Set
+        </button>
       </div>
 
       <div class="quiz-progress-track">
@@ -208,7 +213,7 @@
 
     <!-- VIEW 5: CRAM MODE (60s DRILL) -->
     <section id="view-cram" class="view-panel">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <div>
           <h2 style="font-size: 1.15rem; font-weight: 700;">⚡ 60-Second Cram Mode</h2>
           <p style="font-size: 0.78rem; color: var(--text-muted);">Rapid-fire question drill to test instant recall</p>
@@ -216,6 +221,14 @@
         <div class="timer-pill">
           <span id="cram-timer-val">60s</span>
         </div>
+      </div>
+
+      <!-- Subject Filter for Cram -->
+      <div class="cram-subject-nav">
+        <button class="cram-sub-btn active" id="cram-sub-ALL" onclick="window.reviewerApp.setCramSubject('ALL')">🌟 All Subjects</button>
+        <button class="cram-sub-btn" id="cram-sub-SPI101" onclick="window.reviewerApp.setCramSubject('SPI101')">⚖️ SPI101 (Ethics)</button>
+        <button class="cram-sub-btn" id="cram-sub-MS101" onclick="window.reviewerApp.setCramSubject('MS101')">📐 MS101 (Math)</button>
+        <button class="cram-sub-btn" id="cram-sub-IPT102" onclick="window.reviewerApp.setCramSubject('IPT102')">💻 IPT102 (ASP.NET)</button>
       </div>
 
       <div style="display: flex; gap: 8px; margin-bottom: 14px;">
@@ -232,13 +245,15 @@
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             </svg>
           </div>
-          <h2>Ready to Cram?</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0 20px;">
-            Answer as many random SPI101 questions as you can before the 60-second timer hits zero!
+          <h2 id="cram-starter-title">Ready to Cram?</h2>
+          <p id="cram-starter-desc" style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0 20px;">
+            Answer as many random questions as you can before the 60-second timer hits zero!
           </p>
           <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Start 60s Drill</button>
         </div>
       </div>
+    </section>
+
     <!-- VIEW 6: SLIDES / PPTX VIEWER -->
     <section id="view-slides" class="view-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
@@ -264,6 +279,11 @@
         <button class="sub-tab" id="btn-deck-ms1" onclick="window.reviewerApp.loadPreloadedDeck('ms-w2')">MS101 Wk 2-4</button>
         <button class="sub-tab" id="btn-deck-ms2" onclick="window.reviewerApp.loadPreloadedDeck('ms-w5')">MS101 Wk 5</button>
         <button class="sub-tab" id="btn-deck-ms3" onclick="window.reviewerApp.loadPreloadedDeck('ms-w6')">MS101 Wk 6</button>
+        <button class="sub-tab" id="btn-deck-ipt2" onclick="window.reviewerApp.loadPreloadedDeck('ipt-w2')">IPT102 Wk 2</button>
+        <button class="sub-tab" id="btn-deck-ipt3" onclick="window.reviewerApp.loadPreloadedDeck('ipt-w3')">IPT102 Wk 3</button>
+        <button class="sub-tab" id="btn-deck-ipt4" onclick="window.reviewerApp.loadPreloadedDeck('ipt-w4')">IPT102 Wk 4</button>
+        <button class="sub-tab" id="btn-deck-ipt5" onclick="window.reviewerApp.loadPreloadedDeck('ipt-w5')">IPT102 Wk 5</button>
+        <button class="sub-tab" id="btn-deck-ipt6" onclick="window.reviewerApp.loadPreloadedDeck('ipt-w6')">IPT102 Wk 6</button>
         <button class="sub-tab" id="btn-deck-pt1" onclick="window.reviewerApp.loadPreloadedDeck('pt101-w3')">PT101 Wk 3</button>
       </div>
 

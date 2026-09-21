@@ -43,11 +43,16 @@ def run_server(port=DEFAULT_PORT):
         sys.exit(1)
 
     url = f"http://localhost:{chosen_port}"
+    if hasattr(sys.stdout, 'reconfigure'):
+        try:
+            sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        except Exception:
+            pass
     print("=" * 65)
-    print("  🚀 QCU BSIT REVIEWER PORTAL LOCAL SERVER")
-    print(f"  📍 Local Address: {url}")
-    print(f"  📂 Serving Path : {DIRECTORY}")
-    print("  👤 Student      : Luigi Emanuel Britania (SBIT3G)")
+    print("  [+] QCU BSIT REVIEWER PORTAL LOCAL SERVER")
+    print(f"  [+] Local Address: {url}")
+    print(f"  [+] Serving Path : {DIRECTORY}")
+    print("  [+] Student      : Luigi Emanuel Britania (SBIT3G)")
     print("=" * 65)
     print("  Press Ctrl+C to stop server.\n")
 

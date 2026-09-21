@@ -42,12 +42,12 @@ const REVIEWER_DATA = {
       title: "Integrative Programming and Tech 2",
       schedule: "Tue 2:30PM - 5:30PM & 7:00PM - 9:00PM",
       units: 3,
-      status: "upcoming",
+      status: "active",
       color: "purple",
-      badge: "Slot Ready",
-      checkpointsCount: 0,
-      questionsCount: 0,
-      flashcardsCount: 0
+      badge: "Current Materials Ready",
+      checkpointsCount: 5,
+      questionsCount: 50,
+      flashcardsCount: 40
     },
     {
       code: "AR101",
@@ -522,7 +522,394 @@ const REVIEWER_DATA = {
                   "trap": "Exam Trap: Mathematical induction is a method of proof, NOT discovery!"
             }
       ]
-}
+},
+{
+        "id": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "title": "Review to ASP.NET with Visual Studio",
+        "badge": "Checkpoint 1",
+        "description": "Dynamic websites, client vs server-side scripting, ASP.NET page syntax, directives, server controls with runat='server', 5 web control types, and the Page Event Lifecycle.",
+        "digest": [
+            {
+                "heading": "1. Dynamic Websites vs Static Pages",
+                "points": [
+                    "**Dynamic Website**: A website that displays different types of content every time a user views it, adapting to viewer demographics, time of day, location, and language settings.",
+                    "**Static Pages**: Require manual file editing before their contents can change.",
+                    "**Under the Hood**: Achieved via a combination of **client-side** (e.g. JavaScript in browser) and **server-side** (executed on web server prior to transmission) scripting.",
+                    "**Synergy Note**: Using both scripting models adapts the page to each user while simultaneously reducing server processing load."
+                ],
+                "tldr": "Dynamic sites adapt on the fly using both client-side and server-side code."
+            },
+            {
+                "heading": "2. Elements & Real-World Benefits of Dynamic Web",
+                "points": [
+                    "**5 Key Elements**: Responsive layout based on screen viewport, localized language detection, personalized content recommendations, social media/offsite integrations, and dynamic visuals/animations.",
+                    "**5 Major Benefits**: More personalized browsing, easier site maintenance, better user experience (UX), elevated professional look, and staying aligned with modern web standards."
+                ]
+            },
+            {
+                "heading": "3. ASP.NET Page Syntax & Directives",
+                "points": [
+                    "Any standard HTML page can be turned into an ASP.NET Web Form simply by renaming the extension to `.aspx`.",
+                    "**Directives**: `<%@ Page Language=\"C#\" %>` - configures compiler and page environment.",
+                    "**Server Controls**: `<asp:Button runat=\"server\">` - server-managed UI tags.",
+                    "**Code Blocks**: `<script runat=\"server\">...</script>` - server-side logic in event handlers.",
+                    "**Data Binding**: `<%# ... %>` - binds data to server controls.",
+                    "**Server Side Comments**: `<%----%>` - stripped before sending HTML to client.",
+                    "**Render Code**: `<%= %>` and `<% %>` - inline output (discouraged; use `<script runat=\"server\">` with event handlers instead)."
+                ],
+                "trap": "Exam Trap: Inline render blocks (<%= %>) are discouraged. Always prefer event handlers with server controls!"
+            },
+            {
+                "heading": "4. Server Controls & the runat='server' Directive",
+                "points": [
+                    "**Definition**: Small building blocks of the graphical user interface (text boxes, buttons, check boxes, list boxes, labels).",
+                    "Used for UI entry, selections, validation, data access, security, master pages, and data manipulation.",
+                    "Adding `runat=\"server\"` transforms any HTML tag into a server control accessible in backend C# code.",
+                    "Example: `<input type=\"text\" id=\"text2\" runat=\"server\" />` -> accessed in C# as `text2.Value`.",
+                    "**5 Types of Web Controls in ASP.NET**:",
+                    "1. HTML controls (native browser tags)",
+                    "2. HTML Server controls (HTML elements with `runat=\"server\"`)",
+                    "3. ASP.NET Server controls (`<asp:...>`)",
+                    "4. ASP.NET Ajax Server controls (partial page postback support)",
+                    "5. User controls and custom controls (reusable modular widgets)"
+                ]
+            },
+            {
+                "heading": "5. Properties of Server Controls",
+                "points": [
+                    "Tag attributes map directly to server control properties.",
+                    "Tags and attributes in ASP.NET are **case-insensitive**.",
+                    "Control properties can be set programmatically in C#: e.g., `c1.Text = \"Foo\"; c2.Rows = 5;`."
+                ]
+            },
+            {
+                "heading": "6. ASP.NET Page Event Lifecycle",
+                "points": [
+                    "The strict sequence of page execution:",
+                    "1. **Initialize** (`Page_Init`)",
+                    "2. **Restore Control State**",
+                    "3. **Load Page** (`Page_Load`)",
+                    "4. **Control Events** (Change Events like `Textbox1_Changed`, Action Events like `Button1_Click`)",
+                    "5. **Save Control State**",
+                    "6. **Render**",
+                    "7. **Unload Page** (`Page_Unload`)"
+                ],
+                "tldr": "Lifecycle Order: Init -> Restore State -> Load -> Control Events (Change/Action) -> Save State -> Render -> Unload."
+            },
+            {
+                "heading": "7. HTML Controls vs HTML Server Controls",
+                "points": [
+                    "**HTML Controls**: Native browser elements part of the HTML standard. Accessible *only* in client browser; completely invisible to web server. Improves raw performance.",
+                    "**HTML Server Controls**: HTML elements decorated with `runat=\"server\"`. Produce identical HTML output but provide automatic ViewState management and server-side events."
+                ]
+            },
+            {
+                "heading": "8. Categories of Server Controls",
+                "points": [
+                    "**Basic Controls**: `<asp:button>`, `<asp:imagebutton>`, `<asp:linkbutton>`, `<asp:hyperlink>`, `<asp:textbox>`, `<asp:checkbox>`.",
+                    "**List Controls**: Handle repetition (`<asp:dropdownlist>`, `<asp:listbox>`, `<asp:radiobuttonlist>`, `<asp:checkboxlist>`).",
+                    "**Rich Controls**: Custom rich functionality (`<asp:calendar>`).",
+                    "**Validation Controls**: Rich declarative validation executed on both client and server; prevents malicious form tampering/spoofing without extra roundtrips."
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "title": "Understanding MVC Architecture and Routing",
+        "badge": "Checkpoint 2",
+        "description": "ASP.NET MVC 5 architecture, Model-View-Controller roles, HTTP request flow, default folder structure (App_Data, Controllers, Views, etc.), configuration files, and Routing URL patterns.",
+        "digest": [
+            {
+                "heading": "1. What is ASP.NET MVC 5?",
+                "points": [
+                    "**ASP.NET**: Free web framework for building websites and applications on the .NET Framework using HTML, CSS, and JavaScript.",
+                    "**ASP.NET MVC 5**: Web framework based on the **Model-View-Controller (MVC)** architectural pattern.",
+                    "**Core Value**: Enables a clean **Separation of Concerns (SoC)**, rapid development, and is **TDD (Test-Driven Development) friendly**."
+                ]
+            },
+            {
+                "heading": "2. Model, View, and Controller Responsibilities",
+                "points": [
+                    "**Model**: *'Model represents the data.'* A C# class that describes the shape of the data. Stores and manipulates information retrieved from databases.",
+                    "**View**: *'View is the User Interface.'* Displays Model data to the user and captures inputs. Built with HTML, CSS, and Razor syntax (`.cshtml`).",
+                    "**Controller**: *'Controller is the request handler.'* Handles incoming HTTP requests raised by users, processes data with Models, and returns the appropriate View as an HTTP response."
+                ],
+                "tldr": "Model = Data. View = User Interface. Controller = Request Handler."
+            },
+            {
+                "heading": "3. MVC Request Flow",
+                "points": [
+                    "1. User enters a URL in browser (e.g. `http://mydomain.com/home/about`).",
+                    "2. The request hits the webserver and is routed to the corresponding **Controller** (`HomeController`).",
+                    "3. The Controller executes the action method, coordinates with the **Model**, and renders the **View**.",
+                    "4. The rendered response is sent back across the network to the browser."
+                ]
+            },
+            {
+                "heading": "4. MVC Solution Folder Structure Explained",
+                "points": [
+                    "**App_Data**: Contains application data files (LocalDB `.mdf`, XML, etc.). **IIS will NEVER serve files from the App_Data folder** to clients (security protection).",
+                    "**App_Start**: Contains startup routing and bundle logic (`RouteConfig.cs`, `BundleConfig.cs`).",
+                    "**Controllers**: Contains class files for controllers. *Requirement: Every controller class name MUST end with the word 'Controller'* (e.g. `StudentController.cs`).",
+                    "**Fonts**: Contains custom font assets.",
+                    "**Models**: Contains model class files with public properties.",
+                    "**Scripts**: Contains JavaScript and VBScript files (Bootstrap, jQuery 1.10, Modernizr by default).",
+                    "**Views**: Contains `.cshtml` Razor views organized into subfolders named after each controller (e.g., `Views/Home/Index.cshtml`, `Views/Shared/_Layout.cshtml`)."
+                ],
+                "trap": "Exam Trap: Controller class names MUST end with 'Controller'. Also, IIS will NEVER serve files from App_Data directly!"
+            },
+            {
+                "heading": "5. Essential Configuration Files",
+                "points": [
+                    "**Global.asax**: Code responding to application-level lifecycle events (`Application_Start`, `Application_BeginRequest`, `Application_Error`, `Session_Start`, `Session_End`).",
+                    "**Packages.config**: Managed by NuGet package manager to track installed library dependencies and versions.",
+                    "**Web.config**: XML file containing core application-level configurations (connection strings, handlers, system.web)."
+                ]
+            },
+            {
+                "heading": "6. Routing in MVC & Route Configuration",
+                "points": [
+                    "**Routing**: Maps incoming URLs to physical Controller classes and Action Methods, rather than static files on disk.",
+                    "Not limited to MVC; can also be used in ASP.NET Web Forms.",
+                    "All configured routes are stored in the **RouteTable** and evaluated by the **Routing Engine**.",
+                    "Every MVC application must register at least one default route in the `RouteConfig` class (`RouteConfig.cs` in `App_Start`).",
+                    "The route is registered in the `Application_Start()` event inside `Global.asax.cs`."
+                ]
+            },
+            {
+                "heading": "7. URL Pattern Matching: {controller}/{action}/{id}",
+                "points": [
+                    "The URL pattern is evaluated after the domain: e.g. `localhost:1234/{controller}/{action}/{id}`.",
+                    "1st segment = Controller name (without 'Controller' suffix).",
+                    "2nd segment = Action method name.",
+                    "3rd segment = Optional parameter `id`.",
+                    "Examples under default `{controller = \"Home\", action = \"Index\", id = UrlParameter.Optional}`:",
+                    "\u2022 `/home` -> `HomeController`, `Index()`, `id = null`",
+                    "\u2022 `/home/index/123` -> `HomeController`, `Index()`, `id = 123`",
+                    "\u2022 `/home/about` -> `HomeController`, `About()`, `id = null`",
+                    "\u2022 `/student` -> `StudentController`, `Index()`, `id = null`",
+                    "\u2022 `/student/edit/123` -> `StudentController`, `Edit()`, `id = 123`"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "title": "Developing Controllers",
+        "badge": "Checkpoint 3",
+        "description": "Controller class inheritance, Action Method restrictions, default Index() action, ActionResult classes, and Action Selectors (ActionName, NonAction, ActionVerbs).",
+        "digest": [
+            {
+                "heading": "1. Controllers in ASP.NET MVC",
+                "points": [
+                    "A Controller handles any incoming URL request matching its route.",
+                    "Inherits from the base class: `System.Web.Mvc.Controller`.",
+                    "Contains public methods called **Action Methods**.",
+                    "Convention mandate: The class name must end with `Controller` (e.g. `StudentController`).",
+                    "Must be located in the `Controllers` folder of the solution."
+                ]
+            },
+            {
+                "heading": "2. Adding Controllers & Scaffolding",
+                "points": [
+                    "In Visual Studio: Right-click `Controllers` folder > **Add** > **Controller**.",
+                    "Select **MVC 5 Controller - Empty** template in the Scaffold dialog.",
+                    "**Scaffolding**: An automatic code generation framework for ASP.NET web apps that reduces boilerplate time. Can be customized using T4 templates."
+                ]
+            },
+            {
+                "heading": "3. The 3 Strict Rules for Action Methods",
+                "points": [
+                    "All public methods in a controller class are considered Action Methods.",
+                    "**Restriction 1: Must be public** (cannot be private or protected).",
+                    "**Restriction 2: Cannot be overloaded** (methods with identical name cannot be differentiated by the default routing engine).",
+                    "**Restriction 3: Cannot be a static method** (must be an instance method)."
+                ],
+                "trap": "Exam Trap: An action method CANNOT be static, CANNOT be private/protected, and CANNOT be overloaded!"
+            },
+            {
+                "heading": "4. Default Action Method & Action Results",
+                "points": [
+                    "**Default Action**: The `Index()` method is the default action method for controllers as configured in `RouteConfig`.",
+                    "**ActionResult**: Base abstract class for all action return types.",
+                    "Common Result Classes & Helper Methods:",
+                    "\u2022 `ViewResult` via `View()`: Renders HTML markup.",
+                    "\u2022 `EmptyResult`: Represents no response / void.",
+                    "\u2022 `ContentResult` via `Content()`: Returns string literal.",
+                    "\u2022 `FileResult` / `FileContentResult` via `File()`: Returns file content/stream.",
+                    "\u2022 `JavaScriptResult` via `JavaScript()`: Returns JavaScript script.",
+                    "\u2022 `JsonResult` via `Json()`: Returns JSON data for AJAX.",
+                    "\u2022 `RedirectResult` via `Redirect()`: Redirects to external or direct URL.",
+                    "\u2022 `RedirectToRouteResult` via `RedirectToAction()`: Redirects to another controller action.",
+                    "\u2022 `PartialViewResult` via `PartialView()`: Returns HTML from partial view.",
+                    "\u2022 `HttpUnauthorizedResult`: Returns HTTP 403 / 401 status."
+                ]
+            },
+            {
+                "heading": "5. Action Selectors: [ActionName] and [NonAction]",
+                "points": [
+                    "**Action Selector**: Attribute applied to action methods that helps the routing engine choose the correct handler.",
+                    "**1. ActionName**: Specifies a different public URL action name than the C# method name.",
+                    "Example: `[ActionName(\"find\")] public ActionResult GetById(int id)` -> invoked via URL `/student/find/1`.",
+                    "**2. NonAction**: Indicates a `public` method in a controller should NOT be treated as an invokable action method."
+                ]
+            },
+            {
+                "heading": "6. Action Verbs: [HttpGet], [HttpPost], [HttpPut]",
+                "points": [
+                    "Used to handle specific HTTP request types: `HttpGet`, `HttpPost`, `HttpPut`, `HttpDelete`, `HttpOptions`, `HttpPatch`.",
+                    "**Default**: If no action verb is specified, the action handles **HttpGet by default**.",
+                    "GET is used to retrieve information (params in query string). POST creates a new resource. PUT updates existing.",
+                    "**AcceptVerbs**: Allows handling multiple verbs: `[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]`."
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "title": "Developing Views & Razor Syntax",
+        "badge": "Checkpoint 4",
+        "description": "Razor view engine, .cshtml rules, server-side processing flow, inline expressions, multi-statement code blocks, variable declaration, loops, and reading user input with Request and IsPost.",
+        "digest": [
+            {
+                "heading": "1. Razor View Engine Overview",
+                "points": [
+                    "Razor is a view engine supported in ASP.NET MVC allowing a seamless mix of HTML and server-side code.",
+                    "**File Extensions**:",
+                    "\u2022 C# syntax: `.cshtml`",
+                    "\u2022 Visual Basic syntax: `.vbhtml`"
+                ]
+            },
+            {
+                "heading": "2. Main Razor Syntax Rules for C#",
+                "points": [
+                    "1. Razor code blocks are enclosed in `@{ ... }`.",
+                    "2. Inline expressions (variables and functions) start with `@` (e.g. `@DateTime.Now`).",
+                    "3. Code statements inside code blocks end with a semicolon (`;`).",
+                    "4. Variables are declared using the `var` keyword or explicit data types.",
+                    "5. Strings are enclosed in double quotation marks (`\"...\"`).",
+                    "6. C# code in Razor is **strictly case sensitive**.",
+                    "7. C# Razor files must use the `.cshtml` extension."
+                ],
+                "tldr": "Rules: Enclosed in @{ }, inline uses @, statements end in ;, C# is case-sensitive, extension is .cshtml."
+            },
+            {
+                "heading": "3. How Razor Works on the Server",
+                "points": [
+                    "Razor pages contain two kinds of content: HTML markup and Razor code.",
+                    "When the server processes the page, it runs the **Razor code FIRST** before generating the HTML.",
+                    "Server code can access server databases and generate dynamic HTML on the fly.",
+                    "Seen from the client browser, the generated HTML is identical to static HTML; the browser never sees the Razor syntax."
+                ]
+            },
+            {
+                "heading": "4. Inline Expressions & Multi-Statement Blocks",
+                "points": [
+                    "**Inline Example**:",
+                    "`<h1>Razor demo</h1><h2>@DateTime.Now.ToShortDateString()</h2>`",
+                    "**Multi-Statement Block**:",
+                    "```csharp\n@{\n    var date = DateTime.Now.ToShortDateString();\n    var message = \"Hello World\";\n}\n<h2>Today's date is: @date</h2>\n<h3>@message</h3>\n```"
+                ]
+            },
+            {
+                "heading": "5. Declaring Variables & If/Else Conditions",
+                "points": [
+                    "**Variables**: Can use `var` or explicit types (`string greeting = \"Hi\"; int counter = 50;`).",
+                    "**If-Else in Razor**:",
+                    "```csharp\n@{\n    var txt = \"\";\n    if (DateTime.Now.Hour > 12) {\n        txt = \"Good Evening\";\n    } else {\n        txt = \"Good Morning\";\n    }\n}\n<p>The message is @txt</p>\n```"
+                ]
+            },
+            {
+                "heading": "6. For Loops & Reading User Form Input",
+                "points": [
+                    "**Loops in Views**:",
+                    "```html\n<ul>\n@for (int i = 0; i < 5; i++) {\n    <li>@i</li>\n}\n</ul>\n```",
+                    "**Reading User Input with Request & IsPost**:",
+                    "```csharp\n@{\n    var totalMessage = \"\";\n    if (IsPost) {\n        var num1 = Request[\"text1\"];\n        var num2 = Request[\"text2\"];\n        var total = num1.AsInt() + num2.AsInt();\n        totalMessage = \"Total = \" + total;\n    }\n}\n```",
+                    "Input values submitted from form elements are read using `Request[\"controlName\"]` and cast using helper methods like `.AsInt()`."
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "title": "Developing Views \u2013 HTML Helpers",
+        "badge": "Checkpoint 5",
+        "description": "Standard HTML Helpers, @Html syntax, loosely vs strongly typed methods, helper mapping table, and form control code patterns (TextBox, DropDownList, RadioButton, etc.).",
+        "digest": [
+            {
+                "heading": "1. What are Standard HTML Helpers?",
+                "points": [
+                    "**Standard HTML Helpers**: Extension methods of the `HtmlHelper` class used in Razor views to render standard HTML controls (Label, TextBox, Password, TextArea, CheckBox, RadioButton, DropDownList, ListBox, Display, Editor, ActionLink).",
+                    "Always start with `@Html.` and are accessed via the `Html` property included in the `WebViewPage` base class of `System.Web.Mvc`."
+                ]
+            },
+            {
+                "heading": "2. Loosely Typed vs Strongly Typed Helpers",
+                "points": [
+                    "An HTML Helper is an extension method of the `HtmlHelper` class.",
+                    "**Loosely Typed Methods**: Take control names as string parameters (e.g. `@Html.TextBox(\"firstname\")`).",
+                    "**Strongly Typed Methods**: Use the `...For` suffix and lambda expressions (e.g. `@Html.TextBoxFor(m => m.FirstName)`). Bounded directly to model properties."
+                ],
+                "tldr": "TextBox() = loosely typed (string name). TextBoxFor() = strongly typed (model expression)."
+            },
+            {
+                "heading": "3. Master Helper Mapping Table",
+                "points": [
+                    "\u2022 `@Html.ActionLink()` -> `<a href=\"...\">...</a>`",
+                    "\u2022 `@Html.TextBox()` -> `<input type=\"text\" />`",
+                    "\u2022 `@Html.TextArea()` -> `<textarea>...</textarea>`",
+                    "\u2022 `@Html.CheckBox()` -> `<input type=\"checkbox\" />`",
+                    "\u2022 `@Html.RadioButton()` -> `<input type=\"radio\" />`",
+                    "\u2022 `@Html.DropDownList()` -> `<select><option>...</select>`",
+                    "\u2022 `@Html.ListBox()` -> `<select size=\"2\" multiple>...</select>`",
+                    "\u2022 `@Html.Hidden()` -> `<input type=\"hidden\" />`",
+                    "\u2022 `@Html.Password()` -> `<input type=\"password\" />`",
+                    "\u2022 `@Html.Label()` -> `<label>...</label>`",
+                    "\u2022 `@Html.Display()` -> Plain text representation of model property",
+                    "\u2022 `@Html.Editor()` -> Dynamically generates HTML control based on model property data type"
+                ]
+            },
+            {
+                "heading": "4. Form Input Helpers in Action",
+                "points": [
+                    "**Label**: `@Html.Label(\"User Name\")` -> creates `<label>User Name</label>`.",
+                    "**TextBox**: `@Html.TextBox(\"txtUsername\")` -> creates `<input type=\"text\" id=\"txtUsername\" name=\"txtUsername\" />`.",
+                    "**Password**: `@Html.Password(\"Password\")` -> input characters are masked with `*`."
+                ]
+            },
+            {
+                "heading": "5. Selection Helpers: RadioButton, TextArea, CheckBox",
+                "points": [
+                    "**RadioButton**: Provides a list of options allowing only one selection in a group.",
+                    "Signature: `RadioButton(string name, object value, bool isChecked, object htmlAttributes)`.",
+                    "Example: `@Html.RadioButton(\"Gender\", \"Male\", true, new { id = \"male\" }) Male`.",
+                    "**TextArea**: Multi-line text input control with rows and columns: `@Html.TextArea(\"Address\")`.",
+                    "**CheckBox**: Boolean checkbox: `@Html.CheckBox(\"Dancing\") Dancing`."
+                ]
+            },
+            {
+                "heading": "6. DropDownList Helper & SelectList",
+                "points": [
+                    "**DropDownList**: Visual control with a down arrow that displays a list of items and forces the user to select one item at a time.",
+                    "Not editable (user must choose from the selection).",
+                    "Signature: `DropDownList(string name, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes)`.",
+                    "Example: `@Html.DropDownList(\"ddlCourses\", new SelectList(strCourses), \"Select Course\")`."
+                ]
+            }
+        ]
+    }
   ],
 
   // Flashcards bank
@@ -954,7 +1341,358 @@ const REVIEWER_DATA = {
       "question": "Can Mathematical Induction be used to discover new theorems?",
       "answer": "NO. Mathematical induction cannot be used to discover theorems, only to prove them.",
       "tag": "Induction"
-}
+},
+{
+        "id": "fc-ipt1-1",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "What is the primary difference between a static page and a dynamic website?",
+        "answer": "Static pages require manual editing to change content. Dynamic websites offer unique, customized content to visitors each time based on demographics, time of day, location, and scripting.",
+        "tag": "Web Concepts"
+    },
+    {
+        "id": "fc-ipt1-2",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "Differentiate Client-side Scripting from Server-side Scripting.",
+        "answer": "Client-side scripting (like JavaScript) executes in the browser responding to user actions (clicks, keypresses). Server-side scripting executes on the server before sending HTML to the browser (authentication, shopping carts, database access).",
+        "tag": "Scripting"
+    },
+    {
+        "id": "fc-ipt1-3",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "How can an ordinary HTML page be converted into an ASP.NET page?",
+        "answer": "Any standard HTML page can be renamed with the .aspx file extension.",
+        "tag": "ASP.NET Syntax"
+    },
+    {
+        "id": "fc-ipt1-4",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "What directive attribute is required to access an HTML element in server-side C# code?",
+        "answer": "The runat=\"server\" attribute (e.g. <input type=\"text\" id=\"txt\" runat=\"server\">).",
+        "tag": "Server Controls"
+    },
+    {
+        "id": "fc-ipt1-5",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "List the 5 types of web controls used in ASP.NET.",
+        "answer": "1. HTML controls\n2. HTML Server controls\n3. ASP.NET Server controls\n4. ASP.NET Ajax Server controls\n5. User controls and custom controls.",
+        "tag": "Web Controls"
+    },
+    {
+        "id": "fc-ipt1-6",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "What is the exact execution sequence in the ASP.NET Page Event Lifecycle?",
+        "answer": "1. Initialize (Page_Init)\n2. Restore Control State\n3. Load Page (Page_Load)\n4. Control Events (Change & Action)\n5. Save Control State\n6. Render\n7. Unload Page (Page_Unload)",
+        "tag": "Page Lifecycle"
+    },
+    {
+        "id": "fc-ipt1-7",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "What are the 4 categories of Web/HTML Server Controls in ASP.NET?",
+        "answer": "1. Basic controls (<asp:button>, <asp:textbox>)\n2. List controls (<asp:dropdownlist>, <asp:listbox>)\n3. Rich controls (<asp:calendar>)\n4. Validation controls",
+        "tag": "Control Types"
+    },
+    {
+        "id": "fc-ipt1-8",
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "question": "Why does ASP.NET discourage the use of render code blocks (<%= %> and <% %>)?",
+        "answer": "Render blocks mix presentation and logic. ASP.NET encourages <script runat=\"server\"> with event-driven code in code-behind instead.",
+        "tag": "Best Practices"
+    },
+    {
+        "id": "fc-ipt2-1",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "What do the letters M, V, and C stand for in ASP.NET MVC?",
+        "answer": "Model (represents the data), View (is the user interface), and Controller (is the request handler).",
+        "tag": "MVC Architecture"
+    },
+    {
+        "id": "fc-ipt2-2",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "What is the primary role of the Model in MVC?",
+        "answer": "The Model represents the shape of the data. C# classes describe models, and model objects store and manipulate data retrieved from databases.",
+        "tag": "Model"
+    },
+    {
+        "id": "fc-ipt2-3",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "Why will IIS never serve files directly from the App_Data folder?",
+        "answer": "For security reasons. App_Data contains internal application database files (.mdf, LocalDB, XML) that should never be publicly downloadable.",
+        "tag": "Folder Structure"
+    },
+    {
+        "id": "fc-ipt2-4",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "What strict naming convention must all controller class files follow in ASP.NET MVC?",
+        "answer": "Every controller class name and file must end with the word 'Controller' (e.g. HomeController, StudentController).",
+        "tag": "Controllers"
+    },
+    {
+        "id": "fc-ipt2-5",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "What is the purpose of the Global.asax file?",
+        "answer": "It allows you to write code that runs in response to application-level lifecycle events (Application_Start, Application_BeginRequest, Application_Error, Session_Start, Session_End).",
+        "tag": "Configuration"
+    },
+    {
+        "id": "fc-ipt2-6",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "What is the default URL pattern configured in RouteConfig.cs?",
+        "answer": "{controller}/{action}/{id} with defaults { controller = \"Home\", action = \"Index\", id = UrlParameter.Optional }.",
+        "tag": "Routing"
+    },
+    {
+        "id": "fc-ipt2-7",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "Where is the route registration method called in an ASP.NET MVC project?",
+        "answer": "Inside the Application_Start() event handler in Global.asax.cs.",
+        "tag": "Routing"
+    },
+    {
+        "id": "fc-ipt2-8",
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "question": "For the URL 'http://localhost:1234/student/edit/100', what are the Controller, Action, and ID?",
+        "answer": "Controller: StudentController, Action: Edit(), ID parameter: 100.",
+        "tag": "Routing"
+    },
+    {
+        "id": "fc-ipt3-1",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "From which base class must every ASP.NET MVC controller inherit?",
+        "answer": "System.Web.Mvc.Controller.",
+        "tag": "Controllers"
+    },
+    {
+        "id": "fc-ipt3-2",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "What are the 3 strict restrictions on Action Methods in a Controller?",
+        "answer": "1. Must be public (cannot be private or protected)\n2. Cannot be overloaded\n3. Cannot be a static method.",
+        "tag": "Action Methods"
+    },
+    {
+        "id": "fc-ipt3-3",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "What is Scaffolding in ASP.NET MVC?",
+        "answer": "An automatic code generation framework that reduces development time by creating controllers, views, and templates based on data models.",
+        "tag": "Scaffolding"
+    },
+    {
+        "id": "fc-ipt3-4",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "What does the ViewResult class represent and which controller helper method returns it?",
+        "answer": "Represents rendered HTML markup; returned by the View() helper method.",
+        "tag": "ActionResult"
+    },
+    {
+        "id": "fc-ipt3-5",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "Which ActionResult class returns raw JSON data for AJAX calls?",
+        "answer": "JsonResult (returned by the Json() helper method).",
+        "tag": "ActionResult"
+    },
+    {
+        "id": "fc-ipt3-6",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "What is the purpose of the [ActionName] attribute?",
+        "answer": "It specifies an alternative public action name in the URL rather than the underlying C# method name (e.g. [ActionName(\"find\")] for GetById()).",
+        "tag": "Action Selectors"
+    },
+    {
+        "id": "fc-ipt3-7",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "When should you apply the [NonAction] attribute?",
+        "answer": "When you want a public method in a Controller class that should NOT be treated as an invokable HTTP action method.",
+        "tag": "Action Selectors"
+    },
+    {
+        "id": "fc-ipt3-8",
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "question": "If no ActionVerb is specified on an action method, which HTTP verb does it handle by default?",
+        "answer": "HttpGet by default.",
+        "tag": "Action Verbs"
+    },
+    {
+        "id": "fc-ipt4-1",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "What file extension is used for C# Razor views versus Visual Basic Razor views?",
+        "answer": "C# Razor views use .cshtml; Visual Basic Razor views use .vbhtml.",
+        "tag": "Razor Engine"
+    },
+    {
+        "id": "fc-ipt4-2",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "How are Razor multi-statement code blocks enclosed?",
+        "answer": "Enclosed in @{ ... } and each statement must end with a semicolon (;).",
+        "tag": "Razor Syntax"
+    },
+    {
+        "id": "fc-ipt4-3",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "How does the web server execute a Razor page before sending it to the client?",
+        "answer": "The server runs the Razor code first to generate pure HTML on the fly. The browser only receives and renders static HTML.",
+        "tag": "Execution Pipeline"
+    },
+    {
+        "id": "fc-ipt4-4",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "How do you output an inline variable or C# expression in Razor?",
+        "answer": "Prefix the variable or expression with the @ symbol (e.g. @DateTime.Now.ToShortDateString()).",
+        "tag": "Razor Syntax"
+    },
+    {
+        "id": "fc-ipt4-5",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "Write the Razor syntax for an if-else statement checking if Hour > 12.",
+        "answer": "@{ var txt = \"\"; if(DateTime.Now.Hour > 12) { txt = \"Good Evening\"; } else { txt = \"Good Morning\"; } }",
+        "tag": "Control Flow"
+    },
+    {
+        "id": "fc-ipt4-6",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "How do you read posted user input in Razor views and convert it to an integer?",
+        "answer": "Using Request[\"fieldName\"] and calling the .AsInt() method (e.g. var num = Request[\"text1\"].AsInt();).",
+        "tag": "Form Processing"
+    },
+    {
+        "id": "fc-ipt4-7",
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "question": "What condition in Razor is used to test if a page was requested via HTTP POST?",
+        "answer": "if (IsPost) { ... }.",
+        "tag": "Form Processing"
+    },
+    {
+        "id": "fc-ipt5-1",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "What is an HTML Helper in ASP.NET MVC?",
+        "answer": "An extension method of the HtmlHelper class used to generate HTML markup (form elements, labels, links) dynamically in Razor views.",
+        "tag": "HTML Helpers"
+    },
+    {
+        "id": "fc-ipt5-2",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "What prefix is always used to invoke HTML helpers in a Razor view?",
+        "answer": "@Html (e.g. @Html.TextBox(\"name\")).",
+        "tag": "Helper Syntax"
+    },
+    {
+        "id": "fc-ipt5-3",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "What is the key difference between @Html.TextBox() and @Html.TextBoxFor()?",
+        "answer": "@Html.TextBox() is loosely typed (takes string names). @Html.TextBoxFor() is strongly typed (takes lambda expressions bound to model properties).",
+        "tag": "Typed Helpers"
+    },
+    {
+        "id": "fc-ipt5-4",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "Which HTML control is rendered by @Html.Password(\"Password\")?",
+        "answer": "<input type=\"password\">, which masks user input with asterisks (*).",
+        "tag": "Helpers"
+    },
+    {
+        "id": "fc-ipt5-5",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "Write the helper syntax to generate a RadioButton for Male that is checked by default.",
+        "answer": "@Html.RadioButton(\"Gender\", \"Male\", true, new { id = \"male\" }) Male",
+        "tag": "Helpers"
+    },
+    {
+        "id": "fc-ipt5-6",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "Which HTML Helper creates a multi-line text input (<textarea>)?",
+        "answer": "@Html.TextArea() or @Html.TextAreaFor().",
+        "tag": "Helpers"
+    },
+    {
+        "id": "fc-ipt5-7",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "How is a DropDownList populated from a list of courses in Razor?",
+        "answer": "@Html.DropDownList(\"ddlCourses\", new SelectList(strCourses), \"Select Course\")",
+        "tag": "DropDownList"
+    },
+    {
+        "id": "fc-ipt5-8",
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "question": "Which HTML Helper renders an anchor tag (<a>)?",
+        "answer": "@Html.ActionLink().",
+        "tag": "Helpers"
+    }
   ],
 
   // Checkpoint Quizzes
@@ -1590,7 +2328,692 @@ const REVIEWER_DATA = {
                   "explanation": "Mathematical induction proves a predicate holds for all natural numbers. It cannot discover theorems."
             }
       ]
-}
+},
+{
+        "checkpointId": "ipt-cp1",
+        "subject": "IPT102",
+        "week": "Week 2",
+        "questions": [
+            {
+                "id": "q-ipt1-1",
+                "type": "multiple",
+                "question": "What is the defining characteristic of a dynamic website?",
+                "options": [
+                    "It is written strictly in raw HTML without any CSS",
+                    "It displays different content every time a user views it based on demographics, time, and scripting",
+                    "It never connects to a database",
+                    "It only loads images when the browser is resized"
+                ],
+                "correct": 1,
+                "explanation": "A dynamic website generates unique content tailored to the visitor using client-side and server-side scripting."
+            },
+            {
+                "id": "q-ipt1-2",
+                "type": "multiple",
+                "question": "Which scripting model executes inside the client's browser to respond to mouse clicks and keystrokes?",
+                "options": [
+                    "Server-side scripting",
+                    "Client-side scripting (e.g., JavaScript)",
+                    "Database-side scripting",
+                    "Firmware scripting"
+                ],
+                "correct": 1,
+                "explanation": "Client-side scripting runs in the user's browser (e.g. JavaScript) to immediately handle UI events like clicks."
+            },
+            {
+                "id": "q-ipt1-3",
+                "type": "multiple",
+                "question": "To enable server-side access for an ordinary HTML tag in an ASP.NET Web Form, which attribute must be included?",
+                "options": [
+                    "asp-for=\"true\"",
+                    "runat=\"server\"",
+                    "mode=\"backend\"",
+                    "server=\"active\""
+                ],
+                "correct": 1,
+                "explanation": "The runat=\"server\" attribute tells ASP.NET to process the element as a server control."
+            },
+            {
+                "id": "q-ipt1-4",
+                "type": "multiple",
+                "question": "Which of the following is NOT one of the 5 types of ASP.NET web controls?",
+                "options": [
+                    "HTML controls",
+                    "HTML Server controls",
+                    "ASP.NET Server controls",
+                    "ActiveX Desktop controls"
+                ],
+                "correct": 3,
+                "explanation": "The 5 types are HTML controls, HTML Server controls, ASP.NET Server controls, ASP.NET Ajax Server controls, and User/custom controls."
+            },
+            {
+                "id": "q-ipt1-5",
+                "type": "multiple",
+                "question": "What is the first event triggered in the ASP.NET Page Event Lifecycle?",
+                "options": [
+                    "Page_Load",
+                    "Page_Init",
+                    "Page_Unload",
+                    "Button_Click"
+                ],
+                "correct": 1,
+                "explanation": "The page lifecycle begins with Page_Init (Initialize), followed by control state restoration, then Page_Load."
+            },
+            {
+                "id": "q-ipt1-6",
+                "type": "multiple",
+                "question": "Which category of server controls includes <asp:dropdownlist> and <asp:listbox>?",
+                "options": [
+                    "Basic controls",
+                    "Validation controls",
+                    "List controls",
+                    "Rich controls"
+                ],
+                "correct": 2,
+                "explanation": "List controls handle repetition and option groups, including dropdownlist, listbox, and radiobuttonlist."
+            },
+            {
+                "id": "q-ipt1-7",
+                "type": "multiple",
+                "question": "What is the primary benefit of ASP.NET Validation Controls running on BOTH client and server?",
+                "options": [
+                    "It prevents users from spoofing Web Forms while avoiding unnecessary server roundtrips when valid",
+                    "It converts ASPX files into pure PDF documents",
+                    "It encrypts all client-side JavaScript files",
+                    "It eliminates the need for database storage"
+                ],
+                "correct": 0,
+                "explanation": "Client-side validation avoids roundtrips for speed, while server-side validation guarantees security against form spoofing."
+            },
+            {
+                "id": "q-ipt1-8",
+                "type": "multiple",
+                "question": "Which server tag syntax corresponds to an HTML server button that submits a form?",
+                "options": [
+                    "<input type=\"submit\" runat=\"server\">",
+                    "<button type=\"ajax\">",
+                    "<form action=\"post\" runat=\"client\">",
+                    "<asp:redirect runat=\"server\">"
+                ],
+                "correct": 0,
+                "explanation": "<input type=submit runat=server> automatically POSTs form data to the server."
+            },
+            {
+                "id": "q-ipt1-9",
+                "type": "multiple",
+                "question": "In ASP.NET page syntax, what does the expression <%# ... %> denote?",
+                "options": [
+                    "Server-side comment",
+                    "Page directive",
+                    "Data binding expression",
+                    "HTML comment"
+                ],
+                "correct": 2,
+                "explanation": "<%# %> is the ASP.NET data binding expression syntax."
+            },
+            {
+                "id": "q-ipt1-10",
+                "type": "multiple",
+                "question": "Are tag names and attributes case-sensitive or case-insensitive in ASP.NET server controls?",
+                "options": [
+                    "Strictly case-sensitive",
+                    "Case-insensitive",
+                    "Case-sensitive only on Windows",
+                    "Case-sensitive only for IDs"
+                ],
+                "correct": 1,
+                "explanation": "As stated in the slides: 'Tags and attributes are case-insensitive'."
+            }
+        ]
+    },
+    {
+        "checkpointId": "ipt-cp2",
+        "subject": "IPT102",
+        "week": "Week 3",
+        "questions": [
+            {
+                "id": "q-ipt2-1",
+                "type": "multiple",
+                "question": "What core software engineering architectural pattern is ASP.NET MVC 5 built upon?",
+                "options": [
+                    "Monolithic Web Forms",
+                    "Model-View-Controller (MVC)",
+                    "Microservices Gateway Pattern",
+                    "Entity-Component-System"
+                ],
+                "correct": 1,
+                "explanation": "ASP.NET MVC 5 is explicitly based on the Model-View-Controller pattern."
+            },
+            {
+                "id": "q-ipt2-2",
+                "type": "multiple",
+                "question": "In MVC architecture, which component represents the data and business rules?",
+                "options": [
+                    "Controller",
+                    "Model",
+                    "View",
+                    "Router"
+                ],
+                "correct": 1,
+                "explanation": "The slide explicitly highlights: 'Model represents the data'."
+            },
+            {
+                "id": "q-ipt2-3",
+                "type": "multiple",
+                "question": "Which component in MVC is responsible for handling user HTTP requests and returning views?",
+                "options": [
+                    "Model",
+                    "Controller",
+                    "View",
+                    "App_Data"
+                ],
+                "correct": 1,
+                "explanation": "The slide explicitly highlights: 'Controller is the request handler'."
+            },
+            {
+                "id": "q-ipt2-4",
+                "type": "multiple",
+                "question": "Why will IIS never serve files stored inside the App_Data folder?",
+                "options": [
+                    "IIS does not support XML files",
+                    "To protect sensitive data files like LocalDB, .mdf, and internal schemas from public web download",
+                    "Because App_Data files are automatically deleted on reboot",
+                    "Because only Linux servers support App_Data"
+                ],
+                "correct": 1,
+                "explanation": "IIS blocks public web requests to App_Data to safeguard local databases and data files."
+            },
+            {
+                "id": "q-ipt2-5",
+                "type": "multiple",
+                "question": "According to MVC naming conventions, every controller class name MUST end with which suffix?",
+                "options": [
+                    "Handler",
+                    "Service",
+                    "Controller",
+                    "Route"
+                ],
+                "correct": 2,
+                "explanation": "ASP.NET MVC requires all controller classes to end with 'Controller' (e.g. HomeController)."
+            },
+            {
+                "id": "q-ipt2-6",
+                "type": "multiple",
+                "question": "Which file allows writing code that runs in response to application lifecycle events like Application_Start?",
+                "options": [
+                    "Packages.config",
+                    "Web.config",
+                    "Global.asax",
+                    "RouteConfig.cs"
+                ],
+                "correct": 2,
+                "explanation": "Global.asax handles Application_Start, Application_BeginRequest, Session_Start, etc."
+            },
+            {
+                "id": "q-ipt2-7",
+                "type": "multiple",
+                "question": "Where is the default route registration method defined in an ASP.NET MVC application?",
+                "options": [
+                    "RouteConfig class under the App_Start folder",
+                    "HomeController inside the Controllers folder",
+                    "Packages.config in the root directory",
+                    "Web.config under system.webServer"
+                ],
+                "correct": 0,
+                "explanation": "Routes are registered in RouteConfig.cs located in the App_Start folder."
+            },
+            {
+                "id": "q-ipt2-8",
+                "type": "multiple",
+                "question": "For the incoming URL 'http://localhost/student/index/123', which action method and ID will handle it?",
+                "options": [
+                    "Controller: StudentController, Action: Index(), Id: 123",
+                    "Controller: HomeController, Action: Student(), Id: null",
+                    "Controller: IndexController, Action: Student(), Id: 123",
+                    "Controller: RouteController, Action: Edit(), Id: 123"
+                ],
+                "correct": 0,
+                "explanation": "Under {controller}/{action}/{id}, 'student' is the controller, 'index' is the action, and '123' is the id."
+            },
+            {
+                "id": "q-ipt2-9",
+                "type": "multiple",
+                "question": "What is the primary difference between Web Forms routing and MVC routing?",
+                "options": [
+                    "Web Forms does not use URLs",
+                    "In Web Forms every URL typically matches a physical .aspx file, while MVC routing maps to a controller class",
+                    "MVC routing only works for static images",
+                    "MVC routing requires Apache webserver"
+                ],
+                "correct": 1,
+                "explanation": "MVC maps clean URLs directly to Controller classes, decoupling URLs from physical disk files."
+            },
+            {
+                "id": "q-ipt2-10",
+                "type": "multiple",
+                "question": "Which package manager tool manages the Packages.config file in ASP.NET MVC?",
+                "options": [
+                    "npm",
+                    "NuGet",
+                    "pip",
+                    "composer"
+                ],
+                "correct": 1,
+                "explanation": "Packages.config is managed by NuGet to track installed packages and dependencies."
+            }
+        ]
+    },
+    {
+        "checkpointId": "ipt-cp3",
+        "subject": "IPT102",
+        "week": "Week 4",
+        "questions": [
+            {
+                "id": "q-ipt3-1",
+                "type": "multiple",
+                "question": "What base class does every ASP.NET MVC Controller derive from?",
+                "options": [
+                    "System.Web.UI.Page",
+                    "System.Web.Mvc.Controller",
+                    "System.Web.Routing.RouteBase",
+                    "System.Net.Http.ApiController"
+                ],
+                "correct": 1,
+                "explanation": "Every MVC controller inherits from System.Web.Mvc.Controller."
+            },
+            {
+                "id": "q-ipt3-2",
+                "type": "multiple",
+                "question": "Which of the following is a strict restriction on Action Methods in MVC?",
+                "options": [
+                    "Action methods must be static",
+                    "Action methods must be private",
+                    "Action methods cannot be overloaded",
+                    "Action methods must return an integer"
+                ],
+                "correct": 2,
+                "explanation": "Action methods cannot be overloaded, cannot be static, and MUST be public."
+            },
+            {
+                "id": "q-ipt3-3",
+                "type": "multiple",
+                "question": "By default, what is the default action method invoked if none is specified in the URL?",
+                "options": [
+                    "Start()",
+                    "Index()",
+                    "Home()",
+                    "Default()"
+                ],
+                "correct": 1,
+                "explanation": "The default action method configured in RouteConfig is Index()."
+            },
+            {
+                "id": "q-ipt3-4",
+                "type": "multiple",
+                "question": "Which ActionResult class represents HTML and markup returned to the browser?",
+                "options": [
+                    "ContentResult",
+                    "JsonResult",
+                    "ViewResult",
+                    "EmptyResult"
+                ],
+                "correct": 2,
+                "explanation": "ViewResult represents HTML and markup, generated via the View() helper method."
+            },
+            {
+                "id": "q-ipt3-5",
+                "type": "multiple",
+                "question": "Which controller helper method returns a string literal response?",
+                "options": [
+                    "View()",
+                    "Content()",
+                    "File()",
+                    "Json()"
+                ],
+                "correct": 1,
+                "explanation": "Content() returns a ContentResult containing a string literal."
+            },
+            {
+                "id": "q-ipt3-6",
+                "type": "multiple",
+                "question": "What attribute should be applied to a public method in a Controller so that routing IGNORES it?",
+                "options": [
+                    "[IgnoreRoute]",
+                    "[NonAction]",
+                    "[HiddenMethod]",
+                    "[PrivateAction]"
+                ],
+                "correct": 1,
+                "explanation": "The [NonAction] attribute tells the routing engine that a public method is NOT an action method."
+            },
+            {
+                "id": "q-ipt3-7",
+                "type": "multiple",
+                "question": "How can you make a method named GetById() respond to the URL '/student/find/1'?",
+                "options": [
+                    "Apply [ActionName(\"find\")] above GetById()",
+                    "Rename the controller to FindController",
+                    "Add [Route(\"ignore\")]",
+                    "Action names can never differ from method names"
+                ],
+                "correct": 0,
+                "explanation": "[ActionName(\"find\")] sets the public action name to 'find' regardless of the C# method identifier."
+            },
+            {
+                "id": "q-ipt3-8",
+                "type": "multiple",
+                "question": "If no action verb attribute is applied to an action method, which HTTP verb does it handle by default?",
+                "options": [
+                    "HttpPost",
+                    "HttpGet",
+                    "HttpPut",
+                    "HttpDelete"
+                ],
+                "correct": 1,
+                "explanation": "If no verb is specified, the action method handles HttpGet by default."
+            },
+            {
+                "id": "q-ipt3-9",
+                "type": "multiple",
+                "question": "What is the role of Scaffolding in ASP.NET MVC?",
+                "options": [
+                    "Automated code generation framework that speeds up controller and view development",
+                    "A tool for scanning viruses in uploaded files",
+                    "A database compression utility",
+                    "A hardware emulator for mobile testing"
+                ],
+                "correct": 0,
+                "explanation": "Scaffolding automatically creates boilerplate controller and view code based on templates (T4)."
+            },
+            {
+                "id": "q-ipt3-10",
+                "type": "multiple",
+                "question": "How can an action method accept both GET and POST requests simultaneously?",
+                "options": [
+                    "Overload the method with identical parameters",
+                    "Use [AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]",
+                    "Make the method static",
+                    "Declare the method private"
+                ],
+                "correct": 1,
+                "explanation": "The AcceptVerbs attribute allows multiple HTTP verbs to be bound to a single action method."
+            }
+        ]
+    },
+    {
+        "checkpointId": "ipt-cp4",
+        "subject": "IPT102",
+        "week": "Week 5",
+        "questions": [
+            {
+                "id": "q-ipt4-1",
+                "type": "multiple",
+                "question": "What is the file extension for Razor views written with C# syntax?",
+                "options": [
+                    ".vbhtml",
+                    ".aspx",
+                    ".cshtml",
+                    ".html5"
+                ],
+                "correct": 2,
+                "explanation": "C# Razor views use the .cshtml file extension, while VB uses .vbhtml."
+            },
+            {
+                "id": "q-ipt4-2",
+                "type": "multiple",
+                "question": "How are multi-statement Razor code blocks enclosed in a view?",
+                "options": [
+                    "<% ... %>",
+                    "@{ ... }",
+                    "<?php ... ?>",
+                    "{{ ... }}"
+                ],
+                "correct": 1,
+                "explanation": "Razor code blocks are enclosed in @{ ... }."
+            },
+            {
+                "id": "q-ipt4-3",
+                "type": "multiple",
+                "question": "When does the web server execute the Razor code in a .cshtml page?",
+                "options": [
+                    "After the HTML is rendered in the browser",
+                    "Before sending the HTML page to the browser",
+                    "Only when the user clicks a button",
+                    "Razor code is executed client-side by V8"
+                ],
+                "correct": 1,
+                "explanation": "The server runs the Razor code first, creates dynamic HTML on the fly, and sends pure HTML to the browser."
+            },
+            {
+                "id": "q-ipt4-4",
+                "type": "multiple",
+                "question": "Which symbol is used to transition from HTML markup into an inline Razor expression?",
+                "options": [
+                    "#",
+                    "$",
+                    "@",
+                    "&"
+                ],
+                "correct": 2,
+                "explanation": "Inline expressions in Razor start with the @ symbol (e.g. @DateTime.Now)."
+            },
+            {
+                "id": "q-ipt4-5",
+                "type": "multiple",
+                "question": "What is required at the end of each C# statement inside a Razor @{ ... } block?",
+                "options": [
+                    "A colon (:)",
+                    "A semicolon (;)",
+                    "A comma (,)",
+                    "No punctuation is required"
+                ],
+                "correct": 1,
+                "explanation": "Just like standard C#, every statement inside a Razor block must end with a semicolon."
+            },
+            {
+                "id": "q-ipt4-6",
+                "type": "multiple",
+                "question": "Is C# code inside a Razor view case-sensitive or case-insensitive?",
+                "options": [
+                    "Case-insensitive",
+                    "Case-sensitive",
+                    "Case-insensitive only for HTML tags",
+                    "Only variable names are sensitive"
+                ],
+                "correct": 1,
+                "explanation": "C# code in Razor is strictly case-sensitive."
+            },
+            {
+                "id": "q-ipt4-7",
+                "type": "multiple",
+                "question": "How do you check in a Razor view whether the current request is an HTTP POST submission?",
+                "options": [
+                    "if (Request.Method == \"SEND\")",
+                    "if (IsPost)",
+                    "if (Form.Submitted)",
+                    "if (PostBack == true)"
+                ],
+                "correct": 1,
+                "explanation": "Razor provides the built-in boolean condition if (IsPost) to check for POST submissions."
+            },
+            {
+                "id": "q-ipt4-8",
+                "type": "multiple",
+                "question": "Which method converts an input string from Request[\"num\"] into an integer in Razor?",
+                "options": [
+                    ".ToInt32()",
+                    ".AsInt()",
+                    ".ParseInt()",
+                    ".CastToNumber()"
+                ],
+                "correct": 1,
+                "explanation": "Razor provides the .AsInt() extension method on string inputs (e.g. num1.AsInt())."
+            },
+            {
+                "id": "q-ipt4-9",
+                "type": "multiple",
+                "question": "What will @DateTime.Now.ToShortDateString() output in a Razor view?",
+                "options": [
+                    "The current time in milliseconds",
+                    "The current date formatted as a short string",
+                    "The server's IP address",
+                    "A compiler warning"
+                ],
+                "correct": 1,
+                "explanation": "It prints the current date (e.g. '09/22/2026')."
+            },
+            {
+                "id": "q-ipt4-10",
+                "type": "multiple",
+                "question": "What keyword is typically used to declare local variables with inferred types inside @{ ... }?",
+                "options": [
+                    "let",
+                    "dim",
+                    "var",
+                    "val"
+                ],
+                "correct": 2,
+                "explanation": "Variables are declared with the 'var' keyword or explicit C# types."
+            }
+        ]
+    },
+    {
+        "checkpointId": "ipt-cp5",
+        "subject": "IPT102",
+        "week": "Week 6",
+        "questions": [
+            {
+                "id": "q-ipt5-1",
+                "type": "multiple",
+                "question": "What are Standard HTML Helpers in ASP.NET MVC?",
+                "options": [
+                    "JavaScript libraries that validate forms on the client",
+                    "Extension methods of the HtmlHelper class that render standard HTML controls",
+                    "CSS stylesheets that format tables",
+                    "Server hardware accelerators"
+                ],
+                "correct": 1,
+                "explanation": "HTML Helpers are extension methods of HtmlHelper used to generate HTML markup dynamically."
+            },
+            {
+                "id": "q-ipt5-2",
+                "type": "multiple",
+                "question": "What prefix is used in Razor to access HTML helper methods?",
+                "options": [
+                    "#Html.",
+                    "@Html.",
+                    "$Form.",
+                    "%Helper."
+                ],
+                "correct": 1,
+                "explanation": "Html helpers are accessed using the @Html. prefix in Razor views."
+            },
+            {
+                "id": "q-ipt5-3",
+                "type": "multiple",
+                "question": "What is the primary difference between @Html.TextBox() and @Html.TextBoxFor()?",
+                "options": [
+                    "TextBox() renders an image, while TextBoxFor() renders text",
+                    "TextBox() is loosely typed (uses a string name), while TextBoxFor() is strongly typed (uses lambda expressions tied to a model)",
+                    "TextBoxFor() only works in Web Forms",
+                    "There is no difference"
+                ],
+                "correct": 1,
+                "explanation": "TextBox() is loosely typed with string parameters; TextBoxFor() is strongly typed with compile-time model properties."
+            },
+            {
+                "id": "q-ipt5-4",
+                "type": "multiple",
+                "question": "Which HTML control is generated by the helper call @Html.Password(\"userPass\")?",
+                "options": [
+                    "<input type=\"text\">",
+                    "<input type=\"password\">",
+                    "<input type=\"hidden\">",
+                    "<textarea>"
+                ],
+                "correct": 1,
+                "explanation": "Html.Password renders an <input type=\"password\"> that masks entered characters."
+            },
+            {
+                "id": "q-ipt5-5",
+                "type": "multiple",
+                "question": "Which HTML Helper is used to generate a multi-line text input field?",
+                "options": [
+                    "@Html.TextBox()",
+                    "@Html.TextArea()",
+                    "@Html.MultiInput()",
+                    "@Html.ListBox()"
+                ],
+                "correct": 1,
+                "explanation": "@Html.TextArea() renders a <textarea> element supporting multiple rows and columns."
+            },
+            {
+                "id": "q-ipt5-6",
+                "type": "multiple",
+                "question": "Which helper generates a non-editable dropdown selection control (<select><option>)?",
+                "options": [
+                    "@Html.ListBox()",
+                    "@Html.DropDownList()",
+                    "@Html.ComboBox()",
+                    "@Html.OptionPicker()"
+                ],
+                "correct": 1,
+                "explanation": "@Html.DropDownList() creates a <select> element that restricts the user to choosing one item."
+            },
+            {
+                "id": "q-ipt5-7",
+                "type": "multiple",
+                "question": "What class is commonly passed into @Html.DropDownList to wrap an IEnumerable collection of options?",
+                "options": [
+                    "ArrayList",
+                    "SelectList",
+                    "DataCollection",
+                    "OptionGroup"
+                ],
+                "correct": 1,
+                "explanation": "new SelectList(strCourses) is passed to DropDownList to populate items."
+            },
+            {
+                "id": "q-ipt5-8",
+                "type": "multiple",
+                "question": "Which HTML Helper renders an anchor tag hyperlink (<a>) in ASP.NET MVC?",
+                "options": [
+                    "@Html.HyperLink()",
+                    "@Html.ActionLink()",
+                    "@Html.Anchor()",
+                    "@Html.UrlLink()"
+                ],
+                "correct": 1,
+                "explanation": "@Html.ActionLink() generates an <a> anchor tag pointing to a controller action."
+            },
+            {
+                "id": "q-ipt5-9",
+                "type": "multiple",
+                "question": "In @Html.RadioButton(\"Gender\", \"Male\", true, new { id = \"male\" }), what does the third parameter (true) specify?",
+                "options": [
+                    "Whether the control is visible",
+                    "Whether the radio button is initially checked (selected)",
+                    "Whether the control is disabled",
+                    "Whether it requires client validation"
+                ],
+                "correct": 1,
+                "explanation": "The boolean isChecked parameter sets whether the radio option is selected by default."
+            },
+            {
+                "id": "q-ipt5-9-alt",
+                "type": "multiple",
+                "question": "Which HTML helper dynamically renders a form control based on the model property's data type?",
+                "options": [
+                    "@Html.Editor() or @Html.EditorFor()",
+                    "@Html.Display()",
+                    "@Html.Label()",
+                    "@Html.ActionLink()"
+                ],
+                "correct": 0,
+                "explanation": "Editor() inspects metadata and data types to dynamically output appropriate form controls (e.g. numeric input, date picker, text)."
+            }
+        ]
+    }
   ]
 };
 

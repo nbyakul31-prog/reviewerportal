@@ -28,7 +28,8 @@
     cramTimer: 60,
     cramInterval: null,
     cramScore: 0,
-    cramActive: false
+    cramActive: false,
+    cramSubject: 'ALL'
   };
 
   // Load persisted state
@@ -334,10 +335,65 @@
     renderFlashcard();
   }
 
-  // Quiz Engine
+  // ==============================================================================
+  // DYNAMIC SHUFFLED QUIZ ENGINE WITH BACK-BUTTON NAVIGATION
+  // ==============================================================================
+  let activeQuizSession = {
+    checkpointId: null,
+    questions: [],
+    userAnswers: [], // [ { selectedIndex: null, submitted: false, isCorrect: false } ]
+    score: 0
+  };
+
+  function initQuizSession(checkpointId, forceReshuffle = false) {
+    if (!forceReshuffle && activeQuizSession.checkpointId === checkpointId && activeQuizSession.questions.length > 0) {
+      return;
+    }
+    const quizGroup = REVIEWER_DATA.quizzes.find(q => q.checkpointId === checkpointId);
+    const sourceQuestions = quizGroup ? quizGroup.questions : [];
+    if (!sourceQuestions.length) {
+      activeQuizSession = { checkpointId, questions: [], userAnswers: [], score: 0 };
+      return;
+    }
+
+    // 1. Shuffle questions order (Fisher-Yates)
+    const shuffledQ = [...sourceQuestions].sort(() => Math.random() - 0.5);
+
+    // 2. For each question, dynamically shuffle the options and remap correct index
+    const preparedQuestions = shuffledQ.map((q, qIndex) => {
+      const originalOptions = q.options;
+      const indexedOptions = originalOptions.map((text, idx) => ({ text, isCorrect: idx === q.correct }));
+      // Shuffle options randomly
+      indexedOptions.sort(() => Math.random() - 0.5);
+      const newOptions = indexedOptions.map(o => o.text);
+      const newCorrect = indexedOptions.findIndex(o => o.isCorrect);
+
+      return {
+        id: q.id || `dyn-q-${qIndex}`,
+        question: q.question,
+        options: newOptions,
+        correct: newCorrect,
+        explanation: q.explanation
+      };
+    });
+
+    activeQuizSession = {
+      checkpointId,
+      questions: preparedQuestions,
+      userAnswers: preparedQuestions.map(() => ({ selectedIndex: null, submitted: false, isCorrect: false })),
+      score: 0
+    };
+    state.currentQuizIndex = 0;
+    state.quizScore = 0;
+    state.quizSelectedAnswer = null;
+    state.quizSubmitted = false;
+  }
+
   function getCurrentQuizQuestions() {
-    const quizGroup = REVIEWER_DATA.quizzes.find(q => q.checkpointId === state.activeCheckpoint);
-    return quizGroup ? quizGroup.questions : [];
+    if (activeQuizSession.checkpointId !== state.activeCheckpoint || !activeQuizSession.questions.length) {
+      initQuizSession(state.activeCheckpoint);
+    }
+    return activeQuizSession.questions;
   }
 
   function renderQuizQuestion() {
@@ -345,12 +401,27 @@
     const container = document.getElementById('quiz-view-container');
     if (!container) return;
 
+    if (!questions.length) {
+      container.innerHTML = `
+        <div class="quiz-result-card">
+          <h2>No Questions Available</h2>
+          <p style="color: var(--text-muted); margin-top: 8px;">No quiz questions registered for this checkpoint yet.</p>
+        </div>
+      `;
+      return;
+    }
+
     if (state.currentQuizIndex >= questions.length) {
       renderQuizResult();
       return;
     }
 
     const q = questions[state.currentQuizIndex];
+    const userAns = activeQuizSession.userAnswers[state.currentQuizIndex] || { selectedIndex: null, submitted: false, isCorrect: false };
+
+    state.quizSubmitted = userAns.submitted;
+    state.quizSelectedAnswer = userAns.selectedIndex;
+
     const progressPercent = ((state.currentQuizIndex) / questions.length) * 100;
     const progressFill = document.getElementById('quiz-progress-fill');
     if (progressFill) progressFill.style.width = `${progressPercent}%`;
@@ -358,16 +429,29 @@
     const quizProgressLabel = document.getElementById('quiz-progress-label');
     if (quizProgressLabel) quizProgressLabel.textContent = `Question ${state.currentQuizIndex + 1} of ${questions.length}`;
 
-    state.quizSubmitted = false;
-    state.quizSelectedAnswer = null;
-
     const letters = ['A', 'B', 'C', 'D'];
-    const optionsHtml = q.options.map((opt, idx) => `
-      <button class="option-btn" id="opt-btn-${idx}" onclick="window.reviewerApp.selectQuizOption(${idx})">
-        <span class="option-letter">${letters[idx]}</span>
-        <span>${opt}</span>
-      </button>
-    `).join('');
+    const optionsHtml = q.options.map((opt, idx) => {
+      let extraClass = '';
+      if (userAns.submitted) {
+        if (idx === q.correct) extraClass = 'correct';
+        else if (idx === userAns.selectedIndex) extraClass = 'wrong';
+      } else if (idx === userAns.selectedIndex) {
+        extraClass = 'selected';
+      }
+      return `
+        <button class="option-btn ${extraClass}" id="opt-btn-${idx}" onclick="window.reviewerApp.selectQuizOption(${idx})">
+          <span class="option-letter">${letters[idx]}</span>
+          <span>${opt}</span>
+        </button>
+      `;
+    }).join('');
+
+    const isFirst = state.currentQuizIndex === 0;
+    const isLast = state.currentQuizIndex + 1 >= questions.length;
+    let nextBtnLabel = 'Confirm Answer';
+    if (userAns.submitted) {
+      nextBtnLabel = isLast ? 'See Final Score 🎉' : 'Next Question →';
+    }
 
     container.innerHTML = `
       <div class="question-card">
@@ -375,19 +459,37 @@
         <div class="options-list">
           ${optionsHtml}
         </div>
-        <div class="explanation-box" id="explanation-box"></div>
+        <div class="explanation-box ${userAns.submitted ? ('show ' + (userAns.isCorrect ? 'correct-exp' : 'wrong-exp')) : ''}" id="explanation-box">
+          ${userAns.submitted ? `<strong>${userAns.isCorrect ? 'Correct! 🎯' : 'Incorrect 💡'}</strong>: ${q.explanation}` : ''}
+        </div>
       </div>
       <div class="quiz-footer-actions">
-        <button class="primary-btn" id="quiz-action-btn" onclick="window.reviewerApp.submitQuizAnswer()">
-          Confirm Answer
+        <button class="secondary-btn" id="quiz-back-btn" onclick="window.reviewerApp.prevQuizQuestion()" ${isFirst ? 'disabled' : ''}>
+          ← Previous
+        </button>
+        <button class="primary-btn" id="quiz-action-btn" onclick="window.reviewerApp.submitOrNextQuiz()">
+          ${nextBtnLabel}
         </button>
       </div>
     `;
+
+    // Visual selection restoration for non-submitted answers
+    if (!userAns.submitted && userAns.selectedIndex !== null) {
+      const btn = document.getElementById(`opt-btn-${userAns.selectedIndex}`);
+      if (btn) {
+        btn.style.borderColor = 'var(--accent-cyan)';
+        btn.style.background = 'rgba(6, 182, 212, 0.12)';
+      }
+    }
   }
 
   function selectQuizOption(index) {
-    if (state.quizSubmitted) return;
+    const userAns = activeQuizSession.userAnswers[state.currentQuizIndex];
+    if (userAns && userAns.submitted) return; // Prevent changing after submission
+
     state.quizSelectedAnswer = index;
+    if (userAns) userAns.selectedIndex = index;
+
     document.querySelectorAll('.option-btn').forEach((btn, idx) => {
       if (idx === index) {
         btn.style.borderColor = 'var(--accent-cyan)';
@@ -401,13 +503,22 @@
     triggerHaptic([15]);
   }
 
-  function submitQuizAnswer() {
-    const questions = getCurrentQuizQuestions();
-    const q = questions[state.currentQuizIndex];
-    const btn = document.getElementById('quiz-action-btn');
+  function prevQuizQuestion() {
+    if (state.currentQuizIndex > 0) {
+      state.currentQuizIndex -= 1;
+      renderQuizQuestion();
+      playSound('flip');
+      triggerHaptic([15]);
+    }
+  }
 
-    if (state.quizSubmitted) {
-      // Go to next question
+  function submitOrNextQuiz() {
+    const questions = getCurrentQuizQuestions();
+    const userAns = activeQuizSession.userAnswers[state.currentQuizIndex];
+    if (!userAns) return;
+
+    if (userAns.submitted) {
+      // Advance to next question or final score
       state.currentQuizIndex += 1;
       renderQuizQuestion();
       return;
@@ -419,32 +530,37 @@
       return;
     }
 
-    state.quizSubmitted = true;
+    const q = questions[state.currentQuizIndex];
     const isCorrect = state.quizSelectedAnswer === q.correct;
-    const selectedBtn = document.getElementById(`opt-btn-${state.quizSelectedAnswer}`);
-    const correctBtn = document.getElementById(`opt-btn-${q.correct}`);
-    const expBox = document.getElementById('explanation-box');
+    userAns.submitted = true;
+    userAns.isCorrect = isCorrect;
+    userAns.selectedIndex = state.quizSelectedAnswer;
+
+    // Recalculate total score
+    activeQuizSession.score = activeQuizSession.userAnswers.filter(a => a.submitted && a.isCorrect).length;
+    state.quizScore = activeQuizSession.score;
+
+    renderQuizQuestion();
 
     if (isCorrect) {
-      state.quizScore += 1;
-      selectedBtn.classList.add('correct');
       playSound('correct');
       triggerHaptic([30, 40, 30]);
     } else {
-      selectedBtn.classList.add('wrong');
-      if (correctBtn) correctBtn.classList.add('correct');
       playSound('wrong');
       triggerHaptic([80, 50, 80]);
     }
+  }
 
-    if (expBox) {
-      expBox.className = `explanation-box show ${isCorrect ? 'correct-exp' : 'wrong-exp'}`;
-      expBox.innerHTML = `<strong>${isCorrect ? 'Correct! 🎯' : 'Incorrect 💡'}</strong>: ${q.explanation}`;
-    }
+  // Backwards compatibility alias
+  function submitQuizAnswer() {
+    submitOrNextQuiz();
+  }
 
-    if (btn) {
-      btn.textContent = state.currentQuizIndex + 1 >= questions.length ? 'See Final Score' : 'Next Question →';
-    }
+  function shuffleAndGenerateQuiz() {
+    initQuizSession(state.activeCheckpoint, true);
+    renderQuizQuestion();
+    showToast('🎲 Generated fresh randomized questions & options!');
+    playSound('flip');
   }
 
   function renderQuizResult() {
@@ -453,7 +569,10 @@
     const progressFill = document.getElementById('quiz-progress-fill');
     if (progressFill) progressFill.style.width = '100%';
 
-    const percent = Math.round((state.quizScore / questions.length) * 100);
+    // Recalculate verified score
+    const totalScore = activeQuizSession.userAnswers.filter(a => a.submitted && a.isCorrect).length;
+    state.quizScore = totalScore;
+    const percent = Math.round((totalScore / questions.length) * 100);
     const passed = percent >= 70;
 
     if (passed && !state.completedCheckpoints.includes(state.activeCheckpoint)) {
@@ -465,7 +584,7 @@
     container.innerHTML = `
       <div class="quiz-result-card">
         <div class="score-circle">
-          <div class="score-num">${state.quizScore}</div>
+          <div class="score-num">${totalScore}</div>
           <div class="score-total">/ ${questions.length}</div>
         </div>
         <h2 style="font-size: 1.3rem; margin-bottom: 6px;">${passed ? '🎉 Checkpoint Mastered!' : 'Keep Going! 💪'}</h2>
@@ -473,8 +592,9 @@
           You scored <strong>${percent}%</strong> in ${state.activeCheckpoint.toUpperCase()}.
           ${passed ? 'This checkpoint badge is now recorded in your profile.' : 'Review the digest and try again to unlock your mastery badge!'}
         </p>
-        <div style="display: flex; gap: 10px; justify-content: center;">
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
           <button class="sub-tab" onclick="window.reviewerApp.restartQuiz()">Retake Quiz</button>
+          <button class="sub-tab" onclick="window.reviewerApp.shuffleAndGenerateQuiz()">🎲 New Shuffled Set</button>
           <button class="primary-btn" onclick="window.reviewerApp.switchView('digest')">Review Notes</button>
         </div>
       </div>
@@ -482,26 +602,54 @@
   }
 
   function restartQuiz() {
-    state.currentQuizIndex = 0;
-    state.quizScore = 0;
-    state.quizSelectedAnswer = null;
-    state.quizSubmitted = false;
+    initQuizSession(state.activeCheckpoint, true);
     renderQuizQuestion();
   }
 
-  // Cram Mode (60s Drills)
+  // ==============================================================================
+  // SUBJECT-SEPARATED 60-SECOND CRAM DRILL
+  // ==============================================================================
+  function setCramSubject(code) {
+    state.cramSubject = code;
+    document.querySelectorAll('.cram-subject-nav .cram-sub-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.id === `cram-sub-${code}`);
+    });
+
+    const titleEl = document.getElementById('cram-starter-title');
+    const descEl = document.getElementById('cram-starter-desc');
+    const labels = {
+      'ALL': 'All Enrolled Subjects',
+      'SPI101': 'SPI101 (Social & Professional Issues)',
+      'MS101': 'MS101 (Discrete Mathematics)',
+      'IPT102': 'IPT102 (Integrative Programming & ASP.NET)'
+    };
+    const subLabel = labels[code] || code;
+
+    if (titleEl) titleEl.textContent = `Ready to Cram ${code === 'ALL' ? 'Everything' : code}?`;
+    if (descEl) descEl.textContent = `Answer as many rapid-fire ${subLabel} questions as you can before the 60-second timer hits zero!`;
+
+    showToast(`Cram Subject: ${code}`);
+    if (state.cramActive) {
+      renderNextCramQuestion();
+    }
+  }
+
   function startCramMode() {
     state.cramActive = true;
     state.cramTimer = 60;
     state.cramScore = 0;
-    
-    const container = document.getElementById('cram-container');
+
+    const timerEl = document.getElementById('cram-timer-val');
+    if (timerEl) timerEl.textContent = '60s';
+    const scoreEl = document.getElementById('cram-score-val');
+    if (scoreEl) scoreEl.textContent = '0';
+
     if (state.cramInterval) clearInterval(state.cramInterval);
 
     state.cramInterval = setInterval(() => {
       state.cramTimer -= 1;
-      const timerEl = document.getElementById('cram-timer-val');
-      if (timerEl) timerEl.textContent = `${state.cramTimer}s`;
+      const tEl = document.getElementById('cram-timer-val');
+      if (tEl) tEl.textContent = `${state.cramTimer}s`;
 
       if (state.cramTimer <= 0) {
         endCramMode();
@@ -512,19 +660,45 @@
   }
 
   function renderNextCramQuestion() {
-    // Pick random question from all checkpoints
-    const allQuestions = REVIEWER_DATA.quizzes.flatMap(q => q.questions);
-    const randomQ = allQuestions[Math.floor(Math.random() * allQuestions.length)];
+    let targetQuizzes = REVIEWER_DATA.quizzes;
+    if (state.cramSubject && state.cramSubject !== 'ALL') {
+      targetQuizzes = targetQuizzes.filter(q => q.subject === state.cramSubject);
+    }
+    if (!targetQuizzes.length) targetQuizzes = REVIEWER_DATA.quizzes;
+
+    // Collect questions with attached metadata
+    const pool = [];
+    targetQuizzes.forEach(qz => {
+      qz.questions.forEach(q => {
+        pool.push({
+          ...q,
+          _subject: qz.subject || 'QCU',
+          _week: qz.week || ''
+        });
+      });
+    });
+
+    if (!pool.length) return;
+
+    const rawQ = pool[Math.floor(Math.random() * pool.length)];
+
+    // Dynamically shuffle options for cram as well!
+    const indexedOpts = rawQ.options.map((t, i) => ({ text: t, isCorrect: i === rawQ.correct }));
+    indexedOpts.sort(() => Math.random() - 0.5);
+    const shuffledOpts = indexedOpts.map(o => o.text);
+    const newCorrect = indexedOpts.findIndex(o => o.isCorrect);
+
     const container = document.getElementById('cram-card-slot');
     if (!container) return;
 
     const letters = ['A', 'B', 'C', 'D'];
     container.innerHTML = `
       <div class="question-card" style="margin-bottom: 10px;">
-        <div class="question-title">${randomQ.question}</div>
+        <div class="cram-q-badge">📌 ${rawQ._subject} • ${rawQ._week}</div>
+        <div class="question-title">${rawQ.question}</div>
         <div class="options-list">
-          ${randomQ.options.map((opt, idx) => `
-            <button class="option-btn" onclick="window.reviewerApp.answerCram(${idx}, ${randomQ.correct})">
+          ${shuffledOpts.map((opt, idx) => `
+            <button class="option-btn" onclick="window.reviewerApp.answerCram(${idx}, ${newCorrect})">
               <span class="option-letter">${letters[idx]}</span>
               <span>${opt}</span>
             </button>
@@ -561,7 +735,8 @@
           </div>
           <h2>⚡ Cram Drill Complete!</h2>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0 16px;">
-            You answered <strong>${state.cramScore}</strong> questions correctly in 60 seconds.
+            Subject: <strong>${state.cramSubject || 'All'}</strong><br>
+            You answered <strong>${state.cramScore}</strong> questions correctly in 60 seconds!
           </p>
           <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Start Another Drill</button>
         </div>
@@ -576,6 +751,7 @@
     state.currentCardIndex = 0;
     state.currentQuizIndex = 0;
     state.quizScore = 0;
+    initQuizSession(cpId, false);
 
     document.querySelectorAll('.cp-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.cp === cpId);
@@ -587,7 +763,8 @@
   }
 
   function selectSubject(code) {
-    if (code !== 'SPI101' && code !== 'MS101') {
+    const activeCourses = ['SPI101', 'MS101', 'IPT102'];
+    if (!activeCourses.includes(code)) {
       showToast(`${code} syllabus slot ready! Add notes when available.`);
       return;
     }
@@ -597,6 +774,11 @@
     state.quizScore = 0;
 
     const firstCp = REVIEWER_DATA.checkpoints.find(c => c.subject === code);
+    if (firstCp) {
+      state.activeCheckpoint = firstCp.id;
+    }
+    initQuizSession(state.activeCheckpoint, true);
+
     const badgeEl = document.getElementById('header-subject-name');
     if (badgeEl) badgeEl.textContent = code;
 
@@ -608,11 +790,10 @@
   }
 
   function toggleActiveSubject() {
-    if (state.activeSubject === 'SPI101') {
-      selectSubject('MS101');
-    } else {
-      selectSubject('SPI101');
-    }
+    const cycle = ['SPI101', 'MS101', 'IPT102'];
+    const curIdx = cycle.indexOf(state.activeSubject);
+    const nextCode = cycle[(curIdx + 1) % cycle.length];
+    selectSubject(nextCode);
   }
 
   // Touch Swipe Gesture for Flashcards
@@ -737,6 +918,65 @@
         { title: "Terminologies", bullets: ["Axiom: assumption needing no proof", "Proof: sequence of statements forming a valid argument", "Theorem: statement proven true", "Lemma: simple helper theorem", "Corollary: direct consequence of proven theorem", "Conjecture: unproven statement"] },
         { title: "Methods of Proof", bullets: ["Direct Proof: Assume p is true, show q is true", "Indirect Proof (Contrapositive): p → q ≡ ~q → ~p", "Proof by Contradiction: Assume opposite, derive impossible contradiction"] },
         { title: "Mathematical Induction", bullets: ["Basis Step: Show P(0) or P(1) is true", "Inductive Step: Show P(k) => P(k+1)", "Conclusion: True for all natural numbers", "Limitation: Used to PROVE theorems, NOT to discover them!"] }
+      ]
+    },
+    'ipt-w2': {
+      title: "IPT102: Week 2 - Review to ASP.NET with Visual Studio",
+      slides: [
+        { title: "WEEK 2: (REVIEW TO ASP.NET WITH VISUAL STUDIO)", bullets: ["IPT102 - Integrative Programming and Technologies 2", "Quezon City University - College of Computer Science & IT", "Review to ASP.NET with Visual Studio"] },
+        { title: "Learning Outcomes", bullets: ["To understand Dynamic websites", "To review different .NET Framework syntax", "To review Visual Studio .NET programming environment"] },
+        { title: "Introduction to Dynamic Website", bullets: ["Displays different types of content every time a user views it", "Changes depending on viewer demographics, time of day, location, language settings", "Achieved through a combination of client-side and server-side scripting"] },
+        { title: "Client-side vs Server-side Scripting", bullets: ["Client-side: executed by viewer's browser (e.g. JavaScript); renders UI changes in response to mouse clicks or keyboard", "Server-side: executed by server before sending content to browser (login pages, forms, carts)", "Combining both adapts content while reducing server load"] },
+        { title: "Dynamic Website Elements & Benefits", bullets: ["Elements: format changing by screen size, language detection, custom recommendations, animations", "Benefits: personalized browsing, easier to maintain, superior user experience, elevated look"] },
+        { title: "ASP.NET Page Syntax", bullets: ["Any HTML page can be renamed .aspx", "Directives: <%@ Page Language=\"C#\" %>", "Server controls: <asp:Button runat=\"server\">", "Code blocks: <script runat=\"server\">...</script>", "Data binding: <%# %>", "Server comments: <%----%>", "Render code: <%= %> (discouraged; use event handlers)"] },
+        { title: "Server Controls & runat='server'", bullets: ["Small building blocks of GUI (textboxes, buttons, checkboxes, listboxes, labels)", "runat=\"server\" directive allows controls to be accessed in backend C# code", "5 Types: HTML controls, HTML Server controls, ASP.NET Server controls, Ajax Server controls, User/custom controls"] },
+        { title: "Properties & Page Event Lifecycle", bullets: ["Tag attributes map to control properties; case-insensitive", "Execution Sequence: Page_Init -> Restore Control State -> Page_Load -> Control Events (Change / Action) -> Save Control State -> Render -> Page_Unload"] },
+        { title: "Types of Controls for UI", bullets: ["HTML controls: native browser elements, purely client-side, invisible to web server", "HTML server controls: include runat=\"server\", automatic state management, server-side events", "4 Categories: Basic controls, List controls, Rich controls (<asp:calendar>), Validation controls"] }
+      ]
+    },
+    'ipt-w3': {
+      title: "IPT102: Week 3 - MVC Architecture and Routing",
+      slides: [
+        { title: "WEEK 3: UNDERSTANDING MVC ARCHITECTURE AND ROUTING", bullets: ["IPT102 - Integrative Programming and Technologies 2", "Quezon City University", "ASP.NET MVC 5 Architecture"] },
+        { title: "Learning Outcomes", bullets: ["Understand and explore ASP.NET Core / MVC 5", "Understand how MVC architecture functions", "Describe the MVC folder structure", "Understand the importance of routing in MVC"] },
+        { title: "ASP.NET MVC 5 Architecture", bullets: ["Web framework based on Model-View-Controller architecture", "Enables clean Separation of Concerns (SoC)", "Fast development and TDD (Test-Driven Development) friendly"] },
+        { title: "Model, View, and Controller", bullets: ["Model: 'Model represents the data' (C# class holding database data)", "View: 'View is the User Interface' (HTML, CSS, Razor syntax)", "Controller: 'Controller is the request handler' (handles HTTP requests, returns views)"] },
+        { title: "MVC Request Flow", bullets: ["User enters URL -> Webserver -> Routed to Controller -> Controller coordinates View & Models -> Returns response to Browser"] },
+        { title: "MVC Default Folder Structure", bullets: ["App_Data: contains data files (LocalDB, .mdf, XML). IIS will NEVER serve files from App_Data directly!", "Controllers: contains controller classes (must end with 'Controller')", "Fonts: custom font files", "Models: model class files with public properties", "Scripts: JS/VBScript files (Bootstrap, jQuery, Modernizr)", "Views: .cshtml views organized by controller"] },
+        { title: "Crucial Configuration Files", bullets: ["Global.asax: application-level events (Application_Start, BeginRequest, Error, Session_Start)", "Packages.config: managed by NuGet to track packages and versions", "Web.config: application-level configuration"] },
+        { title: "Routing in MVC", bullets: ["Routing maps URL to physical controller class/action method (not physical disk files)", "Stored in RouteTable and processed by Routing Engine", "Configured in RouteConfig.cs (App_Start folder) and registered in Application_Start in Global.asax", "Default pattern: {controller}/{action}/{id}"] }
+      ]
+    },
+    'ipt-w4': {
+      title: "IPT102: Week 4 - Developing Controllers",
+      slides: [
+        { title: "WEEK 4: DEVELOPING CONTROLLERS", bullets: ["IPT102 - Integrative Programming and Technologies 2", "Quezon City University", "Action Methods & Selectors"] },
+        { title: "Controllers in ASP.NET MVC", bullets: ["Handles incoming URL requests", "Derived from base class System.Web.Mvc.Controller", "Class name must end with 'Controller' (e.g. StudentController)", "Located in the Controllers folder"] },
+        { title: "Adding a Controller & Scaffolding", bullets: ["Right click Controllers folder > Add > Controller", "Scaffolding: automatic code generation framework reducing setup time", "Templates include MVC 5 Controller - Empty"] },
+        { title: "3 Strict Rules for Action Methods", bullets: ["1. Must be public (cannot be private or protected)", "2. Cannot be overloaded (routing cannot distinguish identical names)", "3. Cannot be a static method"] },
+        { title: "Action Results Hierarchy", bullets: ["ViewResult: HTML and markup via View()", "ContentResult: string literal via Content()", "FileContentResult: file content via File()", "JsonResult: JSON for AJAX via Json()", "JavaScriptResult: JS script via JavaScript()", "RedirectResult / RedirectToRouteResult: redirection", "HttpUnauthorizedResult: 403 / 401 HTTP response"] },
+        { title: "Action Selectors & Verbs", bullets: ["[ActionName('name')]: specifies different public URL action name", "[NonAction]: prevents a public method from being treated as an action method", "ActionVerbs: [HttpGet], [HttpPost], [HttpPut], [HttpDelete]", "Default without verb: handles HttpGet by default", "[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]: handles multiple verbs"] }
+      ]
+    },
+    'ipt-w5': {
+      title: "IPT102: Week 5 - Developing Views",
+      slides: [
+        { title: "WEEK 5: DEVELOPING VIEWS", bullets: ["IPT102 - Integrative Programming and Technologies 2", "Quezon City University", "Razor Syntax & View Engine"] },
+        { title: "Creating Views with Razor Syntax", bullets: ["Mix of HTML and server-side code using C# or Visual Basic", "C# Razor syntax uses .cshtml file extension", "Visual Basic syntax uses .vbhtml file extension"] },
+        { title: "Main Razor Syntax Rules for C#", bullets: ["Razor code blocks enclosed in @{ ... }", "Inline expressions start with @", "Code statements end with semicolon (;)", "Variables declared with 'var' keyword or data type", "C# code is strictly case sensitive", "Strings enclosed with double quotes"] },
+        { title: "How Razor Works on the Server", bullets: ["Server executes Razor code FIRST before sending HTML to browser", "Creates dynamic HTML on the fly", "Client browser receives clean static HTML and never sees the Razor code"] },
+        { title: "Variables, Conditionals & Loops", bullets: ["Variables: var greeting = 'Welcome'; DateTime today = DateTime.Today;", "If/Else: @{ if (DateTime.Now.Hour > 12) { txt = 'Good Evening'; } else { txt = 'Good Morning'; } }", "For Loop: @for (int i = 0; i < 5; i++) { <li>@i</li> }"] },
+        { title: "Reading User Form Input", bullets: ["Input read via Request['fieldName']", "Tested with if (IsPost) condition", "Type conversion helper: num1.AsInt()"] }
+      ]
+    },
+    'ipt-w6': {
+      title: "IPT102: Week 6 - Developing Views – HTML Helpers",
+      slides: [
+        { title: "WEEK 6: DEVELOPING VIEWS – HTML HELPERS", bullets: ["IPT102 - Integrative Programming and Technologies 2", "Quezon City University", "Standard HTML Helpers"] },
+        { title: "Using HTML Helpers", bullets: ["Extension methods of HtmlHelper class that render standard HTML controls", "Always start with @Html.", "Html is a property of type HtmlHelper in WebViewPage base class", "Reduces repetitive HTML and binds to model properties"] },
+        { title: "Loosely Typed vs Strongly Typed Helpers", bullets: ["Loosely Typed: uses string names (e.g. @Html.TextBox('firstname'))", "Strongly Typed: uses lambda expressions with model properties (e.g. @Html.TextBoxFor(m => m.FirstName))"] },
+        { title: "Master Helper Mapping Table", bullets: ["Html.ActionLink() -> <a>", "Html.TextBox() -> <input type='text'>", "Html.TextArea() -> <textarea>", "Html.Password() -> <input type='password'>", "Html.CheckBox() -> <input type='checkbox'>", "Html.RadioButton() -> <input type='radio'>", "Html.DropDownList() -> <select><option>", "Html.ListBox() -> <select multiple>", "Html.Label() -> <label>", "Html.Editor() -> dynamic input by data type"] },
+        { title: "Helper Examples & Code Signatures", bullets: ["@Html.Label('User Name')", "@Html.TextBox('txtUsername')", "@Html.Password('Password')", "@Html.RadioButton('Gender', 'Male', true, new { id = 'male' })", "@Html.TextArea('Address')", "@Html.CheckBox('Dancing')", "@Html.DropDownList('ddlCourses', new SelectList(strCourses), 'Select Course')"] }
       ]
     },
     'pt101-w3': {
@@ -942,9 +1182,13 @@
     prevFlashcard,
     selectQuizOption,
     submitQuizAnswer,
+    submitOrNextQuiz,
+    prevQuizQuestion,
+    shuffleAndGenerateQuiz,
     restartQuiz,
     startCramMode,
     answerCram,
+    setCramSubject,
     toggleSound,
     loadPreloadedDeck,
     renderSlide,
