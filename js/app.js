@@ -597,15 +597,22 @@
     state.quizScore = 0;
 
     const firstCp = REVIEWER_DATA.checkpoints.find(c => c.subject === code);
-    if (firstCp) {
-      state.activeCheckpoint = firstCp.id;
-    }
+    const badgeEl = document.getElementById('header-subject-name');
+    if (badgeEl) badgeEl.textContent = code;
 
     renderCheckpointNav();
     renderHub();
     showToast(`Switched to ${code} Reviewer 📚`);
     switchView('digest');
     saveState();
+  }
+
+  function toggleActiveSubject() {
+    if (state.activeSubject === 'SPI101') {
+      selectSubject('MS101');
+    } else {
+      selectSubject('SPI101');
+    }
   }
 
   // Touch Swipe Gesture for Flashcards
@@ -910,6 +917,9 @@
   // Init App
   function init() {
     loadState();
+    const badgeEl = document.getElementById('header-subject-name');
+    if (badgeEl) badgeEl.textContent = state.activeSubject;
+
     renderCheckpointNav();
     updateQuickStats();
     renderHub();
@@ -924,6 +934,7 @@
   window.reviewerApp = {
     switchView,
     selectSubject,
+    toggleActiveSubject,
     selectCheckpoint,
     flipFlashcard,
     markFlashcard,
