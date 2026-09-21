@@ -236,6 +236,47 @@
           <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Start 60s Drill</button>
         </div>
       </div>
+    <!-- VIEW 6: SLIDES / PPTX VIEWER -->
+    <section id="view-slides" class="view-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div>
+          <h2 style="font-size: 1.15rem; font-weight: 700;">📑 PPTX & Slide Deck Viewer</h2>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">Examine presentations slide-by-slide or drop your own .pptx</p>
+        </div>
+      </div>
+
+      <!-- PPTX File Uploader / Drop Zone -->
+      <div class="pptx-dropzone" id="pptx-dropzone" onclick="document.getElementById('pptx-file-input').click()">
+        <input type="file" id="pptx-file-input" accept=".pptx" style="display: none;" onchange="window.reviewerApp.handlePptxUpload(event)">
+        <div style="font-size: 1.8rem; margin-bottom: 6px;">📂</div>
+        <div style="font-size: 0.9rem; font-weight: 600;">Tap to upload or drop any .pptx file</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">Extracts slides & notes automatically without server</div>
+      </div>
+
+      <!-- Slide Deck Selector Strip -->
+      <div class="tab-scroller" style="margin: 14px 0 10px;">
+        <button class="sub-tab active" id="btn-deck-spi1" onclick="window.reviewerApp.loadPreloadedDeck('spi-w2')">SPI101 Wk 2</button>
+        <button class="sub-tab" id="btn-deck-spi2" onclick="window.reviewerApp.loadPreloadedDeck('spi-w3')">SPI101 Wk 3-4</button>
+        <button class="sub-tab" id="btn-deck-spi3" onclick="window.reviewerApp.loadPreloadedDeck('spi-w5')">SPI101 Wk 5-6</button>
+        <button class="sub-tab" id="btn-deck-pt1" onclick="window.reviewerApp.loadPreloadedDeck('pt101-w3')">PT101 Wk 3</button>
+      </div>
+
+      <!-- Interactive Slide Card -->
+      <div class="slide-card" id="active-slide-card">
+        <div class="slide-header">
+          <span class="slide-badge" id="slide-deck-title">SPI101 Week 2</span>
+          <span class="slide-counter-badge" id="slide-num-label">Slide 1 of 20</span>
+        </div>
+        <h3 class="slide-title" id="slide-title-text">COMMON ETHICAL THEORIES</h3>
+        <div class="slide-body" id="slide-body-content">
+          <!-- Slide bullet points -->
+        </div>
+        <div class="slide-controls">
+          <button class="sub-tab" onclick="window.reviewerApp.prevSlide()">← Prev Slide</button>
+          <button class="sub-tab" onclick="window.reviewerApp.createCardFromCurrentSlide()">🗂️ Make Flashcard</button>
+          <button class="sub-tab" onclick="window.reviewerApp.nextSlide()">Next Slide →</button>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -274,6 +315,15 @@
       <span>Quiz</span>
     </button>
 
+    <button class="nav-item" id="nav-slides" onclick="window.reviewerApp.switchView('slides')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <span>Slides</span>
+    </button>
+
     <button class="nav-item" id="nav-cram" onclick="window.reviewerApp.switchView('cram')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -282,6 +332,8 @@
     </button>
   </nav>
 
+  <!-- JSZip for Client-Side Zero-Server PPTX Extraction -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>

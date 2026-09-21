@@ -617,6 +617,230 @@
     saveState();
   }
 
+  // ==============================================================================
+  // SLIDES & PPTX VIEWER ENGINE
+  // ==============================================================================
+  const PRELOADED_DECKS = {
+    'spi-w2': {
+      title: "SPI101: Week 2 - Ethical Theories",
+      slides: [
+        { title: "WEEK 2: COMMON ETHICAL THEORIES", bullets: ["SPI101 - Social and Professional Issues", "Quezon City University - College of Computer Studies", "1st Semester AY 2026-2027"] },
+        { title: "Learning Outcomes", bullets: ["Discuss and differentiate the different ethical theories", "Determine the ethical theory most appropriate to a scenario", "Demonstrate usefulness of specific ethical theory in a given case"] },
+        { title: "Introduction to Ethics", bullets: ["Ethics describes how we look and understand life in terms of good/bad or right/wrong", "Branch of knowledge that deals with moral principles", "Frameworks: 'What should I do in this situation?' or 'What is right or wrong for me?'"] },
+        { title: "Relativism", bullets: ["Theory that there is NO universal moral norm of right and wrong", "1.1 Subjective Relativism: Each person decides right or wrong for themselves ('What's right for you may not be right for me')", "1.2 Cultural Relativism: Meaning of right/wrong rests with society's moral guidelines; varies place to place & time to time"] },
+        { title: "Divine Command Theory", bullets: ["Good actions = aligned with the will of God; Bad actions = contrary to the will of God", "Holy Books serve as moral decision-making guides (e.g. honor parents)", "Based on OBEDIENCE, not REASON"] },
+        { title: "Ethical Egoism", bullets: ["Each person should focus exclusively on his or her self-interest", "Morally right action = maximum long-term benefit for the actor", "Does not prohibit helping others, but altruism serves own long-term interest"] },
+        { title: "Acts Defying Egoism", bullets: ["Mother depriving herself of the only bread for her child", "Father working overtime solely to sustain family", "Sibling volunteering to stop studying so other siblings can continue"] },
+        { title: "Consequentialism & Utilitarianism", bullets: ["'The end will justify the means'", "Consequence of an action determines moral acceptability", "Jeremy Bentham: Utilitarianism - 'The greatest happiness for the greatest number'"] },
+        { title: "Kantianism / Deontology", bullets: ["Obligation-based theory by Immanuel Kant (18th Century)", "Emphasizes the TYPE of action rather than the consequences", "Moral decisions based on DUTIES and the RIGHTS of others", "'Act morally regardless of the consequences'"] },
+        { title: "Philippine Congress & Kantianism", bullets: ["Art III Sec 26: State shall prohibit political dynasties as defined by law", "NOT a self-executing provision; requires enabling law", "For 28+ years (1987-2015+), no lawmaker passed an anti-dynasty bill due to self-interest"] },
+        { title: "Persuasive Power: Ethics vs Law", bullets: ["Persuasive power of ethics is weak compared to coercive power of law", "Siesta illustration: 9 out of 10 people ignore bleeding stranger; but BIR tax letter with criminal prosecution compels immediate compliance", "Contracts & post-dated checks prove we do not rely solely on moral compulsion"] },
+        { title: "Civil vs Natural Obligation", bullets: ["Civil obligation: Legal duty with right of action (parents compelled to support minor children)", "Natural obligation: Children supporting elderly parents is natural, but parents currently have no legal right of action to sue children"] },
+        { title: "The 2000 LOVE BUG Case", bullets: ["Maliciously created in the Philippines despite author knowing it was unethical", "No copycats dared repeat after the E-Commerce Act (RA 8792) enacted criminal penalties"] }
+      ]
+    },
+    'spi-w3': {
+      title: "SPI101: Week 3-4 - Computer Ethics",
+      slides: [
+        { title: "WEEK 3-4: COMPUTER ETHICS", bullets: ["SPI101 - Social and Professional Issues", "Quezon City University", "Dr. Charlemagne G. Lavina Reference"] },
+        { title: "Professional Code of Ethics", bullets: ["Set of guidelines designed to set acceptable behavior of members of a profession", "4 Benefits: 1) Ethical Decision Making, 2) High Standards, 3) Trust from Public, 4) Evaluation Benchmark"] },
+        { title: "Filipino IT Code of Ethics (10 Canons)", bullets: ["Promote public IT knowledge", "Consider general welfare & public good", "Truthful advertising", "Comply with IP & patent laws", "Accept full responsibility with competence", "Protect confidential data unless required by law", "Continuing professional development"] },
+        { title: "AITP & ACM Principles", bullets: ["AITP 6 Obligations: Management, Fellow Members, Society, University, Employer, Country", "ACM/IEEE 8 Principles: Public, Client/Employer, Product, Judgment, Management, Profession, Colleagues, Self"] },
+        { title: "Ten Commandments of Computer Ethics", bullets: ["Do not harm others with a computer", "Do not snoop in files", "Do not steal or bear false witness", "Do not pirate proprietary software", "Do not use resources without authorization", "Think about social consequences of programs designed"] },
+        { title: "The Hacking Community's Constitution", bullets: ["14 Believed rights (Bill of Rights)", "Cyberspace democracy, free speech, freedom from oppressive governments", "Hacking to test network integrity", "Support for Open Source movement; reject government-mandated closed commercial software"] },
+        { title: "James Moor's 3 Properties of Computers", bullets: ["1. Logical Malleability (molded to perform any logical activity)", "2. Impact on Society (pervasive presence)", "3. Invisibility Factor (hidden operations)"] },
+        { title: "3 Invisibility Factors", bullets: ["1. Invisible Abuse (logic bombs, theft, backdoors)", "2. Invisible Programming Values (embedded biases/assumptions)", "3. Invisible Complex Calculation (algorithms beyond human manual check)"] },
+        { title: "3 Levels of Computer Ethics", bullets: ["Pop Level: Sensitizing general public via media & TV", "Para Level: Collecting cases, comparing scenarios, attending forums", "Theoretical Level: Applying classical philosophy to computing"] },
+        { title: "Social Media Capital & Photo Consent", bullets: ["PH is Social Media Capital: 53 hours/week (vs 42 hrs global average)", "Photo Consent Exceptions: 1) News of the day, 2) General public welfare (viral abusive enforcer), 3) Public personalities in public (Pacquiao in public, never in comfort room)"] }
+      ]
+    },
+    'spi-w5': {
+      title: "SPI101: Week 5-6 - Technologies' Impact on Privacy",
+      slides: [
+        { title: "WEEK 5-6: TECHNOLOGIES' IMPACT ON PRIVACY", bullets: ["SPI101 - Social and Professional Issues", "Quezon City University - College of Computer Studies"] },
+        { title: "Constitutional Provision on Privacy", bullets: ["Word 'PRIVACY' mentioned only ONCE in 1987 PH Constitution (Art III Sec 3)", "Privacy of communication is inviolable except upon lawful court order or public safety", "Exclusionary Rule: Evidence obtained in violation is inadmissible in court"] },
+        { title: "3 Lawful Exceptions to Privacy", bullets: ["1. Lawful Court Order: Search warrant issued upon Probable Cause personally determined by judge", "2. Public Order/Safety: Security bag inspections in LRT/MRT/malls against terrorism", "3. Express Provision of Law: AMLA reporting deposits >= ₱300,000 to AMLC"] },
+        { title: "Rational Relationship Test", bullets: ["Step 1: Does policy have a reasonable purpose (legitimate end)?", "Step 2: Is policy reasonably related to that end?", "RA 3019 (Anti-Graft Act) SALN requirement upheld because curbing corruption promotes honesty in public service"] },
+        { title: "Reasonable Expectation of Privacy", bullets: ["Pres. Erap Estrada in 2010 election voting booth", "Anti-Wiretapping Act (RA 4200): Requires authorization of ALL parties to private conversation", "Privacy Between Spouses: Marriage does not allow breaking into drawers/phones for infidelity evidence", "Detainees: Diminished expectation of privacy under RA 7438"] },
+        { title: "Data Privacy Act (RA 10173)", bullets: ["Regulates processing of personal information", "Section 11 Principles: Specified/legitimate purpose, fairly/lawfully processed, accurate/updated, adequate & not excessive, retained only as necessary, identifiable form limited", "Personal Information Controller (PIC) is accountable"] },
+        { title: "Due Process & Software Engineering", bullets: ["Art III Sec 1: 'No person shall be deprived of life, liberty, or property without due process of law'", "Jurisprudence: 'A law which hears before it condemns, which proceeds upon inquiry, and renders judgment only after trial'", "Programmers apply due process through confirmation dialogs ('Do you want to save changes to complete.doc? Yes/No/Cancel') before data loss"] }
+      ]
+    },
+    'pt101-w3': {
+      title: "PT101: Week 3 - Memory Management",
+      slides: [
+        { title: "WEEK 3: MEMORY MANAGEMENT", bullets: ["PT101 - Platform Technologies", "Quezon City University"] },
+        { title: "What is Memory Management?", bullets: ["Controlling and coordinating computer memory, assigning blocks to running programs to optimize system performance", "Resides in hardware, operating system, and applications", "Allocates memory efficiently to pack as many processes into memory as possible"] },
+        { title: "Primary / Main Memory", bullets: ["Large array of words or bytes with unique addresses", "Provides fast storage accessed directly by the CPU", "For a program to execute, it must reside in main memory"] },
+        { title: "OS Memory Management Activities", bullets: ["Tracks which parts of memory are in use and by whom", "Decides memory allocation in multiprogramming", "Allocates and de-allocates memory blocks upon process request and termination"] }
+      ]
+    }
+  };
+
+  let currentDeck = PRELOADED_DECKS['spi-w2'];
+  let currentSlideIndex = 0;
+
+  function loadPreloadedDeck(deckKey) {
+    if (PRELOADED_DECKS[deckKey]) {
+      currentDeck = PRELOADED_DECKS[deckKey];
+      currentSlideIndex = 0;
+      document.querySelectorAll('.tab-scroller .sub-tab').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-deck-${deckKey.replace('-w', '')}`) || document.getElementById(`btn-deck-${deckKey}`);
+      if (activeBtn) activeBtn.classList.add('active');
+      renderSlide();
+      playSound('flip');
+      showToast(`Loaded: ${currentDeck.title}`);
+    }
+  }
+
+  function renderSlide() {
+    if (!currentDeck || !currentDeck.slides || !currentDeck.slides.length) return;
+    const s = currentDeck.slides[currentSlideIndex];
+    const deckTitleEl = document.getElementById('slide-deck-title');
+    const slideNumEl = document.getElementById('slide-num-label');
+    const slideTitleEl = document.getElementById('slide-title-text');
+    const slideBodyEl = document.getElementById('slide-body-content');
+
+    if (deckTitleEl) deckTitleEl.textContent = currentDeck.title;
+    if (slideNumEl) slideNumEl.textContent = `Slide ${currentSlideIndex + 1} of ${currentDeck.slides.length}`;
+    if (slideTitleEl) slideTitleEl.textContent = s.title;
+
+    if (slideBodyEl) {
+      if (s.bullets && s.bullets.length) {
+        slideBodyEl.innerHTML = `<ul>${s.bullets.map(b => `<li>${formatMarkdown(b)}</li>`).join('')}</ul>`;
+      } else {
+        slideBodyEl.innerHTML = `<p style="color: var(--text-subtle);">No text content on this slide.</p>`;
+      }
+    }
+  }
+
+  function nextSlide() {
+    if (!currentDeck || !currentDeck.slides) return;
+    currentSlideIndex = (currentSlideIndex + 1) % currentDeck.slides.length;
+    renderSlide();
+    playSound('flip');
+    triggerHaptic([15]);
+  }
+
+  function prevSlide() {
+    if (!currentDeck || !currentDeck.slides) return;
+    currentSlideIndex = (currentSlideIndex - 1 + currentDeck.slides.length) % currentDeck.slides.length;
+    renderSlide();
+    playSound('flip');
+    triggerHaptic([15]);
+  }
+
+  function createCardFromCurrentSlide() {
+    if (!currentDeck || !currentDeck.slides) return;
+    const s = currentDeck.slides[currentSlideIndex];
+    const newCard = {
+      id: `fc-custom-${Date.now()}`,
+      checkpointId: state.activeCheckpoint,
+      week: "Slide Deck",
+      question: s.title,
+      answer: s.bullets && s.bullets.length ? s.bullets.join("\n• ") : "No slide bullets",
+      tag: "Custom Slide Card"
+    };
+
+    REVIEWER_DATA.flashcards.unshift(newCard);
+    showToast('✨ Slide converted to interactive Flashcard!');
+    playSound('correct');
+    triggerHaptic([30, 40]);
+  }
+
+  // Client-Side In-Browser PPTX Parser using JSZip
+  async function handlePptxUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (typeof JSZip === 'undefined') {
+      showToast('Loading parser library...');
+      return;
+    }
+
+    try {
+      showToast('Extracting PPTX slides...');
+      const zip = await JSZip.loadAsync(file);
+      const slideEntries = Object.keys(zip.files).filter(f => /^ppt\/slides\/slide\d+\.xml$/.test(f));
+
+      // Natural sort
+      slideEntries.sort((a, b) => {
+        const numA = parseInt(a.match(/slide(\d+)\.xml/)[1], 10);
+        const numB = parseInt(b.match(/slide(\d+)\.xml/)[1], 10);
+        return numA - numB;
+      });
+
+      if (!slideEntries.length) {
+        showToast('No slides found in .pptx file.');
+        return;
+      }
+
+      const extractedSlides = [];
+      const parser = new DOMParser();
+
+      for (let i = 0; i < slideEntries.length; i++) {
+        const xmlText = await zip.files[slideEntries[i]].async('text');
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        const paragraphs = xmlDoc.getElementsByTagName('a:p');
+        const lines = [];
+
+        for (let p of paragraphs) {
+          const textRuns = p.getElementsByTagName('a:t');
+          let fullLine = '';
+          for (let r of textRuns) {
+            fullLine += r.textContent;
+          }
+          fullLine = fullLine.trim();
+          if (fullLine) lines.push(fullLine);
+        }
+
+        const title = lines[0] || `Slide ${i + 1}`;
+        const bullets = lines.slice(1);
+        extractedSlides.push({ title, bullets });
+      }
+
+      currentDeck = {
+        title: file.name.replace('.pptx', ''),
+        slides: extractedSlides
+      };
+      currentSlideIndex = 0;
+      renderSlide();
+      playSound('checkpoint');
+      showToast(`🎉 Loaded ${extractedSlides.length} slides from ${file.name}!`);
+    } catch (err) {
+      console.error('PPTX parse error:', err);
+      showToast('Error parsing PPTX file.');
+    }
+  }
+
+  // Drag and drop setup for PPTX
+  function setupDragAndDrop() {
+    const dropzone = document.getElementById('pptx-dropzone');
+    if (!dropzone) return;
+
+    ['dragenter', 'dragover'].forEach(name => {
+      dropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropzone.classList.add('dragover');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(name => {
+      dropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('dragover');
+      }, false);
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      if (files.length) {
+        handlePptxUpload({ target: { files } });
+      }
+    });
+  }
+
   // Init App
   function init() {
     loadState();
@@ -624,7 +848,9 @@
     renderHub();
     renderDigest();
     renderFlashcard();
+    renderSlide();
     setupTouchGestures();
+    setupDragAndDrop();
 
     // Set active checkpoint buttons
     document.querySelectorAll('.cp-btn').forEach(btn => {
@@ -646,8 +872,15 @@
     restartQuiz,
     startCramMode,
     answerCram,
-    toggleSound
+    toggleSound,
+    loadPreloadedDeck,
+    renderSlide,
+    nextSlide,
+    prevSlide,
+    createCardFromCurrentSlide,
+    handlePptxUpload
   };
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+

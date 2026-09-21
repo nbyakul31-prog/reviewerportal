@@ -1,6 +1,6 @@
 /* ==============================================================================
    QCU BSIT REVIEWER PORTAL - MODERN MOBILE-FIRST DESIGN SYSTEM
-   Author: Antigravity | Student: Luigi Emanuel Britania
+   Author: Antigravity | Student: Luigi Emanuel Britania (SBIT3G)
    ============================================================================== */
 
 :root {
@@ -787,6 +787,98 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+/* Slides / PPTX Viewer Styles */
+.pptx-dropzone {
+  border: 2px dashed rgba(6, 182, 212, 0.4);
+  background: rgba(6, 182, 212, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.pptx-dropzone:hover, .pptx-dropzone.dragover {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--accent-cyan);
+}
+
+.slide-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-top: 14px;
+}
+
+.slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.slide-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.slide-counter-badge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.slide-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.slide-body {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  min-height: 140px;
+}
+
+.slide-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slide-body li {
+  padding-left: 18px;
+  position: relative;
+}
+
+.slide-body li::before {
+  content: "▶";
+  position: absolute;
+  left: 2px;
+  color: var(--accent-cyan);
+  font-size: 0.75rem;
+  top: 3px;
+}
+
+.slide-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  border-top: 1px solid var(--surface-glass-border);
+  padding-top: 14px;
 }
 
 /* Bottom Navigation Bar (Thumb Friendly) */
