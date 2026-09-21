@@ -196,21 +196,43 @@
     if (!container) return;
 
     container.innerHTML = REVIEWER_DATA.subjects.map(sub => {
-      const isActive = sub.code === 'SPI101';
+      const isSelected = sub.code === state.activeSubject;
+      const isReady = sub.status === 'active';
       return `
-        <div class="subject-card ${isActive ? 'active-subject' : ''}" onclick="window.reviewerApp.selectSubject('${sub.code}')">
+        <div class="subject-card ${isSelected ? 'active-subject' : ''}" onclick="window.reviewerApp.selectSubject('${sub.code}')">
           <div class="subject-header">
             <span class="subject-code">${sub.code}</span>
             <span class="subject-units">${sub.units} Units</span>
           </div>
           <div class="subject-title">${sub.title}</div>
           <div class="subject-sched">🕒 ${sub.schedule}</div>
-          <span class="subject-badge ${isActive ? 'badge-ready' : 'badge-slot'}">
-            ${sub.badge}
+          <span class="subject-badge ${isReady ? 'badge-ready' : 'badge-slot'}">
+            ${isReady ? (isSelected ? '● Active Studying' : 'Ready to Review ✓') : 'Slot Ready'}
           </span>
         </div>
       `;
     }).join('');
+  }
+
+  // Render Checkpoint Navigation Bar dynamically for current subject
+  function renderCheckpointNav() {
+    const cps = REVIEWER_DATA.checkpoints.filter(c => c.subject === state.activeSubject);
+    if (!cps.length) return;
+
+    if (!cps.some(c => c.id === state.activeCheckpoint)) {
+      state.activeCheckpoint = cps[0].id;
+    }
+
+    const html = cps.map(cp => `
+      <div class="cp-btn ${cp.id === state.activeCheckpoint ? 'active' : ''}" data-cp="${cp.id}" onclick="window.reviewerApp.selectCheckpoint('${cp.id}')">
+        <div class="cp-btn-week">${cp.week}</div>
+        <div class="cp-btn-title">${cp.title}</div>
+      </div>
+    `).join('');
+
+    document.querySelectorAll('.checkpoint-nav').forEach(container => {
+      container.innerHTML = html;
+    });
   }
 
   // Render Chronological Digest
@@ -565,13 +587,25 @@
   }
 
   function selectSubject(code) {
-    if (code !== 'SPI101') {
+    if (code !== 'SPI101' && code !== 'MS101') {
       showToast(`${code} syllabus slot ready! Add notes when available.`);
       return;
     }
     state.activeSubject = code;
-    showToast('Switched to SPI101 Reviewer');
+    state.currentCardIndex = 0;
+    state.currentQuizIndex = 0;
+    state.quizScore = 0;
+
+    const firstCp = REVIEWER_DATA.checkpoints.find(c => c.subject === code);
+    if (firstCp) {
+      state.activeCheckpoint = firstCp.id;
+    }
+
+    renderCheckpointNav();
+    renderHub();
+    showToast(`Switched to ${code} Reviewer 📚`);
     switchView('digest');
+    saveState();
   }
 
   // Touch Swipe Gesture for Flashcards
@@ -664,6 +698,38 @@
         { title: "Reasonable Expectation of Privacy", bullets: ["Pres. Erap Estrada in 2010 election voting booth", "Anti-Wiretapping Act (RA 4200): Requires authorization of ALL parties to private conversation", "Privacy Between Spouses: Marriage does not allow breaking into drawers/phones for infidelity evidence", "Detainees: Diminished expectation of privacy under RA 7438"] },
         { title: "Data Privacy Act (RA 10173)", bullets: ["Regulates processing of personal information", "Section 11 Principles: Specified/legitimate purpose, fairly/lawfully processed, accurate/updated, adequate & not excessive, retained only as necessary, identifiable form limited", "Personal Information Controller (PIC) is accountable"] },
         { title: "Due Process & Software Engineering", bullets: ["Art III Sec 1: 'No person shall be deprived of life, liberty, or property without due process of law'", "Jurisprudence: 'A law which hears before it condemns, which proceeds upon inquiry, and renders judgment only after trial'", "Programmers apply due process through confirmation dialogs ('Do you want to save changes to complete.doc? Yes/No/Cancel') before data loss"] }
+      ]
+    },
+    'ms-w2': {
+      title: "MS101: Week 2-4 - Logic and Sets",
+      slides: [
+        { title: "WEEK 2-4: LOGIC AND SETS", bullets: ["MS101 - Discrete Mathematics", "Quezon City University - College of Computer Studies", "55 Slides Presentation"] },
+        { title: "What is Discrete Mathematics & Logic?", bullets: ["Discrete Mathematics deals with objects with distinct, separated values", "Logic is the study of consequences, the art and science of reasoning", "Argument = Premises + Conclusion (Valid if conclusion must be true when all premises are true)"] },
+        { title: "Propositional Logic", bullets: ["Propositions are declarative statements that are either True or False, but not both", "Non-propositions: Questions, exclamations, open formulas with variables"] },
+        { title: "Logical Connectives & Precedence", bullets: ["1. NOT (~) [Highest priority]", "2. AND (∧)", "3. OR (∨)", "4. IF-THEN (→)", "5. IF AND ONLY IF (↔) [Lowest priority]"] },
+        { title: "Truth Tables & Sentence Types", bullets: ["Formula for rows: R = 2^n (n = number of propositional variables)", "Tautology: Always True in every interpretation", "Contradiction: Always False in every interpretation", "Contingency: True in some, False in others"] },
+        { title: "Predicates & Quantifiers", bullets: ["Predicate: statement containing unspecified variables (e.g. P(x): x > 6)", "Universal Quantifier (∀x): True for ALL elements in domain", "Existential Quantifier (∃x): True for AT LEAST ONE element in domain"] },
+        { title: "Set Theory Essentials", bullets: ["Collection of distinct objects; Roster method vs Rule method", "Cardinality |A|: number of elements in set", "Power Set P(A): set of all subsets; size = 2^|A|", "Operations: Union (∪), Intersection (∩), Difference (-), Complement (A')"] }
+      ]
+    },
+    'ms-w5': {
+      title: "MS101: Week 5 - Number Theory",
+      slides: [
+        { title: "WEEK 5: APPLICATIONS OF NUMBER THEORY", bullets: ["MS101 - Discrete Mathematics", "Quezon City University"] },
+        { title: "Number Theory & Divisibility", bullets: ["Study of natural numbers and divisibility properties", "Divisibility rules for 2, 3, 4, 5, 6, 8, 9, 10 without full division"] },
+        { title: "Divisibility Theorems", bullets: ["If a | b and a | c => a | (b + c)", "If a | b => a | bc for all integers c", "If a | b and b | c => a | c (Transitivity)"] },
+        { title: "Primes and Composites", bullets: ["Prime: integer > 1 with only factors 1 and itself", "Composite: integer > 1 with other factors", "0 and 1 are NEITHER prime nor composite!"] },
+        { title: "Division Algorithm", bullets: ["For integer a and positive divisor d: a = dq + r, 0 ≤ r < d", "q is unique quotient, r is unique remainder"] },
+        { title: "GCD and LCM", bullets: ["Greatest Common Divisor (GCD): largest positive integer dividing both (e.g. gcd(48, 72) = 24)", "Identity: gcd(a, b) × lcm(a, b) = a × b"] }
+      ]
+    },
+    'ms-w6': {
+      title: "MS101: Week 6 - Mathematical Theory",
+      slides: [
+        { title: "WEEK 6: MATHEMATICAL THEORY & PROOFS", bullets: ["MS101 - Discrete Mathematics", "Quezon City University"] },
+        { title: "Terminologies", bullets: ["Axiom: assumption needing no proof", "Proof: sequence of statements forming a valid argument", "Theorem: statement proven true", "Lemma: simple helper theorem", "Corollary: direct consequence of proven theorem", "Conjecture: unproven statement"] },
+        { title: "Methods of Proof", bullets: ["Direct Proof: Assume p is true, show q is true", "Indirect Proof (Contrapositive): p → q ≡ ~q → ~p", "Proof by Contradiction: Assume opposite, derive impossible contradiction"] },
+        { title: "Mathematical Induction", bullets: ["Basis Step: Show P(0) or P(1) is true", "Inductive Step: Show P(k) => P(k+1)", "Conclusion: True for all natural numbers", "Limitation: Used to PROVE theorems, NOT to discover them!"] }
       ]
     },
     'pt101-w3': {
@@ -844,6 +910,7 @@
   // Init App
   function init() {
     loadState();
+    renderCheckpointNav();
     updateQuickStats();
     renderHub();
     renderDigest();
@@ -851,11 +918,6 @@
     renderSlide();
     setupTouchGestures();
     setupDragAndDrop();
-
-    // Set active checkpoint buttons
-    document.querySelectorAll('.cp-btn').forEach(btn => {
-      btn.addEventListener('click', () => selectCheckpoint(btn.dataset.cp));
-    });
   }
 
   // Expose API to window for inline HTML onclick handlers

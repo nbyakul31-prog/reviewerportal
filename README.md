@@ -25,13 +25,36 @@
 
 | Code | Subject Title | Schedule | Status | Checkpoints |
 | :--- | :--- | :--- | :---: | :---: |
-| **SPI101** | **Social and Professional Issues 1** | **Fri 2:30PM - 5:30PM** | 🟢 **ACTIVE** | **3 Weeks Ready** |
-| **MS101** | Discrete Mathematics | Mon 6:00PM - 9:00PM | ⚪ Slot Ready | Planned |
+| **SPI101** | **Social and Professional Issues 1** | **Fri 2:30PM - 5:30PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
+| **MS101** | **Discrete Mathematics** | **Mon 6:00PM - 9:00PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
 | **IPT102** | Integrative Programming & Tech 2 | Tue 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
 | **AR101** | Architecture and Organization | Thu 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
 | **SIA101** | Systems Integration and Architecture 1 | Wed 12:30PM-2:30PM & 4:30PM-7:30PM | ⚪ Slot Ready | Planned |
 | **SOCSCI3** | The Contemporary World | Fri 6:00PM - 9:00PM | ⚪ Slot Ready | Planned |
 | **RIZAL** | The Life and Works of Rizal | Fri 2:30PM - 5:30PM | ⚪ Slot Ready | Planned |
+
+---
+
+## 📐 MS101: Discrete Mathematics Content Breakdown
+
+### Checkpoint 1: Weeks 2–4 — Logic and Sets
+- Propositional Logic: Propositions vs Non-propositions (questions, exclamations, open variables).
+- 5 Connectives & Precedence: NOT (~) > AND (∧) > OR (∨) > IF-THEN (→) > IFF (↔).
+- Truth Tables ($R = 2^n$): Tautology (always T), Contradiction (always F), Contingency (mixed).
+- Predicates and Quantifiers: Universal (∀x) vs Existential (∃x).
+- Set Theory: Roster vs Rule method, Cardinality, Empty Set ($\emptyset$), Power Set ($|P(A)| = 2^{|A|}$), Union, Intersection, Difference, Complement, Venn Diagrams.
+
+### Checkpoint 2: Week 5 — Applications of Number Theory
+- Divisibility Rules: 2, 3, 4, 5, 6, 8, 9, 10 without full division.
+- Divisibility Theorems: Linear combinations and transitivity ($a \mid b \land a \mid c \implies a \mid (b+c)$).
+- Primes vs Composites: 0 and 1 are **neither prime nor composite**!
+- Euclid's Division Algorithm: $a = dq + r$, where $0 \le r < d$.
+- Greatest Common Divisor (GCD) & LCM: Identity $\gcd(a, b) \times \text{lcm}(a, b) = a \times b$.
+
+### Checkpoint 3: Week 6 — Mathematical Theory & Proofs
+- Terminologies: Axiom, Proof, Theorem, Lemma (helper), Corollary, Conjecture.
+- Methods of Proof: Direct proof ($p \implies q$), Indirect proof by contrapositive ($p \to q \equiv \neg q \to \neg p$).
+- Mathematical Induction: Basis step, inductive step, and limitation (proves, cannot discover theorems).
 
 ---
 
