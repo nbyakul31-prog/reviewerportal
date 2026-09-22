@@ -27,11 +27,49 @@
 | :--- | :--- | :--- | :---: | :---: |
 | **SPI101** | **Social and Professional Issues 1** | **Fri 2:30PM - 5:30PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
 | **MS101** | **Discrete Mathematics** | **Mon 6:00PM - 9:00PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
-| **IPT102** | **Integrative Programming & Tech 2** | **Tue 2:30PM-5:30PM & 7PM-9PM** | 🟢 **ACTIVE** | **5 Checkpoints Ready** |
+| **IPT102** | **Integrative Programming & Tech 2** | **Tue 2:30PM-5:30PM & 7PM-9PM** | 🟢 **ACTIVE** | **7 Checkpoints Ready** |
 | **AR101** | Architecture and Organization | Thu 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
 | **SIA101** | Systems Integration and Architecture 1 | Wed 12:30PM-2:30PM & 4:30PM-7:30PM | ⚪ Slot Ready | Planned |
 | **SOCSCI3** | The Contemporary World | Fri 6:00PM - 9:00PM | ⚪ Slot Ready | Planned |
 | **RIZAL** | The Life and Works of Rizal | Fri 2:30PM - 5:30PM | ⚪ Slot Ready | Planned |
+
+---
+
+## ⚡ IPT102: Integrative Programming & Technologies 2 Breakdown
+
+### Checkpoint 1: Week 1–2 — Introduction to Basic Python Programming
+- Origins: Created by Guido van Rossum (1985–1990), published under GNU GPL.
+- Guido van Rossum: BDFL until July 12, 2018; Steering Council through 2019.
+- Language nature: Interpreted, interactive, dynamically-typed, garbage-collected, OOP & functional.
+- Cross-platform reach: Unix, Windows, Mac, DOS, OS/2, PalmOS, Nokia, QNX, VxWorks, Jython, IronPython.
+- IDEs: IDLE (first Unix IDE) and PythonWin (first Windows GUI IDE).
+
+### Checkpoint 2: Week 3–4 — Python Data Types, Numbers & Strings
+- Syntax & Indentation: 4 spaces standard (at least 1 required); replaces braces as block delimiter.
+- Variables: No declaration keyword; dynamic typing; case-sensitive; CamelCase vs PascalCase vs SnakeCase.
+- Assignment: Multi-variable assignment, collection unpacking (`fruits = [...] ; x, y, z = fruits`).
+- Output: `print()` with commas (handles mixed types) vs `+` (fails with `TypeError` on str + int).
+- Scope: Global vs local shadowing; the `global` keyword for inside-function rebinding.
+- 8 Built-in Types: `str`, numeric (`int`, `float`, `complex`), sequence (`list`, `tuple`, `range`), `dict`, set, `bool`, binary (`bytes`), `NoneType`.
+- Numbers: `int` unlimited precision, `float` (scientific `e`), `complex` (`j` imaginary; cannot convert to other types). Random module `random.randrange(1, 10)`.
+- Strings: Array of unicode bytes, 0-indexed, no character type, slicing `b[2:5]`, membership `in`/`not in`.
+- Immutability: String methods return **new string copies**; never mutate in place (`upper`, `lower`, `strip`, `replace`, `split`).
+- Formatting: `format()` method, `{0}` positional index placeholders, escape characters (`\`).
+
+### Checkpoint 3: Week 2 (Web) — ASP.NET Core 9.0 & Visual Studio Setup
+- Framework Flavors: ASP.NET Core (cross-platform, open source, .NET 9.0) vs ASP.NET .NET Framework (legacy Windows).
+- VS Installer Workload: ASP.NET and web development component.
+- 3 Web Templates: Razor Pages (page-focused), MVC (SoC architecture), Web API (backend services).
+- Core Tools: Solution Explorer, Razor Editor, Hot Reload, and Built-in Debugger.
+- Hands-on Lab (`MyCoreApp`): Solution tour (`wwwroot` static files, `Pages`, `.cshtml.cs` code-behind, `appsettings.json`, `Program.cs`).
+- Code Changes: Quick Actions light bulb to Remove Unnecessary Usings, `DateTime.ToString("d", new CultureInfo("en-US"))`, `ViewData["TimeStamp"]`. F5 (debug) vs Ctrl+F5 (run without debug) vs Shift+F5 (stop).
+- Web Forms & Page Event Lifecycle: `.aspx`, `runat="server"`, 5 web control types, and 7 lifecycle steps.
+
+### Checkpoints 4–7: Weeks 3–6 (Web) — ASP.NET MVC 5 & Razor
+- Week 3: MVC Pattern, Separation of Concerns, Request Lifecycle, Routing Engine (`{controller}/{action}/{id}`).
+- Week 4: Controllers, Action Method rules (public, non-overloaded, non-static), `ActionResult` types, and action selectors.
+- Week 5: Razor View Engine (`@{ ... }`, `@`, loops, conditionals, server execution pipeline).
+- Week 6: Standard HTML Helpers (`@Html.TextBox`, `@Html.DropDownList`, strongly vs loosely typed).
 
 ---
 

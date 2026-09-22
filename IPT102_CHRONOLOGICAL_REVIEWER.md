@@ -1,5 +1,5 @@
 # IPT102: Integrative Programming and Technologies 2
-## Complete Chronological Reviewer & Exam Digest (Weeks 2 to 6)
+## Complete Chronological Reviewer & Exam Digest (Weeks 1 to 6)
 **Student:** Luigi Emanuel Britania • **Year & Section:** 3rd Year - SBIT3G  
 **Institution:** Quezon City University — College of Computer Studies  
 **Academic Year:** 2026–2027 (1st Semester)
@@ -7,97 +7,419 @@
 ---
 
 ## 📌 TABLE OF CONTENTS
-1. [Week 2: Review to ASP.NET with Visual Studio](#week-2-review-to-aspnet-with-visual-studio)
-2. [Week 3: Understanding MVC Architecture and Routing](#week-3-understanding-mvc-architecture-and-routing)
-3. [Week 4: Developing Controllers](#week-4-developing-controllers)
-4. [Week 5: Developing Views & Razor Syntax](#week-5-developing-views--razor-syntax)
-5. [Week 6: Developing Views – Standard HTML Helpers](#week-6-developing-views--html-helpers)
+1. [Week 1–2: Introduction to Basic Python Programming](#week-12-introduction-to-basic-python-programming)
+2. [Week 3–4: Python Data Types, Numbers & Strings](#week-34-python-data-types-numbers--strings)
+3. [Week 2 (Web): ASP.NET Core 9.0 & Visual Studio Environment](#week-2-web-aspnet-core-90--visual-studio-environment)
+4. [Week 3 (Web): Understanding MVC Architecture and Routing](#week-3-understanding-mvc-architecture-and-routing)
+5. [Week 4 (Web): Developing Controllers & Action Results](#week-4-developing-controllers--action-results)
+6. [Week 5 (Web): Developing Views & Razor Syntax](#week-5-developing-views--razor-syntax)
+7. [Week 6 (Web): Developing Views – Standard HTML Helpers](#week-6-developing-views--standard-html-helpers)
 
 ---
 
-## WEEK 2: REVIEW TO ASP.NET WITH VISUAL STUDIO
+## WEEK 1–2: INTRODUCTION TO BASIC PYTHON PROGRAMMING
 
-### 1. Introduction to Dynamic Websites
-- **Static vs Dynamic**:
-  - *Static Pages*: Require manual HTML updating before their contents change.
-  - *Dynamic Websites*: Offer unique, customized content to visitors every time they view the site. Content adapts based on viewer demographics, time of day, location, and language settings.
-- **Under the Hood**: Dynamic functionality is achieved via a synergy between **client-side** and **server-side** scripting.
-  - **Client-Side Scripting**: Code executed directly inside the user's web browser (e.g., JavaScript). Handles real-time UI interactivity such as click handling, input validation, and animations.
-  - **Server-Side Scripting**: Code executed on the web server before sending the final HTML output to the client browser (e.g., ASP.NET C#, PHP, Node.js). Handles database transactions, authentication, session states, and business logic.
-  - *Synergy*: Using both reduces server load while delivering an adaptive browsing experience.
+### 1. What is Python?
+- **Definition**: A widely popular, general-purpose, interpreted, interactive, object-oriented, and high-level programming language.
+- **Core Architecture**:
+  - **Dynamically-typed**: Variable types do not need to be declared explicitly; they are bound to objects at runtime.
+  - **Garbage-collected**: Memory allocation and deallocation are managed automatically.
+- **Origins & Licensing**:
+  - Conceived and created by Dutch computer scientist **Guido van Rossum** between **1985 and 1990**.
+  - Like Perl, Python source code is published under the **GNU General Public License (GPL)**, making it fully open-source and free of cost.
 
-### 2. Elements & Benefits of Dynamic Websites
-- **Core Elements**: Responsive layout based on screen viewport, automatic localized language detection, personalized recommendation algorithms, third-party social media integrations, and animated visual feedback.
-- **Top Benefits**:
-  - More personalized user browsing
-  - Easier to maintain and scale
-  - Superior user experience (UX)
-  - Elevated, enterprise-grade aesthetic
-  - Keeps pace with modern web development standards
+### 2. Guido van Rossum
+- Born **31 January 1956** in the Netherlands.
+- Known as Python's **"Benevolent Dictator For Life" (BDFL)** until he stepped down on **12 July 2018**.
+- Remained a member of the **Python Steering Council through 2019**, and voluntarily withdrew from nominations for the 2020 election.
 
-### 3. ASP.NET Page Syntax
-- Any standard HTML page can be transformed into an ASP.NET Web Form simply by renaming the extension to `.aspx`.
-- **Primary Page Directives & Elements**:
-  - Directives: `<%@ Page Language="C#" %>`
-  - Server Controls: `<asp:Button runat="server" />`
-  - Code Blocks: `<script runat="server"> ... </script>`
-  - Data Binding Expressions: `<%# ... %>`
-  - Server-Side Comments: `<%-- Server Comment --%>`
-  - Render Blocks: `<%= ... %>` and `<% ... %>` *(Note: direct render blocks are generally discouraged in favor of code-behind and event handlers).*
+### 3. Industry Demand & Real-World Careers
+- **Why Top Companies Choose Python**: High demand across web development, software engineering, enterprise automation, Data Science, Artificial Intelligence (AI), and Machine Learning (ML).
+- **Major Companies**: Google, Intel, NASA, PayPal, Facebook (Meta), IBM, Amazon, Netflix, Pinterest, Uber, and many more.
+- **Career Pathways**:
+  - Game Developer
+  - Web Designer & Web Developer
+  - Python Developer
+  - Full-Stack Developer
+  - Machine Learning Engineer
+  - Data Scientist & Data Analyst
+  - Data Engineer
+  - DevOps Engineer
+  - Software Engineer
 
-### 4. Server Controls & `runat="server"`
-- Any HTML element or ASP control marked with `runat="server"` is accessible and controllable in server-side C# code.
-- Example:
-  ```xml
-  <input type="text" id="text2" runat="server" />
-  <asp:calendar id="myCal" runat="server" />
-  <asp:TextBox id="txt" runat="server" />
+### 4. Why Learn Python? (Key Advantages)
+1. **Open Source**: Completely free to download, inspect, and use for commercial or personal projects.
+2. **Simple & Intuitive**: Minimal keywords, clear English-like syntax, and uncluttered structure allow developers to learn rapidly.
+3. **Versatile**: Used across diverse domains—from simple CLI scripts to large-scale web servers, scientific simulations, and games.
+4. **Rich Ecosystem**: Standard libraries and specialized packages for AI (`TensorFlow`, `PyTorch`), Data Analysis (`Pandas`, `NumPy`), and Web (`Django`, `FastAPI`).
+5. **High Market Demand & Competitive Salary**.
+6. **Interpreted**: Processed at runtime line-by-line by the Python interpreter. You do not need to compile your program into machine binaries before executing it (similar to Perl and PHP).
+7. **Interactive**: Developers can run instructions directly at the Python interactive REPL prompt (`>>>`) for immediate feedback.
+8. **Object-Oriented**: Encapsulates data and methods cleanly within classes and objects.
+9. **Beginner's Language**: Gentle learning curve that scales from introductory text processing all the way to complex web browsers and distributed cloud services.
+
+### 5. Key Characteristics of Python
+- Supports **functional**, **structured**, and **object-oriented (OOP)** programming paradigms.
+- Can be utilized as a lightweight scripting language or compiled to **bytecode** for building large, mission-critical applications.
+- Provides high-level dynamic data types with built-in dynamic type validation.
+- Built-in **automatic garbage collection** prevents memory leaks.
+- Seamlessly integrates with C, C++, COM, ActiveX, CORBA, and Java.
+
+### 6. Broad Applications of Python
+- **Easy to Learn, Read, and Maintain**: Strict formatting guidelines and English-like keywords ensure codebases remain visible, readable, and maintainable.
+- **Broad Standard Library**: Python's "batteries included" philosophy provides cross-platform modules working consistently across UNIX, Windows, and Macintosh.
+- **Interactive Mode**: Allows rapid prototyping, testing, and debugging of isolated code snippets directly.
+- **Portability**: Code runs unmodified across an immense variety of hardware architectures with the same standard runtime interface.
+- **Extendable**: Programmers can write performance-critical C/C++ modules and plug them directly into the Python interpreter.
+- **Commercial Database Connectivity**: Native client interfaces for all major relational and NoSQL databases (MySQL, PostgreSQL, Oracle, SQLite, SQL Server).
+- **GUI Programming**: Robust support for desktop GUIs across Windows MFC, Macintosh Cocoa, and the X Window System of Unix (Tkinter, PyQt, wxPython).
+- **Scalability**: Offers superior architectural modularity and organization compared to legacy shell scripting.
+
+### 7. Supported Platforms & Local Environment Setup
+- **Checking Python Installation**: Open a command prompt or terminal and type:
+  ```bash
+  python --version
+  # or
+  python
   ```
-  In C# code-behind:
-  ```csharp
-  string s = txt.Text;
-  TextBox tBox = (TextBox)Page.FindControl("txt");
-  ```
-- **5 Types of Web Controls in ASP.NET**:
-  1. *HTML Controls* (pure client-side browser elements)
-  2. *HTML Server Controls* (HTML tags with `runat="server"`)
-  3. *ASP.NET Server Controls* (`<asp:...>` controls with rich properties)
-  4. *ASP.NET AJAX Server Controls* (controls with partial-page update capabilities)
-  5. *User Controls & Custom Controls* (reusable custom composite components)
-
-### 5. Control Properties
-- Tag attributes map directly to server control properties.
-- Tags and attributes are **case-insensitive**.
-- Properties can be configured programmatically at runtime:
-  ```csharp
-  c1.Text = "Foo";
-  c2.Rows = 5;
-  ```
-
-### 6. ASP.NET Page Event Lifecycle
-The strict execution order of an ASP.NET Web Form:
-1. **Initialize** (`Page_Init`)
-2. **Restore Control State**
-3. **Load Page** (`Page_Load`)
-4. **Control Events**:
-   - Change Events (e.g., `Textbox1_Changed`)
-   - Action Events (e.g., `Button1_Click`)
-5. **Save Control State**
-6. **Render**
-7. **Unload Page** (`Page_Unload`)
-
-### 7. Types of UI Controls
-- **HTML Controls**: Native browser elements. Purely client-side; invisible to the web server; maximum raw performance.
-- **HTML Server Controls**: Standard HTML tags converted to server-aware components via `runat="server"`. Offer automatic ViewState management and server-side event wiring while rendering standard HTML.
-- **4 Subcategories of Server Controls**:
-  1. *Basic Controls*: `<asp:button>`, `<asp:imagebutton>`, `<asp:linkbutton>`, `<asp:hyperlink>`, `<asp:textbox>`, `<asp:checkbox>`.
-  2. *List Controls*: `<asp:dropdownlist>`, `<asp:listbox>`, `<asp:radiobuttonlist>`, `<asp:checkboxlist>`.
-  3. *Rich Controls*: `<asp:calendar>`.
-  4. *Validation Controls*: Extensible declarative validation executing on both client and server; prevents malicious form tampering/spoofing.
+- **Broad Operating System Support**:
+  - Unix variants: Solaris, Linux, FreeBSD, AIX, HP/UX, SunOS, IRIX
+  - Windows: Win 9x / NT / 2000 / XP / 7 / 10 / 11
+  - Macintosh: Intel, Apple Silicon, PowerPC, 68K
+  - Legacy & Embedded: OS/2, DOS, PalmOS, Nokia mobile phones (Symbian), Windows CE, Acorn/RISC OS, BeOS, Amiga, VMS/OpenVMS, QNX, VxWorks, Psion
+  - Virtual Machines: Ported to Java (Jython) and .NET (IronPython)
+- **Downloading Official Binaries**:
+  - Official Portal: [https://www.python.org/](https://www.python.org/)
+  - Official Documentation: [https://www.python.org/doc/](https://www.python.org/doc/) (available in HTML, PDF, PostScript)
+- **Installation Walkthrough**:
+  - **Linux/Unix**: Download source `.tar.gz`, extract files, optionally edit `Modules/Setup`, run `./configure` script, and execute `make install`. Installs executable to `/usr/local/bin` and libraries to `/usr/local/lib/pythonXX`.
+  - **Windows**: Download `python-XYZ.msi` / `.exe` installer (requires Windows Installer 2.0+). Launch wizard, select default settings, add to PATH, and complete setup.
+  - **Macintosh**: Pre-installed on macOS, or get latest installers from python.org. Historically, MacPython was maintained by Jack Jansen (`http://www.cwi.nl/~jack/macpython.html`).
+- **Integrated Development Environments (IDEs)**:
+  - **IDLE**: The very first Unix IDE developed for Python, bundled across Unix, Mac, and Windows.
+  - **PythonWin**: The first dedicated Windows GUI interface and IDE for Python.
 
 ---
 
-## WEEK 3: UNDERSTANDING MVC ARCHITECTURE AND ROUTING
+## WEEK 3–4: PYTHON DATA TYPES, NUMBERS & STRINGS
+
+### 1. Python Syntax & Code Execution
+- **Command-Line Direct Execution**: Run the Python REPL directly:
+  ```python
+  >>> print("Hello, World!")
+  Hello, World!
+  ```
+- **Script File Execution**: Create a `.py` file and execute via terminal:
+  ```bash
+  python myfile.py
+  ```
+
+### 2. Python Indentation (Block Delimitation)
+- **Indentation Definition**: The leading whitespace (spaces or tabs) at the beginning of a code line.
+- **Architectural Role**: Unlike other languages (C++, Java, C#) where curly braces `{}` define code blocks and indentation is merely stylistic, **in Python indentation strictly indicates a code block**.
+- **Indentation Rules**:
+  - Skipping indentation where expected raises an **`IndentationError`**.
+  - Number of spaces is determined by the programmer: standard convention is **4 spaces**, but must be **at least 1 space**.
+  - You **must use the exact same number of spaces** within the same block of code, otherwise Python will throw an indentation error.
+  ```python
+  if 5 > 2:
+      print("Five is greater than two!")
+      print("Consistent indentation within block")
+  ```
+
+### 3. Comments in Python
+- **Syntax**: Begins with the `#` symbol. Python ignores everything from `#` to the end of the line.
+- **Purposes**:
+  1. In-code documentation and explaining logic.
+  2. Enhancing source code readability.
+  3. Temporarily disabling lines from executing during debugging/testing.
+- **Inline Comments**:
+  ```python
+  print("Hello, World!") # This is an inline comment
+  ```
+
+### 4. Variables & Dynamic Typing
+- **Variable Definition**: Containers for storing data values.
+- **No Declaration Keyword**: Python has no command for declaring variables (no `var`, `let`, `dim`). A variable is instantiated the exact moment you first assign a value to it.
+- **Dynamic Re-typing**: Variables can change type dynamically after being assigned:
+  ```python
+  x = 4        # x is of type int
+  x = "Sally"  # x is now of type str
+  ```
+- **Type Checking**: Use the `type()` built-in function:
+  ```python
+  print(type(x))  # <class 'str'>
+  ```
+- **Type Casting**: Constructors enforce explicit types:
+  ```python
+  x = str(3)    # '3'
+  y = int(3)    # 3
+  z = float(3)  # 3.0
+  ```
+- **Quotes**: Single quotes (`'John'`) and double quotes (`"John"`) are 100% identical.
+- **Case Sensitivity**: Variable names are strictly **case-sensitive**. `a = 4` and `A = "Sally"` are two completely independent variables; `A` will never overwrite `a`.
+
+### 5. Variable Naming Rules & Multi-Word Styles
+- **3 Strict Rules**:
+  1. Must begin with a **letter** or an **underscore** (`_`).
+  2. **Cannot start with a number**.
+  3. Can only contain alphanumeric characters and underscores (`A-z`, `0-9`, and `_`).
+- **Naming Conventions for Multi-Word Variables**:
+  - **Camel Case**: Each word, except the first, begins with a capital letter (`myVariableName = "John"`).
+  - **Pascal Case**: Every word starts with a capital letter (`MyVariableName = "John"`).
+  - **Snake Case**: Every word is lowercase and separated by an underscore (`my_variable_name = "John"`).
+
+### 6. Multiple Values Assignment & Unpacking
+- **Many Values to Multiple Variables**:
+  ```python
+  x, y, z = "Orange", "Banana", "Cherry"
+  ```
+  *(Note: Variable count must strictly equal value count, else `ValueError: too many values to unpack` or `not enough values to unpack`.)*
+- **One Value to Multiple Variables**:
+  ```python
+  x = y = z = "Orange"
+  ```
+- **Collection Unpacking**: Extract list or tuple elements into distinct variables:
+  ```python
+  fruits = ["apple", "banana", "cherry"]
+  x, y, z = fruits
+  ```
+
+### 7. Outputting Variables: `print()` Commas vs `+`
+- **Output via Comma**: Separates multiple variables with spaces automatically and safely supports **different data types**:
+  ```python
+  x = 5
+  y = "John"
+  print(x, y)  # Output: 5 John
+  ```
+- **Output via `+` Operator**:
+  - For strings: Acts as a **concatenation operator** (`"Python" + " " + "is cool"`).
+  - For numbers: Acts as a **mathematical addition operator** (`5 + 10 = 15`).
+  - **Exam Trap**: Attempting to combine a string and a number with `+` raises a fatal **`TypeError`** (`print(5 + "John")` fails!).
+
+### 8. Variable Scope & the `global` Keyword
+- **Global Variables**: Variables declared outside of any function belong to the global scope and can be read by everyone (inside and outside functions).
+- **Local Variable Shadowing**: Declaring a variable with the same name inside a function creates a local variable accessible only inside that function. The global variable remains unchanged with its original value:
+  ```python
+  x = "awesome"
+  def myfunc():
+      x = "fantastic" # local variable
+      print("Inside:", x) # Inside: fantastic
+
+  myfunc()
+  print("Outside:", x)    # Outside: awesome
+  ```
+- **The `global` Keyword**:
+  1. Used inside a function to create a global variable within local function scope.
+  2. Used inside a function to modify/rebind an existing global variable's value:
+  ```python
+  x = "awesome"
+  def myfunc():
+      global x
+      x = "fantastic" # Modifies global x
+
+  myfunc()
+  print("Python is " + x) # Python is fantastic
+  ```
+
+### 9. Python's 8 Built-in Data Types
+| Category | Built-in Type Name | Example Syntax |
+| :--- | :--- | :--- |
+| **Text Type** | `str` | `x = "Hello World"` |
+| **Numeric Types** | `int`, `float`, `complex` | `20`, `20.5`, `1j` |
+| **Sequence Types** | `list`, `tuple`, `range` | `["a", "b"]`, `("a", "b")`, `range(6)` |
+| **Mapping Type** | `dict` | `{"name": "John", "age": 36}` |
+| **Set Types** | `set`, `frozenset` | `{"apple", "banana"}`, `frozenset({"apple"})` |
+| **Boolean Type** | `bool` | `True`, `False` |
+| **Binary Types** | `bytes`, `bytearray`, `memoryview` | `b"Hello"`, `bytearray(5)`, `memoryview(b"5")` |
+| **None Type** | `NoneType` | `x = None` |
+
+### 10. Python Numbers & Random Values
+- **`int` (Integer)**: Whole numbers, positive or negative, without decimals, with **unlimited precision/length** (`y = 35656222554887711`).
+- **`float` (Floating Point)**: Numbers containing one or more decimal places, or scientific notation using `e`/`E` for powers of 10 (`x = 35e3` = 35,000.0).
+- **`complex` (Complex Numbers)**: Written with a `j` or `J` representing the imaginary part (`x = 3 + 5j`).
+- **Type Conversion**:
+  - `int(2.8)` -> `2` (truncates decimals toward zero)
+  - `float(1)` -> `1.0`
+  - `complex(1)` -> `(1+0j)`
+  - **Exam Trap**: **You CANNOT convert complex numbers into another number type** (`int(3+5j)` throws a `TypeError`).
+- **Generating Random Numbers**:
+  - Python has no standalone `random()` function.
+  - Must import the `random` module:
+    ```python
+    import random
+    print(random.randrange(1, 10)) # Generates integer from 1 up to 9 (10 is excluded)
+    ```
+
+### 11. Python Strings in Depth
+- **Quotes**: Single quotes `'hello'` and double quotes `"hello"` are interchangeable.
+- **Multiline Strings**: Enclosed with three double quotes `"""..."""` or three single quotes `'''...'''`. Line breaks are preserved exactly as written in the source code.
+- **Strings are Arrays of Unicode Bytes**:
+  - Python has **no single character data type**. A character is simply a string with a length of 1.
+  - Access characters using **0-indexed square brackets**:
+    ```python
+    a = "Hello, World!"
+    print(a[1]) # 'e'
+    ```
+- **Looping Through Strings**:
+  ```python
+  for x in "banana":
+      print(x)
+  ```
+- **String Length**: `len(a)` returns the total character count.
+- **Membership Testing (`in` / `not in`)**:
+  ```python
+  txt = "The best things in life are free!"
+  print("free" in txt)          # True
+  print("expensive" not in txt) # True
+  ```
+- **String Slicing (`[start:end]`)**:
+  - Start index is **inclusive**; end index is **exclusive**.
+  - `b[2:5]`: Characters from index 2 up to 4.
+  - `b[:5]`: Slice from the start up to index 4.
+  - `b[2:]`: Slice from index 2 all the way to the end.
+
+### 12. String Modification Methods
+- **CRITICAL RULE**: **All string methods return NEW string values. Strings in Python are immutable and can never be modified in place.**
+- **`upper()`**: Converts string to uppercase.
+- **`lower()`**: Converts string to lowercase.
+- **`strip()`**: Trims all leading and trailing whitespace.
+- **`replace(old, new)`**: Substitutes target occurrences (`a.replace("H", "J")`).
+- **`split(separator)`**: Splits string into a list of substrings based on delimiter (`a.split(",")` -> `['Hello', ' World!']`).
+
+### 13. String Formatting & Escape Characters
+- **The `format()` Method**: Inserts numbers and variables into `{}` placeholders:
+  ```python
+  quantity = 3
+  itemno = 567
+  price = 49.95
+  myorder = "I want {0} pieces of item {1} for {2} dollars."
+  print(myorder.format(quantity, itemno, price))
+  ```
+- **Escape Characters (`\`)**:
+  - `\"`: Double quote inside double-quoted string.
+  - `\'`: Single quote.
+  - `\\`: Backslash.
+  - `\n`: Newline.
+  - `\r`: Carriage Return.
+  - `\t`: Tab.
+  - `\b`: Backspace.
+  - `\ooo`: Octal value.
+  - `\xhh`: Hexadecimal value.
+
+### 14. Essential String Methods Quick Reference
+| Method | Description / Return Value |
+| :--- | :--- |
+| `capitalize()` | Converts the first character to uppercase |
+| `casefold()` | Converts string into aggressive lowercase for caseless matching |
+| `center(w)` | Returns centered string padded to width `w` |
+| `count(sub)` | Counts occurrences of specified value |
+| `endswith(val)`| Returns `True` if string ends with specified value |
+| `find(sub)` | Searches for substring; returns index position (or `-1` if not found) |
+| `index(sub)` | Searches for substring; returns index position (raises `ValueError` if not found) |
+| `isalnum()` | Returns `True` if all characters are alphanumeric |
+| `isalpha()` | Returns `True` if all characters are alphabetic |
+| `isdigit()` | Returns `True` if all characters are digits |
+| `islower()` / `isupper()` | Returns `True` if characters are all lowercase / uppercase |
+| `isspace()` | Returns `True` if all characters are whitespace |
+| `join(iterable)`| Joins elements of an iterable into one string using separator |
+| `splitlines()` | Splits string at line break boundaries into a list |
+| `startswith(val)`| Returns `True` if string begins with specified prefix |
+| `swapcase()` | Swaps uppercase to lowercase and vice versa |
+| `title()` | Converts the first character of each word to uppercase |
+| `zfill(len)` | Pads string with leading zeros until specified length is reached |
+
+---
+
+## WEEK 2 (WEB): ASP.NET CORE 9.0 & VISUAL STUDIO ENVIRONMENT
+
+### 1. Modern ASP.NET Core vs Legacy ASP.NET (.NET Framework)
+When building web applications in Visual Studio, developers choose between two framework architectures:
+| Feature / Characteristic | **ASP.NET Core (Modern)** | **ASP.NET (.NET Framework - Legacy)** |
+| :--- | :--- | :--- |
+| **Platform Support** | Cross-platform (Windows, Linux, macOS) | Windows-only |
+| **Open Source** | 100% Open Source (.NET Foundation) | Proprietary / Legacy Windows components |
+| **Target Framework** | .NET 8.0, .NET 9.0 (Unified runtime) | .NET Framework 4.x (Web Forms, MVC 5) |
+| **Performance** | Industry-leading benchmark speeds | Heavier memory footprint, tied to IIS |
+| **Recommendation** | **Highly recommended for all new applications** | Maintenance-only for legacy systems |
+
+### 2. Prerequisites & Visual Studio Workload Setup
+- To develop ASP.NET Core web applications:
+  1. Open the **Visual Studio Installer**.
+  2. Locate your installed Visual Studio version and click **Modify**.
+  3. Under Desktop & Mobile / Web & Cloud, check **ASP.NET and web development**.
+  4. Click **Modify** in the bottom right corner to download and apply workloads.
+
+### 3. Choosing Your Project Template
+- Visual Studio provides three primary web templates:
+  1. **ASP.NET Core Web App (Razor Pages)**: Best for simple, page-focused websites. Models and controllers are consolidated cleanly into Razor page code-behinds.
+  2. **ASP.NET Core Web App (Model-View-Controller)**: Best for complex, large-scale architectures requiring strict Separation of Concerns (SoC).
+  3. **ASP.NET Core Web API**: Best for headless, backend-only microservices and RESTful services consumed by mobile or Single Page Apps (SPA).
+
+### 4. Core Development Tools in Visual Studio
+- **Solution Explorer**: The central tool window pane used to inspect and manage files, NuGet dependencies, configuration files, and static web assets.
+- **Razor Editor**: Delivers rich syntax highlighting, HTML/C# tag helpers, and IntelliSense code-completion when mixing HTML markup with server C# code.
+- **Hot Reload**: Enables developers to edit code, markup, and CSS while the web app is running without manually restarting, pausing, or recompiling.
+- **Built-in Debugging**: Set line breakpoints in C# files to freeze execution, inspect variables in the Locals/Watch window, and step through code.
+
+### 5. Hands-on Lab: Creating & Touring `MyCoreApp` (.NET 9.0)
+- **Project Configuration**:
+  - Project Name: `MyCoreApp`
+  - Language: `C#` • Platform: `Windows` • Project Type: `Web`
+  - Template: `ASP.NET Core Web App (Razor Pages)`
+  - Framework: **.NET 9.0 (Standard Term Support)**
+  - Authentication Type: **None** (Options: None, Individual Accounts, Microsoft Identity Platform, Windows)
+  - Container Support: Unchecked
+- **Solution Explorer Anatomy**:
+  - `Connected Services`: Integrations with external cloud APIs or databases.
+  - `Dependencies`: NuGet packages, SDKs, and runtime assemblies.
+  - `Properties`: Contains `launchSettings.json` specifying local port bindings and SSL profiles.
+  - `wwwroot`: The **root directory for all static website content** (CSS stylesheets, images, JavaScript files, and `favicon.ico`). Files placed here are served directly to clients.
+  - `Pages`: Contains the `.cshtml` Razor pages:
+    - `Index.cshtml` & `Index.cshtml.cs`: The home landing page.
+    - `Privacy.cshtml` & `Privacy.cshtml.cs`: The privacy policy page.
+    - `_ViewStart.cshtml`: Specifies default layout template.
+    - `_ViewImports.cshtml`: Global namespace imports for all views.
+    - `Shared/_Layout.cshtml`: Master site chrome, navigation bar, and footer.
+  - `appsettings.json` & `appsettings.Development.json`: JSON configuration files for connection strings and logging levels.
+  - `Program.cs`: The modern C# entry point containing dependency injection registrations and the HTTP middleware request pipeline.
+
+### 6. Executing, Debugging, and Modifying Code
+- **Running the Application**:
+  - Press **F5** or click the green **https** button to launch in debug mode.
+  - Press **Ctrl + F5** to launch without attaching the debugger (faster, supports Hot Reload).
+  - Press **Shift + F5** to stop debugging and terminate the web server process.
+- **Editing `Privacy.cshtml` & `Privacy.cshtml.cs`**:
+  - In `Privacy.cshtml`:
+    ```html
+    @page
+    @model PrivacyModel
+    @{
+        ViewData["Title"] = "Privacy Policy";
+    }
+    <h1>@ViewData["Title"]</h1>
+    <p>This page is under construction as of @ViewData["TimeStamp"].</p>
+    ```
+  - In `Privacy.cshtml.cs`:
+    - **Quick Actions Light Bulb**: Hover over greyed-out using directives -> click light bulb -> select **Remove unnecessary usings** -> Preview changes -> Apply.
+    - Implement `OnGet()` handler:
+      ```csharp
+      using System.Globalization;
+
+      public void OnGet()
+      {
+          string dateTime = DateTime.Now.ToString("d", new CultureInfo("en-US"));
+          ViewData["TimeStamp"] = dateTime;
+      }
+      ```
+    - `DateTime.ToString("d", CultureInfo)`: The format specifier `"d"` outputs the short date format (e.g., `11/19/2025`); the `CultureInfo` object determines language, calendar, and separator characters (`/` vs `-`).
+- **Editing the Home Page (`Index.cshtml`)**:
+  - Replace `<h1 class="display-4">Welcome</h1>` with `<h1 class="display-4">Hello World!</h1>`.
+  - Save file and verify instant browser reload.
+
+---
+
+## WEEK 3 (WEB): UNDERSTANDING MVC ARCHITECTURE AND ROUTING
 
 ### 1. What is ASP.NET MVC 5?
 - **Definition**: A lightweight, highly testable presentation framework built on the .NET Framework that implements the **Model-View-Controller (MVC)** architectural pattern.
@@ -159,7 +481,7 @@ The strict execution order of an ASP.NET Web Form:
 
 ---
 
-## WEEK 4: DEVELOPING CONTROLLERS
+## WEEK 4 (WEB): DEVELOPING CONTROLLERS & ACTION RESULTS
 
 ### 1. Controllers in ASP.NET MVC
 - A controller is a public C# class derived from the base class `System.Web.Mvc.Controller`.
@@ -208,7 +530,7 @@ Action selectors are attributes applied above action methods to guide routing de
 
 ---
 
-## WEEK 5: DEVELOPING VIEWS & RAZOR SYNTAX
+## WEEK 5 (WEB): DEVELOPING VIEWS & RAZOR SYNTAX
 
 ### 1. Razor View Engine Overview
 - Introduced in ASP.NET MVC 3 to replace Web Forms view engine (`.aspx`).
@@ -280,7 +602,7 @@ Action selectors are attributes applied above action methods to guide routing de
 
 ---
 
-## WEEK 6: DEVELOPING VIEWS – STANDARD HTML HELPERS
+## WEEK 6 (WEB): DEVELOPING VIEWS – STANDARD HTML HELPERS
 
 ### 1. What are Standard HTML Helpers?
 - **Definition**: Extension methods of the `HtmlHelper` class used inside Razor views to render standard HTML form controls dynamically.
@@ -345,4 +667,4 @@ Action selectors are attributes applied above action methods to guide routing de
   ```
 
 ---
-*Created for Luigi Emanuel Britania • QCU BSIT Reviewer Portal • Keep this guide handy for midterm and final exam preparation!*
+*Created for Luigi Emanuel Britania • QCU BSIT Reviewer Portal • AY 2026-2027 Semester 1*

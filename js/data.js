@@ -45,9 +45,9 @@ const REVIEWER_DATA = {
       "status": "active",
       "color": "purple",
       "badge": "Current Materials Ready",
-      "checkpointsCount": 5,
-      "questionsCount": 50,
-      "flashcardsCount": 40
+      "checkpointsCount": 7,
+      "questionsCount": 74,
+      "flashcardsCount": 64
     },
     {
       "code": "AR101",
@@ -522,12 +522,388 @@ const REVIEWER_DATA = {
       ]
     },
     {
+      "id": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "title": "Introduction to Basic Python Programming",
+      "badge": "Checkpoint 1 (Python)",
+      "description": "Origins, Guido van Rossum (BDFL), dynamic typing, automatic garbage collection, wide OS support, career opportunities, and IDE setups (IDLE & PythonWin).",
+      "digest": [
+            {
+                  "heading": "1. What is Python? & Core Definitions",
+                  "points": [
+                        "**Python** is a widely popular, general-purpose, interpreted, interactive, object-oriented, and high-level programming language.",
+                        "**Dynamically-Typed**: Variable types are bound dynamically at runtime without explicit type declarations.",
+                        "**Garbage-Collected**: Automatic memory allocation and reclamation prevent resource leaks.",
+                        "**Origins & License**: Created by Dutch programmer **Guido van Rossum** during 1985–1990; released under the **GNU General Public License (GPL)**, making it completely open-source and free of cost."
+                  ],
+                  "tldr": "Python is a high-level, dynamically-typed, interpreted language licensed under GNU GPL."
+            },
+            {
+                  "heading": "2. Guido van Rossum & The BDFL Role",
+                  "points": [
+                        "**Guido van Rossum** (born 31 January 1956) is a Dutch programmer best known as the creator of Python.",
+                        "Served as the **'Benevolent Dictator For Life' (BDFL)** until stepping down from the leadership position on **12 July 2018**.",
+                        "Remained a member of the **Python Steering Council through 2019**, and voluntarily withdrew from nominations for the 2020 election."
+                  ],
+                  "trap": "Exam Trap: Guido van Rossum stepped down as BDFL on July 12, 2018 (NOT 2020)! In 2020, he withdrew from the Steering Council."
+            },
+            {
+                  "heading": "3. Industry Demand & Career Paths",
+                  "points": [
+                        "**High Market Demand**: Major global tech enterprises look for Python programmers to engineer web applications, automation pipelines, Data Science, AI, and ML.",
+                        "**Companies Using Python**: Google, Intel, NASA, PayPal, Facebook (Meta), IBM, Amazon, Netflix, Pinterest, Uber, and countless others.",
+                        "**Careers with Python**: Game Developer, Web Designer/Developer, Python Developer, Full-Stack Developer, Machine Learning Engineer, Data Scientist, Data Analyst, Data Engineer, DevOps Engineer, Software Engineer."
+                  ]
+            },
+            {
+                  "heading": "4. Why Learn Python? (Key Advantages)",
+                  "points": [
+                        "**Open Source**: Available free of cost with complete source code transparency.",
+                        "**Simple & Easy to Learn**: Few keywords, minimal syntax clutter, and high code visibility.",
+                        "**Versatile**: Capable of producing everything from simple shell utilities to enterprise web backends and complex scientific models.",
+                        "**Powerful Libraries**: Extensive ecosystems for AI, ML, numerical processing, and cloud services.",
+                        "**Interpreted**: Processed at runtime by the interpreter without requiring pre-compilation into machine binaries (similar to Perl and PHP).",
+                        "**Interactive**: Developers can type directly into the interactive REPL prompt (`>>>`) for immediate evaluation.",
+                        "**Object-Oriented**: Fully encapsulates state and behavior cleanly within objects."
+                  ],
+                  "tldr": "Interpreted, interactive, object-oriented, and beginner-friendly with extensive AI/ML libraries."
+            },
+            {
+                  "heading": "5. Characteristics & Applications of Python",
+                  "points": [
+                        "Supports **functional**, **structured**, and **object-oriented (OOP)** programming paradigms.",
+                        "Can function as a scripting language or be compiled into **bytecode** for building massive, high-throughput applications.",
+                        "**Broad Standard Library**: Highly portable and cross-platform compatible across UNIX, Windows, and Macintosh.",
+                        "**Extendable**: Programmers can add low-level C and C++ modules directly to the interpreter for high-performance computing.",
+                        "**Commercial Databases**: Provides native interfaces to all major commercial DBMS (MySQL, PostgreSQL, Oracle, SQL Server).",
+                        "**GUI Programming**: Supports building desktop GUIs across Windows MFC, Macintosh, and the X Window System of Unix."
+                  ]
+            },
+            {
+                  "heading": "6. Platform Compatibility & Environment Setup",
+                  "points": [
+                        "**Verification**: Run `python` in a terminal window to check if installed and verify the version.",
+                        "**Official Portals**: Official source and binaries available at `https://www.python.org/` with documentation at `https://www.python.org/doc/`.",
+                        "**Unmatched Cross-Platform Portability**: Supported across modern and legacy platforms alike."
+                  ],
+                  "table": {
+                        "headers": [
+                              "Platform Category",
+                              "Supported Operating Systems & Environments"
+                        ],
+                        "rows": [
+                              [
+                                    "Mainstream Desktop",
+                                    "Unix (Linux, Solaris, FreeBSD, AIX, SunOS), Windows (9x/NT/2000/XP/10/11), Mac (Intel, Apple Silicon, PPC)"
+                              ],
+                              [
+                                    "Legacy & Embedded",
+                                    "OS/2, DOS, PalmOS, Nokia mobile phones (Symbian), Windows CE, Acorn/RISC OS, BeOS, Amiga"
+                              ],
+                              [
+                                    "Real-Time & Telephony",
+                                    "VMS/OpenVMS, QNX, VxWorks, Psion"
+                              ],
+                              [
+                                    "Virtual Machines",
+                                    "Java Virtual Machine (Jython) and .NET Virtual Machine (IronPython)"
+                              ]
+                        ]
+                  }
+            },
+            {
+                  "heading": "7. Integrated Development Environments (IDEs)",
+                  "points": [
+                        "**IDLE**: The very first Unix IDE developed for Python, now included across Unix, Mac, and Windows installations.",
+                        "**PythonWin**: The first dedicated Windows interface and graphical IDE for Python.",
+                        "**Online Interpreters**: Tools like TutorialsPoint CodingGround enable direct browser-based bytecode execution without local setup."
+                  ],
+                  "trap": "Exam Trap: IDLE was the very first Unix IDE for Python, while PythonWin was the first Windows GUI IDE!"
+            }
+      ]
+},
+    {
+      "id": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "title": "Python Data Types, Numbers & Strings",
+      "badge": "Checkpoint 2 (Python)",
+      "description": "Syntax, 4-space indentation rules, comments, variables, naming styles, multiple assignments, unpacking, global scope, 8 built-in types, number conversions, random numbers, string slicing, and methods.",
+      "digest": [
+            {
+                  "heading": "1. Python Syntax & Execution Modes",
+                  "points": [
+                        "**Command Line Interactive Execution**: Executed directly at the terminal prompt (`>>> print('Hello, World!')`).",
+                        "**Script File Execution**: Created in text editor with `.py` extension and executed by interpreter: `python myfile.py`."
+                  ]
+            },
+            {
+                  "heading": "2. Python Indentation (Block Structure)",
+                  "points": [
+                        "**Definition**: Leading whitespace (spaces or tabs) at the beginning of a code line.",
+                        "Unlike other languages where indentation is for cosmetic readability, **in Python indentation indicates a code block**.",
+                        "Skipping indentation where required triggers an immediate **`IndentationError`**.",
+                        "Standard convention is **4 spaces**, but must be **at least 1 space**.",
+                        "You **must use the exact same number of spaces** in the same block of code, otherwise Python will throw an error."
+                  ],
+                  "trap": "Exam Trap: Indentation is NOT optional in Python! It replaces curly braces {} as the structural block delimiter."
+            },
+            {
+                  "heading": "3. Comments in Python",
+                  "points": [
+                        "Starts with the `#` symbol. Python ignores everything following `#` on that line.",
+                        "**Purposes**: Explaining code logic, increasing readability, and preventing execution of code lines during testing.",
+                        "Can be placed as standalone lines or inline at the end of a statement: `print('Hello') # greeting`."
+                  ]
+            },
+            {
+                  "heading": "4. Python Variables & Dynamic Typing",
+                  "points": [
+                        "**Variables are Containers**: Used for storing data values.",
+                        "**No Declaration Keyword**: Python has no command for declaring variables (no `var`, `int`, or `dim`). A variable is created the moment you first assign a value to it (`x = 5`).",
+                        "**Dynamic Typing**: Variables do not need to be declared with any particular type and can even change type after being set (`x = 4` then `x = 'Sally'`).",
+                        "**Type Inspection**: Get data type using `type(x)` (e.g., `print(type(x))` outputs `<class 'int'>`).",
+                        "**Quotes**: String literals can be declared with either single (`'John'`) or double (`\"John\"`) quotes.",
+                        "**Case Sensitivity**: Variable names are case-sensitive (`a = 4` and `A = 'Sally'` are two different variables; `A` will not overwrite `a`)."
+                  ]
+            },
+            {
+                  "heading": "5. Variable Naming Rules & Multi-Word Styles",
+                  "points": [
+                        "**3 Strict Rules**:",
+                        "1. A variable name must start with a **letter** or the **underscore** character (`_`).",
+                        "2. A variable name **cannot start with a number** (e.g., `2myvar` is illegal!).",
+                        "3. Can only contain alphanumeric characters and underscores (`A-z`, `0-9`, and `_`).",
+                        "**Multi-Word Naming Conventions**:",
+                        "- **Camel Case**: Each word, except the first, starts with a capital letter (`myVariableName = 'John'`).",
+                        "- **Pascal Case**: Each word starts with a capital letter (`MyVariableName = 'John'`).",
+                        "- **Snake Case**: Each word is separated by an underscore (`my_variable_name = 'John'`)."
+                  ]
+            },
+            {
+                  "heading": "6. Multiple Values Assignment & Collection Unpacking",
+                  "points": [
+                        "**Many Values to Multiple Variables**: `x, y, z = 'Orange', 'Banana', 'Cherry'` (number of variables must strictly match number of values, else `ValueError`).",
+                        "**One Value to Multiple Variables**: `x = y = z = 'Orange'` (assigns identical value to all).",
+                        "**Unpack a Collection**: Extract values from a list or tuple directly into distinct variables:",
+                        "```python\nfruits = ['apple', 'banana', 'cherry']\nx, y, z = fruits\n```"
+                  ]
+            },
+            {
+                  "heading": "7. Outputting Variables: Commas vs Plus Operator",
+                  "points": [
+                        "**Comma Separation**: `print(x, y)` separates outputs with spaces automatically and safely supports **different data types** (`int` and `str` together).",
+                        "**Plus Operator (`+`)**: Works as a concatenation operator for strings and mathematical addition for numbers.",
+                        "**Fatal Exam Trap**: Combining a string and a number with `+` raises a fatal **`TypeError`** (`print(5 + 'John')` crashes!). Use commas or explicit `str()` casting."
+                  ],
+                  "trap": "Exam Trap: print(5 + 'John') causes a TypeError! Python will never implicitly cast int to str during + concatenation."
+            },
+            {
+                  "heading": "8. Variable Scope & The `global` Keyword",
+                  "points": [
+                        "**Global Variables**: Variables created outside of a function. Can be read by everyone, both inside and outside functions.",
+                        "**Local Variable Shadowing**: Creating a variable with the same name inside a function creates a local copy. The global variable remains unchanged with its original value.",
+                        "**The `global` Keyword**:",
+                        "- To create a global variable inside a function, prefix it with `global` (`global x`).",
+                        "- To **change the value of an existing global variable** inside a function, you must refer to it using `global x` before reassigning."
+                  ]
+            },
+            {
+                  "heading": "9. Python's 8 Built-in Data Types",
+                  "table": {
+                        "headers": [
+                              "Category",
+                              "Type",
+                              "Example Constructor / Literal"
+                        ],
+                        "rows": [
+                              [
+                                    "Text Type",
+                                    "`str`",
+                                    "`x = 'Hello World'` or `str(20)`"
+                              ],
+                              [
+                                    "Numeric Types",
+                                    "`int`, `float`, `complex`",
+                                    "`20`, `20.5`, `1j` or `3+5j`"
+                              ],
+                              [
+                                    "Sequence Types",
+                                    "`list`, `tuple`, `range`",
+                                    "`['a','b']`, `('a','b')`, `range(6)`"
+                              ],
+                              [
+                                    "Mapping Type",
+                                    "`dict`",
+                                    "`{'name': 'John', 'age': 36}`"
+                              ],
+                              [
+                                    "Set Types",
+                                    "`set`, `frozenset`",
+                                    "`{'apple', 'banana'}`, `frozenset({'apple'})`"
+                              ],
+                              [
+                                    "Boolean Type",
+                                    "`bool`",
+                                    "`True`, `False` or `bool(5)`"
+                              ],
+                              [
+                                    "Binary Types",
+                                    "`bytes`, `bytearray`, `memoryview`",
+                                    "`b'Hello'`, `bytearray(5)`, `memoryview(bytes(5))`"
+                              ],
+                              [
+                                    "None Type",
+                                    "`NoneType`",
+                                    "`x = None`"
+                              ]
+                        ]
+                  }
+            },
+            {
+                  "heading": "10. Numbers, Casting & Random Values",
+                  "points": [
+                        "**`int`**: Whole number, positive or negative, without decimals, of **unlimited length**.",
+                        "**`float`**: Number containing one or more decimals, or scientific notation with `e` (`35e3` = 35000.0).",
+                        "**`complex`**: Written with a `j` as the imaginary part (`x = 3+5j`).",
+                        "**Type Conversion**: Convert with `int()`, `float()`, and `complex()`. **Exam Trap: You CANNOT convert complex numbers into another number type!**",
+                        "**Random Numbers**: Python has no standalone `random()` function; must `import random` and use `random.randrange(1, 10)` (returns random integer between 1 and 9)."
+                  ],
+                  "trap": "Exam Trap: int(3+5j) throws a TypeError! Complex numbers cannot be converted to int or float."
+            },
+            {
+                  "heading": "11. Python Strings in Depth & Slicing",
+                  "points": [
+                        "**Multiline Strings**: Enclosed with three quotes (`\"\"\"...\"\"\"` or `'''...'''`); line breaks are inserted at the exact same positions as in source code.",
+                        "**Strings are Arrays**: Python has **no character data type**; a single character is simply a string with a length of 1. Access characters using 0-indexed square brackets: `a[1]`.",
+                        "**Looping**: Loop through characters with `for x in 'banana': print(x)`.",
+                        "**Length**: `len(a)` returns total string length.",
+                        "**Membership (`in` / `not in`)**: Check if substring is present (`if 'free' in txt:`, `if 'expensive' not in txt:`).",
+                        "**Slicing (`[start:end]`)**:",
+                        "- `b[2:5]`: Characters from index 2 to 5 (not included / up to 4).",
+                        "- `b[:5]`: Slice from start up to index 4.",
+                        "- `b[2:]`: Slice from index 2 all the way to the end."
+                  ]
+            },
+            {
+                  "heading": "12. String Modification Methods & Immutability",
+                  "points": [
+                        "**IMMUTABILITY RULE**: **All string methods return NEW values. They NEVER change the original string.**",
+                        "**`upper()`**: Returns string in uppercase.",
+                        "**`lower()`**: Returns string in lowercase.",
+                        "**`strip()`**: Removes whitespace from beginning and end.",
+                        "**`replace(old, new)`**: Replaces occurrences of a substring (`a.replace('H', 'J')`).",
+                        "**`split(separator)`**: Splits string into substrings list (`a.split(',')`)."
+                  ],
+                  "tldr": "Strings are immutable. Methods like upper(), lower(), and strip() return new string copies."
+            },
+            {
+                  "heading": "13. String Formatting & Escape Characters",
+                  "points": [
+                        "**`format()` Method**: Combines strings and numbers safely by placing arguments into `{}` placeholders.",
+                        "Takes unlimited arguments: `myorder.format(quantity, itemno, price)`.",
+                        "Positional Indexing: Can use index numbers `{0}`, `{1}`, `{2}` to ensure arguments land in precise placeholders.",
+                        "**Escape Characters (`\\`)**: Inserts illegal characters into strings (e.g., `\\\"` for quotes).",
+                        "Common escapes: `\\'` (single quote), `\\\\` (backslash), `\\n` (newline), `\\r` (carriage return), `\\t` (tab), `\\b` (backspace), `\\f` (form feed), `\\ooo` (octal), `\\xhh` (hex)."
+                  ]
+            },
+            {
+                  "heading": "14. Comprehensive String Methods Reference",
+                  "table": {
+                        "headers": [
+                              "Method",
+                              "Description & Return Value"
+                        ],
+                        "rows": [
+                              [
+                                    "`capitalize()`",
+                                    "Converts the first character to upper case"
+                              ],
+                              [
+                                    "`casefold()`",
+                                    "Converts string into aggressive lowercase for caseless matching"
+                              ],
+                              [
+                                    "`center(w)`",
+                                    "Returns a centered string padded to width w"
+                              ],
+                              [
+                                    "`count(sub)`",
+                                    "Returns the number of times a specified value occurs in a string"
+                              ],
+                              [
+                                    "`endswith(val)`",
+                                    "Returns True if the string ends with the specified value"
+                              ],
+                              [
+                                    "`find(sub)`",
+                                    "Searches string for value and returns position (-1 if not found)"
+                              ],
+                              [
+                                    "`index(sub)`",
+                                    "Searches string for value and returns position (raises ValueError if not found)"
+                              ],
+                              [
+                                    "`isalnum()`",
+                                    "Returns True if all characters in the string are alphanumeric"
+                              ],
+                              [
+                                    "`isalpha()`",
+                                    "Returns True if all characters in the string are in the alphabet"
+                              ],
+                              [
+                                    "`isdigit()`",
+                                    "Returns True if all characters in the string are digits"
+                              ],
+                              [
+                                    "`islower()` / `isupper()`",
+                                    "Returns True if all characters are lower case / upper case"
+                              ],
+                              [
+                                    "`isspace()`",
+                                    "Returns True if all characters in the string are whitespaces"
+                              ],
+                              [
+                                    "`join(iterable)`",
+                                    "Joins the elements of an iterable to the end of the string"
+                              ],
+                              [
+                                    "`splitlines()`",
+                                    "Splits the string at line breaks and returns a list"
+                              ],
+                              [
+                                    "`startswith(val)`",
+                                    "Returns True if the string starts with the specified value"
+                              ],
+                              [
+                                    "`strip()`",
+                                    "Returns a trimmed version of the string"
+                              ],
+                              [
+                                    "`swapcase()`",
+                                    "Swaps cases: lower case becomes upper case and vice versa"
+                              ],
+                              [
+                                    "`title()`",
+                                    "Converts the first character of each word to upper case"
+                              ],
+                              [
+                                    "`zfill(len)`",
+                                    "Fills string with specified number of leading 0 values"
+                              ]
+                        ]
+                  }
+            }
+      ]
+},
+    {
       "id": "ipt-cp1",
       "subject": "IPT102",
-      "week": "Week 2",
-      "title": "Review to ASP.NET with Visual Studio",
-      "badge": "Checkpoint 1",
-      "description": "Dynamic websites, client vs server-side scripting, ASP.NET page syntax, directives, server controls with runat='server', 5 web control types, and the Page Event Lifecycle.",
+      "week": "Week 2 (Web)",
+      "title": "ASP.NET Core 9.0 & Visual Studio Setup",
+      "badge": "Checkpoint 3 (Web)",
+      "description": "Dynamic websites, ASP.NET Core vs .NET Framework, VS Installer workloads, 3 templates, core dev tools, MyCoreApp Razor Pages lab tour, wwwroot, CultureInfo formatting, and Page Event Lifecycle.",
       "digest": [
         {
           "heading": "1. Dynamic Websites vs Static Pages",
@@ -774,15 +1150,101 @@ const REVIEWER_DATA = {
               ]
             ]
           }
+        },
+        {
+                  "heading": "8. Modern ASP.NET Core vs Legacy ASP.NET (.NET Framework)",
+                  "points": [
+                            "When building web applications in Visual Studio, developers choose between two framework architectures:",
+                            "**ASP.NET Core**: The modern, cross-platform, open-source framework. **Highly recommended for all new applications**.",
+                            "**ASP.NET (.NET Framework)**: The legacy, Windows-only framework. Choose this option only if you are maintaining older applications like Web Forms or MVC 5."
+                  ],
+                  "table": {
+                            "headers": [
+                                      "Comparison Factor",
+                                      "ASP.NET Core (Modern)",
+                                      "ASP.NET (.NET Framework - Legacy)"
+                            ],
+                            "rows": [
+                                      [
+                                                "Platform Support",
+                                                "Cross-platform (Windows, Linux, macOS)",
+                                                "Windows-only (tied to IIS)"
+                                      ],
+                                      [
+                                                "Licensing & Source",
+                                                "100% Open Source (.NET Foundation on GitHub)",
+                                                "Proprietary Windows components"
+                                      ],
+                                      [
+                                                "Target Runtime",
+                                                ".NET 8.0 / .NET 9.0 unified runtime",
+                                                ".NET Framework 4.x legacy runtime"
+                                      ],
+                                      [
+                                                "Performance",
+                                                "Top-tier benchmark throughput & low memory",
+                                                "Heavier memory overhead"
+                                      ],
+                                      [
+                                                "Application Use",
+                                                "Modern microservices, APIs, cloud apps",
+                                                "Legacy Web Forms & MVC 5 maintenance"
+                                      ]
+                            ]
+                  }
+        },
+        {
+                  "heading": "9. Visual Studio Workload Setup & 3 Web Templates",
+                  "points": [
+                            "**Prerequisites**: Open Visual Studio Installer -> Click **Modify** -> Check **ASP.NET and web development** -> Click Modify.",
+                            "**3 Project Templates** in the Create New Project dialog (Filtered by C#, Windows, Web):",
+                            "1. **ASP.NET Core Web App (Razor Pages)**: Best for simple, page-focused sites.",
+                            "2. **ASP.NET Core Web App (Model-View-Controller)**: Best for larger architectures requiring strict Separation of Concerns.",
+                            "3. **ASP.NET Core Web API**: Best for headless backend-only microservices and RESTful API endpoints."
+                  ]
+        },
+        {
+                  "heading": "10. Core Development Tools in Visual Studio",
+                  "points": [
+                            "**Solution Explorer**: The tool window pane used to manage your pages, backend files, configurations, dependencies, and static assets.",
+                            "**Razor Editor**: Provides rich syntax highlighting, HTML/C# tag helpers, and IntelliSense code-completion when mixing HTML markup with C# code.",
+                            "**Hot Reload**: Allows you to apply modifications to your code and UI while the app is actively running without needing to manually pause or rebuild the project.",
+                            "**Built-in Debugging**: Set breakpoints directly in your backend C# files to pause execution and inspect runtime variables."
+                  ]
+        },
+        {
+                  "heading": "11. Hands-on Lab: `MyCoreApp` Project Tour & Architecture",
+                  "points": [
+                            "**Creation Settings**: Project Name `MyCoreApp`, Framework `.NET 9.0`, Authentication Type `None`, Enable container support unchecked.",
+                            "**Razor Page Design Pattern**: Streamlined to include the **model and controller code within the Razor Page itself**, unlike MVC which splits them into separate Controller and View folders.",
+                            "**Key Directories & Files**:",
+                            "- `wwwroot`: The **root for your website static content**. Place CSS, images, JavaScript libraries, and `favicon.ico` directly here.",
+                            "- `Pages`: Contains `.cshtml` markup files paired with `.cshtml.cs` code-behind files (e.g., `Index.cshtml.cs`, `Privacy.cshtml.cs`).",
+                            "- `appsettings.json` & `appsettings.Development.json`: Application configuration files managing settings at runtime."
+                  ]
+        },
+        {
+                  "heading": "12. Code Modifications: Quick Actions, CultureInfo, and Shortcuts",
+                  "points": [
+                            "**Quick Actions Light Bulb**: Hover over a greyed-out `using` directive -> click light bulb -> select **Remove unnecessary usings** -> Preview -> Apply.",
+                            "**Date Formatting with CultureInfo**:",
+                            "```csharp\nstring dateTime = DateTime.Now.ToString(\"d\", new CultureInfo(\"en-US\"));\nViewData[\"TimeStamp\"] = dateTime;\n```",
+                            "- Specifier `\"d\"`: Formats date to the short date format (e.g., `11/19/2025`).",
+                            "- `CultureInfo`: Determines the culture/region for language and separator formatting (`/` vs `-`). Auto-adds `using System.Globalization;`.",
+                            "**Essential Execution Shortcuts**:",
+                            "- **F5** or green https button: Build and run in debug mode.",
+                            "- **Ctrl + F5**: Run without debugging (faster, ideal for Hot Reload).",
+                            "- **Shift + F5**: Stop debugging and terminate the web server process."
+                  ]
         }
       ]
     },
     {
       "id": "ipt-cp2",
       "subject": "IPT102",
-      "week": "Week 3",
+      "week": "Week 3 (Web)",
       "title": "Understanding MVC Architecture and Routing",
-      "badge": "Checkpoint 2",
+      "badge": "Checkpoint 4 (Web)",
       "description": "ASP.NET MVC 5 architecture, Model-View-Controller roles, HTTP request flow, default folder structure (App_Data, Controllers, Views, etc.), configuration files, and Routing URL patterns.",
       "digest": [
         {
@@ -979,9 +1441,9 @@ const REVIEWER_DATA = {
     {
       "id": "ipt-cp3",
       "subject": "IPT102",
-      "week": "Week 4",
-      "title": "Developing Controllers",
-      "badge": "Checkpoint 3",
+      "week": "Week 4 (Web)",
+      "title": "Developing Controllers & Action Results",
+      "badge": "Checkpoint 5 (Web)",
       "description": "Controller class inheritance, Action Method restrictions, default Index() action, ActionResult classes, and Action Selectors (ActionName, NonAction, ActionVerbs).",
       "digest": [
         {
@@ -1180,9 +1642,9 @@ const REVIEWER_DATA = {
     {
       "id": "ipt-cp4",
       "subject": "IPT102",
-      "week": "Week 5",
+      "week": "Week 5 (Web)",
       "title": "Developing Views & Razor Syntax",
-      "badge": "Checkpoint 4",
+      "badge": "Checkpoint 6 (Web)",
       "description": "Razor view engine, .cshtml rules, server-side processing flow, inline expressions, multi-statement code blocks, variable declaration, loops, and reading user input with Request and IsPost.",
       "digest": [
         {
@@ -1949,6 +2411,231 @@ const REVIEWER_DATA = {
       "answer": "NO. Mathematical induction cannot be used to discover theorems, only to prove them.",
       "tag": "Induction"
     },
+    {
+      "id": "fc-py1-1",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "Who created the Python programming language, and when?",
+      "answer": "Guido van Rossum created Python between 1985 and 1990. Source code is licensed under the GNU General Public License (GPL).",
+      "tag": "Python History"
+},
+    {
+      "id": "fc-py1-2",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "What title did Guido van Rossum hold until stepping down on July 12, 2018?",
+      "answer": "Benevolent Dictator For Life (BDFL). He later served on the Python Steering Council through 2019.",
+      "tag": "Python History"
+},
+    {
+      "id": "fc-py1-3",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "What does it mean that Python is dynamically typed and garbage collected?",
+      "answer": "Dynamically typed means variable data types do not need explicit declaration and are bound at runtime. Garbage collected means memory allocation and cleanup occur automatically.",
+      "tag": "Core Concepts"
+},
+    {
+      "id": "fc-py1-4",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "Why is Python classified as an interpreted language?",
+      "answer": "Python source code is processed at runtime by the interpreter line-by-line; programs do not need to be compiled into machine binaries before execution.",
+      "tag": "Execution"
+},
+    {
+      "id": "fc-py1-5",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "What was the very first Unix IDE developed for Python?",
+      "answer": "IDLE. It is bundled across Unix, Macintosh, and Windows systems.",
+      "tag": "IDEs"
+},
+    {
+      "id": "fc-py1-6",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "What was the first dedicated Windows GUI interface and IDE for Python?",
+      "answer": "PythonWin.",
+      "tag": "IDEs"
+},
+    {
+      "id": "fc-py1-7",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "Can Python be integrated with languages like C, C++, and Java?",
+      "answer": "Yes. Python can be easily integrated with C, C++, COM, ActiveX, CORBA, and Java (via Jython).",
+      "tag": "Integration"
+},
+    {
+      "id": "fc-py1-8",
+      "checkpointId": "ipt-py1",
+      "subject": "IPT102",
+      "week": "Week 1-2",
+      "question": "What programming paradigms does Python support?",
+      "answer": "Python supports functional, structured, and object-oriented programming (OOP) paradigms.",
+      "tag": "Paradigms"
+},
+    {
+      "id": "fc-py2-1",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "How does Python delimit blocks of code such as if-statements and loops?",
+      "answer": "Python uses indentation (leading whitespace) to define code blocks. The standard convention is 4 spaces (at least 1 is required). Skipping indentation causes an IndentationError.",
+      "tag": "Indentation"
+},
+    {
+      "id": "fc-py2-2",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "What symbol is used for writing comments in Python?",
+      "answer": "The hash symbol (#). Python renders the remainder of the line as a comment.",
+      "tag": "Comments"
+},
+    {
+      "id": "fc-py2-3",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "What are the rules for legal Python variable names?",
+      "answer": "Must start with a letter or underscore (_); cannot start with a number; can only contain alphanumeric characters and underscores (A-z, 0-9, _); strictly case-sensitive.",
+      "tag": "Variables"
+},
+    {
+      "id": "fc-py2-4",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "How does collection unpacking work in Python?",
+      "answer": "Extracts values from a list or tuple into individual variables in one line: fruits = ['apple', 'banana', 'cherry']; x, y, z = fruits.",
+      "tag": "Unpacking"
+},
+    {
+      "id": "fc-py2-5",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "What happens if you combine a string and an integer with the + operator in Python?",
+      "answer": "Python raises a TypeError. Unlike JavaScript, Python does not automatically coerce integers to strings during + operations. Use print(x, y) or str(5).",
+      "tag": "Output"
+},
+    {
+      "id": "fc-py2-6",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "What is the purpose of the 'global' keyword inside a function?",
+      "answer": "It allows a function to bind to and modify a variable in the global scope, or create a new global variable from within the function.",
+      "tag": "Scope"
+},
+    {
+      "id": "fc-py2-7",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "What are the three built-in numeric types in Python?",
+      "answer": "int (integers of unlimited length), float (floating-point decimals or scientific notation e), and complex (numbers with imaginary part j, e.g. 3+5j).",
+      "tag": "Data Types"
+},
+    {
+      "id": "fc-py2-8",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "Can complex numbers be converted into int or float?",
+      "answer": "No. Python strictly prohibits converting complex numbers into another number type.",
+      "tag": "Numbers"
+},
+    {
+      "id": "fc-py2-9",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "Does Python have a character data type?",
+      "answer": "No. Python does not have a character data type; a single character is simply a string with a length of 1.",
+      "tag": "Strings"
+},
+    {
+      "id": "fc-py2-10",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "What is the result of b = 'Hello, World!'; print(b[2:5])?",
+      "answer": "'llo' (characters from index 2 up to index 4; the end index 5 is not included).",
+      "tag": "Slicing"
+},
+    {
+      "id": "fc-py2-11",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "Do string methods in Python modify the original string in place?",
+      "answer": "No. Strings in Python are immutable. All string methods (upper, lower, strip, replace, split) return new string values.",
+      "tag": "Immutability"
+},
+    {
+      "id": "fc-py2-12",
+      "checkpointId": "ipt-py2",
+      "subject": "IPT102",
+      "week": "Week 3-4",
+      "question": "How do you generate a random integer between 1 and 9 in Python?",
+      "answer": "import random; random.randrange(1, 10). Note that 10 is excluded.",
+      "tag": "Random"
+},
+    {
+      "id": "fc-ipt1-9",
+      "checkpointId": "ipt-cp1",
+      "subject": "IPT102",
+      "week": "Week 2 (Web)",
+      "question": "Why is ASP.NET Core recommended over legacy ASP.NET (.NET Framework)?",
+      "answer": "ASP.NET Core is modern, 100% open source, cross-platform (Windows, Linux, macOS), and delivers superior performance on .NET 8/9. Legacy ASP.NET is Windows-only and restricted to maintenance.",
+      "tag": "ASP.NET Core"
+},
+    {
+      "id": "fc-ipt1-10",
+      "checkpointId": "ipt-cp1",
+      "subject": "IPT102",
+      "week": "Week 2 (Web)",
+      "question": "What is the key architectural difference between Razor Pages and MVC in ASP.NET Core?",
+      "answer": "Razor Pages is page-focused, streamlining model and controller code directly within the Razor Page (.cshtml and .cshtml.cs). MVC separates concerns into distinct Controller, Model, and View folders.",
+      "tag": "Razor Pages"
+},
+    {
+      "id": "fc-ipt1-11",
+      "checkpointId": "ipt-cp1",
+      "subject": "IPT102",
+      "week": "Week 2 (Web)",
+      "question": "What is the purpose of the 'wwwroot' folder in an ASP.NET Core project?",
+      "answer": "It is the root directory for static website assets (CSS, images, JavaScript, and favicon.ico) served directly to browser clients.",
+      "tag": "Project Anatomy"
+},
+    {
+      "id": "fc-ipt1-12",
+      "checkpointId": "ipt-cp1",
+      "subject": "IPT102",
+      "week": "Week 2 (Web)",
+      "question": "What does the Hot Reload feature in Visual Studio do?",
+      "answer": "Hot Reload allows developers to edit code, markup, and styles while the application is running without having to manually pause or rebuild the project.",
+      "tag": "Visual Studio"
+},
+    {
+      "id": "fc-ipt1-13",
+      "checkpointId": "ipt-cp1",
+      "subject": "IPT102",
+      "week": "Week 2 (Web)",
+      "question": "How do you remove unused using statements in Visual Studio using a shortcut?",
+      "answer": "Select or hover over a greyed-out using directive, click the Quick Actions light bulb, and select 'Remove unnecessary usings'.",
+      "tag": "Visual Studio"
+},
     {
       "id": "fc-ipt1-1",
       "checkpointId": "ipt-cp1",
@@ -2930,6 +3617,280 @@ const REVIEWER_DATA = {
       ]
     },
     {
+    "checkpointId": "ipt-py1",
+    "subject": "IPT102",
+    "week": "Week 1-2",
+    "questions": [
+        {
+            "id": "q-py1-1",
+            "type": "multiple",
+            "question": "Who created the Python programming language between 1985 and 1990?",
+            "options": [
+                "James Gosling",
+                "Guido van Rossum",
+                "Bjarne Stroustrup",
+                "Brendan Eich"
+            ],
+            "correct": 1,
+            "explanation": "Guido van Rossum, a Dutch computer scientist, created Python between 1985 and 1990."
+        },
+        {
+            "id": "q-py1-2",
+            "type": "multiple",
+            "question": "Under what open-source license is Python published?",
+            "options": [
+                "Apache 2.0 License",
+                "MIT License",
+                "GNU General Public License (GPL)",
+                "BSD 3-Clause License"
+            ],
+            "correct": 2,
+            "explanation": "Like Perl, Python source code is published under the GNU General Public License (GPL)."
+        },
+        {
+            "id": "q-py1-3",
+            "type": "multiple",
+            "question": "What title was Guido van Rossum known by until he stepped down on July 12, 2018?",
+            "options": [
+                "Chief Software Architect (CSA)",
+                "Benevolent Dictator For Life (BDFL)",
+                "President Emeritus",
+                "Supreme Commander of Code"
+            ],
+            "correct": 1,
+            "explanation": "Guido van Rossum was designated Python's 'Benevolent Dictator For Life' (BDFL) until July 12, 2018."
+        },
+        {
+            "id": "q-py1-4",
+            "type": "multiple",
+            "question": "Why does Python not require pre-compilation before execution?",
+            "options": [
+                "It compiles straight into hardware microcode",
+                "It is an interpreted language processed at runtime by the interpreter",
+                "It only executes inside a web browser",
+                "It requires a C compiler to run in the background"
+            ],
+            "correct": 1,
+            "explanation": "Python is an interpreted language; the interpreter reads and processes instructions at runtime without pre-compiling."
+        },
+        {
+            "id": "q-py1-5",
+            "type": "multiple",
+            "question": "What was the very first Unix IDE created specifically for Python?",
+            "options": [
+                "PyCharm",
+                "IDLE",
+                "PythonWin",
+                "Eclipse PyDev"
+            ],
+            "correct": 1,
+            "explanation": "IDLE was the very first Unix IDE for Python (and is bundled with Python distributions)."
+        },
+        {
+            "id": "q-py1-6",
+            "type": "multiple",
+            "question": "What was the first dedicated Windows interface and graphical IDE for Python?",
+            "options": [
+                "Visual Studio Code",
+                "PythonWin",
+                "Spyder",
+                "Thonny"
+            ],
+            "correct": 1,
+            "explanation": "PythonWin was the first Windows graphical interface and IDE for Python."
+        },
+        {
+            "id": "q-py1-7",
+            "type": "multiple",
+            "question": "Which of the following is NOT one of Python's core characteristics?",
+            "options": [
+                "Dynamic type checking",
+                "Automatic garbage collection",
+                "Mandatory manual memory pointers",
+                "Support for OOP, structured, and functional programming"
+            ],
+            "correct": 2,
+            "explanation": "Python features automatic garbage collection; manual pointer management does not exist in Python."
+        },
+        {
+            "id": "q-py1-8",
+            "type": "multiple",
+            "question": "Which technology allows Python programs to run natively on the Java Virtual Machine?",
+            "options": [
+                "IronPython",
+                "Jython",
+                "PyPy",
+                "Cython"
+            ],
+            "correct": 1,
+            "explanation": "Jython is the Python implementation running on the Java Virtual Machine (JVM), while IronPython targets .NET."
+        },
+        {
+            "id": "q-py1-9",
+            "type": "multiple",
+            "question": "Which command is typed in a terminal window to check if Python is installed?",
+            "options": [
+                "pyrun",
+                "python",
+                "exec-python",
+                "runpy"
+            ],
+            "correct": 1,
+            "explanation": "Typing 'python' in a terminal checks for installation and opens the interactive interpreter."
+        },
+        {
+            "id": "q-py1-10",
+            "type": "multiple",
+            "question": "Which major company is explicitly cited as using Python for high-performance operations?",
+            "options": [
+                "NASA",
+                "Google",
+                "Netflix",
+                "All of the above"
+            ],
+            "correct": 3,
+            "explanation": "NASA, Google, Netflix, Intel, PayPal, Amazon, and Uber all use Python extensively."
+        }
+    ]
+},
+    {
+    "checkpointId": "ipt-py2",
+    "subject": "IPT102",
+    "week": "Week 3-4",
+    "questions": [
+        {
+            "id": "q-py2-1",
+            "type": "multiple",
+            "question": "How does Python indicate a block of code inside functions and conditional statements?",
+            "options": [
+                "Curly braces { }",
+                "BEGIN and END tags",
+                "Indentation (spaces at beginning of line)",
+                "Semicolons ;"
+            ],
+            "correct": 2,
+            "explanation": "Python uses indentation to denote code blocks. Curly braces are used for dictionaries/sets, not blocks."
+        },
+        {
+            "id": "q-py2-2",
+            "type": "multiple",
+            "question": "What is the PEP 8 standard convention for Python indentation?",
+            "options": [
+                "1 tab or 8 spaces",
+                "4 spaces (at least 1 is required)",
+                "2 spaces strictly",
+                "Indentation depth does not matter"
+            ],
+            "correct": 1,
+            "explanation": "The most common and standard convention is 4 spaces, but it must be at least 1 space and consistent throughout the block."
+        },
+        {
+            "id": "q-py2-3",
+            "type": "multiple",
+            "question": "Which of the following is an ILLEGAL variable name in Python?",
+            "options": [
+                "my_var",
+                "_myvar",
+                "2myvar",
+                "myVar2"
+            ],
+            "correct": 2,
+            "explanation": "Variable names cannot start with a number (e.g., '2myvar' is illegal)."
+        },
+        {
+            "id": "q-py2-4",
+            "type": "multiple",
+            "question": "What happens when executing: fruits = ['apple', 'banana']; x, y, z = fruits?",
+            "options": [
+                "z defaults to None",
+                "ValueError (not enough values to unpack)",
+                "x becomes a list containing both fruits",
+                "SyntaxError: invalid assignment"
+            ],
+            "correct": 1,
+            "explanation": "Python unpacking requires the number of variables to exactly match the collection length; otherwise, a ValueError is raised."
+        },
+        {
+            "id": "q-py2-5",
+            "type": "multiple",
+            "question": "What error occurs if you run: x = 5; y = 'John'; print(x + y)?",
+            "options": [
+                "SyntaxError",
+                "TypeError (cannot concatenate int and str)",
+                "ValueError",
+                "Outputs '5John' automatically"
+            ],
+            "correct": 1,
+            "explanation": "The + operator cannot combine int and str; Python throws a TypeError. Use print(x, y) instead."
+        },
+        {
+            "id": "q-py2-6",
+            "type": "multiple",
+            "question": "Which keyword allows a programmer to modify a global variable from inside a function?",
+            "options": [
+                "extern",
+                "global",
+                "static",
+                "override"
+            ],
+            "correct": 1,
+            "explanation": "The 'global' keyword binds a local statement to the module-level global variable."
+        },
+        {
+            "id": "q-py2-7",
+            "type": "multiple",
+            "question": "What is the imaginary part symbol used for complex numbers in Python?",
+            "options": [
+                "i (e.g. 3+5i)",
+                "j (e.g. 3+5j)",
+                "c (e.g. 3+5c)",
+                "img (e.g. 3+5img)"
+            ],
+            "correct": 1,
+            "explanation": "Complex numbers in Python use 'j' or 'J' to indicate the imaginary component."
+        },
+        {
+            "id": "q-py2-8",
+            "type": "multiple",
+            "question": "Which method call generates a random integer from 1 up to 9?",
+            "options": [
+                "random.random(1, 9)",
+                "random.randrange(1, 10)",
+                "random.int(1, 9)",
+                "random.generate(1, 10)"
+            ],
+            "correct": 1,
+            "explanation": "import random; random.randrange(1, 10) returns an integer from 1 to 9 (10 is excluded)."
+        },
+        {
+            "id": "q-py2-9",
+            "type": "multiple",
+            "question": "What will print('Hello, World!'[2:5]) output?",
+            "options": [
+                "'Hel'",
+                "'llo'",
+                "'ello'",
+                "'llo,'"
+            ],
+            "correct": 1,
+            "explanation": "Index 2 is 'l', index 3 is 'l', and index 4 is 'o'. Index 5 is excluded, yielding 'llo'."
+        },
+        {
+            "id": "q-py2-10",
+            "type": "multiple",
+            "question": "Why does s.upper() NOT modify the original string 's'?",
+            "options": [
+                "Strings in Python are immutable; methods return new string objects",
+                "upper() only works on single characters",
+                "Python strings can only be edited using pointers",
+                "The method requires an exclamation mark: s.upper!()"
+            ],
+            "correct": 0,
+            "explanation": "Python strings are immutable. All string modification methods return a new string rather than modifying in place."
+        }
+    ]
+},
+    {
       "checkpointId": "ipt-cp1",
       "subject": "IPT102",
       "week": "Week 2",
@@ -3063,6 +4024,58 @@ const REVIEWER_DATA = {
           ],
           "correct": 1,
           "explanation": "As stated in the slides: 'Tags and attributes are case-insensitive'."
+        },
+        {
+                  "id": "q-ipt1-11",
+                  "type": "multiple",
+                  "question": "What is the primary architectural difference between ASP.NET Core and legacy ASP.NET (.NET Framework)?",
+                  "options": [
+                            "ASP.NET Core is cross-platform, open source, and runs on .NET 8/9, while .NET Framework is Windows-only",
+                            "ASP.NET Core only supports Visual Basic",
+                            "ASP.NET Core requires Apache and cannot run on Windows",
+                            "Legacy .NET Framework is faster and cross-platform"
+                  ],
+                  "correct": 0,
+                  "explanation": "ASP.NET Core is modern, cross-platform (Windows, Linux, macOS), open source, and high-performance."
+        },
+        {
+                  "id": "q-ipt1-12",
+                  "type": "multiple",
+                  "question": "In the ASP.NET Core project structure, what is the role of the 'wwwroot' folder?",
+                  "options": [
+                            "Stores database connection strings securely",
+                            "Acts as the root directory for serving static site content (CSS, images, JS, favicon)",
+                            "Holds server-side C# controller classes",
+                            "Contains NuGet package binaries"
+                  ],
+                  "correct": 1,
+                  "explanation": "The wwwroot directory holds all static website assets accessible directly by the client browser."
+        },
+        {
+                  "id": "q-ipt1-13",
+                  "type": "multiple",
+                  "question": "Which Visual Studio feature allows code and markup modifications to take effect while running without rebuilding?",
+                  "options": [
+                            "Live Share",
+                            "Hot Reload",
+                            "IntelliCode",
+                            "CodeLens"
+                  ],
+                  "correct": 1,
+                  "explanation": "Hot Reload applies code and UI changes to a running web application without pausing or rebuilding."
+        },
+        {
+                  "id": "q-ipt1-14",
+                  "type": "multiple",
+                  "question": "What keyboard shortcut in Visual Studio stops an active debugging session?",
+                  "options": [
+                            "F5",
+                            "Ctrl + F5",
+                            "Shift + F5",
+                            "Alt + F4"
+                  ],
+                  "correct": 2,
+                  "explanation": "Shift + F5 terminates the active debugging session and shuts down the running web server process."
         }
       ]
     },
