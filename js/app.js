@@ -7,7 +7,7 @@
   'use strict';
 
   // State Management with LocalStorage
-  const STORAGE_KEY = 'qcu_reviewer_portal_state_v1';
+  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_5';
   
   let state = {
     activeSubject: 'SPI101',
@@ -1247,8 +1247,25 @@
     setupDragAndDrop();
   }
 
+  // Force Refresh & Cache Busting Helper
+  function forceRefresh() {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem('qcu_reviewer_portal_state_v1');
+      if ('caches' in window) {
+        caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+      }
+    } catch (e) {}
+    showToast('Clearing cache and loading v2.5...');
+    setTimeout(() => {
+      const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
+      window.location.href = cleanUrl;
+    }, 200);
+  }
+
   // Expose API to window for inline HTML onclick handlers
   window.reviewerApp = {
+    forceRefresh,
     switchView,
     selectSubject,
     toggleActiveSubject,
