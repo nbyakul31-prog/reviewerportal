@@ -236,7 +236,63 @@
     });
   }
 
-  // Render Chronological Digest
+  // HTML Escaper for safe rendering of tags & syntax examples
+  function escapeHtml(text) {
+    if (typeof text !== 'string') return '';
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // Format markdown with code blocks, inline code, bold, italics, and safe HTML escaping
+  function formatMarkdown(text) {
+    if (!text) return '';
+    let out = String(text);
+
+    // Strip unnecessary stray triple quotes
+    out = out.replace(/'''/g, '');
+
+    // Extract fenced code blocks first
+    const codeBlocks = [];
+    out = out.replace(/```(?:[a-zA-Z0-9_-]+)?\n?([\s\S]*?)```/g, (_, code) => {
+      const idx = codeBlocks.length;
+      codeBlocks.push(`<pre class="code-block"><code>${escapeHtml(code.trim())}</code></pre>`);
+      return `___CODE_BLOCK_${idx}___`;
+    });
+
+    // Extract inline code snippets
+    const inlineCodes = [];
+    out = out.replace(/`([^`]+)`/g, (_, code) => {
+      const idx = inlineCodes.length;
+      inlineCodes.push(`<code class="inline-code">${escapeHtml(code)}</code>`);
+      return `___INLINE_CODE_${idx}___`;
+    });
+
+    // Escape any raw HTML tags in normal text to prevent UI distortion
+    out = escapeHtml(out);
+
+    // Convert bold and italics
+    out = out.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    out = out.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // Restore protected code snippets
+    out = out.replace(/___CODE_BLOCK_(\d+)___/g, (_, i) => codeBlocks[Number(i)]);
+    out = out.replace(/___INLINE_CODE_(\d+)___/g, (_, i) => inlineCodes[Number(i)]);
+
+    return out;
+  }
+
+  // Formats quiz option text safely with code styling for tags and directives
+  function formatQuizText(text) {
+    if (!text) return '';
+    let cleaned = String(text).replace(/'''/g, '').replace(/```/g, '');
+    return formatMarkdown(cleaned);
+  }
+
+  // Render Chronological Digest with support for structured tables and safe markdown
   function renderDigest() {
     const cp = REVIEWER_DATA.checkpoints.find(c => c.id === state.activeCheckpoint) || REVIEWER_DATA.checkpoints[0];
     const container = document.getElementById('digest-content-container');
@@ -248,22 +304,43 @@
 
     if (!container) return;
 
-    container.innerHTML = cp.digest.map(item => `
-      <div class="digest-card">
-        <h3>${item.heading}</h3>
+    container.innerHTML = cp.digest.map(item => {
+      const hasPoints = item.points && item.points.length > 0;
+      const pointsHtml = hasPoints ? `
         <ul class="digest-points">
           ${item.points.map(pt => `<li>${formatMarkdown(pt)}</li>`).join('')}
         </ul>
-        ${item.trap ? `<div class="exam-alert">⚠️ <strong>Exam Trap:</strong> ${formatMarkdown(item.trap)}</div>` : ''}
-        ${item.tldr ? `<div class="tldr-box">💡 <strong>Quick Takeaway:</strong> ${formatMarkdown(item.tldr)}</div>` : ''}
-      </div>
-    `).join('');
-  }
+      ` : '';
 
-  function formatMarkdown(text) {
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>');
+      const tableHtml = item.table ? `
+        <div class="table-responsive">
+          <table class="digest-table">
+            <thead>
+              <tr>
+                ${item.table.headers.map(h => `<th>${formatMarkdown(h)}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${item.table.rows.map(row => `
+                <tr>
+                  ${row.map(cell => `<td>${formatMarkdown(cell)}</td>`).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      ` : '';
+
+      return `
+        <div class="digest-card">
+          <h3>${formatMarkdown(item.heading)}</h3>
+          ${pointsHtml}
+          ${tableHtml}
+          ${item.trap ? `<div class="exam-alert">⚠️ <strong>Exam Trap:</strong> ${formatMarkdown(item.trap)}</div>` : ''}
+          ${item.tldr ? `<div class="tldr-box">💡 <strong>Quick Takeaway:</strong> ${formatMarkdown(item.tldr)}</div>` : ''}
+        </div>
+      `;
+    }).join('');
   }
 
   // Flashcards Logic
@@ -288,8 +365,8 @@
     const isMastered = state.masteredCards.includes(card.id);
 
     if (cardBox) cardBox.classList.remove('flipped');
-    if (cardFront) cardFront.textContent = card.question;
-    if (cardBack) cardBack.textContent = card.answer;
+    if (cardFront) cardFront.innerHTML = formatMarkdown(card.question);
+    if (cardBack) cardBack.innerHTML = formatMarkdown(card.answer);
     if (cardTag) cardTag.textContent = `${card.tag} ${isMastered ? '✓ Mastered' : ''}`;
     if (cardCounter) cardCounter.textContent = `${state.currentCardIndex + 1} / ${cards.length}`;
   }
@@ -441,7 +518,7 @@
       return `
         <button class="option-btn ${extraClass}" id="opt-btn-${idx}" onclick="window.reviewerApp.selectQuizOption(${idx})">
           <span class="option-letter">${letters[idx]}</span>
-          <span>${opt}</span>
+          <span class="option-text">${formatQuizText(opt)}</span>
         </button>
       `;
     }).join('');
@@ -455,12 +532,12 @@
 
     container.innerHTML = `
       <div class="question-card">
-        <div class="question-title">${q.question}</div>
+        <div class="question-title">${formatMarkdown(q.question)}</div>
         <div class="options-list">
           ${optionsHtml}
         </div>
         <div class="explanation-box ${userAns.submitted ? ('show ' + (userAns.isCorrect ? 'correct-exp' : 'wrong-exp')) : ''}" id="explanation-box">
-          ${userAns.submitted ? `<strong>${userAns.isCorrect ? 'Correct! 🎯' : 'Incorrect 💡'}</strong>: ${q.explanation}` : ''}
+          ${userAns.submitted ? `<strong>${userAns.isCorrect ? 'Correct! 🎯' : 'Incorrect 💡'}</strong>: ${formatMarkdown(q.explanation)}` : ''}
         </div>
       </div>
       <div class="quiz-footer-actions">
@@ -695,12 +772,12 @@
     container.innerHTML = `
       <div class="question-card" style="margin-bottom: 10px;">
         <div class="cram-q-badge">📌 ${rawQ._subject} • ${rawQ._week}</div>
-        <div class="question-title">${rawQ.question}</div>
+        <div class="question-title">${formatMarkdown(rawQ.question)}</div>
         <div class="options-list">
           ${shuffledOpts.map((opt, idx) => `
             <button class="option-btn" onclick="window.reviewerApp.answerCram(${idx}, ${newCorrect})">
               <span class="option-letter">${letters[idx]}</span>
-              <span>${opt}</span>
+              <span class="option-text">${formatQuizText(opt)}</span>
             </button>
           `).join('')}
         </div>
