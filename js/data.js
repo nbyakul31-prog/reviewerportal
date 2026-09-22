@@ -66,12 +66,12 @@ const REVIEWER_DATA = {
       "title": "Systems Integration and Architecture 1",
       "schedule": "Wednesday 12:30PM - 2:30PM & 4:30PM - 7:30PM",
       "units": 3,
-      "status": "upcoming",
+      "status": "active",
       "color": "cyan",
-      "badge": "Slot Ready",
-      "checkpointsCount": 0,
-      "questionsCount": 0,
-      "flashcardsCount": 0
+      "badge": "Current Materials Ready",
+      "checkpointsCount": 5,
+      "questionsCount": 50,
+      "flashcardsCount": 50
     },
     {
       "code": "SOCSCI3",
@@ -1986,6 +1986,1033 @@ const REVIEWER_DATA = {
         }
       ]
     }
+,
+{
+        "id": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "title": "SIA Requirements & Fundamentals",
+        "badge": "Checkpoint 1 (SIA)",
+        "description": "Systems Integration, System Architecture, EAI, Data Integration, EDI (UN/EDIFACT, XML, SWIFT), UML Messages, and the 10 Requirement Elicitation Methodologies & Surveying rules.",
+        "digest": [
+            {
+                "heading": "1. System Integration vs. System Architecture",
+                "points": [
+                    "**System Integration**: The engineering discipline of combining different sub-system components into one unified, cohesive large system, ensuring continuous functionality, data interoperability, and coordinated service delivery across disparate IT assets.",
+                    "**System Architecture**: A conceptual model and formal description/representation that defines the structural layout, component boundaries, communication protocols, and behavioral rules of an entire system.",
+                    "**Core Integration Forms**: 1) *Enterprise Application Integration (EAI)*; 2) *Data Integration*; 3) *Electronic Data Interchange (EDI)*."
+                ],
+                "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">🌐 Enterprise System Integration & Architecture Network</span>\n  <span class=\"diagram-badge\">Hub-and-Spoke Topology</span>\n</div>\n<div class=\"arch-network\">\n  <div class=\"arch-node hub\">\n    <div class=\"arch-node-icon\">🔀</div>\n    <div class=\"arch-node-title\">Enterprise Integration Backbone (EAI / Middleware / Internet)</div>\n    <div class=\"arch-node-meta\">Secure Message Broker • EDI Exchange • Protocol Adapters</div>\n  </div>\n  <div class=\"arch-node\">\n    <div class=\"arch-node-icon\">👤</div>\n    <div class=\"arch-node-title\">Customer Web App</div>\n    <div class=\"arch-node-meta\">Order Placement & Tracking</div>\n  </div>\n  <div class=\"arch-node\">\n    <div class=\"arch-node-icon\">👥</div>\n    <div class=\"arch-node-title\">Buyer's Community</div>\n    <div class=\"arch-node-meta\">Catalog & Quotations</div>\n  </div>\n  <div class=\"arch-node\">\n    <div class=\"arch-node-icon\">🏭</div>\n    <div class=\"arch-node-title\">Seller ERP & CRM</div>\n    <div class=\"arch-node-meta\">Inventory & Order Fulfillment</div>\n  </div>\n  <div class=\"arch-node\">\n    <div class=\"arch-node-icon\">💳</div>\n    <div class=\"arch-node-title\">Payment Clearinghouse</div>\n    <div class=\"arch-node-meta\">SWIFT / Gateway Validation</div>\n  </div>\n  <div class=\"arch-node\">\n    <div class=\"arch-node-icon\">🚚</div>\n    <div class=\"arch-node-title\">Logistics Service</div>\n    <div class=\"arch-node-meta\">Dispatch, Shipping & Delivery</div>\n  </div>\n</div>\n",
+                "table": {
+                    "headers": [
+                        "Architectural Concept",
+                        "Formal Definition",
+                        "Primary Operational Role",
+                        "Real-World SIA Scenario"
+                    ],
+                    "rows": [
+                        [
+                            "System Integration",
+                            "Combining disparate sub-systems to form a unified large-scale system",
+                            "Ensures end-to-end functionality, automated data synchronization, and eliminates information silos",
+                            "Connecting an e-commerce website with backend ERP, warehouse barcode scanners, and payment gateways"
+                        ],
+                        [
+                            "System Architecture",
+                            "A conceptual model and formal representation defining system structure and behavior",
+                            "Provides the foundational technical blueprint and constraints for integration design",
+                            "Designing a microservices architecture communicating via REST APIs and Kafka message queues"
+                        ],
+                        [
+                            "Enterprise Application Integration (EAI)",
+                            "Methods, concepts, and tools for the classification, connection, and coordination of internal apps",
+                            "Unifies legacy enterprise applications without rewriting underlying database schemas",
+                            "Integrating SAP ERP, Salesforce CRM, and custom accounting databases via an Enterprise Service Bus (ESB)"
+                        ],
+                        [
+                            "Electronic Data Interchange (EDI)",
+                            "Computer-to-computer structured exchange of standard electronic business documents",
+                            "Automates B2B transactions without human manual data re-entry",
+                            "Supermarkets dispatching electronic purchase orders directly to FMCG suppliers using UN/EDIFACT"
+                        ]
+                    ]
+                },
+                "tldr": "System Integration connects the pieces; System Architecture defines the blueprint. EAI coordinates internal enterprise apps, while EDI enables automated B2B document transactions."
+            },
+            {
+                "heading": "2. EDI Standards: UN/EDIFACT, XML, and UML Messages",
+                "points": [
+                    "**UN/EDIFACT**: *United Nations Electronic Data Interchange for Administration, Commerce, and Transport*. The global international standard for electronic data exchange across international borders.",
+                    "**3 Message Components in UN/EDIFACT**: Every transfer unit contains: 1) **Event** (the triggering transaction, e.g. Purchase Order Created); 2) **Reference Data** (the business catalog/master data referenced); 3) **Control Information** (headers, routing, validation, and batch metadata).",
+                    "**XML (eXtensible Markup Language)**: Open data format standard published by the **W3C**. Powers XML/EDI and incorporates auxiliary standards such as **XSL** (eXtensible Stylesheet Language) for document transformation and styling.",
+                    "**SWIFT**: Standardized international financial messaging protocol connecting global banks.",
+                    "**Messages in UML**: Represents communication between objects/lifelines; consists of **two (2) components**: 1) **Event** (the dispatch trigger); 2) **Information** (the data payload/arguments)."
+                ],
+                "table": {
+                    "headers": [
+                        "Standard / Technology",
+                        "Governing Body / Type",
+                        "Core Components / Structure",
+                        "Key Advantage"
+                    ],
+                    "rows": [
+                        [
+                            "UN/EDIFACT",
+                            "United Nations (UN / CEFACT)",
+                            "Contains 3 components: 1. Event, 2. Reference Data, 3. Control Information",
+                            "Globally standardized syntax for international maritime, customs, and commercial transport"
+                        ],
+                        [
+                            "XML / XML-EDI",
+                            "World Wide Web Consortium (W3C)",
+                            "Human-readable hierarchical markup with extensible custom tags and XSL stylesheets",
+                            "Highly flexible, universally supported by modern web platforms, self-describing schemas"
+                        ],
+                        [
+                            "SWIFT",
+                            "SWIFT Financial Messaging",
+                            "Strict banking format MT/ISO 20022 message envelopes",
+                            "Extremely secure, tamper-evident global financial settlement network"
+                        ],
+                        [
+                            "UML Messages",
+                            "Object Management Group (OMG)",
+                            "Contains 2 components: 1. Event (trigger), 2. Information (parameters)",
+                            "Directly models object-to-object interaction in sequence and collaboration diagrams"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: UN/EDIFACT contains THREE (3) message components (Event, Reference Data, Control Information). UML messages contain only TWO (2) components (Event, Information)!"
+            },
+            {
+                "heading": "3. Requirement Elicitation (The 10 Methodologies)",
+                "points": [
+                    "**Requirement Elicitation**: Also known as *'Requirement gathering and specification'*. The active process of researching, discovering, uncovering, and validating stakeholder needs for an IT system.",
+                    "The lecture identifies **10 distinct requirement elicitation methodologies** used by systems analysts."
+                ],
+                "table": {
+                    "headers": [
+                        "#",
+                        "Methodology",
+                        "Definition & How It Works",
+                        "When to Use / Best Application"
+                    ],
+                    "rows": [
+                        [
+                            "1",
+                            "Brainstorming",
+                            "Unconstrained group creativity session to generate a broad volume of innovative ideas without immediate criticism or filtering",
+                            "Early conceptual phase when exploring novel features or solving ambiguous problems"
+                        ],
+                        [
+                            "2",
+                            "Document Analysis",
+                            "Reviewing existing system documentation, process logs, regulatory laws, contracts, and manuals to uncover functional rules",
+                            "Replacing legacy systems or when subject matter experts are unavailable"
+                        ],
+                        [
+                            "3",
+                            "Focus Group",
+                            "Moderated discussion with a representative group of end-users to gauge feelings, attitudes, and reactions",
+                            "Evaluating user sentiment, product UI desirability, or testing acceptance of planned workflow shifts"
+                        ],
+                        [
+                            "4",
+                            "Interface Analysis",
+                            "Examining touchpoints and boundary conditions between systems, hardware devices, external APIs, and human users",
+                            "Integration projects involving legacy databases, third-party APIs, payment gateways, or POS hardware"
+                        ],
+                        [
+                            "5",
+                            "Observation (Shadowing)",
+                            "Directly watching end-users execute their day-to-day tasks in their authentic working environment",
+                            "Uncovering tacit knowledge, unspoken habits, operational bottlenecks, and manual workarounds"
+                        ],
+                        [
+                            "6",
+                            "Interview",
+                            "Structured or semi-structured one-on-one dialogues between analysts and key stakeholders",
+                            "Extracting deep qualitative requirements, strategic goals, and confidential domain insights"
+                        ],
+                        [
+                            "7",
+                            "Prototyping",
+                            "Constructing operational models or mockups to let stakeholders visualize and experience requirements",
+                            "Complex interactive UIs where stakeholders cannot clearly describe what they want in text"
+                        ],
+                        [
+                            "8",
+                            "Requirements Workshop",
+                            "Structured, intensive working session uniting cross-functional stakeholders (facilitator, architect, users, managers)",
+                            "High-priority projects requiring rapid alignment and immediate resolution of conflicting stakeholder priorities"
+                        ],
+                        [
+                            "9",
+                            "Reverse Engineering",
+                            "Deconstructing an existing legacy software system or competitor product to deduce its underlying logic, schema, and rules",
+                            "Migrating undocumented, mission-critical legacy applications whose original developers have left"
+                        ],
+                        [
+                            "10",
+                            "Surveying",
+                            "Administering structured questionnaires to a large, geographically dispersed population of respondents",
+                            "Collecting statistically significant quantitative feedback and prioritizing feature backlogs"
+                        ]
+                    ]
+                },
+                "tldr": "Requirement Elicitation uncovers the true needs of stakeholders using 10 specialized techniques ranging from one-on-one interviews and observation to prototyping and surveying."
+            },
+            {
+                "heading": "4. The 4 Types of Prototyping & Surveying Best Practices",
+                "points": [
+                    "**4 Types of Prototyping**:",
+                    "• **Rapid Throwaway Prototype**: Built quickly with mock data solely to clarify requirements, and then discarded.",
+                    "• **Evolutionary Prototype**: Starts as a solid architectural core and iteratively expands into the final production system.",
+                    "• **Incremental Prototype**: System is decomposed into functional modules built in parallel as prototypes before final assembly.",
+                    "• **Extreme Prototype**: Widely used in web development; structured into 3 successive stages: static HTML wireframes ➔ data simulation services ➔ backend integration.",
+                    "**Surveying Best Practices**: 8 essential rules to guarantee valid, high-integrity survey data."
+                ],
+                "table": {
+                    "headers": [
+                        "Surveying Guideline",
+                        "Rule Explanation",
+                        "Why It Matters for Analysts (Exam Focus)"
+                    ],
+                    "rows": [
+                        [
+                            "Communicate responses & objective",
+                            "Clearly explain the purpose of the survey and how data will be utilized",
+                            "Increases stakeholder trust, response willingness, and survey completion rate"
+                        ],
+                        [
+                            "Be aware of survey population & characteristics",
+                            "Tailor language, terminology, and length to the demographic profile of the audience",
+                            "Prevents misinterpretations and ensures questions align with respondent technical competence"
+                        ],
+                        [
+                            "Keep survey short",
+                            "Limit question count to the absolute minimum necessary",
+                            "Prevents survey fatigue, rushed answers, and mid-survey dropouts"
+                        ],
+                        [
+                            "Ensure survey content is clear",
+                            "Use plain, unambiguous phrasing that leaves zero room for double meanings",
+                            "Eliminates ambiguous data points that skew statistical analysis"
+                        ],
+                        [
+                            "Avoid negative questions",
+                            "Do not use confusing negatives (e.g. 'Which features do you not find unhelpful?')",
+                            "Negative syntax causes cognitive confusion and inverted, erroneous responses"
+                        ],
+                        [
+                            "Avoid complex concepts",
+                            "Steer clear of convoluted technical jargon or academic theory",
+                            "Enables non-technical users to answer quickly and accurately"
+                        ],
+                        [
+                            "Elicit more details",
+                            "Include focused qualitative open-ended follow-ups where appropriate",
+                            "Yields actionable context behind purely quantitative rating numbers"
+                        ],
+                        [
+                            "Avoid questions putting respondent on defensive",
+                            "Never ask accusatory or intimidating questions (e.g. 'Why did you fail to follow policy?')",
+                            "Defensive questions trigger dishonest, protective responses that hide root problems"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: Rapid Throwaway prototypes are DISCARDED after requirements are validated. Evolutionary prototypes EVOLVE into the actual working production system!"
+            }
+        ]
+    },
+    {
+        "id": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "title": "Modeling & Testing Tools (BPM & Use Case)",
+        "badge": "Checkpoint 2 (SIA)",
+        "description": "Use Case Model (actors, boundaries, relationships, 5 purposes), 10 Business Process Modeling (BPM) Techniques (BPMN, UML, DFD, RAD, RID, Gantt, IDEF, CPN, OO), and Business Analysis Tools.",
+        "digest": [
+            {
+                "heading": "1. Use Case Model & Its 5 Purposes",
+                "points": [
+                    "**Use Case Model**: A behavioral architectural model that depicts how different types of external actors interact with a system to solve specific business problems.",
+                    "**Unified Modeling Language (UML)**: The standardized modeling notation for use cases.",
+                    "**Core Building Blocks**: 1) *Actors* (stick figures representing external roles, services, or devices); 2) *System Boundary* (box defining system perimeter); 3) *Use Cases* (horizontal ovals representing discrete system functions); 4) *Relationships* (associations, include, extend).",
+                    "**5 Core Purposes of Use Case Diagrams**:",
+                    "• a. *Specifying the context of a system.*",
+                    "• b. *Capturing system requirements.*",
+                    "• c. *Validating system architecture.*",
+                    "• d. *Implementing and generating test cases.*",
+                    "• e. *Developed by analysts and other experts to bridge business and engineering teams.*"
+                ],
+                "table": {
+                    "headers": [
+                        "Use Case Element",
+                        "Graphical Symbol",
+                        "Architectural Meaning",
+                        "Concrete Airline / SIA Example"
+                    ],
+                    "rows": [
+                        [
+                            "Actor",
+                            "Stick Figure",
+                            "External entity (human role, external IT system, or hardware) interacting with system",
+                            "Passenger, Check-In Representative, Destination Airport Customs"
+                        ],
+                        [
+                            "System Boundary",
+                            "Outer Rectangle",
+                            "Demarcates what is inside the system scope versus the external world",
+                            "Passenger Service System perimeter"
+                        ],
+                        [
+                            "Use Case",
+                            "Horizontal Oval",
+                            "A complete sequence of actions yielding observable value to an actor",
+                            "Check-In, Automated Check-In, Boarding, Requesting Passenger List"
+                        ],
+                        [
+                            "Relationship / Association",
+                            "Solid or Dashed Arrow",
+                            "Communication path connecting an actor to a use case, or use case dependencies",
+                            "Passenger initiates Check-In; Automated Check-In <<extends>> Check-In"
+                        ]
+                    ]
+                },
+                "tldr": "A Use Case Diagram captures system context, documents functional requirements, validates architecture, and acts as the direct basis for generating QA test cases."
+            },
+            {
+                "heading": "2. Business Process Modelling (BPM) & Master 10 Techniques",
+                "points": [
+                    "**Business Process Modelling (BPM)**: A discipline used primarily to map, document, and analyze workflows, enabling organizations to visualize processes and make better, data-driven decisions.",
+                    "The lecture outlines **10 core techniques** utilized in business process modeling."
+                ],
+                "table": {
+                    "headers": [
+                        "#",
+                        "BPM Technique",
+                        "Primary Focus & Description",
+                        "Key Elements & Notation"
+                    ],
+                    "rows": [
+                        [
+                            "1",
+                            "BPMN (Business Process Model and Notation)",
+                            "Standard graphical representation of business workflows using standard visual objects",
+                            "Flow objects (events, tasks, gateways), Connecting objects, Swimlanes (pools/lanes), Artifacts"
+                        ],
+                        [
+                            "2",
+                            "UML Diagrams",
+                            "Modern, powerful, and flexible approach to modeling and documenting business & system processes",
+                            "Activity diagrams, State machine diagrams, Sequence diagrams, and Component diagrams"
+                        ],
+                        [
+                            "3",
+                            "Flowchart Technique",
+                            "The most popular and universally recognized diagram for sequential workflows",
+                            "Basic geometric shapes (rectangles for steps, diamonds for decisions, ovals for start/end) and directional arrows"
+                        ],
+                        [
+                            "4",
+                            "Data Flow Diagram (DFD)",
+                            "Shows the flow of data or information from one entity or processing point to another",
+                            "Processes (circles/rounded rects), Data Stores (open rectangles), External Entities (rectangles), Data Flows (arrows)"
+                        ],
+                        [
+                            "5",
+                            "Role Activity Diagram (RAD)",
+                            "Maps out the intangible roles, states, and desired behavior patterns within an organization",
+                            "Focuses on role responsibilities, actions, and social interaction states"
+                        ],
+                        [
+                            "6",
+                            "Role Interaction Diagram (RID)",
+                            "Illustrates the exact interaction sequences between various processes within a system",
+                            "Comprises Sequence Diagrams (time-ordered message exchanges) and Collaboration Diagrams (structural object networks)"
+                        ],
+                        [
+                            "7",
+                            "Gantt Charts",
+                            "Relates a list of activities directly to a calendar time scale",
+                            "Horizontal task bars showing start/end dates, project timeline, critical path, and milestones"
+                        ],
+                        [
+                            "8",
+                            "Integrated Definition for Function Modelling (IDEF)",
+                            "A family of modeling methods addressing enterprise functional modeling needs (e.g. IDEF0)",
+                            "Function box bounded by ICOM: Input (Left), Control (Top), Output (Right), Mechanism/Resources (Bottom)"
+                        ],
+                        [
+                            "9",
+                            "Coloured Petri Nets (CPN)",
+                            "Graphically oriented formal language for design, specification, simulation, and verification of concurrent systems",
+                            "Places, Transitions, Arcs, and colored Tokens representing discrete state dynamics and concurrency"
+                        ],
+                        [
+                            "10",
+                            "Object-Oriented Methods",
+                            "Encapsulates workflow data and processing into reusable objects with message-passing logic",
+                            "Encapsulation, Message-Passing, Inheritance (class to subclass), and Polymorphism"
+                        ]
+                    ]
+                },
+                "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">📐 IDEF Function Box (ICOM Architecture)</span>\n  <span class=\"diagram-badge\">IDEF0 Standard</span>\n</div>\n<div style=\"max-width: 440px; margin: 0 auto; text-align: center;\">\n  <div style=\"background: rgba(99, 102, 241, 0.15); border: 1px dashed var(--accent-indigo); padding: 6px; border-radius: 6px; margin-bottom: 8px; font-size: 0.75rem; color: #a5b4fc;\">\n    ⬇️ <strong>CONTROL</strong> (Policies, Standards, Constraints)\n  </div>\n  <div style=\"display: flex; align-items: center; justify-content: space-between; gap: 8px;\">\n    <div style=\"flex: 1; background: rgba(6, 182, 212, 0.15); border: 1px dashed var(--accent-cyan); padding: 8px 4px; border-radius: 6px; font-size: 0.72rem; color: #67e8f9;\">\n      ➡️ <strong>INPUT</strong><br>(Raw Data, Materials)\n    </div>\n    <div style=\"flex: 2; background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid var(--accent-cyan); padding: 14px 8px; border-radius: 8px; font-weight: 700; font-size: 0.85rem;\">\n      ⚙️ FUNCTION NAME<br><span style=\"font-size: 0.7rem; font-weight: normal; color: var(--text-muted);\">Activity / Process #</span>\n    </div>\n    <div style=\"flex: 1; background: rgba(16, 185, 129, 0.15); border: 1px dashed var(--accent-emerald); padding: 8px 4px; border-radius: 6px; font-size: 0.72rem; color: #34d399;\">\n      ➡️ <strong>OUTPUT</strong><br>(Results, Deliverables)\n    </div>\n  </div>\n  <div style=\"background: rgba(245, 158, 11, 0.15); border: 1px dashed var(--accent-amber); padding: 6px; border-radius: 6px; margin-top: 8px; font-size: 0.75rem; color: #fcd34d;\">\n    ⬆️ <strong>MECHANISM</strong> (Personnel, IT Systems, Equipment, Resources)\n  </div>\n</div>\n",
+                "trap": "Exam Trap: IDEF uses the ICOM model: Input enters on the LEFT, Control enters on TOP, Output exits on the RIGHT, and Mechanism/Resources enter at the BOTTOM!"
+            },
+            {
+                "heading": "3. Business Analysis Tools & 3 Core Tool Categories",
+                "points": [
+                    "**Why Business Analysts (BAs) Need the Best Tools (5 Key Reasons)**:",
+                    "1. To **track requirements** throughout the software engineering lifecycle.",
+                    "2. To **manage requirements** when scope changes occur.",
+                    "3. To **describe requirements in detail** with zero ambiguity.",
+                    "4. To **model requirements diagrammatically** for enhanced stakeholder comprehension.",
+                    "5. To **collaborate with teams and stakeholders** across remote and hybrid organizational units."
+                ],
+                "table": {
+                    "headers": [
+                        "Tool Category",
+                        "Primary Purpose & Operational Scope",
+                        "Standard Industry Tool Examples"
+                    ],
+                    "rows": [
+                        [
+                            "1. Requirement-Related Tools",
+                            "Managing requirement trees, trace matrices, scope baselines, user stories, and acceptance criteria",
+                            "JIRA, Confluence, Modern Requirements, IBM DOORS, Azure DevOps"
+                        ],
+                        [
+                            "2. Modelling Tools",
+                            "Constructing formal architectural models, BPMN workflows, DFDs, UML diagrams, and wireframes",
+                            "Enterprise Architect, Lucidchart, Microsoft Visio, Camunda BPM, Draw.io"
+                        ],
+                        [
+                            "3. Collaboration Tools",
+                            "Facilitating synchronous and asynchronous communication, sprint reviews, and stakeholder alignment",
+                            "Slack, Microsoft Teams, Trello, Miro, Zoom, Google Workspace"
+                        ]
+                    ]
+                },
+                "tldr": "Business Analysis tools fall into 3 clear categories: Requirement-related (tracking/management), Modelling (diagramming/architecting), and Collaboration (cross-team communication)."
+            }
+        ]
+    },
+    {
+        "id": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "title": "Project Management Life Cycle (PMLC)",
+        "badge": "Checkpoint 3 (SIA)",
+        "description": "PMI 5-Phase Project Management Life Cycle, SMART vs CLEAR goal setting, Scope Statement, WBS, Milestones, Gantt Charts, Communication Plan, 5x3 Risk Severity Matrix, Execution tasks, 4 KPIs, and Project Closure.",
+        "digest": [
+            {
+                "heading": "1. PMI 5-Phase Project Management Life Cycle",
+                "points": [
+                    "Developed by the prestigious **Project Management Institute (PMI)**.",
+                    "Standard project progression flows through **five (5) discrete, sequential phases**:",
+                    "1. **Conception & Initiation**: Feasibility analysis and formal chartering.",
+                    "2. **Definition & Planning**: Scope definition, WBS, scheduling, and risk planning.",
+                    "3. **Launch or Execution**: Team development, resource assignment, and deliverable creation.",
+                    "4. **Performance / Monitoring**: Real-time KPI tracking, budget audits, and quality control.",
+                    "5. **Project Close**: Contract sign-offs, retrospectives, deliverable handover, and archiving."
+                ],
+                "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">🚀 PMI 5-Phase Project Management Life Cycle Pipeline</span>\n  <span class=\"diagram-badge\">Sequential Gate Flow</span>\n</div>\n<div class=\"diagram-pipeline\">\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">1</div>\n    <div class=\"pipe-step-title\">Initiation</div>\n    <div class=\"pipe-step-desc\">Project Charter<br>Business Case<br>Feasibility Study</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">2</div>\n    <div class=\"pipe-step-title\">Planning</div>\n    <div class=\"pipe-step-desc\">Scope Statement<br>WBS & Gantt<br>Risk & Comms Plan</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">3</div>\n    <div class=\"pipe-step-title\">Execution</div>\n    <div class=\"pipe-step-desc\">Team Assignment<br>Resource Allocation<br>Building Deliverables</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">4</div>\n    <div class=\"pipe-step-title\">Monitoring</div>\n    <div class=\"pipe-step-desc\">4 Project KPIs<br>Cost Tracking<br>Quality & Schedule</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">5</div>\n    <div class=\"pipe-step-title\">Closure</div>\n    <div class=\"pipe-step-desc\">Deliverable Handover<br>Contracts Closed<br>Post-Mortem Review</div>\n  </div>\n</div>\n",
+                "table": {
+                    "headers": [
+                        "PMI Phase",
+                        "Phase Focus",
+                        "Key Core Deliverables & Artifacts",
+                        "Primary Objective"
+                    ],
+                    "rows": [
+                        [
+                            "Phase 1: Initiation",
+                            "Conception and business validation",
+                            "Business Case, Feasibility Study, Project Charter, Project Team & Office",
+                            "Formally authorize project existence and prove business viability"
+                        ],
+                        [
+                            "Phase 2: Planning",
+                            "Developing a roadmap that everyone will follow",
+                            "Scope Statement, Work Breakdown Structure (WBS), Gantt Chart, Communication Plan, Risk Plan",
+                            "Establish baseline boundaries, schedules, budget, and risk mitigation strategies"
+                        ],
+                        [
+                            "Phase 3: Execution",
+                            "Developing and completing deliverables",
+                            "Deliverables developed, Resource assignments executed, Status meetings, Procurement",
+                            "Build actual software/hardware deliverables as directed by the Project Manager"
+                        ],
+                        [
+                            "Phase 4: Monitoring",
+                            "Measuring progression and performance against plan",
+                            "KPI Reports, Quality Deliverable inspections, Effort & Cost burn reports, Change requests",
+                            "Ensure execution strictly aligns with the project management plan and baseline"
+                        ],
+                        [
+                            "Phase 5: Closure",
+                            "Formal recognition of project completion",
+                            "Deliverable Handover, Completed Contracts, Retrospective Meeting, Learnings Document",
+                            "Orderly project termination, client acceptance, and organizational learning retention"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: The PROJECT CHARTER is generated in Phase 1 (Initiation), NOT in Phase 2 (Planning)! Planning begins ONLY AFTER the charter authorizes the project."
+            },
+            {
+                "heading": "2. Goal Setting: SMART vs. CLEAR Methods",
+                "points": [
+                    "During **Phase 2 (Project Planning)**, two primary goal-setting frameworks are used:",
+                    "• **SMART**: Traditional, structured goal setting emphasizing precision, realism, and time bounds.",
+                    "• **CLEAR**: Modern, agile-friendly goal setting emphasizing collaboration, emotional engagement, and adaptability."
+                ],
+                "table": {
+                    "headers": [
+                        "Framework",
+                        "Letter",
+                        "Keyword",
+                        "Practical Planning Definition",
+                        "Integration Scenario Example"
+                    ],
+                    "rows": [
+                        [
+                            "SMART",
+                            "S",
+                            "Specific",
+                            "Be clear and specific so goals are easier to achieve; team knows where to begin",
+                            "'Integrate the payment gateway with the core billing engine via REST API'"
+                        ],
+                        [
+                            "SMART",
+                            "M",
+                            "Measurable",
+                            "Measurable goals allow progress tracking and declare exactly when a goal is complete",
+                            "'Achieve 99.9% successful automated payment response within 1.5 seconds'"
+                        ],
+                        [
+                            "SMART",
+                            "A",
+                            "Actionable",
+                            "Actionable goals ensure the required implementation steps are within team control",
+                            "'Provision API keys, configure webhook listeners, and execute 50 unit tests'"
+                        ],
+                        [
+                            "SMART",
+                            "R",
+                            "Realistic",
+                            "Avoids overwhelm and stress by ensuring goals are feasible with available resources",
+                            "'Deploy integration on sandbox staging environment before production rollout'"
+                        ],
+                        [
+                            "SMART",
+                            "T",
+                            "Timebound",
+                            "A date keeps the team focused, motivated, and working toward an explicit target",
+                            "'Complete gateway certification and live production deployment by October 15'"
+                        ],
+                        [
+                            "CLEAR",
+                            "C",
+                            "Collaborative",
+                            "Is everyone involved? Promotes cross-functional teamwork and shared buy-in",
+                            "DevOps, backend developers, and finance analysts collaborate on API schemas"
+                        ],
+                        [
+                            "CLEAR",
+                            "L",
+                            "Limited",
+                            "Have you set clear time and financial boundaries?",
+                            "Strict 4-week sprint timebox with a maximum integration budget of $15,000"
+                        ],
+                        [
+                            "CLEAR",
+                            "E",
+                            "Emotional",
+                            "Does your goal engage all team members with meaning and pride?",
+                            "Eliminating manual billing errors to improve customer satisfaction and trust"
+                        ],
+                        [
+                            "CLEAR",
+                            "A",
+                            "Appreciable",
+                            "Is your goal broken down into manageable, measurable micro-deliverables?",
+                            "Sub-tasks: Auth token generator, webhook handler, retry queue, audit logger"
+                        ],
+                        [
+                            "CLEAR",
+                            "R",
+                            "Refinable",
+                            "Can the goal be adjusted if conditions or business requirements change?",
+                            "Ability to pivot to an alternative payment provider if gateway fees increase"
+                        ]
+                    ]
+                },
+                "tldr": "SMART = Specific, Measurable, Actionable, Realistic, Timebound. CLEAR = Collaborative, Limited, Emotional, Appreciable, Refinable."
+            },
+            {
+                "heading": "3. Essential Planning Documents & Risk Severity Matrix",
+                "points": [
+                    "**Scope Statement**: Defines business need, project benefits, objectives, deliverables, and key milestones.",
+                    "**Work Breakdown Structure (WBS)**: Hierarchical and incremental decomposition of the total project scope into phases, deliverables, and work packages.",
+                    "**Milestones**: Specific zero-duration points in time used to measure progress toward the ultimate objective.",
+                    "**Gantt Chart**: Relates activities to a calendar timeline to estimate durations and task sequencing.",
+                    "**Communication Plan**: Policy-driven matrix specifying *Description*, *Frequency*, *Method*, *Audience*, and *Owner*.",
+                    "**Risk Management Plan**: Evaluates risk events across **5 severity levels** against 3 critical project dimensions:"
+                ],
+                "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">⚠️ Risk Severity Evaluation Matrix</span>\n  <span class=\"diagram-badge\">5 Levels × 3 Impact Dimensions</span>\n</div>\n<div class=\"risk-matrix-grid\">\n  <div class=\"risk-row\" style=\"font-weight: 700; color: var(--text-muted);\">\n    <div>Level</div>\n    <div>Tech Performance</div>\n    <div>Program Cost</div>\n    <div>Schedule Slip</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-5\">5 Severe</div>\n    <div class=\"risk-cell\">Unacceptable; misses Key Parameters</div>\n    <div class=\"risk-cell\">Budget impacted &gt; $20 Million</div>\n    <div class=\"risk-cell\">Milestone delayed &gt; 3 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-4\">4 Significant</div>\n    <div class=\"risk-cell\">Significant changes; misses threshold</div>\n    <div class=\"risk-cell\">Budget impacted $10M – $20M</div>\n    <div class=\"risk-cell\">Critical path delayed 2–3 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-3\">3 Moderate</div>\n    <div class=\"risk-cell\">Moderate changes required</div>\n    <div class=\"risk-cell\">Budget impacted $2M – $10M</div>\n    <div class=\"risk-cell\">Schedule slips 1–2 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-2\">2 Minor</div>\n    <div class=\"risk-cell\">Minor changes within objective</div>\n    <div class=\"risk-cell\">Budget impacted &lt; $2M (&lt; 5%)</div>\n    <div class=\"risk-cell\">Non-critical slips; critical &lt; 1 Mo</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-1\">1 Minimal</div>\n    <div class=\"risk-cell\">Minor trades; zero program impact</div>\n    <div class=\"risk-cell\">Budget absorbed within plan</div>\n    <div class=\"risk-cell\">Schedule unaffected; float absorbs</div>\n  </div>\n</div>\n",
+                "table": {
+                    "headers": [
+                        "Document / Artifact",
+                        "Core Focus",
+                        "Primary Deliverable Format",
+                        "Who Maintains It?"
+                    ],
+                    "rows": [
+                        [
+                            "Scope Statement",
+                            "Defines business need, benefits, objectives, deliverables, and key milestones",
+                            "Formal narrative agreement document signed by sponsor and client",
+                            "Project Manager & Business Analyst"
+                        ],
+                        [
+                            "Work Breakdown Structure (WBS)",
+                            "Hierarchical decomposition of project into phases, deliverables, and work packages",
+                            "Tree diagram or indented hierarchy breakdown structure",
+                            "Project Manager & Technical Leads"
+                        ],
+                        [
+                            "Gantt Chart",
+                            "Relates tasks against calendar timeline, resources, and task dependencies",
+                            "Horizontal bar chart with critical path indicators",
+                            "Project Manager / Scheduler"
+                        ],
+                        [
+                            "Milestones",
+                            "Key milestone points within project lifecycle used to measure progress",
+                            "Flag markers indicating completion of major deliverable stages (0 duration)",
+                            "Project Board / PM / Stakeholders"
+                        ],
+                        [
+                            "Communication Plan",
+                            "Policy-driven approach to providing stakeholders with timely information",
+                            "Matrix table: Description, Frequency, Method, Audience, Owner",
+                            "Project Manager / Comms Lead"
+                        ],
+                        [
+                            "Risk Management Plan",
+                            "Details organization's risk management process and threshold mitigation",
+                            "Risk register and 5-level severity matrix (Performance, Cost, Schedule)",
+                            "Project Manager & Risk Officer"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: In the Risk Severity Matrix, Severity 5 (Severe) means budget impact > $20M and schedule delay > 3 months. Severity 1 (Minimal) causes NO schedule change because float absorbs variations!"
+            },
+            {
+                "heading": "4. Monitoring KPIs & The 5 Steps of Project Closure",
+                "points": [
+                    "**4 Key Performance Indicators (KPIs) in Monitoring**:",
+                    "1. **Project Objectives**: Measuring adherence to schedule and budget baselines.",
+                    "2. **Quality Deliverables**: Determining whether deliverables meet engineering quality criteria.",
+                    "3. **Effort and Cost Tracking**: Informing whether a project will meet its scheduled date of completion within cost tolerances.",
+                    "4. **Project Performance**: Monitoring and controlling scope change requests throughout the project.",
+                    "**Phase 5: Project Closure Steps** (Formal recognition of completion — everyone agrees it is completed):",
+                    "• Step a: **Transfer all deliverables** to the operational client.",
+                    "• Step b: **Complete and close all contracts** with external suppliers and partners.",
+                    "• Step c: **Have a retrospective meeting** (post-mortem session).",
+                    "• Step d: **Disband the team** and reassign personnel to new ventures.",
+                    "• Step e: **Document all learnings** and archive project repository assets."
+                ],
+                "table": {
+                    "headers": [
+                        "Project Closure Step",
+                        "Action Taken",
+                        "Why It Is Mandatory"
+                    ],
+                    "rows": [
+                        [
+                            "1. Transfer all deliverables",
+                            "Handover of software code, servers, licenses, and documentation to operations",
+                            "Ensures client takes official ownership and operational responsibility"
+                        ],
+                        [
+                            "2. Complete contracts",
+                            "Settle all outstanding invoices, audit deliverables, and terminate vendor contracts",
+                            "Eliminates legal liabilities, financial disputes, and unexpected recurring charges"
+                        ],
+                        [
+                            "3. Have retrospective meeting",
+                            "Conduct post-mortem review with project team and key stakeholders",
+                            "Identifies what went well, what failed, and prevents repeating errors"
+                        ],
+                        [
+                            "4. Disband the team",
+                            "Release project team members back to functional departments or new projects",
+                            "Prevents idle resource costs and enables personnel career reallocation"
+                        ],
+                        [
+                            "5. Document all learnings",
+                            "Compile project archives, metrics, risk lessons, and post-implementation review",
+                            "Builds institutional knowledge and enriches organizational process assets"
+                        ]
+                    ]
+                },
+                "tldr": "Monitoring tracks 4 KPIs (Objectives, Quality, Cost/Effort, Performance). Closure completes 5 actions: Deliverables Handover ➔ Contracts Closed ➔ Retrospective ➔ Disband Team ➔ Document Learnings."
+            }
+        ]
+    },
+    {
+        "id": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "title": "SIA Organizational Context & IT Environments",
+        "badge": "Checkpoint 4 (SIA)",
+        "description": "Business Processes definition, 6 reasons for importance, 7-Step Business Process Lifecycle, Business Process Integration (BPI), IT Environment 3 components & drivers (Needs, Rules, Choices), Centralized vs Decentralized structures, and 4 Organizational Structure types (Functional, Divisional, Flatarchy, Matrix).",
+        "digest": [
+            {
+                "heading": "1. Business Processes & The 7-Step Lifecycle",
+                "points": [
+                    "**Business Process**: A series of steps performed by a group of stakeholders to achieve a concrete organizational goal; a collection of linked tasks culminating in the delivery of a service or product to a client.",
+                    "**6 Reasons Why Business Processes Are Important**:",
+                    "1. To **identify important tasks**.",
+                    "2. To **improve operational efficiency**.",
+                    "3. To **streamline communications**.",
+                    "4. To **set formal governance approvals**.",
+                    "5. To **prevent chaos**.",
+                    "6. To **standardize procedures** across the enterprise."
+                ],
+                "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">🔄 7 Steps of the Business Process Lifecycle</span>\n  <span class=\"diagram-badge\">Continuous Improvement Cycle</span>\n</div>\n<div class=\"diagram-pipeline\">\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">1</div>\n    <div class=\"pipe-step-title\">Define Goals</div>\n    <div class=\"pipe-step-desc\">Know process purpose & target</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">2</div>\n    <div class=\"pipe-step-title\">Plan & Map</div>\n    <div class=\"pipe-step-desc\">Determine strategies & workflows</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">3</div>\n    <div class=\"pipe-step-title\">Set Actions</div>\n    <div class=\"pipe-step-desc\">Assign to people & machines</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">4</div>\n    <div class=\"pipe-step-title\">Test Process</div>\n    <div class=\"pipe-step-desc\">Small-scale test environment</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">5</div>\n    <div class=\"pipe-step-title\">Implement</div>\n    <div class=\"pipe-step-desc\">Live production deployment</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">6</div>\n    <div class=\"pipe-step-title\">Monitor</div>\n    <div class=\"pipe-step-desc\">Review & analyze metrics</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">7</div>\n    <div class=\"pipe-step-title\">Repeat</div>\n    <div class=\"pipe-step-desc\">Replicate & optimize standard</div>\n  </div>\n</div>\n",
+                "table": {
+                    "headers": [
+                        "Step #",
+                        "Lifecycle Step Name",
+                        "Core Activity",
+                        "Exam Rationale"
+                    ],
+                    "rows": [
+                        [
+                            "Step 1",
+                            "Define your goals",
+                            "Establish the core reason and outcome expected from the process",
+                            "Clarifies the business purpose before committing resources"
+                        ],
+                        [
+                            "Step 2",
+                            "Plan and map your process",
+                            "Determine the detailed architectural strategies and flowchart steps needed",
+                            "Visualizes the complete operational workflow from start to finish"
+                        ],
+                        [
+                            "Step 3",
+                            "Set actions and assign stakeholders",
+                            "Distribute individual tasks to specific team members and automated machines",
+                            "Ensures strict role accountability for each process activity"
+                        ],
+                        [
+                            "Step 4",
+                            "Test the process",
+                            "Run the process on a small-scale, sandboxed environment and measure performance",
+                            "Uncovers bugs, bottlenecks, and workflow friction before live user exposure"
+                        ],
+                        [
+                            "Step 5",
+                            "Implement the process",
+                            "Deploy the tested process into the live enterprise operational environment",
+                            "Transition to full-scale, active business execution"
+                        ],
+                        [
+                            "Step 6",
+                            "Monitor the results",
+                            "Review, analyze, and benchmark real-time performance against baseline goals",
+                            "Verifies whether process targets and efficiencies are actually achieved"
+                        ],
+                        [
+                            "Step 7",
+                            "Repeat",
+                            "Replicate, standardize, and iteratively optimize the process across teams",
+                            "Drives enterprise-wide scalability and continuous business improvement"
+                        ]
+                    ]
+                },
+                "tldr": "A business process links tasks to deliver a service/product. Its lifecycle follows 7 steps: Define Goals ➔ Plan/Map ➔ Set Actions ➔ Test ➔ Implement ➔ Monitor ➔ Repeat."
+            },
+            {
+                "heading": "2. Business Process Integration (BPI) & IT Environments",
+                "points": [
+                    "**Business Process Integration (BPI)**: Allows for the automation of business processes, integration of systems and services, and secure sharing of data across numerous enterprise applications. Connects systems and information efficiently.",
+                    "**7 Core Benefits of BPI**: 1) *Services Integration*, 2) *Simplify Operations*, 3) *Lower Operating Costs*, 4) *Improve Output Quality*, 5) *Enhance Employee Productivity*, 6) *Standardize Workflows*, 7) *Smart Services Delivery*.",
+                    "**IT Environment**: An integrated collection of technology components that serves the needs of its users and the owner of the resulting system.",
+                    "**3 Components of an IT Environment**:",
+                    "• 1. **Computing Platforms**: Server hardware, cloud instances, OS, virtualization.",
+                    "• 2. **Applications / Apps**: Web applications, CRM, ERP, backend databases.",
+                    "• 3. **Connectivity (Networking)**: Wireless (WiFi, 3G/4G/5G, Bluetooth), Wired (Twisted copper pair, Fiber optic), Personal (Bluetooth), Local (Ethernet), Distance/Wide-area (DSL, fiber backbones).",
+                    "**IT Environment Decision Triad (Purposes)**:",
+                    "• **Needs**: Functionality must address purpose; Cost must be affordable; Reliability must be reasonable.",
+                    "• **Rules**: Government laws and regulations; Internal policies imposed by system owners.",
+                    "• **Choices**: Balancing owner's needs, mandatory compliance rules, and available affordable technology."
+                ],
+                "table": {
+                    "headers": [
+                        "IT Environment Triad",
+                        "Guiding Principle",
+                        "Key Considerations for System Integration"
+                    ],
+                    "rows": [
+                        [
+                            "Needs",
+                            "Environment must functionally solve the business problem reliably and affordably",
+                            "Must balance performance benchmarks against budget constraints and uptime guarantees (SLA)"
+                        ],
+                        [
+                            "Rules",
+                            "External laws and owner regulations govern how the IT environment operates",
+                            "Compliance with Data Privacy Act, industry cybersecurity mandates, and internal audit policies"
+                        ],
+                        [
+                            "Choices",
+                            "Selecting technology based on intersection of Needs, Rules, and Cost",
+                            "Choosing between on-premise servers vs cloud SaaS, proprietary software vs open source"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: IT Environment Connectivity includes Personal (Bluetooth), Local (Ethernet), and Distance (DSL/Wide-Area), wired through copper/fiber or wireless through WiFi/cellular."
+            },
+            {
+                "heading": "3. Organizational Structures (Centralized vs. Decentralized & 4 Types)",
+                "points": [
+                    "**Organizational Structure**: A system outlining how certain activities (rules, roles, responsibilities) are directed in order to achieve the goals of an organization; determines how information flows between organizational levels.",
+                    "**Centralized vs. Decentralized**:",
+                    "• **Centralized**: Hierarchical decision-making; different branches follow identical, uniform processes; typical of large, established corporations.",
+                    "• **Decentralized**: Democratic decision-making; different branches adapt to their specific localized needs; typical of small, agile organizations.",
+                    "**4 Core Types of Organizational Structures**:"
+                ],
+                "table": {
+                    "headers": [
+                        "Structure Type",
+                        "Defining Characteristics",
+                        "Key Advantages",
+                        "Key Disadvantages"
+                    ],
+                    "rows": [
+                        [
+                            "1. Functional Structure",
+                            "Bureaucratic structure dividing the firm into specialized departments (Finance, Marketing, HR, Admin) to ensure uniformity; highly centralized",
+                            "• Deep employee specialization & experience\n• High operational standardization\n• Clear communication & economies of scale",
+                            "• Lack of variety and job enrichment\n• Heavy bureaucracy and paperwork\n• Siloed departments compromise cross-functional needs"
+                        ],
+                        [
+                            "2. Divisional / Multidivisional",
+                            "Common in large enterprises; parent organization owns semi-autonomous subsidiaries/divisions operating under the same brand",
+                            "• Senior management time freed up for strategy\n• Greater localized market knowledge\n• Faster divisional decision speed",
+                            "• Costly duplication of services and staff\n• Coordination between divisions is difficult\n• Lack of central specialization"
+                        ],
+                        [
+                            "3. Flatarchy Structure",
+                            "Widely used among tech startups; flattens the hierarchy and chain of command, granting employees great autonomy",
+                            "• Eliminates bureaucratic red tape\n• Extremely fast communication and agile pivots\n• Fosters high innovation and employee ownership",
+                            "• Lack of supervision and structure\n• Role confusion and overlapping work\n• Can descend into organizational chaos as company scales"
+                        ],
+                        [
+                            "4. Matrix Structure",
+                            "Grid organizational layout where employees report to more than one manager (dual reporting; solid vs dotted line)",
+                            "• Highly flexible sharing of specialized personnel\n• Bridges functional expertise with project delivery",
+                            "• Conflict between competing project & department managers\n• Blurred accountability and communication confusion\n• Higher meeting overhead"
+                        ]
+                    ]
+                },
+                "tldr": "Functional is departmental and centralized; Divisional decentralizes subsidiaries under one brand; Flatarchy flattens startup hierarchy; Matrix uses dual reporting managers."
+            }
+        ]
+    },
+    {
+        "id": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "title": "SIA Acquisition & Sourcing",
+        "badge": "Checkpoint 5 (SIA)",
+        "description": "Procurement, Sourcing, and Acquisition Process, Hardware & Software Acquisition stages, Sourcing Requirements & Market Survey, Determining Source of Supply (Local, National, International), Sole vs Single Sourcing, RFQ & Sealed Bidding, Vendor Screening, and In-Sourcing advantages & disadvantages.",
+        "digest": [
+            {
+                "heading": "1. Procurement Sourcing & Acquisition Process",
+                "points": [
+                    "**Procurement Process Flow**: Requests for procurement are formalized in a **Purchase Requisition Order** and submitted to the procurement unit to be executed under strict organizational guidelines.",
+                    "**Sourcing**: Activities aimed at identifying, evaluating, assessing, selecting, and engaging with the best suppliers.",
+                    "**Hardware & Software Acquisition Workflow** encompasses 3 core stages:",
+                    "1. **Requirements Analysis**: Technical sizing, user stories, hardware compatibility.",
+                    "2. **Request for Proposal (RFP) / Request for Quotation (RFQ)**: Formal solicitation sent to vetted vendors.",
+                    "3. **Vendor Selection & Award**: Bid evaluation, scoring, reference verification, and contracting."
+                ],
+                "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">📦 Sourcing & Procurement Decision Flowchart</span>\n  <span class=\"diagram-badge\">Policy-Driven Sourcing</span>\n</div>\n<div class=\"diagram-pipeline\">\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">1</div>\n    <div class=\"pipe-step-title\">Purchase Requisition</div>\n    <div class=\"pipe-step-desc\">Formal request submitted to procurement unit</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">2</div>\n    <div class=\"pipe-step-title\">Market Survey</div>\n    <div class=\"pipe-step-desc\">Assess quantities, quality, pricing & specs</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">3</div>\n    <div class=\"pipe-step-title\">Source of Supply</div>\n    <div class=\"pipe-step-desc\">First Principle: Source locally/in-country first</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">4</div>\n    <div class=\"pipe-step-title\">Tender & RFQ</div>\n    <div class=\"pipe-step-desc\">Sole/Single Sourcing or Sealed Bidding</div>\n  </div>\n  <div class=\"pipe-arrow\">➔</div>\n  <div class=\"pipe-step\">\n    <div class=\"pipe-step-num\">5</div>\n    <div class=\"pipe-step-title\">Vendor Screening</div>\n    <div class=\"pipe-step-desc\">Questionnaire, References & Anti-Terrorism checks</div>\n  </div>\n</div>\n",
+                "table": {
+                    "headers": [
+                        "Acquisition Stage",
+                        "Core Responsibilities",
+                        "Primary Output Document"
+                    ],
+                    "rows": [
+                        [
+                            "1. Requirements Analysis",
+                            "Determine functional workload, concurrent users, OS compatibility, network bandwidth, and SLA needs",
+                            "Detailed Software / Hardware Specifications Document"
+                        ],
+                        [
+                            "2. Request for Proposal (RFP)",
+                            "Issue formal tender documents inviting vendors to submit technical architectures, timelines, and pricing",
+                            "RFP / RFQ Tender Package"
+                        ],
+                        [
+                            "3. Vendor Selection",
+                            "Score bids against criteria, check references, conduct compliance checks, negotiate contract",
+                            "Vendor Selection Matrix & Final Executed Supply Contract"
+                        ]
+                    ]
+                },
+                "tldr": "Procurement starts with a Purchase Requisition Order, advances through Sourcing (evaluating suppliers), and completes Acquisition across 3 stages: Requirements Analysis ➔ RFP ➔ Vendor Selection."
+            },
+            {
+                "heading": "2. Market Survey & Determining Source of Supply",
+                "points": [
+                    "**Market Survey**: Essential due-diligence research conducted before purchasing to establish realistic market parameters.",
+                    "**5 Core Elements Evaluated in a Market Survey**:",
+                    "1. **Quantities Available** (can the market fulfill needed volume?)",
+                    "2. **Quality Standards** (do items meet engineering durability and compliance thresholds?)",
+                    "3. **Pricing** (market cost benchmark to prevent inflated contractor bids)",
+                    "4. **Source and Origin of Items** (provenance, counterfeit risk, supply chain reliability)",
+                    "5. **Technical Specifications** (compatibility with existing SIA infrastructure).",
+                    "**Determining Source of Supply (The Golden First Principle)**:",
+                    "> *'The first principle should be to source all commodities **locally and in-country**, as close to the field as possible to reduce transport time and cost.'*",
+                    "**Sourcing Internationally**: Used when materials are unavailable locally or nationally in the quantities required. Options: Pre-positioned emergency stocks (e.g. CARE International), known international suppliers, pre-supply corporate agreements, or benchmarking peer NGOs."
+                ],
+                "table": {
+                    "headers": [
+                        "Supply Tier",
+                        "Geographic Scope",
+                        "When to Select",
+                        "Strategic Benefit"
+                    ],
+                    "rows": [
+                        [
+                            "1. Local Sourcing",
+                            "City or immediate operational region",
+                            "Always first choice whenever local capacity exists (The First Principle)",
+                            "Minimizes transport time, reduces freight costs, and supports local economy"
+                        ],
+                        [
+                            "2. National Sourcing",
+                            "Within the domestic national borders",
+                            "When local regional vendors cannot supply required volumes or technical standards",
+                            "Reliable domestic shipping, simpler legal jurisdiction, and no import tariffs"
+                        ],
+                        [
+                            "3. International Sourcing",
+                            "Overseas manufacturers and global suppliers",
+                            "Only when commodities are unavailable locally or nationally in needed quantities",
+                            "Access to specialized global technologies, bulk volume discounts, and pre-positioned agreements"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: Always remember the FIRST PRINCIPLE of sourcing: Source commodities LOCALLY and IN-COUNTRY as close to the field as possible to reduce transport time and cost!"
+            },
+            {
+                "heading": "3. Vendor Selection: Sole vs. Single Sourcing & Screening",
+                "points": [
+                    "**Methods for Vendor Selection**:",
+                    "• **Sole Sourcing**: ONLY ONE source is available in the entire market (e.g., local municipal water utility company, patented sole-supplier).",
+                    "• **Single Sourcing**: MULTIPLE suppliers are available in the market, but the organization deliberately selects only ONE preferred supplier (e.g. standardizing on Dell servers for volume discounts).",
+                    "• **Request for Quotations (RFQ) & Sealed Bidding Process**: Governed by strict bidding thresholds (e.g., CARE CI Harmonization Procurement Policy). Uses a *Tracking Sheet for Sealed Bids* and independent bid evaluation committees.",
+                    "**Vendor Screening (3 Mandatory Hurdles Before Awarding Contract)**:",
+                    "1. Request potential suppliers to complete a comprehensive **Vendor Questionnaire**.",
+                    "2. Check **References**, preferably from other reputable NGOs or corporate peers.",
+                    "3. Screen all potential vendors against **Anti-Terrorism and Debarred Listings** for both individuals and corporate organizations."
+                ],
+                "table": {
+                    "headers": [
+                        "Procurement Method",
+                        "Suppliers Available in Market",
+                        "Mechanism & Governing Rules",
+                        "Typical Use Case"
+                    ],
+                    "rows": [
+                        [
+                            "Sole Sourcing",
+                            "Exactly ONE (1)",
+                            "Direct negotiation; no competition exists in the open market",
+                            "Public utilities (water concessionaire, power grid) or patented proprietary hardware"
+                        ],
+                        [
+                            "Single Sourcing",
+                            "Multiple (> 1)",
+                            "Buyer selects one preferred vendor to achieve volume pricing or technical consistency",
+                            "Selecting Cisco as sole network switch provider across all campus branches"
+                        ],
+                        [
+                            "Request for Quotations (RFQ)",
+                            "Multiple (> 1)",
+                            "Standard RFQ issued; responses tracked on Tracking Sheet for Sealed Bids",
+                            "Standard commercial procurement within threshold policies"
+                        ],
+                        [
+                            "Sealed Bidding",
+                            "Multiple (> 1)",
+                            "Confidential bids submitted and opened simultaneously by a formal bid committee",
+                            "High-value public infrastructure, government systems, and large enterprise ERP contracts"
+                        ]
+                    ]
+                },
+                "tldr": "Sole Sourcing = Only 1 supplier exists in the market. Single Sourcing = Multiple exist, but organization chooses only 1. Preferred vendors must pass questionnaire, references, and anti-terrorism screening."
+            },
+            {
+                "heading": "4. In-Sourcing: Trade-Off Analysis (Pros & Cons)",
+                "points": [
+                    "**In-Sourcing Definition**: The assignment of a project or service to a person or department **within the company**, rather than hiring a third-party external vendor or contractor.",
+                    "Deciding between In-sourcing vs Outsourcing is an essential architectural and governance decision."
+                ],
+                "table": {
+                    "headers": [
+                        "In-Sourcing Advantages",
+                        "Detailed Business Impact",
+                        "In-Sourcing Disadvantages",
+                        "Detailed Business Impact"
+                    ],
+                    "rows": [
+                        [
+                            "Competitive Advantage",
+                            "Retains intellectual property and internal skills that differentiate company from rivals",
+                            "High Overhead Cost",
+                            "Must maintain permanent salaries, benefits, office space, hardware, and ongoing training"
+                        ],
+                        [
+                            "Trade Secrets",
+                            "Proprietary code, customer data, and trade formulas remain strictly within internal walls",
+                            "Capabilities Limitations",
+                            "Internal employees may lack cutting-edge specialized expertise available from specialized vendors"
+                        ],
+                        [
+                            "Organization Culture",
+                            "Internal staff share company values, loyalty, and intimate familiarity with company culture",
+                            "Loss of Core Focus",
+                            "Managing internal IT operations distracts executive leadership from the core business mission"
+                        ],
+                        [
+                            "Long-Term Cost Control",
+                            "Eliminates high external agency consulting rates and contractor markups on routine tasks",
+                            "Scalability Friction",
+                            "Difficult to rapidly scale internal headcount up or down based on short-term project demands"
+                        ],
+                        [
+                            "Direct Command & Control",
+                            "Complete managerial authority over task prioritization, timelines, and technical standards",
+                            "Technological Stagnation",
+                            "Internal teams can fall behind emerging industry best practices without outside exposure"
+                        ]
+                    ]
+                },
+                "trap": "Exam Trap: Note that COST is listed under BOTH advantages (long-term elimination of vendor markups) AND disadvantages (high permanent payroll and infrastructure overhead) of in-sourcing!"
+            }
+        ]
+    }
   ],
   "flashcards": [
     {
@@ -2986,6 +4013,457 @@ const REVIEWER_DATA = {
       "question": "Which HTML Helper renders an anchor tag (`<a>`)?",
       "answer": "@Html.ActionLink().",
       "tag": "Helpers"
+    }
+,
+{
+        "id": "fc-sia-1",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What is System Integration?",
+        "answer": "Combining different sub-system components into a unified, cohesive large system to ensure continuous functionality and data interoperability.",
+        "tag": "SIA Fundamentals"
+    },
+    {
+        "id": "fc-sia-2",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What is System Architecture?",
+        "answer": "A conceptual model and formal description/representation that defines the structure, behavior, and more views of a system.",
+        "tag": "SIA Fundamentals"
+    },
+    {
+        "id": "fc-sia-3",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What does Enterprise Application Integration (EAI) incorporate?",
+        "answer": "It incorporates methods, concepts, and tools for the classification, connection, and coordination of applications within organizations.",
+        "tag": "Integration Types"
+    },
+    {
+        "id": "fc-sia-4",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What are the three (3) message components in a UN/EDIFACT transfer unit?",
+        "answer": "1. Event (trigger/action)\n2. Reference Data (catalog/master context)\n3. Control Information (headers, routing, metadata).",
+        "tag": "EDI Standards"
+    },
+    {
+        "id": "fc-sia-5",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What are the two (2) parts of a message in UML?",
+        "answer": "1. Event (the dispatch trigger)\n2. Information (the arguments/data payload).",
+        "tag": "UML Modeling"
+    },
+    {
+        "id": "fc-sia-6",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What organization publishes the XML standard, and what styling standard does it include?",
+        "answer": "Published by the W3C (World Wide Web Consortium); includes complementary standards like XSL (eXtensible Stylesheet Language).",
+        "tag": "Data Standards"
+    },
+    {
+        "id": "fc-sia-7",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What are the four (4) types of prototyping in requirement elicitation?",
+        "answer": "a. Rapid Throwaway Prototype\nb. Evolutionary Prototype\nc. Incremental Prototype\nd. Extreme Prototype.",
+        "tag": "Prototyping"
+    },
+    {
+        "id": "fc-sia-8",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What is Reverse Engineering in requirement elicitation?",
+        "answer": "Deconstructing an existing legacy system or competitor solution to extract its architectural rules, data schemas, and functional behavior.",
+        "tag": "Elicitation"
+    },
+    {
+        "id": "fc-sia-9",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "Why should negative questions be avoided in stakeholder surveys?",
+        "answer": "Negative questions cause cognitive confusion and double-negative misunderstandings, resulting in inverted or erroneous respondent answers.",
+        "tag": "Survey Rules"
+    },
+    {
+        "id": "fc-sia-10",
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "question": "What is the primary difference between a Focus Group and an Interview?",
+        "answer": "A Focus Group is a moderated group discussion assessing collective user perceptions and attitudes, while an Interview is a one-on-one structured dialogue.",
+        "tag": "Elicitation"
+    },
+    {
+        "id": "fc-sia-11",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What is a Use Case Model?",
+        "answer": "A behavioral model showing how different types of users interact with the system to solve a problem, formalized in UML as system requirements.",
+        "tag": "Use Case"
+    },
+    {
+        "id": "fc-sia-12",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "Name the 5 core purposes of a Use Case Diagram.",
+        "answer": "a. Specifying system context\nb. Capturing requirements\nc. Validating architecture\nd. Implementing and generating test cases\ne. Developed by analysts/experts.",
+        "tag": "Use Case"
+    },
+    {
+        "id": "fc-sia-13",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What is Business Process Modelling (BPM)?",
+        "answer": "The practice of mapping workflows to visualize processes and make better, data-driven operational decisions.",
+        "tag": "BPM"
+    },
+    {
+        "id": "fc-sia-14",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What are the four (4) basic building blocks of BPMN?",
+        "answer": "1. Flow objects (events, activities, gateways)\n2. Connecting objects (sequence/message flows)\n3. Swimlanes (pools & lanes)\n4. Artifacts (data objects, groups).",
+        "tag": "BPMN"
+    },
+    {
+        "id": "fc-sia-15",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What does a Data Flow Diagram (DFD) show?",
+        "answer": "Shows the flow of data or information from one place to another through processes, data stores, and external entities.",
+        "tag": "DFD"
+    },
+    {
+        "id": "fc-sia-16",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What is a Role Activity Diagram (RAD) used for?",
+        "answer": "Used to map out the intangible roles, states, or ideas of behavior desired within an organization.",
+        "tag": "RAD"
+    },
+    {
+        "id": "fc-sia-17",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What are the two common diagram types under Role Interaction Diagrams (RID)?",
+        "answer": "Sequence Diagrams (time-ordered interactions) and Collaboration Diagrams (structural object connections).",
+        "tag": "RID"
+    },
+    {
+        "id": "fc-sia-18",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What does IDEF stand for and what is its four-sided ICOM model?",
+        "answer": "Integrated Definition for Function Modelling. Box bounded by ICOM: Input (Left), Control (Top), Output (Right), Mechanism (Bottom).",
+        "tag": "IDEF"
+    },
+    {
+        "id": "fc-sia-19",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What are Coloured Petri Nets (CPN)?",
+        "answer": "A graphically oriented language for the design, specification, simulation, and verification of concurrent, distributed systems.",
+        "tag": "CPN"
+    },
+    {
+        "id": "fc-sia-20",
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "question": "What are the three (3) different types of business analysis tools?",
+        "answer": "1. Requirement-related tools\n2. Modelling tools\n3. Collaboration tools.",
+        "tag": "BA Tools"
+    },
+    {
+        "id": "fc-sia-21",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What are the five (5) phases of the PMI Project Management Life Cycle?",
+        "answer": "1. Initiation\n2. Planning\n3. Execution\n4. Performance / Monitoring\n5. Project Close.",
+        "tag": "PMLC"
+    },
+    {
+        "id": "fc-sia-22",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "In which PMI lifecycle phase is the Project Charter created?",
+        "answer": "Phase 1: Project Initiation (Conception & Initiation), NOT in Planning!",
+        "tag": "PMLC"
+    },
+    {
+        "id": "fc-sia-23",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What does the SMART acronym stand for in project planning?",
+        "answer": "Specific, Measurable, Actionable, Realistic, Timebound.",
+        "tag": "SMART Goals"
+    },
+    {
+        "id": "fc-sia-24",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What does the CLEAR acronym stand for in agile goal setting?",
+        "answer": "Collaborative, Limited, Emotional, Appreciable, Refinable.",
+        "tag": "CLEAR Goals"
+    },
+    {
+        "id": "fc-sia-25",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What is a Scope Statement?",
+        "answer": "A document defining the business need, benefits of the project, objectives, deliverables, and key milestones.",
+        "tag": "Scope"
+    },
+    {
+        "id": "fc-sia-26",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What is a Work Breakdown Structure (WBS)?",
+        "answer": "The hierarchical and incremental decomposition of the total project scope into phases, deliverables, and work packages.",
+        "tag": "WBS"
+    },
+    {
+        "id": "fc-sia-27",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What is a Milestone in project management?",
+        "answer": "A specific zero-duration point within a project's life cycle used to measure progress toward the ultimate goal.",
+        "tag": "Milestones"
+    },
+    {
+        "id": "fc-sia-28",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What are the 5 columns in a Project Stakeholder Communication Plan?",
+        "answer": "1. Description (name of comms)\n2. Frequency (how often)\n3. Method (channel)\n4. Audience (who receives)\n5. Owner (who is responsible).",
+        "tag": "Communication Plan"
+    },
+    {
+        "id": "fc-sia-29",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What are the four (4) Key Performance Indicators (KPIs) in Phase 4 Monitoring?",
+        "answer": "1. Project Objectives (schedule & budget)\n2. Quality Deliverables\n3. Effort and Cost Tracking\n4. Project Performance (change tracking).",
+        "tag": "KPIs"
+    },
+    {
+        "id": "fc-sia-30",
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "question": "What are the five (5) steps to the Project Closure Process?",
+        "answer": "1. Transfer all deliverables\n2. Complete the contracts\n3. Have a retrospective meeting\n4. Disband the team\n5. Document all learnings.",
+        "tag": "Closure"
+    },
+    {
+        "id": "fc-sia-31",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What is a Business Process?",
+        "answer": "A series of steps performed by stakeholders to achieve a concrete goal; a collection of linked tasks delivering a service or product to a client.",
+        "tag": "Business Process"
+    },
+    {
+        "id": "fc-sia-32",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "Name four (4) reasons why Business Processes are important.",
+        "answer": "1. Identify important tasks\n2. Improve efficiency\n3. Streamline communications\n4. Set approvals / Prevent chaos / Standardize procedures.",
+        "tag": "Business Process"
+    },
+    {
+        "id": "fc-sia-33",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "List the 7 steps of the Business Process Lifecycle in order.",
+        "answer": "1. Define goals\n2. Plan & map\n3. Set actions & assign stakeholders\n4. Test process\n5. Implement process\n6. Monitor results\n7. Repeat.",
+        "tag": "Process Lifecycle"
+    },
+    {
+        "id": "fc-sia-34",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What is Business Process Integration (BPI)?",
+        "answer": "Automates business processes, integrates systems/services, and enables secure data sharing across applications to connect systems efficiently.",
+        "tag": "BPI"
+    },
+    {
+        "id": "fc-sia-35",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What are the three (3) main components of an IT Environment?",
+        "answer": "1. Computing Platforms\n2. Applications / Apps\n3. Connectivity (Networking: Wireless, Wired, Personal, Local, Distance).",
+        "tag": "IT Environment"
+    },
+    {
+        "id": "fc-sia-36",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What is the IT Environment decision triad (Purposes)?",
+        "answer": "NEEDS (functionality, affordable cost, reliability); RULES (laws & owner regulations); CHOICES (balance of needs, rules, affordable technology).",
+        "tag": "IT Environment"
+    },
+    {
+        "id": "fc-sia-37",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "How does a Centralized organizational structure differ from a Decentralized structure?",
+        "answer": "Centralized uses hierarchical decision-making and uniform processes (large orgs); Decentralized uses democratic decision-making adapted locally (small orgs).",
+        "tag": "Org Structure"
+    },
+    {
+        "id": "fc-sia-38",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What is a Functional organizational structure and what is its main drawback?",
+        "answer": "A bureaucratic structure divided into specialized departments (HR, Finance, Marketing). Drawback: Bureaucracy, lack of variety, departmental silos.",
+        "tag": "Org Structure"
+    },
+    {
+        "id": "fc-sia-39",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What is a Flatarchy organizational structure?",
+        "answer": "A structure popular in startups that flattens hierarchy and the chain of command, giving employees great autonomy.",
+        "tag": "Org Structure"
+    },
+    {
+        "id": "fc-sia-40",
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "question": "What defines a Matrix organizational structure?",
+        "answer": "Employees have more than one line of reporting managers (e.g. functional manager and project manager), using solid and dotted line reporting.",
+        "tag": "Org Structure"
+    },
+    {
+        "id": "fc-sia-41",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What is the crucial difference between Sole Sourcing and Single Sourcing?",
+        "answer": "Sole Sourcing = Only ONE supplier exists in the market (e.g. water utility). Single Sourcing = MULTIPLE suppliers exist, but buyer chooses ONE.",
+        "tag": "Sourcing"
+    },
+    {
+        "id": "fc-sia-42",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What is the 'First Principle' when determining the source of supply?",
+        "answer": "Source all commodities LOCALLY and IN-COUNTRY, as close to the field as possible to reduce transport time and cost.",
+        "tag": "Sourcing Principle"
+    },
+    {
+        "id": "fc-sia-43",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What five (5) factors are evaluated during a Procurement Market Survey?",
+        "answer": "1. Quantities Available\n2. Quality\n3. Pricing\n4. Source and origin of items\n5. Technical Specifications.",
+        "tag": "Market Survey"
+    },
+    {
+        "id": "fc-sia-44",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "When is an organization justified in sourcing supply internationally?",
+        "answer": "When required materials are unavailable locally or nationally in the quantities or technical specifications required.",
+        "tag": "Sourcing"
+    },
+    {
+        "id": "fc-sia-45",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What tool tracks RFQs and vendor tenders in sealed bidding?",
+        "answer": "Tracking Sheet for Sealed Bids.",
+        "tag": "Procurement"
+    },
+    {
+        "id": "fc-sia-46",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What three (3) screening steps must be completed before confirming an order with a vendor?",
+        "answer": "1. Request completion of vendor questionnaire\n2. Check references (preferably peer NGOs)\n3. Screen against anti-terrorism and debarred lists.",
+        "tag": "Vendor Screening"
+    },
+    {
+        "id": "fc-sia-47",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What is In-Sourcing?",
+        "answer": "The assignment of a project to a person or department within the company rather than hiring a third-party contractor.",
+        "tag": "Insourcing"
+    },
+    {
+        "id": "fc-sia-48",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "Name three (3) major advantages of In-Sourcing.",
+        "answer": "Competitive advantage, Trade secrets protection, Organizational culture alignment, Cost control, Direct direction & control.",
+        "tag": "Insourcing"
+    },
+    {
+        "id": "fc-sia-49",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What are the three (3) main disadvantages of In-Sourcing?",
+        "answer": "1. High overhead Cost\n2. Internal Capabilities limitations\n3. Loss of core business Focus.",
+        "tag": "Insourcing"
+    },
+    {
+        "id": "fc-sia-50",
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "question": "What are the three (3) stages in Hardware and Software Acquisition?",
+        "answer": "1. Requirements Analysis\n2. Request for Proposal (RFP)\n3. Vendor Selection.",
+        "tag": "Acquisition"
     }
   ],
   "quizzes": [
@@ -4626,6 +6104,692 @@ const REVIEWER_DATA = {
           "explanation": "Editor() inspects metadata and data types to dynamically output appropriate form controls (e.g. numeric input, date picker, text)."
         }
       ]
+    }
+,
+{
+        "checkpointId": "sia-cp1",
+        "subject": "SIA101",
+        "week": "Week 2",
+        "questions": [
+            {
+                "id": "q-sia-1",
+                "type": "multiple",
+                "question": "Which of the following best defines System Integration?",
+                "options": [
+                    "Writing code from scratch to replace all legacy applications",
+                    "Combining different sub-system components to form a large unified system ensuring functionality",
+                    "Designing the visual graphic user interface for an operating system",
+                    "Purchasing off-the-shelf software packages to eliminate database storage"
+                ],
+                "correct": 1,
+                "explanation": "System Integration is explicitly defined as combining different sub-system components to form a large system that ensures the functionality of all sub-systems."
+            },
+            {
+                "id": "q-sia-2",
+                "type": "multiple",
+                "question": "What is System Architecture?",
+                "options": [
+                    "The physical wiring connecting server racks in a data center",
+                    "A conceptual model and formal description/representation that defines a system",
+                    "A business contract specifying software license payment terms",
+                    "A method of formatting SQL queries for high throughput"
+                ],
+                "correct": 1,
+                "explanation": "System Architecture is a conceptual model that defines a system and serves as a formal description and representation of that system."
+            },
+            {
+                "id": "q-sia-3",
+                "type": "multiple",
+                "question": "What are the three (3) components of a message in a single UN/EDIFACT transfer unit?",
+                "options": [
+                    "Header, Body, and Footer",
+                    "Event, Reference Data, and Control Information",
+                    "Client, Server, and Gateway",
+                    "Input, Process, and Output"
+                ],
+                "correct": 1,
+                "explanation": "UN/EDIFACT contains all three components in one transfer unit: 1. Event, 2. Reference Data, and 3. Control Information."
+            },
+            {
+                "id": "q-sia-4",
+                "type": "multiple",
+                "question": "In UML interaction modeling, how many parts does a message contain?",
+                "options": [
+                    "Four (Sender, Receiver, Data, Timestamp)",
+                    "Three (Event, Reference Data, Control Information)",
+                    "Two (Event and Information)",
+                    "One (Operation Name only)"
+                ],
+                "correct": 2,
+                "explanation": "In UML, messages are structured into two (2) parts: 1. Event and 2. Information."
+            },
+            {
+                "id": "q-sia-5",
+                "type": "multiple",
+                "question": "Which requirement elicitation technique is designed to generate a large volume of creative ideas without immediate criticism?",
+                "options": [
+                    "Brainstorming",
+                    "Reverse Engineering",
+                    "Document Analysis",
+                    "Interface Analysis"
+                ],
+                "correct": 0,
+                "explanation": "Brainstorming is a group creativity technique focused on rapidly generating diverse ideas without premature evaluation or criticism."
+            },
+            {
+                "id": "q-sia-6",
+                "type": "multiple",
+                "question": "An engineering team builds an initial lightweight system core and iteratively refines and expands it into the final production application. Which prototype type is this?",
+                "options": [
+                    "Rapid Throwaway Prototype",
+                    "Evolutionary Prototype",
+                    "Extreme Prototype",
+                    "Reverse Prototype"
+                ],
+                "correct": 1,
+                "explanation": "An Evolutionary Prototype starts with an initial working concept and iteratively evolves directly into the final production system."
+            },
+            {
+                "id": "q-sia-7",
+                "type": "multiple",
+                "question": "Which of the following is a recognized guideline when designing stakeholder surveys?",
+                "options": [
+                    "Include multiple negative questions to test respondent alertness",
+                    "Make the survey as long as possible to capture every possible detail",
+                    "Avoid questions that may put the respondent on the defensive",
+                    "Use complex theoretical concepts to ensure academic rigor"
+                ],
+                "correct": 2,
+                "explanation": "Survey best practices explicitly instruct analysts to avoid questions that put respondents on the defensive, avoid negative questions, and keep surveys short and clear."
+            },
+            {
+                "id": "q-sia-8",
+                "type": "multiple",
+                "question": "Which organization publishes the XML standard used in modern electronic data interchange?",
+                "options": [
+                    "IEEE",
+                    "ISO / IEC",
+                    "W3C (World Wide Web Consortium)",
+                    "PMI"
+                ],
+                "correct": 2,
+                "explanation": "XML (eXtensible Markup Language) is published by the W3C and is often bundled with standards like XSL."
+            },
+            {
+                "id": "q-sia-9",
+                "type": "multiple",
+                "question": "Deconstructing an existing legacy application or competitor software to extract its business rules and data models is known as:",
+                "options": [
+                    "Interface Analysis",
+                    "Job Shadowing",
+                    "Reverse Engineering",
+                    "Requirements Workshop"
+                ],
+                "correct": 2,
+                "explanation": "Reverse Engineering is the methodology of analyzing an existing system to deduce its internal specifications, business rules, and design."
+            },
+            {
+                "id": "q-sia-10",
+                "type": "multiple",
+                "question": "Enterprise Application Integration (EAI) incorporates methods, concepts, and tools specifically for:",
+                "options": [
+                    "Replacing internal database schemas with public blockchain ledgers",
+                    "The classification, connection, and coordination of applications within organizations",
+                    "Enforcing employee attendance using biometric hardware",
+                    "Outsourcing IT support to offshore third-party call centers"
+                ],
+                "correct": 1,
+                "explanation": "The lecture defines EAI as incorporating methods, concepts, and tools for the classification, connection, and coordination of applications within organizations."
+            }
+        ]
+    },
+    {
+        "checkpointId": "sia-cp2",
+        "subject": "SIA101",
+        "week": "Week 3",
+        "questions": [
+            {
+                "id": "q-sia-11",
+                "type": "multiple",
+                "question": "What is the primary role of a Use Case Model in software engineering?",
+                "options": [
+                    "To estimate the financial return on investment (ROI) of database licenses",
+                    "To show how different types of users interact with the system to solve a problem",
+                    "To compile source code into executable binary machine instructions",
+                    "To format network packets transmitted across switches"
+                ],
+                "correct": 1,
+                "explanation": "A Use Case Model shows how different types of users interact with the system to solve a problem and serves as functional system requirements."
+            },
+            {
+                "id": "q-sia-12",
+                "type": "multiple",
+                "question": "Which of the following is NOT one of the 5 stated purposes of a Use Case Diagram?",
+                "options": [
+                    "Specifying the context of a system",
+                    "Capturing system requirements",
+                    "Generating and implementing test cases",
+                    "Automatically generating SQL database tables and triggers"
+                ],
+                "correct": 3,
+                "explanation": "The 5 purposes are: specifying context, capturing requirements, validating architecture, implementing/generating test cases, and development by analysts/experts. SQL generation is not one of them."
+            },
+            {
+                "id": "q-sia-13",
+                "type": "multiple",
+                "question": "What are the four (4) basic building blocks of Business Process Model and Notation (BPMN)?",
+                "options": [
+                    "Entities, Attributes, Tables, and Relations",
+                    "Flow objects, Connecting objects, Swimlanes, and Artifacts",
+                    "Inputs, Processes, Storage, and Displays",
+                    "Actors, Use cases, Boundaries, and Associations"
+                ],
+                "correct": 1,
+                "explanation": "BPMN standard building blocks are: 1. Flow objects, 2. Connecting objects, 3. Swimlanes, and 4. Artifacts."
+            },
+            {
+                "id": "q-sia-14",
+                "type": "multiple",
+                "question": "Which process modeling technique is specifically described as being used to map out the intangible roles or ideas of behavior desired within a company?",
+                "options": [
+                    "Data Flow Diagram (DFD)",
+                    "Flowchart Technique",
+                    "Role Activity Diagram (RAD)",
+                    "Gantt Chart"
+                ],
+                "correct": 2,
+                "explanation": "A Role Activity Diagram (RAD) is specifically defined as being used to map out intangible roles or ideas of behavior desired within the company."
+            },
+            {
+                "id": "q-sia-15",
+                "type": "multiple",
+                "question": "Which diagram technique illustrates the interaction of various processes with each other using Sequence and Collaboration diagrams?",
+                "options": [
+                    "Data Flow Diagram (DFD)",
+                    "Role Interaction Diagram (RID)",
+                    "Coloured Petri Nets (CPN)",
+                    "Flowchart Technique"
+                ],
+                "correct": 1,
+                "explanation": "Role Interaction Diagrams (RID) illustrate process-to-process interactions, encompassing Sequence Diagrams and Collaboration Diagrams."
+            },
+            {
+                "id": "q-sia-16",
+                "type": "multiple",
+                "question": "What is the primary function of a Gantt Chart in business process and project modeling?",
+                "options": [
+                    "To relate a list of activities directly to a time scale (project timeline)",
+                    "To prove mathematical correctness of asynchronous algorithms",
+                    "To define inheritance hierarchies between software classes",
+                    "To trace network packets across routers"
+                ],
+                "correct": 0,
+                "explanation": "Gantt Charts relate a list of activities to a time scale to represent a project's timeline and task dependencies."
+            },
+            {
+                "id": "q-sia-17",
+                "type": "multiple",
+                "question": "In the IDEF (Integrated Definition) function modeling box, what does the arrow entering from the TOP represent?",
+                "options": [
+                    "Input",
+                    "Control",
+                    "Output",
+                    "Mechanism / Resources"
+                ],
+                "correct": 1,
+                "explanation": "Under the standard IDEF ICOM framework: Input enters on Left, Control enters on Top, Output exits on Right, and Mechanism enters from Bottom."
+            },
+            {
+                "id": "q-sia-18",
+                "type": "multiple",
+                "question": "Coloured Petri Nets (CPN) are a graphically oriented language designed for which set of engineering purposes?",
+                "options": [
+                    "Design, specification, simulation, and verification of systems",
+                    "Customer relationship tracking, lead conversion, and invoicing",
+                    "Compiling Python source code into bytecode",
+                    "Encrypting credit card numbers in compliance with PCI-DSS"
+                ],
+                "correct": 0,
+                "explanation": "CPN is explicitly defined as a graphically oriented language for the design, specification, simulation, and verification of systems."
+            },
+            {
+                "id": "q-sia-19",
+                "type": "multiple",
+                "question": "Which modeling paradigm encompasses message-passing, encapsulation, inheritance from class to subclass, and polymorphism?",
+                "options": [
+                    "Flowchart Technique",
+                    "Object-Oriented Methods",
+                    "Data Flow Diagrams (DFD)",
+                    "Integrated Definition (IDEF)"
+                ],
+                "correct": 1,
+                "explanation": "Object-Oriented Methods are more than just modeling with objects; they embody message-passing, encapsulation, inheritance, and polymorphism."
+            },
+            {
+                "id": "q-sia-20",
+                "type": "multiple",
+                "question": "What are the three (3) main types of Business Analysis tools identified in the lecture?",
+                "options": [
+                    "Compilers, Interpreters, and Debuggers",
+                    "Requirement-related tools, Modelling tools, and Collaboration tools",
+                    "Spreadsheets, Word Processors, and Presentation Decks",
+                    "LAN, WAN, and VPN tools"
+                ],
+                "correct": 1,
+                "explanation": "The 3 types of BA tools are: 1. Requirement-related tools, 2. Modelling tools, and 3. Collaboration tools."
+            }
+        ]
+    },
+    {
+        "checkpointId": "sia-cp3",
+        "subject": "SIA101",
+        "week": "Week 4",
+        "questions": [
+            {
+                "id": "q-sia-21",
+                "type": "multiple",
+                "question": "Which organization formulated the Project Management Life Cycle (PMLC) taught in the course?",
+                "options": [
+                    "W3C",
+                    "PMI (Project Management Institute)",
+                    "ACM / IEEE",
+                    "ISO"
+                ],
+                "correct": 1,
+                "explanation": "The Project Management Life Cycle taught is developed by the Project Management Institute (PMI)."
+            },
+            {
+                "id": "q-sia-22",
+                "type": "multiple",
+                "question": "What are the five (5) phases of the PMI Project Management Life Cycle in correct chronological sequence?",
+                "options": [
+                    "Requirements, Design, Coding, Testing, Maintenance",
+                    "Initiation, Planning, Execution, Performance Monitoring/Controlling, Project Close",
+                    "Conception, Financing, Hiring, Building, Selling",
+                    "Analysis, Architecture, Development, Staging, Production"
+                ],
+                "correct": 1,
+                "explanation": "The 5 PMI phases are: 1. Initiation, 2. Planning, 3. Execution, 4. Performance Monitoring/Controlling, and 5. Project Close."
+            },
+            {
+                "id": "q-sia-23",
+                "type": "multiple",
+                "question": "In the SMART goal-setting methodology, what does the letter 'A' represent?",
+                "options": [
+                    "Affordable",
+                    "Actionable",
+                    "Appreciable",
+                    "Asynchronous"
+                ],
+                "correct": 1,
+                "explanation": "In SMART: S = Specific, M = Measurable, A = Actionable, R = Realistic, T = Timebound."
+            },
+            {
+                "id": "q-sia-24",
+                "type": "multiple",
+                "question": "In the CLEAR goal-setting methodology, what does the letter 'E' represent?",
+                "options": [
+                    "Economical",
+                    "Emotional",
+                    "Extensible",
+                    "Evolutionary"
+                ],
+                "correct": 1,
+                "explanation": "In CLEAR: C = Collaborative, L = Limited, E = Emotional, A = Appreciable, R = Refinable."
+            },
+            {
+                "id": "q-sia-25",
+                "type": "multiple",
+                "question": "Which document is defined as the hierarchical and incremental decomposition of the project into phases, deliverables, and work packages?",
+                "options": [
+                    "Scope Statement",
+                    "Work Breakdown Structure (WBS)",
+                    "Gantt Chart",
+                    "Communication Plan"
+                ],
+                "correct": 1,
+                "explanation": "The Work Breakdown Structure (WBS) is defined as the hierarchical and incremental decomposition of the project into phases, deliverables, and work packages."
+            },
+            {
+                "id": "q-sia-26",
+                "type": "multiple",
+                "question": "In a project life cycle, what is the defining characteristic of a Milestone?",
+                "options": [
+                    "It is a task that takes at least 3 months of engineering effort",
+                    "It is a specific point used to measure progress toward the ultimate goal",
+                    "It is a financial penalty paid to contractors for late delivery",
+                    "It represents the total lines of code written in a sprint"
+                ],
+                "correct": 1,
+                "explanation": "A Milestone is a specific point within a project's life cycle used to measure progress toward the ultimate goal."
+            },
+            {
+                "id": "q-sia-27",
+                "type": "multiple",
+                "question": "According to the Risk Management Severity Matrix, a risk with Severity Level 5 (Severe) has what cost and schedule impact?",
+                "options": [
+                    "Budget impacted > $20 Million, schedule delayed > 3 Months",
+                    "Budget impacted < $2 Million, schedule delayed < 1 Month",
+                    "Budget not affected, schedule float absorbs variations",
+                    "Budget impacted $2M - $10M, schedule delayed 1 - 2 Months"
+                ],
+                "correct": 0,
+                "explanation": "Severity 5 (Severe) is defined by performance unacceptable, budget impacted by > $20M, and key milestone delayed by > 3 months."
+            },
+            {
+                "id": "q-sia-28",
+                "type": "multiple",
+                "question": "Which of the following is NOT one of the 4 Key Performance Indicators (KPIs) tracked in Phase 4 Monitoring?",
+                "options": [
+                    "Project Objectives",
+                    "Quality Deliverables",
+                    "Effort and Cost Tracking",
+                    "Social Media Impressions"
+                ],
+                "correct": 3,
+                "explanation": "The 4 KPIs are: 1. Project Objectives, 2. Quality Deliverables, 3. Effort and Cost Tracking, and 4. Project Performance."
+            },
+            {
+                "id": "q-sia-29",
+                "type": "multiple",
+                "question": "Which of the following tasks is executed during Phase 5 (Project Closure)?",
+                "options": [
+                    "Developing the Project Charter and Business Case",
+                    "Formulating SMART and CLEAR goals",
+                    "Having a retrospective meeting and documenting all learnings",
+                    "Setting up the WBS and Gantt scheduling baseline"
+                ],
+                "correct": 2,
+                "explanation": "Project Closure tasks include: transfer deliverables, complete contracts, hold retrospective meeting, disband team, and document all learnings."
+            },
+            {
+                "id": "q-sia-30",
+                "type": "multiple",
+                "question": "What is the primary function of a Stakeholder Communication Plan in project planning?",
+                "options": [
+                    "To provide a policy-driven approach to providing stakeholders with information",
+                    "To filter spam emails from external vendors",
+                    "To automatically write user documentation from source code",
+                    "To calculate salary bonuses for developers based on lines of code"
+                ],
+                "correct": 0,
+                "explanation": "A Communication Plan is defined as a policy-driven approach to providing stakeholders with necessary, timely information."
+            }
+        ]
+    },
+    {
+        "checkpointId": "sia-cp4",
+        "subject": "SIA101",
+        "week": "Week 5",
+        "questions": [
+            {
+                "id": "q-sia-31",
+                "type": "multiple",
+                "question": "Which of the following best defines a Business Process?",
+                "options": [
+                    "A spreadsheet containing employee bank account numbers",
+                    "A series of steps performed by stakeholders to achieve a concrete goal, culminating in delivery of a service/product",
+                    "A legal lawsuit filed against an IT vendor for contract breach",
+                    "A hardware specification for purchasing server racks"
+                ],
+                "correct": 1,
+                "explanation": "A Business Process is a series of steps performed by stakeholders to achieve a concrete goal, and a collection of linked tasks delivering a service or product to a client."
+            },
+            {
+                "id": "q-sia-32",
+                "type": "multiple",
+                "question": "Which of the following is Step 4 in the 7 Steps of the Business Process Lifecycle?",
+                "options": [
+                    "Define your goals",
+                    "Set actions and assign stakeholders",
+                    "Test the process on a small scale environment",
+                    "Repeat the process"
+                ],
+                "correct": 2,
+                "explanation": "The 7 steps are: 1. Define goals, 2. Plan/map, 3. Set actions/stakeholders, 4. Test the process, 5. Implement, 6. Monitor, 7. Repeat."
+            },
+            {
+                "id": "q-sia-33",
+                "type": "multiple",
+                "question": "What is Business Process Integration (BPI)?",
+                "options": [
+                    "A technique that allows automation of business processes, system/service integration, and secure data sharing across applications",
+                    "A strategy to replace all human workers with artificial intelligence models",
+                    "A method of selling business processes to external consulting firms",
+                    "A government tax imposed on software corporations"
+                ],
+                "correct": 0,
+                "explanation": "BPI allows automation of business processes, integration of systems and services, and secure sharing of data across numerous applications."
+            },
+            {
+                "id": "q-sia-34",
+                "type": "multiple",
+                "question": "What are the three (3) main components that comprise an IT Environment?",
+                "options": [
+                    "CPU, RAM, and Hard Drive",
+                    "Computing Platforms, Applications/Apps, and Connectivity (Networking)",
+                    "HTML, CSS, and JavaScript",
+                    "Finance, Marketing, and Human Resources"
+                ],
+                "correct": 1,
+                "explanation": "The 3 components of an IT Environment are Computing Platforms, Applications/Apps, and Connectivity (Networking)."
+            },
+            {
+                "id": "q-sia-35",
+                "type": "multiple",
+                "question": "In IT Environment decision-making, what are the three (3) dimensions of the Purpose Triad?",
+                "options": [
+                    "Input, Process, Output",
+                    "Needs, Rules, and Choices",
+                    "Hardware, Software, Peopleware",
+                    "Local, National, International"
+                ],
+                "correct": 1,
+                "explanation": "The lecture breaks IT Environment purposes into: 1. NEEDS (functionality, cost, reliability), 2. RULES (laws, regulations, owner policies), and 3. CHOICES (balancing needs, rules, affordable technology)."
+            },
+            {
+                "id": "q-sia-36",
+                "type": "multiple",
+                "question": "How is a Centralized Organizational Structure characterized compared to a Decentralized structure?",
+                "options": [
+                    "Democratic decision-making adapted to small organizations",
+                    "Hierarchical decision-making where different branches have similar processes, common in large organizations",
+                    "Elimination of all managerial positions",
+                    "Each employee reports to multiple competing project managers"
+                ],
+                "correct": 1,
+                "explanation": "A Centralized structure has hierarchical decision-making where branches follow similar uniform processes, common in large organizations."
+            },
+            {
+                "id": "q-sia-37",
+                "type": "multiple",
+                "question": "Which type of organizational structure divides the firm into distinct departments (e.g. Finance, Marketing, HR) to enforce uniformity?",
+                "options": [
+                    "Flatarchy Structure",
+                    "Functional Structure",
+                    "Matrix Structure",
+                    "Divisional Structure"
+                ],
+                "correct": 1,
+                "explanation": "A Functional Structure divides the firm into specialized departments to establish uniformity and centralized management."
+            },
+            {
+                "id": "q-sia-38",
+                "type": "multiple",
+                "question": "What is a primary disadvantage of a Divisional (Multidivisional) organizational structure?",
+                "options": [
+                    "Employees have too much autonomy, leading to lack of supervision",
+                    "Duplication of services, functions, and costs across subsidiaries",
+                    "Senior management has zero time to focus on strategic decisions",
+                    "Inability to adapt to local regional customer needs"
+                ],
+                "correct": 1,
+                "explanation": "Divisional structures suffer from duplication of services/costs, lack of centralized specialization, and difficult cross-divisional coordination."
+            },
+            {
+                "id": "q-sia-39",
+                "type": "multiple",
+                "question": "Which organizational structure flattens the hierarchy and chain of command to give employees significant autonomy, commonly found in startups?",
+                "options": [
+                    "Bureaucratic Structure",
+                    "Matrix Structure",
+                    "Flatarchy Structure",
+                    "Functional Structure"
+                ],
+                "correct": 2,
+                "explanation": "A Flatarchy structure flattens hierarchy and chain of command, granting employees high autonomy; it is widely adopted by tech startups."
+            },
+            {
+                "id": "q-sia-40",
+                "type": "multiple",
+                "question": "In a Matrix organizational structure, how is management reporting structured?",
+                "options": [
+                    "Every employee only reports to the company CEO directly",
+                    "There is more than one line of reporting managers (solid line or dotted line reporting)",
+                    "Employees are prohibited from reporting to any supervisor",
+                    "Only external contractors have managers"
+                ],
+                "correct": 1,
+                "explanation": "A Matrix structure features more than one line of reporting managers, typically utilizing solid-line and dotted-line reporting relationships."
+            }
+        ]
+    },
+    {
+        "checkpointId": "sia-cp5",
+        "subject": "SIA101",
+        "week": "Week 6",
+        "questions": [
+            {
+                "id": "q-sia-41",
+                "type": "multiple",
+                "question": "What is the defining distinction of Sole Sourcing?",
+                "options": [
+                    "The buyer chooses one supplier out of many available suppliers in the market",
+                    "Only one source is available in the entire market (e.g. local water utility company)",
+                    "Suppliers submit confidential bids through an online auction portal",
+                    "Procurement is conducted exclusively with international manufacturers"
+                ],
+                "correct": 1,
+                "explanation": "Sole Source means ONLY ONE source is available (e.g. local water utility). Single Source means multiple suppliers are available, but the organization selects one."
+            },
+            {
+                "id": "q-sia-42",
+                "type": "multiple",
+                "question": "An enterprise needs office computers. There are 5 authorized hardware vendors, but management decides to contract solely with HP for volume discounts. What sourcing method is this?",
+                "options": [
+                    "Sole Sourcing",
+                    "Single Sourcing",
+                    "In-Sourcing",
+                    "Emergency Relief Sourcing"
+                ],
+                "correct": 1,
+                "explanation": "Because multiple vendors were available in the market and the buyer chose to contract with only one, this is Single Sourcing."
+            },
+            {
+                "id": "q-sia-43",
+                "type": "multiple",
+                "question": "What is the 'First Principle' when determining the source of supply for procurement?",
+                "options": [
+                    "Always source internationally to obtain the lowest possible currency exchange rate",
+                    "Source all commodities locally and in-country, as close to the field as possible to reduce transport time and cost",
+                    "Build all software from scratch using internal engineers to protect trade secrets",
+                    "Require all vendors to submit sealed bids regardless of purchase cost"
+                ],
+                "correct": 1,
+                "explanation": "The lecture explicitly states: 'The first principle should be to source all commodities locally and in-country, as close to the field as possible to reduce transport time and cost.'"
+            },
+            {
+                "id": "q-sia-44",
+                "type": "multiple",
+                "question": "Which of the following is NOT one of the 5 criteria evaluated during a Procurement Market Survey?",
+                "options": [
+                    "Quantities Available",
+                    "Quality and Pricing",
+                    "Technical Specifications and Source/Origin",
+                    "Political Affiliation of Company Shareholders"
+                ],
+                "correct": 3,
+                "explanation": "A market survey assesses: 1. Quantities available, 2. Quality, 3. Pricing, 4. Source and origin of items, and 5. Technical specifications."
+            },
+            {
+                "id": "q-sia-45",
+                "type": "multiple",
+                "question": "What audit document must be maintained by the procurement unit to log vendor tenders during sealed bidding?",
+                "options": [
+                    "Purchase Order Log",
+                    "Tracking Sheet for Sealed Bids",
+                    "Vendor Reference Questionnaire",
+                    "WBS Schedule Chart"
+                ],
+                "correct": 1,
+                "explanation": "RFQs and vendor responses must be tracked using the 'Tracking Sheet for Sealed Bids' in accordance with threshold procurement policy."
+            },
+            {
+                "id": "q-sia-46",
+                "type": "multiple",
+                "question": "Before confirming an order or contract with a preferred supplier, which screening action must be conducted?",
+                "options": [
+                    "Screen potential vendors against anti-terrorism and debarred listings",
+                    "Have the vendor's CEO attend a university lecture",
+                    "Transfer 50% of the project budget to the vendor upfront without contract",
+                    "Require the vendor to rewrite their accounting software in Python"
+                ],
+                "correct": 0,
+                "explanation": "Screening requires: 1) vendor questionnaire, 2) checking references (preferably NGOs), and 3) screening against anti-terrorism and debarred listings."
+            },
+            {
+                "id": "q-sia-47",
+                "type": "multiple",
+                "question": "How is In-Sourcing defined in systems acquisition and sourcing?",
+                "options": [
+                    "Contracting an offshore agency to manage customer support servers",
+                    "The assignment of a project to a person or department within the company rather than a third party",
+                    "Purchasing open-source software libraries from public package managers",
+                    "Submitting sealed bids to government procurement portals"
+                ],
+                "correct": 1,
+                "explanation": "In-Sourcing is the assignment of a project to a person or department within the company rather than a third-party."
+            },
+            {
+                "id": "q-sia-48",
+                "type": "multiple",
+                "question": "Which of the following is an advantage of In-Sourcing?",
+                "options": [
+                    "Eliminating the need for employee performance appraisals",
+                    "Protection of Trade Secrets, Competitive Advantage, and Direction/Control",
+                    "Zero operational and hardware overhead expenses",
+                    "Access to unlimited specialized vendor expertise without hiring"
+                ],
+                "correct": 1,
+                "explanation": "Advantages of In-Sourcing: Competitive advantage, Trade secrets protection, Organization culture alignment, Cost control, and Direction/Control."
+            },
+            {
+                "id": "q-sia-49",
+                "type": "multiple",
+                "question": "What are the three (3) main disadvantages of In-Sourcing listed in the lecture?",
+                "options": [
+                    "Taxes, Shipping Delays, and Tariffs",
+                    "Cost, Capabilities, and Focus",
+                    "Hardware Failures, Network Latency, and Power Outages",
+                    "Copyright Infringement, Piracy, and Libel"
+                ],
+                "correct": 1,
+                "explanation": "The 3 disadvantages of In-Sourcing are explicitly listed as: 1. Cost, 2. Capabilities (skills limitations), and 3. Focus (distraction from core business)."
+            },
+            {
+                "id": "q-sia-50",
+                "type": "multiple",
+                "question": "What are the three (3) sequential steps in the Hardware and Software Acquisition workflow?",
+                "options": [
+                    "Requirements Analysis, Request for Proposal (RFP), Vendor Selection",
+                    "Initiation, Planning, Project Closure",
+                    "Brainstorming, Focus Group, Prototyping",
+                    "Market Survey, Sealed Bidding, In-Sourcing"
+                ],
+                "correct": 0,
+                "explanation": "Hardware and software acquisition proceeds through: 1) Requirements Analysis, 2) Request for Proposal (RFP), and 3) Vendor Selection."
+            }
+        ]
     }
   ]
 };

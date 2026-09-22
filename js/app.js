@@ -7,7 +7,7 @@
   'use strict';
 
   // State Management with LocalStorage
-  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_5';
+  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_6';
   
   let state = {
     activeSubject: 'SPI101',
@@ -331,10 +331,17 @@
         </div>
       ` : '';
 
+      const diagramHtml = item.diagramHtml ? `
+        <div class="digest-diagram-wrapper">
+          ${item.diagramHtml}
+        </div>
+      ` : '';
+
       return `
         <div class="digest-card">
           <h3>${formatMarkdown(item.heading)}</h3>
           ${pointsHtml}
+          ${diagramHtml}
           ${tableHtml}
           ${item.trap ? `<div class="exam-alert">⚠️ <strong>Exam Trap:</strong> ${formatMarkdown(item.trap)}</div>` : ''}
           ${item.tldr ? `<div class="tldr-box">💡 <strong>Quick Takeaway:</strong> ${formatMarkdown(item.tldr)}</div>` : ''}
@@ -698,7 +705,8 @@
       'ALL': 'All Enrolled Subjects',
       'SPI101': 'SPI101 (Social & Professional Issues)',
       'MS101': 'MS101 (Discrete Mathematics)',
-      'IPT102': 'IPT102 (Integrative Programming & ASP.NET)'
+      'IPT102': 'IPT102 (Integrative Programming & ASP.NET)',
+      'SIA101': 'SIA101 (Systems Integration & Architecture)'
     };
     const subLabel = labels[code] || code;
 
@@ -840,7 +848,7 @@
   }
 
   function selectSubject(code) {
-    const activeCourses = ['SPI101', 'MS101', 'IPT102'];
+    const activeCourses = (REVIEWER_DATA.subjects || []).filter(s => s.status === 'active').map(s => s.code);
     if (!activeCourses.includes(code)) {
       showToast(`${code} syllabus slot ready! Add notes when available.`);
       return;
@@ -867,7 +875,8 @@
   }
 
   function toggleActiveSubject() {
-    const cycle = ['SPI101', 'MS101', 'IPT102'];
+    const activeSubs = (REVIEWER_DATA.subjects || []).filter(s => s.status === 'active').map(s => s.code);
+    const cycle = activeSubs.length ? activeSubs : ['SPI101', 'MS101', 'IPT102', 'SIA101'];
     const curIdx = cycle.indexOf(state.activeSubject);
     const nextCode = cycle[(curIdx + 1) % cycle.length];
     selectSubject(nextCode);
@@ -1063,6 +1072,62 @@
         { title: "What is Memory Management?", bullets: ["Controlling and coordinating computer memory, assigning blocks to running programs to optimize system performance", "Resides in hardware, operating system, and applications", "Allocates memory efficiently to pack as many processes into memory as possible"] },
         { title: "Primary / Main Memory", bullets: ["Large array of words or bytes with unique addresses", "Provides fast storage accessed directly by the CPU", "For a program to execute, it must reside in main memory"] },
         { title: "OS Memory Management Activities", bullets: ["Tracks which parts of memory are in use and by whom", "Decides memory allocation in multiprogramming", "Allocates and de-allocates memory blocks upon process request and termination"] }
+      ]
+    },
+    'sia-w2': {
+      title: "SIA101: Week 2 - SIA Requirements & Elicitation",
+      slides: [
+        { title: "WEEK 2: SIA REQUIREMENTS", bullets: ["SIA101 - Systems Integration and Architecture 1", "Quezon City University - College of Computer Science & IT", "Academic Year 2026-2027"] },
+        { title: "Learning Outcomes", bullets: ["Identify the stakeholder of the system and formulate their needs", "Compare and contrast the various requirements in modeling techniques", "Distinguish the difference between functional and non-functional requirements"] },
+        { title: "Introduction to System Integration & Architecture", bullets: ["System Integration: combining different sub-system components to form a large system; ensures functionality of sub-systems", "System Architecture: conceptual model that defines a system; formal description and representation of a system", "Enterprise Application Integration (EAI), Data Integration, Electronic Data Integration"] },
+        { title: "Requirement Elicitation Methodologies", bullets: ["Also referred to as 'Requirement gathering and specification'", "1. Brainstorming", "2. Document Analysis", "3. Focus Group", "4. Interface Analysis", "5. Observation", "6. Interview", "7. Prototyping (Rapid Throwaway, Evolutionary, Incremental, Extreme)", "8. Requirements Workshop", "9. Reverse Engineering", "10. Surveying"] },
+        { title: "Surveying Best Practices", bullets: ["Communicate survey responses and objective", "Be aware of the survey population and its characteristics", "Keep survey short and ensure content is clear", "Avoid negative questions and complex concepts", "Elicit more details; avoid questions putting respondents on defensive"] },
+        { title: "SIA Modeling: Interfaces & Messages", bullets: ["Interfaces: where communication between IT systems occurs", "Messages: IT systems connected via interfaces exchange messages", "UN/EDIFACT (3 parts: Event, Reference Data, Control Information)", "XML: eXtensible Markup Language (W3C standard, XML/EDI, XSL)", "Messages in UML: Two (2) Parts (1. Event, 2. Information)"] }
+      ]
+    },
+    'sia-w3': {
+      title: "SIA101: Week 3 - Modeling & Testing Tools",
+      slides: [
+        { title: "WEEK 3: SIA REQUIREMENTS", bullets: ["Use Case Model, Modeling Tools & Methodologies, Testing Tools & Methodologies", "SIA101 - Systems Integration and Architecture 1", "Quezon City University"] },
+        { title: "Learning Outcomes", bullets: ["Explain the purpose and application of Use Case Model", "Determine other modelling tools used for system design construction", "Enumerate different testing tools and their purpose"] },
+        { title: "Use Case Model", bullets: ["Model showing how different types of users interact with the system to solve a problem", "Unified Modeling Language (UML) standard", "5 Purposes: Specifying context, capturing requirements, validating architecture, implementing/generating test cases, developed by analysts & experts"] },
+        { title: "Business Process Modelling (BPM)", bullets: ["Mainly used to map a workflow; helps visualize process and make better decisions", "10 Techniques: 1. BPMN, 2. UML Diagrams, 3. Flowcharts, 4. Data Flow Diagrams (DFD), 5. Role Activity Diagrams (RAD), 6. Role Interaction Diagrams (RID), 7. Gantt Charts, 8. IDEF, 9. Coloured Petri Nets (CPN), 10. Object-Oriented Methods"] },
+        { title: "BPMN Building Blocks & Core Techniques", bullets: ["BPMN 4 Building Blocks: Flow objects, Connecting objects, Swimlanes, Artifacts", "DFD: shows flow of data or information from one place to another", "RAD: maps intangible roles and desired behavior within company", "RID: Sequence and Collaboration diagrams illustrating process interactions", "IDEF: Function modeling (Input, Control, Output, Mechanism)", "CPN: design, specification, simulation and verification", "Object-Oriented: encapsulation, inheritance, polymorphism, message-passing"] },
+        { title: "Business Analysis Tools", bullets: ["Why BAs need tools: Track requirements, manage requirements, describe in detail, model diagrammatically, collaborate with teams", "3 Tool Types: 1. Requirement-related tools, 2. Modelling tools, 3. Collaboration tools"] }
+      ]
+    },
+    'sia-w4': {
+      title: "SIA101: Week 4 - Project Life-Cycle Phases",
+      slides: [
+        { title: "WEEK 4: PROJECT LIFE-CYCLE PHASES", bullets: ["SIA101 - Systems Integration and Architecture 1", "Project Life-Cycle Phases and Other Developmental Tools", "Quezon City University"] },
+        { title: "Project Management Life Cycle (PMI)", bullets: ["Developed by Project Management Institute (PMI)", "5 Standard Phases: 1. Initiation, 2. Planning, 3. Execution, 4. Monitoring & Controlling, 5. Closure"] },
+        { title: "Phase 1: Project Initiation", bullets: ["Conception & Initiation of project existence", "Deliverables: Business Case (why necessary & how it succeeds), Feasibility Study, Project Charter, Project Team, Project Office, Initiation Review"] },
+        { title: "Phase 2: Project Planning & Goal Setting", bullets: ["Develops roadmap that everyone will follow", "SMART Method: Specific, Measurable, Actionable, Realistic, Timebound", "CLEAR Method: Collaborative, Limited, Emotional, Appreciable, Refinable", "Key Documents: Scope Statement, Work Breakdown Structure (WBS), Milestones, Gantt Chart, Communication Plan, Risk Management Plan"] },
+        { title: "Risk Severity Matrix & Communication Plan", bullets: ["Communication Plan: Description, Frequency, Method, Audience, Owner", "Risk Matrix 5 Severity Levels: 5 (Severe), 4 (Significant), 3 (Moderate), 2 (Minor), 1 (Minimal) evaluated against Performance, Cost, Schedule"] },
+        { title: "Phase 3: Execution & Phase 4: Monitoring", bullets: ["Execution: Develop team, assign resources, execute plans, procurement, PM directs, tracking, task execution, status meetings", "Monitoring: Measuring progression against plan; 4 KPIs: 1. Project Objectives, 2. Quality Deliverables, 3. Effort & Cost Tracking, 4. Project Performance"] },
+        { title: "Phase 5: Project Closure", bullets: ["Formal recognition of project completion", "5 Steps: Transfer all deliverables, complete contracts, retrospective meeting, disband team, document all learnings"] }
+      ]
+    },
+    'sia-w5': {
+      title: "SIA101: Week 5 - Organizational Context",
+      slides: [
+        { title: "WEEK 5: SIA ORGANIZATIONAL CONTEXT", bullets: ["Business Processes, IT Environment, Organizational Culture", "SIA101 - Systems Integration and Architecture 1", "Quezon City University"] },
+        { title: "What is a Business Process?", bullets: ["Series of steps performed by stakeholders to achieve a concrete goal", "Collection of linked tasks culminating in delivery of service/product", "Importance: Identify important tasks, improve efficiency, streamline communications, set approvals, prevent chaos, standardize procedures"] },
+        { title: "7 Steps of Business Process Lifecycle", bullets: ["1. Define your goals (know purpose)", "2. Plan and map your process (strategies)", "3. Set actions and assign stakeholders (distribute tasks)", "4. Test the process (small scale environment)", "5. Implement the process (live environment)", "6. Monitor the results (review & analyze)", "7. Repeat (replicate & optimize)"] },
+        { title: "Business Process Integration (BPI)", bullets: ["Automates business processes, integrates systems & services, enables secure sharing of data across applications", "Benefits: Services integration, simplified operations, lower costs, improved quality, enhanced productivity, standardized workflows"] },
+        { title: "IT Environments & 3 Core Components", bullets: ["Integrated collection of technology components serving needs of users and owner", "1. Computing Platforms", "2. Applications/Apps", "3. Connectivity (Wireless, Wired, Personal, Local, Distance/DSL)", "Drivers: Needs (Functionality, Cost, Reliability), Rules (Laws, regulations, policies), Choices (Balance of all three)"] },
+        { title: "Organizational Structures (4 Types)", bullets: ["Centralized (hierarchical, uniform) vs Decentralized (democratic, adaptable)", "1. Functional: bureaucratic, departmental divisions (specialization, economies of scale; slow)", "2. Divisional/Multidivisional: parent owns subsidiaries under same brand (local responsiveness; cost duplication)", "3. Flatarchy: startups, flattens chain of command (high autonomy; risk of chaos)", "4. Matrix: dual reporting managers, solid and dotted line reporting"] }
+      ]
+    },
+    'sia-w6': {
+      title: "SIA101: Week 6 - Acquisition and Sourcing",
+      slides: [
+        { title: "WEEK 6: SIA ACQUISITION AND SOURCING", bullets: ["Build and Buy, In-Sourcing, Procurement Guidelines", "SIA101 - Systems Integration and Architecture 1", "Quezon City University"] },
+        { title: "Procurement Sourcing & Acquisition Process", bullets: ["Purchase requisition order submitted to procurement unit", "Sourcing: identify, assess, select, and engage best suppliers", "Acquisition 3 Stages: Requirements analysis, Request for Proposal (RFP), Vendor selection"] },
+        { title: "Market Survey & Sourcing Requirements", bullets: ["Market survey evaluates: Quantities available, Quality, Pricing, Source & origin, Technical specifications", "Determining Source of Supply: Local, National, International", "Golden First Principle: Source all commodities locally and in-country as close to field as possible to reduce transport time and cost", "International Sourcing: used when unavailable locally; pre-positioned items, pre-supply agreements, peer NGOs"] },
+        { title: "Vendor Selection: Sole vs Single Sourcing", bullets: ["Sole Source: ONLY ONE source is available (e.g. local water utility)", "Single Source: Multiple suppliers available, but organization purposefully selects ONE", "Request for Quotations (RFQ) & Sealed Bids: governed by bidding thresholds; tracked on Tracking Sheet for Sealed Bids; bid committees review"] },
+        { title: "Vendor Screening Checklist", bullets: ["Preferred vendors must be screened before confirming orders or contracts", "1. Complete vendor questionnaire", "2. Check references (preferably from peer NGOs)", "3. Screen against anti-terrorism and debarred listings"] },
+        { title: "In-Sourcing: Advantages & Disadvantages", bullets: ["Assignment of project to person/department within company rather than third party", "Advantages: Competitive advantage, Trade secrets, Organization culture, Cost, Direction & control", "Disadvantages: Overhead cost, Internal capabilities limitations, Loss of core business focus"] }
       ]
     }
   };

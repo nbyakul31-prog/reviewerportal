@@ -29,9 +29,50 @@
 | **MS101** | **Discrete Mathematics** | **Mon 6:00PM - 9:00PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
 | **IPT102** | **Integrative Programming & Tech 2** | **Tue 2:30PM-5:30PM & 7PM-9PM** | 🟢 **ACTIVE** | **7 Checkpoints Ready** |
 | **AR101** | Architecture and Organization | Thu 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
-| **SIA101** | Systems Integration and Architecture 1 | Wed 12:30PM-2:30PM & 4:30PM-7:30PM | ⚪ Slot Ready | Planned |
+| **SIA101** | **Systems Integration & Architecture 1** | **Wed 12:30PM-2:30PM & 4:30PM-7:30PM** | 🟢 **ACTIVE** | **5 Checkpoints Ready** |
 | **SOCSCI3** | The Contemporary World | Fri 6:00PM - 9:00PM | ⚪ Slot Ready | Planned |
 | **RIZAL** | The Life and Works of Rizal | Fri 2:30PM - 5:30PM | ⚪ Slot Ready | Planned |
+
+---
+
+## 🌐 SIA101: Systems Integration & Architecture 1 Breakdown
+
+### Checkpoint 1: Week 2 — SIA Requirements & Fundamentals
+- **System Integration vs Architecture**: Integration combines sub-systems to ensure functionality; Architecture provides the conceptual model and formal representation.
+- **Integration Types**: Enterprise Application Integration (EAI), Data Integration, and Electronic Data Interchange (EDI).
+- **EDI Messaging Standards**: UN/EDIFACT (3 components: Event, Reference Data, Control Info), XML (W3C standard, XML/EDI, XSL stylesheets), SWIFT (banking messaging).
+- **UML Messages**: 2 parts: Event and Information.
+- **10 Requirement Elicitation Methodologies**: Brainstorming, Document Analysis, Focus Group, Interface Analysis, Observation (Job Shadowing), Interview, Prototyping (Rapid Throwaway, Evolutionary, Incremental, Extreme), Requirements Workshop, Reverse Engineering, Surveying.
+- **Surveying Best Practices**: 8 core guidelines (communicating purpose, audience awareness, short length, clear content, avoiding negative/complex/defensive questions, eliciting actionable details).
+
+### Checkpoint 2: Week 3 — Use Case & Business Process Modeling (BPM)
+- **Use Case Model**: Standardized in UML; shows how external actors interact with the system to solve problems.
+- **5 Purposes of Use Case Diagrams**: Specifying context, capturing requirements, validating architecture, implementing/generating test cases, bridging technical and business teams.
+- **10 BPM Techniques**: BPMN (Flow objects, Connecting objects, Swimlanes, Artifacts), UML Diagrams, Flowchart Technique, Data Flow Diagrams (DFD), Role Activity Diagrams (RAD), Role Interaction Diagrams (RID: Sequence & Collaboration), Gantt Charts, Integrated Definition (IDEF0 ICOM: Input, Control, Output, Mechanism), Coloured Petri Nets (CPN), Object-Oriented Methods.
+- **Business Analysis Tools**: 5 reasons BAs need tools; 3 categories: Requirement-related, Modelling, Collaboration.
+
+### Checkpoint 3: Week 4 — Project Management Life Cycle (PMLC)
+- **PMI 5-Phase PMLC**: 1. Conception & Initiation (Project Charter, Business Case), 2. Definition & Planning (Scope, WBS, Schedule, Risk), 3. Launch & Execution (Deliverables development), 4. Performance & Control (KPIs, quality, budget burn), 5. Project Close (Deliverable handover, contract termination, retrospectives).
+- **Goal Setting**: SMART (Specific, Measurable, Actionable, Realistic, Timebound) vs CLEAR (Collaborative, Limited, Emotional, Appreciable, Refinable).
+- **Planning Documents**: Scope Statement, Work Breakdown Structure (WBS), Milestones (zero duration), Gantt Charts, Stakeholder Communication Plan.
+- **Risk Severity Matrix**: 5 severity levels evaluated across Technical Performance, Cost (up to > $20M), and Schedule (up to > 3 months delay).
+- **4 Monitoring KPIs & 5 Closure Steps**: Tracking Objectives, Quality Deliverables, Cost/Effort, Performance; handover, contracts, retrospective, disbanding, and documenting learnings.
+
+### Checkpoint 4: Week 5 — Organizational Context & IT Environments
+- **Business Processes**: Definition, 6 importance pillars, and 7-Step Lifecycle (Define goals ➔ Plan & map ➔ Set actions & stakeholders ➔ Test ➔ Implement ➔ Monitor ➔ Repeat).
+- **Business Process Integration (BPI)**: Automates processes, integrates services, enables secure data sharing across apps; 7 strategic benefits.
+- **IT Environment**: Integrated collection of computing components serving user and owner needs. 3 Components: Computing Platforms, Applications/Apps, Connectivity (Wireless, Wired, Personal, Local, Distance/DSL).
+- **IT Environment Triad**: Needs (functionality, cost, reliability), Rules (laws and owner regulations), Choices (balancing needs, rules, affordable technology).
+- **Organizational Structures**: Centralized (hierarchical, uniform) vs Decentralized (democratic, adaptable); 4 Types: Functional (centralized departments), Divisional/Multidivisional (subsidiaries under same brand), Flatarchy (startups, flat hierarchy, high autonomy), Matrix (dual reporting managers, solid & dotted lines).
+
+### Checkpoint 5: Week 6 — Acquisition, Sourcing & Procurement
+- **Procurement Workflow**: Purchase Requisition Order submitted to procurement unit; Sourcing assesses suppliers; Acquisition executes 3 stages: Requirements Analysis ➔ RFP ➔ Vendor Selection.
+- **Market Survey**: 5 factors (Quantities available, Quality, Pricing, Source & origin, Technical specifications).
+- **The First Principle of Sourcing**: Always source commodities locally and in-country, as close to the field as possible to minimize transport time and cost. International sourcing options when local capacity is insufficient.
+- **Sole vs Single Sourcing**: Sole Source = ONLY ONE supplier exists in the market (e.g. water utility); Single Source = MULTIPLE suppliers exist, but buyer purposely contracts with one.
+- **RFQ & Sealed Bids**: Bidding thresholds, Tracking Sheet for Sealed Bids, independent bid committees.
+- **3-Pillar Vendor Screening**: Vendor questionnaire, reference checks (preferably NGOs), anti-terrorism & debarred list screening.
+- **In-Sourcing Trade-Offs**: Advantages (Competitive advantage, trade secrets, culture, cost control, direction & control) vs Disadvantages (overhead cost, capabilities limitation, loss of core focus).
 
 ---
 
