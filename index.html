@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2.6">
+  <link rel="stylesheet" href="css/style.css?v=2.7.0">
 </head>
 <body>
 
@@ -201,13 +201,23 @@
       </div>
 
       <div class="quiz-header-bar">
-        <div>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
           <span id="quiz-progress-label" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Question 1 of 10</span>
-          <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; margin-left: 8px;">Pass: 70%</span>
+          <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; margin-left: 4px;">Pass: 70%</span>
         </div>
-        <button class="sub-tab" style="padding: 4px 10px; font-size: 0.74rem;" onclick="window.reviewerApp.shuffleAndGenerateQuiz()" title="Generate varied shuffled questions">
-          🎲 Shuffle & New Set
-        </button>
+        <div class="quiz-toolbar-actions">
+          <div class="q-count-selector">
+            <span class="q-count-label">Length:</span>
+            <button class="q-count-btn active" id="qc-10" onclick="window.reviewerApp.setQuizQuestionCount(10)">10</button>
+            <button class="q-count-btn" id="qc-20" onclick="window.reviewerApp.setQuizQuestionCount(20)">20</button>
+            <button class="q-count-btn" id="qc-30" onclick="window.reviewerApp.setQuizQuestionCount(30)">30</button>
+            <button class="q-count-btn" id="qc-50" onclick="window.reviewerApp.setQuizQuestionCount(50)">50</button>
+            <button class="q-count-btn" id="qc-all" onclick="window.reviewerApp.setQuizQuestionCount('ALL')">All</button>
+          </div>
+          <button class="sub-tab" style="padding: 4px 10px; font-size: 0.74rem;" onclick="window.reviewerApp.shuffleAndGenerateQuiz()" title="Generate varied shuffled questions">
+            🎲 Reshuffle
+          </button>
+        </div>
       </div>
 
       <div class="quiz-progress-track">
@@ -219,25 +229,39 @@
       </div>
     </section>
 
-    <!-- VIEW 5: CRAM MODE (60s DRILL) -->
+    <!-- VIEW 5: CRAM MODE (CHESS-STYLE TIME CONTROLS) -->
     <section id="view-cram" class="view-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <div>
-          <h2 style="font-size: 1.15rem; font-weight: 700;">⚡ 60-Second Cram Mode</h2>
-          <p style="font-size: 0.78rem; color: var(--text-muted);">Rapid-fire question drill to test instant recall</p>
+          <h2 style="font-size: 1.15rem; font-weight: 700;">⚡ Blitz Cram Mode</h2>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">Chess-style rapid recall with dynamic time increments</p>
         </div>
-        <div class="timer-pill">
-          <span id="cram-timer-val">60s</span>
+        <div class="cram-clock-wrapper">
+          <div class="timer-pill" id="cram-timer-pill">
+            <span id="cram-timer-val">1:00</span>
+          </div>
+          <span id="cram-time-bonus" class="time-bonus-badge">+5s</span>
         </div>
+      </div>
+
+      <!-- Time Control Selector (like Chess.com) -->
+      <div class="cram-time-nav">
+        <button class="time-control-btn active" id="tc-blitz_1_5" onclick="window.reviewerApp.setCramTimeControl('blitz_1_5')">⚡ 1m + 5s</button>
+        <button class="time-control-btn" id="tc-bullet_30_3" onclick="window.reviewerApp.setCramTimeControl('bullet_30_3')">🔥 30s + 3s</button>
+        <button class="time-control-btn" id="tc-rapid_3_2" onclick="window.reviewerApp.setCramTimeControl('rapid_3_2')">🎯 3m + 2s</button>
+        <button class="time-control-btn" id="tc-five_min" onclick="window.reviewerApp.setCramTimeControl('five_min')">⏱️ 5 min</button>
+        <button class="time-control-btn" id="tc-ten_min" onclick="window.reviewerApp.setCramTimeControl('ten_min')">⏳ 10 min</button>
+        <button class="time-control-btn" id="tc-zen" onclick="window.reviewerApp.setCramTimeControl('zen')">🧘 Zen</button>
       </div>
 
       <!-- Subject Filter for Cram -->
       <div class="cram-subject-nav">
         <button class="cram-sub-btn active" id="cram-sub-ALL" onclick="window.reviewerApp.setCramSubject('ALL')">🌟 All Subjects</button>
-        <button class="cram-sub-btn" id="cram-sub-SPI101" onclick="window.reviewerApp.setCramSubject('SPI101')">⚖️ SPI101 (Ethics)</button>
-        <button class="cram-sub-btn" id="cram-sub-MS101" onclick="window.reviewerApp.setCramSubject('MS101')">📐 MS101 (Math)</button>
-        <button class="cram-sub-btn" id="cram-sub-IPT102" onclick="window.reviewerApp.setCramSubject('IPT102')">💻 IPT102 (ASP.NET)</button>
-        <button class="cram-sub-btn" id="cram-sub-SIA101" onclick="window.reviewerApp.setCramSubject('SIA101')">🌐 SIA101 (Architecture)</button>
+        <button class="cram-sub-btn" id="cram-sub-SPI101" onclick="window.reviewerApp.setCramSubject('SPI101')">⚖️ SPI101</button>
+        <button class="cram-sub-btn" id="cram-sub-MS101" onclick="window.reviewerApp.setCramSubject('MS101')">📐 MS101</button>
+        <button class="cram-sub-btn" id="cram-sub-IPT102" onclick="window.reviewerApp.setCramSubject('IPT102')">💻 IPT102</button>
+        <button class="cram-sub-btn" id="cram-sub-SIA101" onclick="window.reviewerApp.setCramSubject('SIA101')">🌐 SIA101</button>
+        <button class="cram-sub-btn" id="cram-sub-AR101" onclick="window.reviewerApp.setCramSubject('AR101')">🏛️ AR101</button>
       </div>
 
       <div style="display: flex; gap: 8px; margin-bottom: 14px;">
@@ -256,9 +280,9 @@
           </div>
           <h2 id="cram-starter-title">Ready to Cram?</h2>
           <p id="cram-starter-desc" style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0 20px;">
-            Answer as many random questions as you can before the 60-second timer hits zero!
+            Mode: <strong>1m + 5s Blitz</strong> — Start with 60s. Each correct answer grants <strong>+5 seconds</strong>!
           </p>
-          <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Start 60s Drill</button>
+          <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Start Blitz Drill ⚡</button>
         </div>
       </div>
     </section>
@@ -282,6 +306,12 @@
 
       <!-- Slide Deck Selector Strip -->
       <div class="tab-scroller" style="margin: 14px 0 10px;">
+        <button class="sub-tab" id="btn-deck-ar2" onclick="window.reviewerApp.loadPreloadedDeck('ar-w2')">🏛️ AR101 Wk 2</button>
+        <button class="sub-tab" id="btn-deck-ar3" onclick="window.reviewerApp.loadPreloadedDeck('ar-w3')">🏛️ AR101 Wk 3</button>
+        <button class="sub-tab" id="btn-deck-ar4" onclick="window.reviewerApp.loadPreloadedDeck('ar-w4')">🏛️ AR101 Wk 4</button>
+        <button class="sub-tab" id="btn-deck-ar5" onclick="window.reviewerApp.loadPreloadedDeck('ar-w5')">🏛️ AR101 Wk 5</button>
+        <button class="sub-tab" id="btn-deck-ar6" onclick="window.reviewerApp.loadPreloadedDeck('ar-w6')">🏛️ AR101 Wk 6</button>
+        <button class="sub-tab" id="btn-deck-ar7" onclick="window.reviewerApp.loadPreloadedDeck('ar-w7')">🏛️ AR101 Wk 7</button>
         <button class="sub-tab active" id="btn-deck-spi1" onclick="window.reviewerApp.loadPreloadedDeck('spi-w2')">SPI101 Wk 2</button>
         <button class="sub-tab" id="btn-deck-spi2" onclick="window.reviewerApp.loadPreloadedDeck('spi-w3')">SPI101 Wk 3-4</button>
         <button class="sub-tab" id="btn-deck-spi3" onclick="window.reviewerApp.loadPreloadedDeck('spi-w5')">SPI101 Wk 5-6</button>
@@ -374,7 +404,7 @@
 
   <!-- JSZip for Client-Side Zero-Server PPTX Extraction -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="js/data.js?v=2.6.0"></script>
-  <script src="js/app.js?v=2.6.0"></script>
+  <script src="js/data.js?v=2.7.0"></script>
+  <script src="js/app.js?v=2.7.0"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   'use strict';
 
   // State Management with LocalStorage
-  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_6';
+  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_7';
   
   let state = {
     activeSubject: 'SPI101',
@@ -18,6 +18,7 @@
     quizScore: 0,
     quizSelectedAnswer: null,
     quizSubmitted: false,
+    quizQuestionCount: 10, // 10 | 20 | 30 | 50 | 'ALL'
     soundEnabled: true,
     hapticsEnabled: true,
     streak: 1,
@@ -25,12 +26,33 @@
     masteredCards: [],
     reviewCards: [],
     completedCheckpoints: [],
+    cramTimeControl: 'blitz_1_5',
+    cramBaseTime: 60,
+    cramIncrement: 5,
     cramTimer: 60,
     cramInterval: null,
     cramScore: 0,
+    cramQuestionsAttempted: 0,
     cramActive: false,
     cramSubject: 'ALL'
   };
+
+  // Chess.com-style Time Control presets
+  const CRAM_TIME_PRESETS = {
+    'blitz_1_5': { base: 60, inc: 5, name: '1m + 5s (Blitz)', desc: 'Start with 60s. Each correct answer grants +5 seconds!' },
+    'bullet_30_3': { base: 30, inc: 3, name: '30s + 3s (Bullet)', desc: 'Start with 30s. Each correct answer grants +3 seconds!' },
+    'rapid_3_2': { base: 180, inc: 2, name: '3m + 2s (Rapid)', desc: 'Start with 3 minutes. Each correct answer grants +2 seconds!' },
+    'five_min': { base: 300, inc: 0, name: '5 min (Classic)', desc: '5 fixed minutes. Fast sustained recall drill!' },
+    'ten_min': { base: 600, inc: 0, name: '10 min (Deep Cram)', desc: '10 minutes deep endurance drill across all topics!' },
+    'zen': { base: 0, inc: 0, name: 'Zen Mode (Untimed)', desc: 'Relaxed drill without clock pressure. Counts your time upward.' }
+  };
+
+  function formatCramTimer(seconds) {
+    if (seconds < 0) seconds = 0;
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  }
 
   // Load persisted state
   function loadState() {
@@ -429,25 +451,55 @@
     score: 0
   };
 
+  function setQuizQuestionCount(count) {
+    state.quizQuestionCount = count;
+    document.querySelectorAll('.q-count-selector .q-count-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.id === (count === 'ALL' ? 'qc-all' : `qc-${count}`));
+    });
+
+    initQuizSession(state.activeCheckpoint, true);
+    renderQuizQuestion();
+    showToast(`Quiz length: ${count === 'ALL' ? 'All available' : count} questions 📝`);
+    saveState();
+  }
+
   function initQuizSession(checkpointId, forceReshuffle = false) {
     if (!forceReshuffle && activeQuizSession.checkpointId === checkpointId && activeQuizSession.questions.length > 0) {
       return;
     }
-    const quizGroup = REVIEWER_DATA.quizzes.find(q => q.checkpointId === checkpointId);
-    const sourceQuestions = quizGroup ? quizGroup.questions : [];
-    if (!sourceQuestions.length) {
+    const currentSubject = state.activeSubject;
+    const currentQuizGroup = REVIEWER_DATA.quizzes.find(q => q.checkpointId === checkpointId);
+    let candidatePool = currentQuizGroup ? [...currentQuizGroup.questions] : [];
+
+    const desiredCount = state.quizQuestionCount === 'ALL' ? 9999 : (parseInt(state.quizQuestionCount, 10) || 10);
+
+    // If candidatePool has fewer questions than desiredCount, pool additional questions from other checkpoints in the same subject
+    if (candidatePool.length < desiredCount) {
+      const otherQuizzes = REVIEWER_DATA.quizzes.filter(q => q.subject === currentSubject && q.checkpointId !== checkpointId);
+      const extraQuestions = [];
+      otherQuizzes.forEach(qg => extraQuestions.push(...qg.questions));
+      extraQuestions.sort(() => Math.random() - 0.5);
+      for (const eq of extraQuestions) {
+        if (!candidatePool.some(q => q.id === eq.id)) {
+          candidatePool.push(eq);
+          if (candidatePool.length >= desiredCount) break;
+        }
+      }
+    }
+
+    if (!candidatePool.length) {
       activeQuizSession = { checkpointId, questions: [], userAnswers: [], score: 0 };
       return;
     }
 
     // 1. Shuffle questions order (Fisher-Yates)
-    const shuffledQ = [...sourceQuestions].sort(() => Math.random() - 0.5);
+    const shuffledQ = [...candidatePool].sort(() => Math.random() - 0.5);
+    const selectedQ = shuffledQ.slice(0, desiredCount);
 
     // 2. For each question, dynamically shuffle the options and remap correct index
-    const preparedQuestions = shuffledQ.map((q, qIndex) => {
+    const preparedQuestions = selectedQ.map((q, qIndex) => {
       const originalOptions = q.options;
       const indexedOptions = originalOptions.map((text, idx) => ({ text, isCorrect: idx === q.correct }));
-      // Shuffle options randomly
       indexedOptions.sort(() => Math.random() - 0.5);
       const newOptions = indexedOptions.map(o => o.text);
       const newCorrect = indexedOptions.findIndex(o => o.isCorrect);
@@ -691,8 +743,35 @@
   }
 
   // ==============================================================================
-  // SUBJECT-SEPARATED 60-SECOND CRAM DRILL
+  // CHESS.COM-STYLE TIME CONTROLLED CRAM DRILL
   // ==============================================================================
+  function setCramTimeControl(presetKey) {
+    const preset = CRAM_TIME_PRESETS[presetKey] || CRAM_TIME_PRESETS['blitz_1_5'];
+    state.cramTimeControl = presetKey;
+    state.cramBaseTime = preset.base;
+    state.cramIncrement = preset.inc;
+
+    document.querySelectorAll('.cram-time-nav .time-control-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.id === `tc-${presetKey}`);
+    });
+
+    const timerPill = document.getElementById('cram-timer-pill');
+    if (timerPill) timerPill.classList.remove('timer-urgent');
+
+    const tEl = document.getElementById('cram-timer-val');
+    if (tEl) {
+      tEl.textContent = presetKey === 'zen' ? '0:00' : formatCramTimer(preset.base);
+    }
+
+    const descEl = document.getElementById('cram-starter-desc');
+    if (descEl && !state.cramActive) {
+      descEl.innerHTML = `Mode: <strong>${preset.name}</strong> — ${preset.desc}`;
+    }
+
+    showToast(`Time Control: ${preset.name} ⏱️`);
+    saveState();
+  }
+
   function setCramSubject(code) {
     state.cramSubject = code;
     document.querySelectorAll('.cram-subject-nav .cram-sub-btn').forEach(btn => {
@@ -706,12 +785,17 @@
       'SPI101': 'SPI101 (Social & Professional Issues)',
       'MS101': 'MS101 (Discrete Mathematics)',
       'IPT102': 'IPT102 (Integrative Programming & ASP.NET)',
-      'SIA101': 'SIA101 (Systems Integration & Architecture)'
+      'SIA101': 'SIA101 (Systems Integration & Architecture)',
+      'AR101': 'AR101 (Computer Architecture & Organization)'
     };
     const subLabel = labels[code] || code;
 
+    const preset = CRAM_TIME_PRESETS[state.cramTimeControl] || CRAM_TIME_PRESETS['blitz_1_5'];
+
     if (titleEl) titleEl.textContent = `Ready to Cram ${code === 'ALL' ? 'Everything' : code}?`;
-    if (descEl) descEl.textContent = `Answer as many rapid-fire ${subLabel} questions as you can before the 60-second timer hits zero!`;
+    if (descEl && !state.cramActive) {
+      descEl.innerHTML = `Subject: <strong>${subLabel}</strong><br>Mode: <strong>${preset.name}</strong> — ${preset.desc}`;
+    }
 
     showToast(`Cram Subject: ${code}`);
     if (state.cramActive) {
@@ -721,23 +805,40 @@
 
   function startCramMode() {
     state.cramActive = true;
-    state.cramTimer = 60;
     state.cramScore = 0;
+    state.cramQuestionsAttempted = 0;
+
+    const preset = CRAM_TIME_PRESETS[state.cramTimeControl] || CRAM_TIME_PRESETS['blitz_1_5'];
+    const isZen = state.cramTimeControl === 'zen';
+    state.cramTimer = isZen ? 0 : (preset.base || 60);
+
+    const timerPill = document.getElementById('cram-timer-pill');
+    if (timerPill) timerPill.classList.remove('timer-urgent');
 
     const timerEl = document.getElementById('cram-timer-val');
-    if (timerEl) timerEl.textContent = '60s';
+    if (timerEl) timerEl.textContent = formatCramTimer(state.cramTimer);
     const scoreEl = document.getElementById('cram-score-val');
     if (scoreEl) scoreEl.textContent = '0';
 
     if (state.cramInterval) clearInterval(state.cramInterval);
 
     state.cramInterval = setInterval(() => {
-      state.cramTimer -= 1;
-      const tEl = document.getElementById('cram-timer-val');
-      if (tEl) tEl.textContent = `${state.cramTimer}s`;
+      if (isZen) {
+        state.cramTimer += 1;
+        if (timerEl) timerEl.textContent = formatCramTimer(state.cramTimer);
+      } else {
+        state.cramTimer -= 1;
+        if (timerEl) timerEl.textContent = formatCramTimer(state.cramTimer);
 
-      if (state.cramTimer <= 0) {
-        endCramMode();
+        if (state.cramTimer <= 10) {
+          if (timerPill) timerPill.classList.add('timer-urgent');
+        } else {
+          if (timerPill) timerPill.classList.remove('timer-urgent');
+        }
+
+        if (state.cramTimer <= 0) {
+          endCramMode();
+        }
       }
     }, 1000);
 
@@ -794,14 +895,40 @@
   }
 
   function answerCram(selected, correct) {
+    state.cramQuestionsAttempted += 1;
+    const isZen = state.cramTimeControl === 'zen';
+    const preset = CRAM_TIME_PRESETS[state.cramTimeControl] || CRAM_TIME_PRESETS['blitz_1_5'];
+
     if (selected === correct) {
       state.cramScore += 1;
+      // Increment timer if mode has increment
+      if (!isZen && preset.inc > 0) {
+        state.cramTimer += preset.inc;
+        const timerEl = document.getElementById('cram-timer-val');
+        if (timerEl) timerEl.textContent = formatCramTimer(state.cramTimer);
+
+        // Show floating bonus animation badge
+        const bonusEl = document.getElementById('cram-time-bonus');
+        if (bonusEl) {
+          bonusEl.textContent = `+${preset.inc}s`;
+          bonusEl.classList.remove('animate-bonus');
+          void bonusEl.offsetWidth; // trigger reflow
+          bonusEl.classList.add('animate-bonus');
+        }
+
+        const timerPill = document.getElementById('cram-timer-pill');
+        if (state.cramTimer > 10 && timerPill) {
+          timerPill.classList.remove('timer-urgent');
+        }
+      }
+
       playSound('correct');
       triggerHaptic([20]);
     } else {
       playSound('wrong');
       triggerHaptic([40]);
     }
+
     const scoreEl = document.getElementById('cram-score-val');
     if (scoreEl) scoreEl.textContent = state.cramScore;
     renderNextCramQuestion();
@@ -810,6 +937,15 @@
   function endCramMode() {
     clearInterval(state.cramInterval);
     state.cramActive = false;
+
+    const timerPill = document.getElementById('cram-timer-pill');
+    if (timerPill) timerPill.classList.remove('timer-urgent');
+
+    const preset = CRAM_TIME_PRESETS[state.cramTimeControl] || CRAM_TIME_PRESETS['blitz_1_5'];
+    const accuracy = state.cramQuestionsAttempted > 0
+      ? Math.round((state.cramScore / state.cramQuestionsAttempted) * 100)
+      : 0;
+
     const container = document.getElementById('cram-card-slot');
     if (container) {
       container.innerHTML = `
@@ -819,11 +955,27 @@
             <div class="score-total">Score</div>
           </div>
           <h2>⚡ Cram Drill Complete!</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0 16px;">
-            Subject: <strong>${state.cramSubject || 'All'}</strong><br>
-            You answered <strong>${state.cramScore}</strong> questions correctly in 60 seconds!
+          <div style="display: flex; justify-content: center; gap: 14px; margin: 14px 0 16px; flex-wrap: wrap;">
+            <div class="stat-pill">
+              <span class="stat-label">Accuracy</span>
+              <span class="stat-val" style="color: var(--accent-cyan); font-size: 1.1rem;">${accuracy}%</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Attempted</span>
+              <span class="stat-val" style="font-size: 1.1rem;">${state.cramQuestionsAttempted}</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Time Control</span>
+              <span class="stat-val" style="color: var(--accent-emerald); font-size: 0.95rem;">${preset.name}</span>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">
+            Subject: <strong>${state.cramSubject || 'All'}</strong> • Correct: <strong>${state.cramScore}</strong> / <strong>${state.cramQuestionsAttempted}</strong>
           </p>
-          <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Start Another Drill</button>
+          <div style="display: flex; gap: 10px; justify-content: center;">
+            <button class="primary-btn" onclick="window.reviewerApp.startCramMode()">Play Again 🔄</button>
+            <button class="secondary-btn" onclick="window.reviewerApp.switchView('hub')">Back to Hub 🏛️</button>
+          </div>
         </div>
       `;
     }
@@ -929,6 +1081,77 @@
   // SLIDES & PPTX VIEWER ENGINE
   // ==============================================================================
   const PRELOADED_DECKS = {
+    'ar-w2': {
+      title: "AR101: Week 2 - Intro to Computer Architecture",
+      slides: [
+        { title: "WEEK 2: INTRO TO COMPUTER ARCHITECTURE & ORGANIZATION", bullets: ["AR101 - Computer Architecture and Organization", "Quezon City University - College of Computer Studies", "Information Technology Department"] },
+        { title: "Learning Outcomes", bullets: ["Integrate Computer Organization and Architecture", "Classify basic Architecture of a Computer", "Identify types of Programming Languages & trade-offs", "Understand basic operations of a computer"] },
+        { title: "What is a Digital Computer?", bullets: ["A fast electronic calculating machine that accepts digitized input information", "Processes digitized information according to internally stored instructions", "Produces resulting output information"] },
+        { title: "Types of Computers", bullets: ["Personal Computers (PCs)", "Workstations (high performance technical single-user)", "Mainframes (high volume batch & multi-user)", "Supercomputers (massive parallel computing)"] },
+        { title: "The 5 Functional Units", bullets: ["1. Input Unit (accepts coded info from humans/computers)", "2. Memory Unit / Primary Storage (stores active programs/data)", "3. Arithmetic & Logic Unit (ALU - calculations & decisions)", "4. Control Unit (CU - directs all activities)", "5. Output Unit (sends results to outside world)", "CPU operates 10x faster than Main Memory!"] },
+        { title: "Main Memory Divisions & Words", bullets: ["Info processed in fixed-size groups called WORDS", "Each word has a distinct numerical address", "4 Divisions: Input Storage Area, Working Storage Space, Output Storage Area, Program Storage Area", "Auxiliary/Secondary Storage: permanent large storage (hard disks)"] },
+        { title: "Von-Neumann Architecture & Basic Operations", bullets: ["Also known as Stored Program Architecture / Fetch-Decode-Execute Architecture", "1. Accepts Information", "2. Information fetched into ALU and processed", "3. Processed info leaves through Output Unit", "4. Control Unit directs all internal operations"] },
+        { title: "Language Generations & Pros/Cons", bullets: ["Machine -> Assembly -> High-Level -> 4GL", "High-Level Pros: Easy to learn, Predefined functions, Portability", "Low-Level Pros: Compact code, Execution speed, Granular hardware flexibility"] }
+      ]
+    },
+    'ar-w3': {
+      title: "AR101: Week 3 - Main Memory & CPU",
+      slides: [
+        { title: "WEEK 3: MAIN MEMORY AND CENTRAL PROCESSING UNIT", bullets: ["AR101 - Computer Architecture and Organization", "Quezon City University"] },
+        { title: "Learning Outcomes", bullets: ["Identify connections between Main Memory and CPU", "Describe basic operational concepts of CPU", "Identify different Bus Structures", "Describe Main Memory Operations"] },
+        { title: "Memory Read and Write Cycles", bullets: ["Fetch/Read: MAR gets address, READ signal sent, word read into MDR (non-destructive)", "Write/Store: MAR gets address, data put in MDR, WRITE signal sent (destructive overwrite)"] },
+        { title: "CPU Internal Registers", bullets: ["PC (Program Counter): holds address of next instruction", "MAR (Memory Address Register): holds address for memory bus", "MDR (Memory Data Register): holds data to/from memory", "IR (Instruction Register): holds instruction being decoded/executed", "General Purpose Registers: R0 to R(n-1)"] },
+        { title: "Trace of 'ADD LOCA, R0'", bullets: ["1. MAR <- [PC]", "2. Issue READ; MDR <- [Memory], PC <- [PC] + 1", "3. IR <- [MDR]", "4. MAR <- [LOCA]", "5. Issue READ; MDR <- [Memory]", "6. R0 <- [R0] + [MDR] via ALU"] },
+        { title: "The 7 Universal CPU Operating Steps", bullets: ["1. Fetch instruction", "2. Increment PC", "3. Decode instruction", "4. Determine data address", "5. Fetch operand", "6. Execute", "7. Return to step 1"] },
+        { title: "Instruction Address Notations", bullets: ["0-Address: operands defined implicitly (Stack / ACC)", "1-Address: uses Accumulator implicitly (LOAD A, ADD B, STORE C)", "2-Address: ADD A, B -> A <- [A] + [B] (overwrites A)", "3-Address: ADD A, B, C -> A <- [B] + [C] (preserves B and C)"] },
+        { title: "Bus Structures", bullets: ["3 Groupings: Data Bus, Address Bus, Control Bus", "Single-Bus: simple, but one transfer at a time bottleneck", "Two-Bus: Config 1 (I/O to CPU, Memory to CPU) & Config 2 (I/O to Memory, Memory to CPU)"] }
+      ]
+    },
+    'ar-w4': {
+      title: "AR101: Week 4 - Intel Microprocessors & Memory",
+      slides: [
+        { title: "WEEK 4: INTEL MICROPROCESSORS, LOGICAL & PHYSICAL MEMORY", bullets: ["AR101 - Computer Architecture and Organization", "Quezon City University"] },
+        { title: "Intel History Milestones", bullets: ["1971: 4004 (world's 1st CPU, 4-bit, 4,096 4-bit locations = 2,048 bytes)", "1972: 8008 (8-bit, 16KB, 48 instrs)", "1973: 8080 (8-bit, 64KB)", "1978: 8085 (8-bit, +5V)", "1978: 8086 (16-bit, 1MB RAM, 14 ns execution)", "1979: 8088 (16-bit internal, 8-bit external bus, used in IBM PC)"] },
+        { title: "Logical vs Physical Memory & Banks", bullets: ["Logical Memory: 1MB linear map (00000H to FFFFFH)", "Physical Memory: actual RAM DIMMs on motherboard", "Even Bank (512KB, D0-D7, A0 = 0)", "Odd Bank (512KB, D8-D15, BHE# = 0)"] },
+        { title: "8086 Internal Architecture (EU vs BIU)", bullets: ["BIU (Bus Interface Unit): CS, DS, SS, ES, IP, 6-byte Prefetch Queue (4-byte in 8088), address calculation", "EU (Execution Unit): ALU, Control Unit, 8 General Registers, Flags register"] },
+        { title: "8086 Flags Register (PSW)", bullets: ["16-bit register with 9 active flags (7 unused)", "6 Status Flags: CF (b0), PF (b2 - even parity), AF (b4 - BCD half carry), ZF (b6), SF (b7 - sign), OF (b11 - overflow)", "3 Control Flags: TF (b8 - single step), IF (b9 - interrupt), DF (b10 - string direction)"] },
+        { title: "Physical Address Formula", bullets: ["Physical Address (PA) = Segment Base x 10H + Offset", "Example: 1234H:0022H -> 12340H + 0022H = 12362H", "Example: 123AH:341BH -> 123A0H + 341BH = 157BBH"] }
+      ]
+    },
+    'ar-w5': {
+      title: "AR101: Week 5 - Segments, Stack & Addressing Modes",
+      slides: [
+        { title: "WEEK 5: UNDERSTANDING MEMORY SEGMENTS, STACK & ADDRESSING", bullets: ["AR101 - Computer Architecture and Organization", "Quezon City University"] },
+        { title: "64KB Memory Segmentation", bullets: ["Main memory partitioned into 64KB (65,536 bytes) segments", "Code Segment (CS): program code", "Data Segment (DS): variables and data", "Stack Segment (SS): runtime LIFO stack", "Extra Segment (ES): secondary string data"] },
+        { title: "8086 LIFO Stack Mechanics", bullets: ["Stack size: 64KB (32K 16-bit words)", "Stack grows DOWNWARD toward lower memory addresses!", "SP initialized to FFFFH upon start-up", "Bottom of Stack = SS x 10H + FFFFH; Top of Stack (TOS) = SS x 10H + SP"] },
+        { title: "PUSH and POP Execution Tracing", bullets: ["PUSH BX: New SP = SP - 2; BH -> SS:SP+1, BL -> SS:SP; New TOS = SS:SP", "POP CX: CL <- SS:SP, CH <- SS:SP+1; New SP = SP + 2; New TOS = SS:SP"] },
+        { title: "The 7 Data Addressing Modes", bullets: ["1. Register (MOV AX, CX)", "2. Immediate (MOV AL, 15H)", "3. Direct (MOV AX, [1234H] / MOV AX, BETA)", "4. Register Indirect (MOV AX, [BX] / MOV CX, [BP])", "5. Register Relative (MOV AX, [BX + 1000H])", "6. Base-Plus-Index (MOV AX, [BX + SI])", "7. Base-Relative-Plus-Index (MOV AX, FILE[BX + DI])"] },
+        { title: "Default Segment Rule", bullets: ["BX, SI, DI default to Data Segment (DS)", "BP defaults to Stack Segment (SS)!"] }
+      ]
+    },
+    'ar-w6': {
+      title: "AR101: Week 6 - Data Transfer Instructions",
+      slides: [
+        { title: "WEEK 6: DATA TRANSFER INSTRUCTIONS", bullets: ["AR101 - Computer Architecture and Organization", "Quezon City University"] },
+        { title: "Data Transfer Principles & Flags Rule", bullets: ["Moves data between Reg-Reg, Reg-Mem, Reg-I/O", "CRITICAL RULE: Data transfer instructions DO NOT affect flags! (Except SAHF and POPF)"] },
+        { title: "Master Table of 11 Instructions", bullets: ["MOV, PUSH, POP, PUSHA (all 8 regs), POPA", "XCHG (swaps D and S)", "IN & OUT (accumulator <-> I/O port)", "XLAT (translate AL via [BX+AL])", "LAHF & SAHF (load/store AH with flags)", "PUSHF & POPF (push/pop 16-bit PSW)"] },
+        { title: "Rules & Restrictions for MOV & XCHG", bullets: ["NO memory-to-memory transfers", "CS CANNOT be a destination", "NO immediate values directly into segment registers", "XCHG cannot use Immediate operands or Segment Registers"] },
+        { title: "LEA vs MOV", bullets: ["MOV AX, LIST -> loads DATA stored in memory at LIST", "LEA AX, LIST -> loads 16-bit OFFSET ADDRESS itself!"] }
+      ]
+    },
+    'ar-w7': {
+      title: "AR101: Week 7 - Arithmetic Unit (Part 1)",
+      slides: [
+        { title: "WEEK 7: THE ARITHMETIC UNIT (PART 1)", bullets: ["AR101 - Computer Architecture and Organization", "Quezon City University"] },
+        { title: "Introduction to the ALU", bullets: ["Fundamental building block of CPU", "Performs addition, subtraction, AND, OR, NOT, XOR", "Multiplication is repeated addition; division is repeated subtraction"] },
+        { title: "Signed Integer Representations", bullets: ["Sign-Magnitude: MSB is sign; has two zeros (+0 and -0)", "1's Complement: invert all bits; still has two zeros (+0 and -0)", "2's Complement: 1's Comp + 1; single zero, range -2^(n-1) to +2^(n-1)-1"] },
+        { title: "Full Adder Circuitry", bullets: ["Sum: s_i = x_i XOR y_i XOR c_i", "Carry: c_{i+1} = x_i*y_i + (x_i + y_i)*c_i", "2-level combinational AND-OR logic"] },
+        { title: "Ripple-Carry Adder Delay Problem", bullets: ["Formula: Delay = (n - 1) x 1 ns + 1.5 ns", "8-bit: 8.5 ns", "32-bit: 32.5 ns! Far too slow for modern CPUs"] },
+        { title: "Carry-Lookahead Adder (CLA)", bullets: ["Generate: G_i = x_i * y_i", "Propagate: P_i = x_i + y_i", "c_{i+1} = G_i + P_i*c_i", "All carries developed in 3 logic gate delays!"] },
+        { title: "Gate Fan-in Constraint", bullets: ["Carry c_{i+1} requires i + 2 inputs to largest AND/OR gate", "8-bit CLA needs gate fan-in of 9 (causes delay degradation)", "Solution: Hierarchical / Block CLA adders in modern CPUs"] }
+      ]
+    },
+
     'spi-w2': {
       title: "SPI101: Week 2 - Ethical Theories",
       slides: [
@@ -1304,6 +1527,20 @@
 
     renderCheckpointNav();
     updateQuickStats();
+
+    // Restore Quiz Question Count button state
+    const qcBtn = document.getElementById(state.quizQuestionCount === 'ALL' ? 'qc-all' : `qc-${state.quizQuestionCount}`);
+    if (qcBtn) {
+      document.querySelectorAll('.q-count-selector .q-count-btn').forEach(b => b.classList.remove('active'));
+      qcBtn.classList.add('active');
+    }
+
+    // Restore Cram Time Control button state
+    const tcBtn = document.getElementById(`tc-${state.cramTimeControl}`);
+    if (tcBtn) {
+      document.querySelectorAll('.cram-time-nav .time-control-btn').forEach(b => b.classList.remove('active'));
+      tcBtn.classList.add('active');
+    }
     renderHub();
     renderDigest();
     renderFlashcard();
@@ -1348,6 +1585,8 @@
     startCramMode,
     answerCram,
     setCramSubject,
+    setCramTimeControl,
+    setQuizQuestionCount,
     toggleSound,
     loadPreloadedDeck,
     renderSlide,

@@ -15,7 +15,8 @@
 - **📖 Chronological Digest (No Skimming Needed)**: High-yield bullet point summaries, key terms, real Philippine legal doctrines, and "Exam Trap Warnings".
 - **🗂️ Interactive 3D Flashcards**: Flip cards to reveal answers, track mastery, with touch swipe support (Swipe Left = Review Again, Swipe Right = Mastered).
 - **🎯 Checkpoint Quizzes**: Scenario-based questions mirroring typical QCU professor test items with immediate explanations for every option.
-- **⏱️ 60-Second Cram Mode**: Rapid-fire drill to test instant recall right before an exam.
+- **⏱️ Chess-Style Blitz Cram Mode**: Dynamic time controls (1m+5s Blitz, 30s+3s Bullet, 3m+2s Rapid, 5m, 10m, Zen) with time increments (+5s) on correct answers and low-time alarms.
+- **🔢 Custom Quiz Length**: Selectable question amounts (10, 20, 30, 50, or All) with automated subject-wide question pooling.
 - **🔊 Built-In Web Audio & Haptics**: Synthesized audio feedback (correct chime, error tone, flip click) and subtle vibration feedback without needing external MP3 downloads.
 - **📂 Full Semester Subjects Hub**: Enrolled course schedule table ready with slots for all 7 subjects.
 
@@ -28,10 +29,56 @@
 | **SPI101** | **Social and Professional Issues 1** | **Fri 2:30PM - 5:30PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
 | **MS101** | **Discrete Mathematics** | **Mon 6:00PM - 9:00PM** | 🟢 **ACTIVE** | **3 Checkpoints Ready** |
 | **IPT102** | **Integrative Programming & Tech 2** | **Tue 2:30PM-5:30PM & 7PM-9PM** | 🟢 **ACTIVE** | **7 Checkpoints Ready** |
-| **AR101** | Architecture and Organization | Thu 2:30PM-5:30PM & 7PM-9PM | ⚪ Slot Ready | Planned |
+| **AR101** | **Architecture and Organization** | **Thu 2:30PM-5:30PM & 7PM-9PM** | 🟢 **ACTIVE** | **6 Checkpoints Ready** |
 | **SIA101** | **Systems Integration & Architecture 1** | **Wed 12:30PM-2:30PM & 4:30PM-7:30PM** | 🟢 **ACTIVE** | **5 Checkpoints Ready** |
 | **SOCSCI3** | The Contemporary World | Fri 6:00PM - 9:00PM | ⚪ Slot Ready | Planned |
 | **RIZAL** | The Life and Works of Rizal | Fri 2:30PM - 5:30PM | ⚪ Slot Ready | Planned |
+
+---
+
+## 🏛️ AR101: Computer Architecture and Organization Breakdown
+
+### Checkpoint 1: Week 2 — Intro to Computer Architecture & Organization
+- **Digital Computer**: Fast electronic calculating machine accepting digitized input, processing via stored program, producing output.
+- **5 Functional Units**: Input, Memory (Primary Storage), Arithmetic & Logic Unit (ALU), Control Unit (CU), Output. CPU is 10x faster than Main Memory.
+- **4 Main Memory Divisions**: Input Storage Area, Working Storage Space, Output Storage Area, Program Storage Area.
+- **Von-Neumann Architecture**: Stored Program / Fetch-Decode-Execute Architecture with unified memory.
+- **Language Generations**: High-level (easy to learn, predefined functions, portability) vs Low-level (compact code, speed, flexibility).
+
+### Checkpoint 2: Week 3 — Main Memory & Central Processing Unit (CPU)
+- **CPU Registers**: PC (Program Counter), MAR (Memory Address Register), MDR (Memory Data Register), IR (Instruction Register), General Purpose Registers R0 to R(n-1).
+- **Read & Write Cycles**: Non-destructive Read vs destructive overwrite Write.
+- **Trace of `ADD LOCA, R0`**: 6-step cycle showing MAR, MDR, PC+1, and ALU sum execution.
+- **Instruction Address Formats**: 0-Address (implicit Stack/ACC), 1-Address (implicit ACC), 2-Address (`ADD A, B`), 3-Address (`ADD A, B, C`).
+- **Bus Structures**: Data, Address, and Control Buses; Single-Bus bottleneck vs Two-Bus configurations 1 & 2.
+
+### Checkpoint 3: Week 4 — Intel Microprocessors, Logical & Physical Memory
+- **Intel Milestones**: 4004 (1971, 4-bit, 2KB), 8008 (1972, 8-bit, 16KB), 8080 (1973), 8085 (1978), 8086 (1978, 16-bit, 1MB), 8088 (1979, 8-bit external bus).
+- **Physical Memory Organization**: Even Bank ($A_0 = 0$, $D_0-D_7$) and Odd Bank ($\overline{\text{BHE}} = 0$, $D_8-D_{15}$).
+- **EU vs BIU**: Execution Unit (ALU, CU, Registers, Flags) vs Bus Interface Unit (Segment Regs, IP, 6-byte/4-byte prefetch queue).
+- **PSW / Flags**: 6 Status Flags (CF, PF, AF, ZF, SF, OF) and 3 Control Flags (TF, IF, DF).
+- **Physical Address Formula**: $\text{PA} = (\text{Segment Base} \times 10\text{H}) + \text{Offset}$.
+
+### Checkpoint 4: Week 5 — Memory Segments, Stack Operations & 7 Addressing Modes
+- **64KB Segments**: CS, DS, SS, ES (65,536 bytes each).
+- **LIFO Stack**: Grows downward toward lower memory; SP initialized to `FFFFH`.
+- **PUSH & POP Traces**: `PUSH` decrements SP by 2 (high byte at SP+1, low byte at SP); `POP` increments SP by 2.
+- **The 7 Data Addressing Modes**: Register, Immediate, Direct, Register Indirect, Register Relative, Base-Plus-Index, Base-Relative-Plus-Index.
+- **Default Segment Rules**: `BX`, `SI`, `DI` use `DS`; `BP` uses `SS`.
+
+### Checkpoint 5: Week 6 — Data Transfer Instructions & Tracing
+- **Rule of Flags**: Data transfer instructions (`MOV`, `PUSH`, `POP`, `XCHG`, `LEA`) DO NOT affect flags (except `POPF` and `SAHF`).
+- **11 Instructions**: `MOV`, `PUSH`, `POP`, `PUSHA`, `POPA`, `XCHG`, `IN`, `OUT`, `XLAT`, `LAHF`, `SAHF`, `PUSHF`, `POPF`.
+- **Restrictions**: No memory-to-memory with MOV; CS cannot be destination; no immediate into segment register directly; XCHG cannot use immediate or segment registers.
+- **`LEA` vs `MOV`**: `MOV` loads memory data; `LEA` loads the 16-bit offset address.
+
+### Checkpoint 6: Week 7 — The Arithmetic Unit (Part 1)
+- **ALU Fundamentals**: Addition and subtraction form the basis of all digital computation.
+- **Signed Numbers**: Sign-Magnitude (dual zeros: +0, -0), 1's Complement (dual zeros), 2's Complement (single zero, range $-2^{n-1} \text{ to } +2^{n-1}-1$).
+- **Full Adder Equations**: Sum $s_i = x_i \oplus y_i \oplus c_i$, Carry $c_{i+1} = x_i y_i + (x_i + y_i) c_i$.
+- **Ripple-Carry Delay**: $(n-1) \times 1\text{ ns} + 1.5\text{ ns}$ (32-bit = 32.5 ns).
+- **Carry-Lookahead Adder (CLA)**: Generate $G_i = x_i y_i$, Propagate $P_i = x_i + y_i$; all carries generated in 3 gate delays.
+- **Gate Fan-In Constraint**: $i+2$ inputs to largest AND/OR gate (fan-in of 9 for 8-bit CLA); solved via Block/Hierarchical CLAs.
 
 ---
 
