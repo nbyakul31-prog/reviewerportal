@@ -7,11 +7,11 @@
   'use strict';
 
   // State Management with LocalStorage
-  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_7';
+  const STORAGE_KEY = 'qcu_reviewer_portal_state_v2_8';
   
   let state = {
     activeSubject: 'SPI101',
-    activeView: 'hub', // 'hub' | 'digest' | 'flashcards' | 'quiz' | 'cram'
+    activeView: 'hub', // 'hub' | 'digest' | 'flashcards' | 'quiz' | 'cram' | 'glossary' | 'slides'
     activeCheckpoint: 'cp1',
     currentCardIndex: 0,
     currentQuizIndex: 0,
@@ -34,7 +34,10 @@
     cramScore: 0,
     cramQuestionsAttempted: 0,
     cramActive: false,
-    cramSubject: 'ALL'
+    cramSubject: 'ALL',
+    glossarySubView: 'terms', // 'terms' | 'circuits' | 'sources'
+    glossarySubject: 'ALL',   // 'ALL' | 'AR101' | 'SPI101' | 'MS101' | 'IPT102' | 'SIA101'
+    glossarySearchQuery: ''
   };
 
   // Chess.com-style Time Control presets
@@ -210,6 +213,8 @@
       renderQuizQuestion();
     } else if (viewName === 'hub') {
       renderHub();
+    } else if (viewName === 'glossary') {
+      renderGlossary();
     }
   }
 
@@ -1519,6 +1524,389 @@
     });
   }
 
+  // ==============================================================================
+  // TABULAR GLOSSARY, SCHEMATICS & ACADEMIC SOURCES ENGINE (v2.8.0)
+  // ==============================================================================
+  function setGlossarySubView(subView) {
+    state.glossarySubView = subView;
+    
+    // Toggle active buttons
+    document.querySelectorAll('.glossary-toggle-btn').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById(`gtoggle-${subView}`);
+    if (btn) btn.classList.add('active');
+
+    // Toggle panels
+    const tablePanel = document.getElementById('glossary-table-container');
+    const circuitsPanel = document.getElementById('circuits-container');
+    const sourcesPanel = document.getElementById('sources-container');
+    const subjectSelector = document.getElementById('glossary-subject-selector');
+    const searchInput = document.getElementById('glossary-search-input');
+
+    if (tablePanel) tablePanel.style.display = subView === 'terms' ? 'block' : 'none';
+    if (circuitsPanel) circuitsPanel.style.display = subView === 'circuits' ? 'block' : 'none';
+    if (sourcesPanel) sourcesPanel.style.display = subView === 'sources' ? 'block' : 'none';
+
+    // Circuits are AR101 hardware specific; hide subject bar on circuits
+    if (subjectSelector) {
+      subjectSelector.style.display = subView === 'circuits' ? 'none' : 'flex';
+    }
+
+    if (searchInput) {
+      if (subView === 'terms') {
+        searchInput.placeholder = 'Search abbreviation, expansion, purpose, or category...';
+      } else if (subView === 'circuits') {
+        searchInput.placeholder = 'Search logic circuits, gates, adders, registers...';
+      } else {
+        searchInput.placeholder = 'Search textbooks, specs, authors, statutes...';
+      }
+    }
+
+    renderGlossary();
+  }
+
+  function setGlossarySubject(subjectCode) {
+    state.glossarySubject = subjectCode;
+    document.querySelectorAll('.glossary-sub-pill').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById(`gsub-${subjectCode}`);
+    if (btn) btn.classList.add('active');
+    renderGlossary();
+  }
+
+  function handleGlossarySearch(query) {
+    state.glossarySearchQuery = (query || '').trim().toLowerCase();
+    renderGlossary();
+  }
+
+  function copyGlossaryTerm(term) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(term).then(() => {
+        showToast(`Copied "${term}" to clipboard!`);
+        playAudioTone(880, 'sine', 0.08);
+      }).catch(() => {
+        showToast(`Copied: ${term}`);
+      });
+    } else {
+      showToast(`Copied: ${term}`);
+    }
+  }
+
+  function renderGlossary() {
+    const query = state.glossarySearchQuery;
+    const badge = document.getElementById('glossary-count-badge');
+
+    if (state.glossarySubView === 'terms') {
+      renderGlossaryTable(query, badge);
+    } else if (state.glossarySubView === 'circuits') {
+      renderCircuitsList(query, badge);
+    } else if (state.glossarySubView === 'sources') {
+      renderSourcesList(query, badge);
+    }
+  }
+
+  function renderGlossaryTable(query, badge) {
+    const container = document.getElementById('glossary-table-container');
+    if (!container) return;
+
+    const glossariesData = REVIEWER_DATA.glossaries || {};
+    let allTerms = [];
+
+    if (state.glossarySubject === 'ALL') {
+      for (const [subCode, terms] of Object.entries(glossariesData)) {
+        terms.forEach(t => allTerms.push({ ...t, subject: subCode }));
+      }
+    } else {
+      const terms = glossariesData[state.glossarySubject] || [];
+      terms.forEach(t => allTerms.push({ ...t, subject: state.glossarySubject }));
+    }
+
+    // Filter by search query
+    let filtered = allTerms;
+    if (query) {
+      filtered = allTerms.filter(t => 
+        (t.term && t.term.toLowerCase().includes(query)) ||
+        (t.expansion && t.expansion.toLowerCase().includes(query)) ||
+        (t.purpose && t.purpose.toLowerCase().includes(query)) ||
+        (t.category && t.category.toLowerCase().includes(query)) ||
+        (t.week && t.week.toLowerCase().includes(query)) ||
+        (t.subject && t.subject.toLowerCase().includes(query))
+      );
+    }
+
+    if (badge) badge.textContent = `${filtered.length} terms`;
+
+    if (!filtered.length) {
+      container.innerHTML = `
+        <div class="glossary-empty-state">
+          <div class="glossary-empty-icon">🔍</div>
+          <h3 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">No matching glossary terms found</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Try searching for a different abbreviation, technical purpose, or select another subject filter.</p>
+        </div>
+      `;
+      return;
+    }
+
+    const showSubjectCol = state.glossarySubject === 'ALL';
+
+    const rowsHtml = filtered.map(t => `
+      <tr>
+        <td>
+          <div class="term-cell-wrap">
+            <span class="term-badge">${escapeHtml(t.term)}</span>
+            <button class="copy-term-btn" onclick="window.reviewerApp.copyGlossaryTerm('${escapeHtml(t.term)}')" title="Copy term">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+        </td>
+        <td class="expansion-cell">${escapeHtml(t.expansion)}</td>
+        <td class="purpose-cell">${formatMarkdown(t.purpose)}</td>
+        <td><span class="category-pill">${escapeHtml(t.category || 'General')}</span></td>
+        <td><span class="week-pill">${escapeHtml(t.week || '-')}</span></td>
+        ${showSubjectCol ? `<td><span class="category-pill" style="background: rgba(6, 182, 212, 0.15); color: #67e8f9; border-color: rgba(6, 182, 212, 0.3);">${escapeHtml(t.subject)}</span></td>` : ''}
+      </tr>
+    `).join('');
+
+    container.innerHTML = `
+      <div class="glossary-table-wrapper">
+        <table class="glossary-table">
+          <thead>
+            <tr>
+              <th>Term / Acronym</th>
+              <th>Full Title / Expansion</th>
+              <th>Technical Purpose & Function</th>
+              <th>Category</th>
+              <th>Week</th>
+              ${showSubjectCol ? '<th>Subject</th>' : ''}
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function renderCircuitTruthTable(c) {
+    if (c.truth_table && Array.isArray(c.truth_table.headers) && Array.isArray(c.truth_table.rows)) {
+      return `
+        <div class="truth-table-wrap">
+          <table class="truth-table">
+            <thead>
+              <tr>
+                ${c.truth_table.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${c.truth_table.rows.map(row => `
+                <tr>
+                  ${row.map((cell, idx) => {
+                    const isOutput = idx >= row.length - 2;
+                    const cls = isOutput ? (String(cell).trim() === '1' ? 'output-one' : String(cell).trim() === '0' ? 'output-zero' : '') : '';
+                    return `<td class="${cls}">${escapeHtml(String(cell))}</td>`;
+                  }).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+    if (Array.isArray(c.truthTable) && c.truthTable.length > 0) {
+      const keys = Object.keys(c.truthTable[0]);
+      return `
+        <div class="truth-table-wrap">
+          <table class="truth-table">
+            <thead>
+              <tr>
+                ${keys.map(k => `<th>${escapeHtml(k.toUpperCase())}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${c.truthTable.map(rowObj => `
+                <tr>
+                  ${keys.map((k, idx) => {
+                    const val = rowObj[k];
+                    const isOutput = idx === keys.length - 1 || k.toLowerCase().includes('out') || k.toLowerCase().includes('sum') || k.toLowerCase().includes('carry');
+                    const cls = isOutput ? (String(val).trim() === '1' ? 'output-one' : String(val).trim() === '0' ? 'output-zero' : '') : '';
+                    return `<td class="${cls}">${escapeHtml(String(val))}</td>`;
+                  }).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+    return '';
+  }
+
+  function renderCircuitsList(query, badge) {
+    const container = document.getElementById('circuits-container');
+    if (!container) return;
+
+    const circuits = REVIEWER_DATA.circuits || [];
+    let filtered = circuits;
+    if (query) {
+      filtered = circuits.filter(c =>
+        (c.id && c.id.toLowerCase().includes(query)) ||
+        (c.title && c.title.toLowerCase().includes(query)) ||
+        (c.description && c.description.toLowerCase().includes(query)) ||
+        (c.gate_type && c.gate_type.toLowerCase().includes(query)) ||
+        (c.category && c.category.toLowerCase().includes(query)) ||
+        (c.note && c.note.toLowerCase().includes(query))
+      );
+    }
+
+    if (badge) badge.textContent = `${filtered.length} schematics`;
+
+    if (!filtered.length) {
+      container.innerHTML = `
+        <div class="glossary-empty-state">
+          <div class="glossary-empty-icon">⚡</div>
+          <h3 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">No matching schematics found</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Try searching for "Logic Gates", "Full Adder", "Ripple", "Lookahead", "OR", "XOR", or "Memory".</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="circuits-grid">
+        ${filtered.map(c => `
+          <div class="circuit-card" id="circuit-${c.id}">
+            <div class="circuit-header">
+              <div>
+                <div class="circuit-title">
+                  <span>⚡</span> ${escapeHtml(c.title)}
+                </div>
+                <div style="display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap;">
+                  <span class="circuit-badge">${escapeHtml(c.gate_type || c.category || 'Logic Gate')}</span>
+                  <span class="week-pill">${escapeHtml(c.week || 'Week 7')}</span>
+                  <span class="category-pill">${escapeHtml(c.subject || 'AR101')}</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="circuit-desc">${formatMarkdown(c.description)}</p>
+
+            ${c.image ? `
+              <div class="circuit-image-wrap" onclick="window.reviewerApp.openImageModal('${escapeHtml(c.image)}', '${escapeHtml(c.title)}')">
+                <img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" class="circuit-reference-img" />
+                <div class="circuit-image-caption">🔍 Tap / click image to view full-resolution schematic reference</div>
+              </div>
+            ` : ''}
+
+            ${c.svg ? `
+              <div class="circuit-svg-wrap">
+                ${c.svg}
+              </div>
+            ` : ''}
+
+            ${renderCircuitTruthTable(c)}
+
+            ${c.note ? `
+              <div class="circuit-note">
+                <strong>💡 Exam & Architecture Note:</strong> ${formatMarkdown(c.note)}
+              </div>
+            ` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderSourcesList(query, badge) {
+    const container = document.getElementById('sources-container');
+    if (!container) return;
+
+    const sourcesData = REVIEWER_DATA.sources || {};
+    let allSources = [];
+
+    if (state.glossarySubject === 'ALL') {
+      for (const [subCode, srcs] of Object.entries(sourcesData)) {
+        srcs.forEach(s => allSources.push({ ...s, subject: subCode }));
+      }
+    } else {
+      const srcs = sourcesData[state.glossarySubject] || [];
+      srcs.forEach(s => allSources.push({ ...s, subject: state.glossarySubject }));
+    }
+
+    let filtered = allSources;
+    if (query) {
+      filtered = allSources.filter(s =>
+        (s.title && s.title.toLowerCase().includes(query)) ||
+        (s.author && s.author.toLowerCase().includes(query)) ||
+        (s.publisher && s.publisher.toLowerCase().includes(query)) ||
+        (s.scope && s.scope.toLowerCase().includes(query)) ||
+        (s.type && s.type.toLowerCase().includes(query)) ||
+        (s.subject && s.subject.toLowerCase().includes(query))
+      );
+    }
+
+    if (badge) badge.textContent = `${filtered.length} sources`;
+
+    if (!filtered.length) {
+      container.innerHTML = `
+        <div class="glossary-empty-state">
+          <div class="glossary-empty-icon">📚</div>
+          <h3 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">No matching academic sources found</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Try searching for author name, textbook title, standard, or law.</p>
+        </div>
+      `;
+      return;
+    }
+
+    const typeClassMap = {
+      'Textbook': 'type-textbook',
+      'Technical Reference': 'type-spec',
+      'Official Standard': 'type-spec',
+      'Statute / Law': 'type-statute',
+      'Legal Reference': 'type-statute'
+    };
+
+    container.innerHTML = `
+      <div class="sources-grid">
+        ${filtered.map(s => {
+          const typeCls = typeClassMap[s.type] || 'type-textbook';
+          return `
+            <div class="source-card">
+              <div class="source-header">
+                <div class="source-title">${escapeHtml(s.title)}</div>
+                <span class="source-type-pill ${typeCls}">${escapeHtml(s.type)}</span>
+              </div>
+
+              <div class="source-author-line">
+                <strong>${escapeHtml(s.author)}</strong> • <em>${escapeHtml(s.publisher)}</em> 
+                <span class="category-pill" style="margin-left: 6px;">${escapeHtml(s.subject)}</span>
+              </div>
+
+              <div class="source-scope">
+                <strong>Course Alignment:</strong> ${escapeHtml(s.scope)}
+              </div>
+
+              <div class="source-footer">
+                <span class="source-biblio">Cite: ${escapeHtml(s.author.split(',')[0].split('&')[0].trim())} (${s.publisher})</span>
+                ${s.url ? `
+                  <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="source-link-btn">
+                    <span>Verified Reference</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </a>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
   // Init App
   function init() {
     loadState();
@@ -1545,6 +1933,7 @@
     renderDigest();
     renderFlashcard();
     renderSlide();
+    renderGlossary();
     setupTouchGestures();
     setupDragAndDrop();
   }
@@ -1558,12 +1947,41 @@
         caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
       }
     } catch (e) {}
-    showToast('Clearing cache and loading v2.5...');
+    showToast('Clearing cache and loading v2.9.0...');
     setTimeout(() => {
       const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
       window.location.href = cleanUrl;
     }, 200);
   }
+
+  // Lightbox Modal Handlers
+  function openImageModal(src, title) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('image-modal-img');
+    const modalTitle = document.getElementById('image-modal-title');
+    if (!modal || !modalImg) return;
+    modalImg.src = src;
+    if (modalTitle) modalTitle.textContent = title || '⚡ Graphical Reference';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImageModal(e) {
+    if (e && e.target && e.target.closest('.image-modal-content') && !e.target.closest('.image-modal-close')) {
+      return;
+    }
+    const modal = document.getElementById('image-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close lightbox on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeImageModal();
+    }
+  });
 
   // Expose API to window for inline HTML onclick handlers
   window.reviewerApp = {
@@ -1593,7 +2011,14 @@
     nextSlide,
     prevSlide,
     createCardFromCurrentSlide,
-    handlePptxUpload
+    handlePptxUpload,
+    setGlossarySubView,
+    setGlossarySubject,
+    handleGlossarySearch,
+    copyGlossaryTerm,
+    renderGlossary,
+    openImageModal,
+    closeImageModal
   };
 
   document.addEventListener('DOMContentLoaded', init);

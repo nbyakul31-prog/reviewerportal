@@ -1,7 +1,7 @@
 // ==============================================================================
 // QCU BSIT REVIEWER PORTAL - MULTI-SUBJECT STUDY REPOSITORY
 // Maintained for: Luigi Emanuel Britania (3rd Year - SBIT3G) | QCU
-// Features: Dynamic Checkpoints, Chronological Exam Digests, Shuffled Quizzes, 3D Flashcards
+// Features: Dynamic Checkpoints, Chronological Exam Digests, Shuffled Quizzes, 3D Flashcards, Tabular Glossaries & Circuits
 // ==============================================================================
 
 const REVIEWER_DATA = {
@@ -58,8 +58,8 @@ const REVIEWER_DATA = {
       "color": "amber",
       "badge": "Current Materials Ready",
       "checkpointsCount": 6,
-      "questionsCount": 66,
-      "flashcardsCount": 60
+      "questionsCount": 68,
+      "flashcardsCount": 62
     },
     {
       "code": "SIA101",
@@ -2523,7 +2523,7 @@ const REVIEWER_DATA = {
                 "L",
                 "Limited",
                 "Have you set clear time and financial boundaries?",
-                "Strict 4-week sprint timebox with a maximum integration budget of $15,000"
+                "Strict 4-week sprint timebox with a maximum integration budget of 15,000"
               ],
               [
                 "CLEAR",
@@ -2560,7 +2560,7 @@ const REVIEWER_DATA = {
             "**Communication Plan**: Policy-driven matrix specifying *Description*, *Frequency*, *Method*, *Audience*, and *Owner*.",
             "**Risk Management Plan**: Evaluates risk events across **5 severity levels** against 3 critical project dimensions:"
           ],
-          "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">⚠️ Risk Severity Evaluation Matrix</span>\n  <span class=\"diagram-badge\">5 Levels × 3 Impact Dimensions</span>\n</div>\n<div class=\"risk-matrix-grid\">\n  <div class=\"risk-row\" style=\"font-weight: 700; color: var(--text-muted);\">\n    <div>Level</div>\n    <div>Tech Performance</div>\n    <div>Program Cost</div>\n    <div>Schedule Slip</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-5\">5 Severe</div>\n    <div class=\"risk-cell\">Unacceptable; misses Key Parameters</div>\n    <div class=\"risk-cell\">Budget impacted &gt; $20 Million</div>\n    <div class=\"risk-cell\">Milestone delayed &gt; 3 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-4\">4 Significant</div>\n    <div class=\"risk-cell\">Significant changes; misses threshold</div>\n    <div class=\"risk-cell\">Budget impacted $10M – $20M</div>\n    <div class=\"risk-cell\">Critical path delayed 2–3 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-3\">3 Moderate</div>\n    <div class=\"risk-cell\">Moderate changes required</div>\n    <div class=\"risk-cell\">Budget impacted $2M – $10M</div>\n    <div class=\"risk-cell\">Schedule slips 1–2 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-2\">2 Minor</div>\n    <div class=\"risk-cell\">Minor changes within objective</div>\n    <div class=\"risk-cell\">Budget impacted &lt; $2M (&lt; 5%)</div>\n    <div class=\"risk-cell\">Non-critical slips; critical &lt; 1 Mo</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-1\">1 Minimal</div>\n    <div class=\"risk-cell\">Minor trades; zero program impact</div>\n    <div class=\"risk-cell\">Budget absorbed within plan</div>\n    <div class=\"risk-cell\">Schedule unaffected; float absorbs</div>\n  </div>\n</div>\n",
+          "diagramHtml": "\n<div class=\"diagram-header\">\n  <span class=\"diagram-title\">⚠️ Risk Severity Evaluation Matrix</span>\n  <span class=\"diagram-badge\">5 Levels × 3 Impact Dimensions</span>\n</div>\n<div class=\"risk-matrix-grid\">\n  <div class=\"risk-row\" style=\"font-weight: 700; color: var(--text-muted);\">\n    <div>Level</div>\n    <div>Tech Performance</div>\n    <div>Program Cost</div>\n    <div>Schedule Slip</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-5\">5 Severe</div>\n    <div class=\"risk-cell\">Unacceptable; misses Key Parameters</div>\n    <div class=\"risk-cell\">Budget impacted &gt; 20 Million</div>\n    <div class=\"risk-cell\">Milestone delayed &gt; 3 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-4\">4 Significant</div>\n    <div class=\"risk-cell\">Significant changes; misses threshold</div>\n    <div class=\"risk-cell\">Budget impacted 10M – 20M</div>\n    <div class=\"risk-cell\">Critical path delayed 2–3 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-3\">3 Moderate</div>\n    <div class=\"risk-cell\">Moderate changes required</div>\n    <div class=\"risk-cell\">Budget impacted 2M – 10M</div>\n    <div class=\"risk-cell\">Schedule slips 1–2 Months</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-2\">2 Minor</div>\n    <div class=\"risk-cell\">Minor changes within objective</div>\n    <div class=\"risk-cell\">Budget impacted &lt; 2M (&lt; 5%)</div>\n    <div class=\"risk-cell\">Non-critical slips; critical &lt; 1 Mo</div>\n  </div>\n  <div class=\"risk-row\">\n    <div class=\"risk-pill sev-1\">1 Minimal</div>\n    <div class=\"risk-cell\">Minor trades; zero program impact</div>\n    <div class=\"risk-cell\">Budget absorbed within plan</div>\n    <div class=\"risk-cell\">Schedule unaffected; float absorbs</div>\n  </div>\n</div>\n",
           "table": {
             "headers": [
               "Document / Artifact",
@@ -2607,7 +2607,7 @@ const REVIEWER_DATA = {
               ]
             ]
           },
-          "trap": "Exam Trap: In the Risk Severity Matrix, Severity 5 (Severe) means budget impact > $20M and schedule delay > 3 months. Severity 1 (Minimal) causes NO schedule change because float absorbs variations!"
+          "trap": "Exam Trap: In the Risk Severity Matrix, Severity 5 (Severe) means budget impact > 20M and schedule delay > 3 months. Severity 1 (Minimal) causes NO schedule change because float absorbs variations!"
         },
         {
           "heading": "4. Monitoring KPIs & The 5 Steps of Project Closure",
@@ -3192,8 +3192,8 @@ const REVIEWER_DATA = {
             "**Physical Memory**: The physical RAM chips installed on the motherboard.",
             "**8086 Odd and Even Memory Banks**:",
             "  • The 1 MB physical memory is partitioned into two **512 KB banks**:",
-            "  • **Even Bank (Lower Bank)**: Addresses `00000H, 00002H, ... FFFFEH`. Activated when address line $A_0 = 0$. Connected to lower data lines $D_0-D_7$.",
-            "  • **Odd Bank (Upper Bank)**: Addresses `00001H, 00003H, ... FFFFFH`. Activated when $\\overline{\\text{BHE}} = 0$ (Bus High Enable). Connected to higher data lines $D_8-D_{15}$.",
+            "  • **Even Bank (Lower Bank)**: Addresses `00000H, 00002H, ... FFFFEH`. Activated when address line A_0 = 0. Connected to lower data lines D_0-D_7.",
+            "  • **Odd Bank (Upper Bank)**: Addresses `00001H, 00003H, ... FFFFFH`. Activated when \\overline{\\text{BHE}} = 0 (Bus High Enable). Connected to higher data lines D_8-D_{15}.",
             "  • Aligned 16-bit words at an even address are read in **one memory cycle**; misaligned words require **two cycles**."
           ],
           "tldr": "Even bank: A0 = 0 (D0-D7). Odd bank: BHE# = 0 (D8-D15). Enables 16-bit transfers in 1 cycle."
@@ -3237,7 +3237,7 @@ const REVIEWER_DATA = {
             "  • **CF (Carry Flag, bit 0)**: 1 if carry out or borrow occurs at MSB.",
             "  • **PF (Parity Flag, bit 2)**: 1 if lower 8 bits of result contain an **EVEN number of 1s**.",
             "  • **AF (Auxiliary Flag, bit 4)**: 1 if carry out occurs from bit 3 to bit 4 (BCD half-carry).",
-            "  • **ZF (Zero Flag, bit 6)**: 1 if result is zero ($0000\\text{H}$).",
+            "  • **ZF (Zero Flag, bit 6)**: 1 if result is zero (0000\\text{H}).",
             "  • **SF (Sign Flag, bit 7)**: 1 if MSB of result is 1 (negative signed value).",
             "  • **OF (Overflow Flag, bit 11)**: 1 if signed arithmetic produces out-of-range overflow.",
             "**3 Control Flags** (set by instructions to control CPU operations):",
@@ -3250,8 +3250,8 @@ const REVIEWER_DATA = {
           "heading": "6. Generating Physical Addresses: Formula & Worked Examples",
           "points": [
             "**The Master Formula**:",
-            "$$\\text{Physical Address (PA)} = (\\text{Segment Base Address} \\times 10\\text{H}) + \\text{Offset Address}$$",
-            "*(Multiplying by $10\\text{H}$ shifts the base left by 1 hexadecimal digit / 4 binary bits)*.",
+            "\\text{Physical Address (PA)} = (\\text{Segment Base Address} x 10\\text{H}) + \\text{Offset Address}",
+            "*(Multiplying by 10\\text{H} shifts the base left by 1 hexadecimal digit / 4 binary bits)*.",
             "**Example 1**: Base = `1234H`, Offset = `0022H`",
             "  • `1234H x 10H = 12340H`",
             "  • `12340H + 0022H = 12362H`",
@@ -3277,7 +3277,7 @@ const REVIEWER_DATA = {
         {
           "heading": "1. 64KB Memory Segmentation Principles",
           "points": [
-            "Main memory is logically partitioned into segments of **64 KB ($65,536$ bytes)**.",
+            "Main memory is logically partitioned into segments of **64 KB (65,536 bytes)**.",
             "Each segment represents an independently addressable unit of 64K consecutive byte locations.",
             "**4 Primary Segments**:",
             "  • **Code Segment (CS)**: Contains executable program instructions.",
@@ -3366,12 +3366,12 @@ const REVIEWER_DATA = {
         {
           "heading": "2. Master Table of 11 Data Transfer Instructions",
           "points": [
-            "• **`MOV D, S`**: Copies Source to Destination ($D \\leftarrow S$).",
-            "• **`PUSH S`**: Pushes word $S$ to Top of Stack ($SP \\leftarrow SP - 2$).",
-            "• **`POP D`**: Pops word from stack into $D$ ($SP \\leftarrow SP + 2$).",
+            "• **`MOV D, S`**: Copies Source to Destination (D ← S).",
+            "• **`PUSH S`**: Pushes word S to Top of Stack (SP ← SP - 2).",
+            "• **`POP D`**: Pops word from stack into D (SP ← SP + 2).",
             "• **`PUSHA`**: Pushes all 8 general registers onto stack in order (`AX, CX, DX, BX, SP, BP, SI, DI`).",
             "• **`POPA`**: Pops words from stack into all 8 general registers in reverse order.",
-            "• **`XCHG D, S`**: Swaps contents of $D$ and $S$ ($[D] \\leftrightarrow [S]$).",
+            "• **`XCHG D, S`**: Swaps contents of D and S ([D] \\leftrightarrow [S]).",
             "• **`IN D, S`**: Reads byte/word from I/O port into Accumulator (`AL` or `AX`).",
             "• **`OUT D, S`**: Writes byte/word from Accumulator (`AL` or `AX`) to I/O port.",
             "• **`XLAT`**: Translates byte in `AL` using lookup table in memory at `[BX + AL]` (`AL <- [BX + AL]`).",
@@ -3437,68 +3437,78 @@ const REVIEWER_DATA = {
             "The ALU is the digital circuitry inside the CPU that performs all arithmetic and logic operations.",
             "Basic operation in all digital computers is **addition and subtraction** of two numbers.",
             "All operations occur at the machine instruction level using basic logic functions: **AND, OR, NOT, and XOR**."
-          ]
+          ],
+          "diagramHtml": "<div class=\"digest-ref-graphic-box\"><div class=\"digest-ref-graphic-header\"><span>⚡</span><strong>AR101 Logic Gates Graphical Reference & Truth Tables</strong><span class=\"week-pill\">Week 7</span></div><div class=\"digest-ref-img-wrapper\" onclick=\"window.reviewerApp.openImageModal('assets/logic_gates_reference.jpg', 'AR101 Logic Gates Graphical Reference')\"><img src=\"assets/logic_gates_reference.jpg\" alt=\"AR101 Logic Gates Graphical Reference\" class=\"digest-ref-img\"/><div class=\"digest-ref-hint\">🔍 Tap / Click to enlarge high-resolution schematic reference & truth tables</div></div></div>"
         },
         {
           "heading": "2. Signed Integer Representations: 3 Systems",
           "points": [
             "**1. Sign and Magnitude**:",
-            "  • MSB represents the sign ($0 = \\text{positive}$, $1 = \\text{negative}$). Remaining bits represent magnitude.",
-            "  • Example: $+5 = 0101_2$, $-5 = 1101_2$.",
-            "  • Drawback: Has two representations of zero ($+0 = 0000_2$ and $-0 = 1000_2$).",
+            "  • MSB represents the sign (0 = \\text{positive}, 1 = \\text{negative}). Remaining bits represent magnitude.",
+            "  • Example: +5 = 0101_2, -5 = 1101_2.",
+            "  • Drawback: Has two representations of zero (+0 = 0000_2 and -0 = 1000_2).",
             "**2. 1's Complement**:",
-            "  • Negative values obtained by inverting each bit ($0 \\to 1, 1 \\to 0$).",
-            "  • Example: $+3 = 0011_2 \\implies -3 = 1100_2$.",
-            "  • Drawback: Still has two zeros ($+0 = 0000_2$ and $-0 = 1111_2$).",
+            "  • Negative values obtained by inverting each bit (0 \\to 1, 1 \\to 0).",
+            "  • Example: +3 = 0011_2 \\implies -3 = 1100_2.",
+            "  • Drawback: Still has two zeros (+0 = 0000_2 and -0 = 1111_2).",
             "**3. 2's Complement (Universal Hardware Standard)**:",
-            "  • Obtained by subtracting positive number from $2^n$, or by **adding 1 to 1's complement**.",
-            "  • Example: $+3 = 0011_2 \\to \\text{1's comp} = 1100_2 \\to +1 = 1101_2 (-3)$.",
-            "  • **Key Advantages**: Only **one unique zero** ($0000_2$). Extra negative number ($-8$ in 4-bit, range: $-2^{n-1} \\text{ to } +2^{n-1}-1$). Subtraction performed via simple addition!"
+            "  • Obtained by subtracting positive number from 2^n, or by **adding 1 to 1's complement**.",
+            "  • Example: +3 = 0011_2 \\to \\text{1's comp} = 1100_2 \\to +1 = 1101_2 (-3).",
+            "  • **Key Advantages**: Only **one unique zero** (0000_2). Extra negative number (-8 in 4-bit, range: -2^{n-1} \\text{ to } +2^{n-1}-1). Subtraction performed via simple addition!"
           ],
           "tldr": "2's complement eliminates dual zero (+0 and -0) and provides range -2^(n-1) to +2^(n-1)-1."
         },
         {
-          "heading": "3. Full Adder Circuitry & Logic Expressions",
+          "heading": "3. Half Adder (HA) & Full Adder (FA) Architectures",
           "points": [
-            "A Full Adder computes the sum of two operand bits ($x_i, y_i$) and an incoming carry ($c_i$):",
-            "**Sum Function ($s_i$)**: $s_i = x_i \\oplus y_i \\oplus c_i$",
-            "**Carry-out Function ($c_{i+1}$)**: $c_{i+1} = x_i y_i + x_i c_i + y_i c_i = x_i y_i + (x_i + y_i) c_i$",
-            "Implemented as a 2-level combinational AND-OR circuit."
-          ]
+            "**Half Adder (HA)**: Adds two 1-bit inputs (A, B). Sum: S = A ⊕ B, Carry: C = A · B. Limitation: NO carry-in terminal, so it cannot cascade for multi-bit addition.",
+            "**Full Adder using Two Half Adders and One OR Gate (Figure 3.1)**:",
+            "  • Stage 1 (HA1): Computes intermediate sum S1 = A ⊕ B and carry C1 = AB.",
+            "  • Stage 2 (HA2): Adds S1 and incoming carry Cin, yielding final Sum S = (A ⊕ B) ⊕ Cin and carry C2 = (A ⊕ B)Cin.",
+            "  • Carry Combiner: OR gate produces Cout = C1 + C2 = AB + (A ⊕ B)Cin ≡ AB + BCin + ACin.",
+            "  • Component Count: 2 XOR gates + 2 AND gates + 1 OR gate (5 total gates).",
+            "  • Propagation Delay: Sum S = 2 * t_XOR; Carry-out Cout = t_XOR + t_AND + t_OR.",
+            "**2-Level Combinational AND-OR Full Adder (Week 7 Slide 12)**:",
+            "  • Flattened standard for ALU adders: s_i = x_i ⊕ y_i ⊕ c_i, c_{i+1} = x_i*y_i + (x_i + y_i)*c_i.",
+            "  • Optimizes Carry-out delay down to just **2 gate levels** (1.0 ns), essential for high-speed ripple and lookahead adders."
+          ],
+          "diagramHtml": "<div class=\"digest-ref-graphic-box\"><div class=\"digest-ref-graphic-header\"><span>⚡</span><strong>Figure 3.1: Full Adder Logic Diagram using Two Half Adders & OR Gate</strong><span class=\"week-pill\">Week 7</span></div><div class=\"digest-ref-img-wrapper\" onclick=\"window.reviewerApp.openImageModal('assets/full_adder_using_half_adders.jpg', 'Logic Diagram of Full Adder using Half Adder')\"><img src=\"assets/full_adder_using_half_adders.jpg\" alt=\"Full Adder using Half Adder\" class=\"digest-ref-img\"/><div class=\"digest-ref-hint\">🔍 Tap / Click to enlarge full-resolution Half Adder & Full Adder schematic</div></div></div>",
+          "trap": "Exam Trap: Can intermediate carries C1 = AB and C2 = (A⊕B)Cin ever be 1 at the same time? NO! They are strictly mutually exclusive. Because C1·C2 = 0, the carry combiner OR gate can be replaced with an XOR gate without changing functionality!",
+          "tldr": "1 Full Adder = 2 Half Adders + 1 OR Gate (or XOR Gate). HA cannot cascade; FA handles Cin to enable n-bit ripple cascades."
         },
         {
           "heading": "4. N-bit Ripple-Carry Adder & Delay Analysis",
           "points": [
-            "An $n$-bit adder is formed by cascading $n$ full adder blocks. The carry-out $c_i$ ripples into carry-in $c_{i+1}$.",
+            "An n-bit adder is formed by cascading n full adder blocks. The carry-out c_i ripples into carry-in c_{i+1}.",
             "**Propagation Delay Problem**:",
-            "  • Suppose delay from $c_i$ to $c_{i+1}$ is $1\\text{ ns}$ (2 gate levels at $0.5\\text{ ns}$ each).",
-            "  • Final sum generation requires $1.5\\text{ ns}$.",
-            "  • **Formula**: $\\text{Total Delay} = (n - 1) \\times 1\\text{ ns} + 1.5\\text{ ns}$",
-            "  • For an **8-bit ripple adder**: $(7 \\times 1\\text{ ns}) + 1.5\\text{ ns} = \\mathbf{8.5\\text{ ns}}$.",
-            "  • For a **32-bit ripple adder**: $(31 \\times 1\\text{ ns}) + 1.5\\text{ ns} = \\mathbf{32.5\\text{ ns}}$! Far too slow for gigahertz CPUs."
+            "  • Suppose delay from c_i to c_{i+1} is 1\\text{ ns} (2 gate levels at 0.5\\text{ ns} each).",
+            "  • Final sum generation requires 1.5\\text{ ns}.",
+            "  • **Formula**: \\text{Total Delay} = (n - 1) x 1\\text{ ns} + 1.5\\text{ ns}",
+            "  • For an **8-bit ripple adder**: (7 x 1\\text{ ns}) + 1.5\\text{ ns} = \\mathbf{8.5\\text{ ns}}.",
+            "  • For a **32-bit ripple adder**: (31 x 1\\text{ ns}) + 1.5\\text{ ns} = \\mathbf{32.5\\text{ ns}}! Far too slow for gigahertz CPUs."
           ]
         },
         {
           "heading": "5. Carry-Lookahead Adder (CLA) & 3-Gate Delay",
           "points": [
             "Overcomes ripple delay by generating all carries simultaneously directly from input operands:",
-            "**Generate Function ($G_i$)**: $G_i = x_i y_i$ (carry generated internally if both inputs are 1).",
-            "**Propagate Function ($P_i$)**: $P_i = x_i + y_i$ (carry propagated if either input is 1).",
-            "**Recursive Carry Equation**: $c_{i+1} = G_i + P_i c_i$",
+            "**Generate Function (G_i)**: G_i = x_i y_i (carry generated internally if both inputs are 1).",
+            "**Propagate Function (P_i)**: P_i = x_i + y_i (carry propagated if either input is 1).",
+            "**Recursive Carry Equation**: c_{i+1} = G_i + P_i c_i",
             "**Expanded Carry Equations**:",
-            "  • $c_1 = G_0 + P_0 c_0$",
-            "  • $c_2 = G_1 + P_1 G_0 + P_1 P_0 c_0$",
-            "  • $c_3 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 c_0$",
-            "  • $c_4 = G_3 + P_3 G_2 + P_3 P_2 G_1 + P_3 P_2 P_1 G_0 + P_3 P_2 P_1 P_0 c_0$",
-            "**Performance Advantage**: All carries are developed in just **3 logic gate delays** (1 gate delay for $P_i, G_i$ + 2 gate delays for AND-OR carry logic) regardless of word length!"
+            "  • c_1 = G_0 + P_0 c_0",
+            "  • c_2 = G_1 + P_1 G_0 + P_1 P_0 c_0",
+            "  • c_3 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 c_0",
+            "  • c_4 = G_3 + P_3 G_2 + P_3 P_2 G_1 + P_3 P_2 P_1 G_0 + P_3 P_2 P_1 P_0 c_0",
+            "**Performance Advantage**: All carries are developed in just **3 logic gate delays** (1 gate delay for P_i, G_i + 2 gate delays for AND-OR carry logic) regardless of word length!"
           ]
         },
         {
           "heading": "6. Practical Gate Fan-in Constraints",
           "points": [
             "**The Engineering Limitation**:",
-            "  • In the CLA, the Boolean expression for $c_{i+1}$ requires **$i + 2$ inputs** to the largest AND gate, and **$i + 2$ inputs** to the OR gate.",
-            "  • For an 8-bit carry-lookahead adder, total time is reduced from $8.5\\text{ ns}$ down to $3\\text{ ns}$, but requires a **gate fan-in of nine (9)** for the basic gates!",
+            "  • In the CLA, the Boolean expression for c_{i+1} requires **i + 2 inputs** to the largest AND gate, and **i + 2 inputs** to the OR gate.",
+            "  • For an 8-bit carry-lookahead adder, total time is reduced from 8.5\\text{ ns} down to 3\\text{ ns}, but requires a **gate fan-in of nine (9)** for the basic gates!",
             "  • Large fan-in causes significant physical capacitance, slower switching, and manufacturing layout issues.",
             "  • Solution: Modern processors build **Hierarchical / Block Carry-Lookahead Adders** (e.g. 4-bit CLA blocks combined via group generate/propagate logic)."
           ]
@@ -5495,6 +5505,24 @@ const REVIEWER_DATA = {
       "question": "What is the practical hardware constraint that limits the size of Carry-Lookahead Adders?",
       "answer": "Gate Fan-In constraints: the carry equation requires i + 2 inputs to the largest AND/OR gates (e.g. an 8-bit CLA requires a fan-in of 9), which causes electrical degradation.",
       "tag": "Fast Adders"
+    },
+    {
+      "id": "ar-fc-61",
+      "checkpointId": "ar-cp6",
+      "subject": "AR101",
+      "week": "Week 7",
+      "question": "How is a 1-bit Full Adder constructed using Half Adders?",
+      "answer": "Using TWO Half Adders (HA1 and HA2) and ONE OR Gate (or XOR Gate).\n• HA1 computes S1 = A ⊕ B and C1 = AB\n• HA2 computes final Sum S = (A ⊕ B) ⊕ Cin and C2 = (A ⊕ B)Cin\n• OR gate combines carries: Cout = C1 + C2 = AB + (A ⊕ B)Cin.",
+      "tag": "Adders"
+    },
+    {
+      "id": "ar-fc-62",
+      "checkpointId": "ar-cp6",
+      "subject": "AR101",
+      "week": "Week 7",
+      "question": "Why can the carry combiner OR gate in a Full Adder built with two Half Adders be replaced by an XOR gate?",
+      "answer": "Because the stage carries C1 = AB and C2 = (A ⊕ B)Cin are mutually exclusive; they can NEVER both be 1 simultaneously (C1 · C2 = 0). Thus, C1 + C2 ≡ C1 ⊕ C2.",
+      "tag": "Adders"
     }
   ],
   "quizzes": [
@@ -6912,7 +6940,7 @@ const REVIEWER_DATA = {
           "question": "Which symbol is used to transition from HTML markup into an inline Razor expression?",
           "options": [
             "`#`",
-            "`$`",
+            "``",
             "`@`",
             "`&`"
           ],
@@ -7024,7 +7052,7 @@ const REVIEWER_DATA = {
           "options": [
             "`#Html.`",
             "`@Html.`",
-            "`$Form.`",
+            "`Form.`",
             "`%Helper.`"
           ],
           "correct": 1,
@@ -7498,13 +7526,13 @@ const REVIEWER_DATA = {
           "type": "multiple",
           "question": "According to the Risk Management Severity Matrix, a risk with Severity Level 5 (Severe) has what cost and schedule impact?",
           "options": [
-            "Budget impacted > $20 Million, schedule delayed > 3 Months",
-            "Budget impacted < $2 Million, schedule delayed < 1 Month",
+            "Budget impacted > 20 Million, schedule delayed > 3 Months",
+            "Budget impacted < 2 Million, schedule delayed < 1 Month",
             "Budget not affected, schedule float absorbs variations",
-            "Budget impacted $2M - $10M, schedule delayed 1 - 2 Months"
+            "Budget impacted 2M - 10M, schedule delayed 1 - 2 Months"
           ],
           "correct": 0,
-          "explanation": "Severity 5 (Severe) is defined by performance unacceptable, budget impacted by > $20M, and key milestone delayed by > 3 months."
+          "explanation": "Severity 5 (Severe) is defined by performance unacceptable, budget impacted by > 20M, and key milestone delayed by > 3 months."
         },
         {
           "id": "q-sia-28",
@@ -8718,10 +8746,1153 @@ const REVIEWER_DATA = {
           ],
           "correct": 1,
           "explanation": "Engineers construct hierarchical (multilevel) CLA adders where 4-bit CLA blocks generate group generate/propagate signals, avoiding high gate fan-in."
+        },
+        {
+          "id": "q-ar6-12",
+          "type": "multiple",
+          "question": "How is a 1-bit Full Adder constructed using Half Adders?",
+          "options": [
+            "Using two Half Adders and one OR gate (or XOR gate)",
+            "Using three Half Adders and one AND gate",
+            "Using one Half Adder and two Inverters",
+            "Using four Half Adders in parallel"
+          ],
+          "correct": 0,
+          "explanation": "A 1-bit Full Adder is built by cascading two Half Adders (HA1 calculates A ⊕ B and AB; HA2 adds Cin to produce final Sum S = (A ⊕ B) ⊕ Cin) and an OR gate combining the two stage carries: Cout = AB + (A ⊕ B)Cin."
+        },
+        {
+          "id": "q-ar6-13",
+          "type": "multiple",
+          "question": "In the construction of a Full Adder using two Half Adders, why can the output carry combiner OR gate be replaced with an XOR gate without altering functionality?",
+          "options": [
+            "Because the stage carries C1 = AB and C2 = (A ⊕ B)Cin are mutually exclusive and can never both be 1 simultaneously",
+            "Because XOR and OR gates have identical truth tables for all binary inputs",
+            "Because carry propagation delay is eliminated when using XOR gates",
+            "Because 2's complement arithmetic requires odd parity check"
+          ],
+          "correct": 0,
+          "explanation": "Carries C1 = AB and C2 = (A ⊕ B)Cin can never be 1 at the same time: if AB = 1, then A ⊕ B = 0 forcing C2 = 0; if C2 = 1, then A ⊕ B = 1 forcing AB = 0. Since C1 · C2 = 0 always holds, C1 + C2 ≡ C1 ⊕ C2."
         }
       ]
     }
-  ]
+  ],
+  "glossaries": {
+    "AR101": [
+      {
+        "term": "ALU",
+        "expansion": "Arithmetic and Logic Unit",
+        "purpose": "Executes all high-speed elementary arithmetic (addition, subtraction, multiplication) and Boolean logic operations (AND, OR, NOT, XOR) inside the CPU.",
+        "category": "CPU Hardware",
+        "week": "Week 2, 7"
+      },
+      {
+        "term": "CU",
+        "expansion": "Control Unit",
+        "purpose": "Directs, coordinates, and synchronizes all internal machine operations by fetching, decoding instructions, and issuing timing/control signals.",
+        "category": "CPU Hardware",
+        "week": "Week 2, 3"
+      },
+      {
+        "term": "CPU",
+        "expansion": "Central Processing Unit",
+        "purpose": "The primary computational engine of the computer (combining the ALU and CU) operating roughly 10 times faster than main memory.",
+        "category": "CPU Hardware",
+        "week": "Week 2"
+      },
+      {
+        "term": "ISA",
+        "expansion": "Instruction Set Architecture",
+        "purpose": "The abstract programmer-visible interface of the processor defining supported machine instructions, data types, registers, and addressing modes.",
+        "category": "Architecture",
+        "week": "Week 2"
+      },
+      {
+        "term": "DIMM",
+        "expansion": "Dual In-Line Memory Module",
+        "purpose": "Physical printed circuit board holding dynamic RAM silicon chips that plugs directly into motherboard memory slots to supply primary storage.",
+        "category": "Physical Memory",
+        "week": "Week 2, 4"
+      },
+      {
+        "term": "PC",
+        "expansion": "Program Counter",
+        "purpose": "Holds the memory address of the next instruction to be fetched; automatically incremented during the instruction fetch phase.",
+        "category": "Internal Registers",
+        "week": "Week 3"
+      },
+      {
+        "term": "MAR",
+        "expansion": "Memory Address Register",
+        "purpose": "Holds the physical/effective memory address currently placed onto the address bus during memory Read and Write operations.",
+        "category": "Internal Registers",
+        "week": "Week 3"
+      },
+      {
+        "term": "MDR",
+        "expansion": "Memory Data Register",
+        "purpose": "Buffers the data word retrieved from memory during a Read cycle or stages the data word to be written into memory during a Write cycle.",
+        "category": "Internal Registers",
+        "week": "Week 3"
+      },
+      {
+        "term": "IR",
+        "expansion": "Instruction Register",
+        "purpose": "Stores the current binary instruction word while its opcode and addressing fields are decoded and executed by the Control Unit.",
+        "category": "Internal Registers",
+        "week": "Week 3"
+      },
+      {
+        "term": "ACC",
+        "expansion": "Accumulator Register (AX)",
+        "purpose": "Default central register implicitly used to hold operands and calculation results in 1-address and 0-address machine architectures.",
+        "category": "Registers",
+        "week": "Week 3, 4"
+      },
+      {
+        "term": "EU",
+        "expansion": "Execution Unit",
+        "purpose": "The asynchronous processing half of the 8086 that contains the ALU, general registers, and flags; decodes and executes instructions.",
+        "category": "8086 Architecture",
+        "week": "Week 4"
+      },
+      {
+        "term": "BIU",
+        "expansion": "Bus Interface Unit",
+        "purpose": "The bus management half of the 8086 that interfaces with system buses, generates 20-bit physical addresses, and manages the prefetch queue.",
+        "category": "8086 Architecture",
+        "week": "Week 4"
+      },
+      {
+        "term": "IP",
+        "expansion": "Instruction Pointer",
+        "purpose": "16-bit register holding the offset address of the next instruction code byte to be fetched from the Code Segment (CS).",
+        "category": "Pointers",
+        "week": "Week 4"
+      },
+      {
+        "term": "PSW",
+        "expansion": "Processor Status Word (Flags Register)",
+        "purpose": "16-bit register containing 6 condition/status flags (CF, PF, AF, ZF, SF, OF) and 3 control flags (TF, IF, DF) indicating processor status.",
+        "category": "Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "BHE#",
+        "expansion": "Bus High Enable (Active Low)",
+        "purpose": "Active-low control pin that enables the Odd Memory Bank (data lines D8-D15), allowing 16-bit word transfers in a single clock cycle.",
+        "category": "Bus Signals",
+        "week": "Week 4"
+      },
+      {
+        "term": "CF",
+        "expansion": "Carry Flag (Bit 0)",
+        "purpose": "Status flag set to 1 if an arithmetic operation generates a carry out of or borrow into the most significant bit (MSB).",
+        "category": "Status Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "PF",
+        "expansion": "Parity Flag (Bit 2)",
+        "purpose": "Status flag set to 1 if the lowest 8 bits of a calculation result contain an even number of set bits (Even Parity).",
+        "category": "Status Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "AF",
+        "expansion": "Auxiliary Carry Flag (Bit 4)",
+        "purpose": "Status flag set to 1 if a carry/borrow occurs between bit 3 and bit 4 (half-carry), essential for Binary Coded Decimal (BCD) adjustments.",
+        "category": "Status Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "ZF",
+        "expansion": "Zero Flag (Bit 6)",
+        "purpose": "Status flag set to 1 if the mathematical or logical result of an instruction equals exactly zero (0000H).",
+        "category": "Status Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "SF",
+        "expansion": "Sign Flag (Bit 7)",
+        "purpose": "Status flag set to 1 if the high-order bit (MSB) of the result is 1, indicating a negative signed integer value.",
+        "category": "Status Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "OF",
+        "expansion": "Overflow Flag (Bit 11)",
+        "purpose": "Status flag set to 1 if a signed calculation yields a value that exceeds the signed storage capacity (magnitude overflow).",
+        "category": "Status Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "TF",
+        "expansion": "Trap Flag (Bit 8)",
+        "purpose": "Control flag that places the microprocessor into single-step execution mode for interactive program debugging and tracing.",
+        "category": "Control Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "IF",
+        "expansion": "Interrupt Enable Flag (Bit 9)",
+        "purpose": "Control flag that enables (1) or masks/disables (0) external hardware interrupt requests received on the INTR line.",
+        "category": "Control Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "DF",
+        "expansion": "Direction Flag (Bit 10)",
+        "purpose": "Control flag determining string processing direction: 0 = auto-increment (forward), 1 = auto-decrement (backward).",
+        "category": "Control Flags",
+        "week": "Week 4"
+      },
+      {
+        "term": "PA",
+        "expansion": "Physical Address",
+        "purpose": "The actual 20-bit address placed on memory bus wires; calculated using formula: PA = (Segment Base x 10H) + Offset.",
+        "category": "Memory Addressing",
+        "week": "Week 4"
+      },
+      {
+        "term": "EA",
+        "expansion": "Effective Address",
+        "purpose": "The 16-bit offset address of an operand inside a segment before combining with the segment base address.",
+        "category": "Memory Addressing",
+        "week": "Week 4, 5"
+      },
+      {
+        "term": "CS",
+        "expansion": "Code Segment Register",
+        "purpose": "16-bit segment register holding the base address of the 64KB memory segment containing executable program instructions.",
+        "category": "Segment Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "DS",
+        "expansion": "Data Segment Register",
+        "purpose": "16-bit segment register holding the base address of the 64KB memory segment containing program variables and static data.",
+        "category": "Segment Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "SS",
+        "expansion": "Stack Segment Register",
+        "purpose": "16-bit segment register holding the base address of the 64KB memory segment reserved for the LIFO runtime stack.",
+        "category": "Segment Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "ES",
+        "expansion": "Extra Segment Register",
+        "purpose": "16-bit segment register holding the base address of a secondary data segment, used primarily by string destination instructions.",
+        "category": "Segment Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "SP",
+        "expansion": "Stack Pointer Register",
+        "purpose": "16-bit register holding the offset to the current Top of Stack (TOS); decremented by 2 on PUSH, incremented by 2 on POP.",
+        "category": "Stack Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "BP",
+        "expansion": "Base Pointer Register",
+        "purpose": "16-bit register primarily used to access subroutine parameters and local variables on the stack; defaults to Stack Segment (SS).",
+        "category": "Stack Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "SI",
+        "expansion": "Source Index Register",
+        "purpose": "16-bit index register holding memory offsets for data operands; commonly points to source strings/arrays (defaults to DS).",
+        "category": "Index Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "DI",
+        "expansion": "Destination Index Register",
+        "purpose": "16-bit index register holding memory offsets; commonly points to destination strings/arrays (defaults to ES in string ops).",
+        "category": "Index Registers",
+        "week": "Week 5"
+      },
+      {
+        "term": "TOS",
+        "expansion": "Top of Stack",
+        "purpose": "The lowest occupied memory location of the active stack; calculated as physical address: TOS = (SS x 10H) + SP.",
+        "category": "Stack Memory",
+        "week": "Week 5"
+      },
+      {
+        "term": "LIFO",
+        "expansion": "Last In, First Out",
+        "purpose": "The fundamental data storage ordering mechanism governing stack memory: the last item pushed is the first item popped.",
+        "category": "Data Structures",
+        "week": "Week 5"
+      },
+      {
+        "term": "LEA",
+        "expansion": "Load Effective Address",
+        "purpose": "Computes and loads the 16-bit offset address of the source operand into the destination register (does NOT fetch data stored in memory).",
+        "category": "Data Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "XLAT",
+        "expansion": "Translate Byte",
+        "purpose": "Performs fast table lookup: replaces the byte in AL with the byte at memory address [BX + AL].",
+        "category": "Data Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "LAHF",
+        "expansion": "Load AH from Flags",
+        "purpose": "Copies the low-order byte of the Flags register (SF, ZF, AF, PF, CF) directly into general register AH.",
+        "category": "Flag Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "SAHF",
+        "expansion": "Store AH into Flags",
+        "purpose": "Overwrites the low-order byte of the Flags register with the bits stored in general register AH.",
+        "category": "Flag Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "PUSHA",
+        "expansion": "Push All General Registers",
+        "purpose": "Pushes all 8 general-purpose 16-bit registers onto the stack in sequence: AX, CX, DX, BX, original SP, BP, SI, DI.",
+        "category": "Stack Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "POPA",
+        "expansion": "Pop All General Registers",
+        "purpose": "Restores the 8 general-purpose registers from the stack in reverse order, discarding the stored SP value.",
+        "category": "Stack Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "PUSHF",
+        "expansion": "Push Flags Register",
+        "purpose": "Pushes the entire 16-bit Processor Status Word (PSW / Flags register) onto the Top of Stack.",
+        "category": "Flag Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "POPF",
+        "expansion": "Pop Flags Register",
+        "purpose": "Pops the 16-bit word from the Top of Stack directly into the Processor Status Word (PSW / Flags register).",
+        "category": "Flag Instructions",
+        "week": "Week 6"
+      },
+      {
+        "term": "CLA",
+        "expansion": "Carry-Lookahead Adder",
+        "purpose": "Fast parallel adder circuit that computes all carry bits simultaneously in 3 gate delays using Generate (Gi) and Propagate (Pi) functions.",
+        "category": "Fast Adders",
+        "week": "Week 7"
+      },
+      {
+        "term": "Gi",
+        "expansion": "Generate Function (xi * yi)",
+        "purpose": "Boolean term that generates a carry bit internally whenever both input operand bits are 1, regardless of input carry.",
+        "category": "Fast Adders",
+        "week": "Week 7"
+      },
+      {
+        "term": "Pi",
+        "expansion": "Propagate Function (xi + yi)",
+        "purpose": "Boolean term that propagates an incoming carry bit through stage i to the next stage if either operand bit is 1.",
+        "category": "Fast Adders",
+        "week": "Week 7"
+      }
+    ],
+    "SPI101": [
+      {
+        "term": "ACM",
+        "expansion": "Association for Computing Machinery",
+        "purpose": "World's largest educational and scientific computing society, co-author of the Software Engineering Code of Ethics.",
+        "category": "Organizations",
+        "week": "Week 3"
+      },
+      {
+        "term": "IEEE-CS",
+        "expansion": "Institute of Electrical and Electronics Engineers Computer Society",
+        "purpose": "Professional engineering organization establishing technological standards and joint computing ethical canons.",
+        "category": "Organizations",
+        "week": "Week 3"
+      },
+      {
+        "term": "AITP",
+        "expansion": "Association of Information Technology Professionals",
+        "purpose": "IT leadership association defining professional standards and member obligations to employers, society, and country.",
+        "category": "Organizations",
+        "week": "Week 3"
+      },
+      {
+        "term": "BDFL",
+        "expansion": "Benevolent Dictator For Life",
+        "purpose": "Title historically given to Guido van Rossum, retaining final decision-making power over the Python language specification until 2018.",
+        "category": "Open Source",
+        "week": "Week 1"
+      },
+      {
+        "term": "DPA",
+        "expansion": "Data Privacy Act of 2012 (Republic Act No. 10173)",
+        "purpose": "Philippine law protecting individual personal information in information and communications systems across private and government sectors.",
+        "category": "Philippine Law",
+        "week": "Week 5"
+      },
+      {
+        "term": "PIC",
+        "expansion": "Personal Information Controller",
+        "purpose": "An individual or organization who controls the collection, holding, processing, or use of personal information.",
+        "category": "Privacy Roles",
+        "week": "Week 5"
+      },
+      {
+        "term": "PIP",
+        "expansion": "Personal Information Processor",
+        "purpose": "Any natural or juridical person to whom a personal information controller may outsource the processing of personal data.",
+        "category": "Privacy Roles",
+        "week": "Week 5"
+      },
+      {
+        "term": "NPC",
+        "expansion": "National Privacy Commission",
+        "purpose": "Philippine regulatory body administering and enforcing the Data Privacy Act (RA 10173) and monitoring compliance.",
+        "category": "Government",
+        "week": "Week 5"
+      },
+      {
+        "term": "AMLA",
+        "expansion": "Anti-Money Laundering Act (Republic Act No. 9160)",
+        "purpose": "Philippine law requiring covered institutions to report cash transactions >= 300,000 PHP to the AMLC as an exception to bank secrecy.",
+        "category": "Philippine Law",
+        "week": "Week 5"
+      },
+      {
+        "term": "AMLC",
+        "expansion": "Anti-Money Laundering Council",
+        "purpose": "Financial intelligence unit of the Philippines investigating money laundering offenses and financial crimes.",
+        "category": "Government",
+        "week": "Week 5"
+      },
+      {
+        "term": "SALN",
+        "expansion": "Statement of Assets, Liabilities, and Net Worth",
+        "purpose": "Public document required under RA 3019 (Anti-Graft Act) to promote transparency and deter corruption among government officials.",
+        "category": "Public Ethics",
+        "week": "Week 5"
+      },
+      {
+        "term": "RA 4200",
+        "expansion": "Anti-Wiretapping Act of 1965",
+        "purpose": "Philippine law prohibiting the unauthorized recording of private conversations without the consent of all parties.",
+        "category": "Philippine Law",
+        "week": "Week 5"
+      },
+      {
+        "term": "RA 8792",
+        "expansion": "Electronic Commerce Act of 2000",
+        "purpose": "Landmark law granting legal recognition to electronic data messages, digital signatures, and penalizing computer hacking/viruses.",
+        "category": "Philippine Law",
+        "week": "Week 2, 5"
+      },
+      {
+        "term": "RA 10175",
+        "expansion": "Cybercrime Prevention Act of 2012",
+        "purpose": "Comprehensive criminal law defining offenses against confidentiality, integrity, availability, and computer-related forgery.",
+        "category": "Philippine Law",
+        "week": "Week 6"
+      },
+      {
+        "term": "GPL",
+        "expansion": "GNU General Public License",
+        "purpose": "Free copyleft license guaranteeing end users the freedom to run, study, share, and modify software source code.",
+        "category": "Licensing",
+        "week": "Week 1"
+      }
+    ],
+    "MS101": [
+      {
+        "term": "GCD",
+        "expansion": "Greatest Common Divisor",
+        "purpose": "The largest positive integer that divides two or more integers without leaving a remainder; calculated via Euclidean Algorithm.",
+        "category": "Number Theory",
+        "week": "Week 5"
+      },
+      {
+        "term": "LCM",
+        "expansion": "Least Common Multiple",
+        "purpose": "The smallest positive integer divisible by both integers a and b; related by formula: gcd(a, b) * lcm(a, b) = a * b.",
+        "category": "Number Theory",
+        "week": "Week 5"
+      },
+      {
+        "term": "Tautology",
+        "expansion": "Logically Always True Proposition",
+        "purpose": "A compound proposition that evaluates to True under every possible truth assignment of its propositional variables.",
+        "category": "Propositional Logic",
+        "week": "Week 2"
+      },
+      {
+        "term": "Contradiction",
+        "expansion": "Logically Always False Proposition",
+        "purpose": "A compound proposition that evaluates to False under every possible truth assignment of its propositional variables.",
+        "category": "Propositional Logic",
+        "week": "Week 2"
+      },
+      {
+        "term": "Contingency",
+        "expansion": "Conditionally Variable Proposition",
+        "purpose": "A compound proposition that is neither a tautology nor a contradiction (True in some cases, False in others).",
+        "category": "Propositional Logic",
+        "week": "Week 2"
+      },
+      {
+        "term": "Cardinality",
+        "expansion": "Set Size (|A|)",
+        "purpose": "The count of distinct, unique elements contained within a finite mathematical set.",
+        "category": "Set Theory",
+        "week": "Week 3"
+      },
+      {
+        "term": "Power Set",
+        "expansion": "Set of All Subsets (P(A))",
+        "purpose": "The collection of all possible subsets of set A, including the empty set and A itself; total elements = 2^|A|.",
+        "category": "Set Theory",
+        "week": "Week 3"
+      },
+      {
+        "term": "Universal Quantifier",
+        "expansion": "Symbol ∀ ('For All')",
+        "purpose": "Predicate logic operator asserting that a predicate statement P(x) is true for every single element x in the domain.",
+        "category": "Predicate Logic",
+        "week": "Week 4"
+      },
+      {
+        "term": "Existential Quantifier",
+        "expansion": "Symbol ∃ ('There Exists')",
+        "purpose": "Predicate logic operator asserting that P(x) is true for at least one element x in the specified domain.",
+        "category": "Predicate Logic",
+        "week": "Week 4"
+      },
+      {
+        "term": "Division Algorithm",
+        "expansion": "a = dq + r (0 ≤ r < d)",
+        "purpose": "Fundamental number theory theorem guaranteeing unique integer quotient q and remainder r for any dividend a and divisor d.",
+        "category": "Number Theory",
+        "week": "Week 5"
+      }
+    ],
+    "IPT102": [
+      {
+        "term": "MVC",
+        "expansion": "Model - View - Controller",
+        "purpose": "Architectural pattern separating business logic (Model), UI presentation (View), and HTTP request orchestration (Controller).",
+        "category": "Architecture",
+        "week": "Week 3"
+      },
+      {
+        "term": "ASP.NET Core",
+        "expansion": "Active Server Pages .NET Core",
+        "purpose": "Open-source, cross-platform, high-performance web framework developed by Microsoft for cloud-enabled modern web applications.",
+        "category": "Web Framework",
+        "week": "Week 2"
+      },
+      {
+        "term": "CLR",
+        "expansion": "Common Language Runtime",
+        "purpose": "The virtual machine execution engine of the .NET platform that handles JIT compilation, memory garbage collection, and thread safety.",
+        "category": ".NET Runtime",
+        "week": "Week 2"
+      },
+      {
+        "term": "CLI",
+        "expansion": "Common Language Infrastructure / Command-Line Interface",
+        "purpose": "Open technical specification enabling applications written in multiple high-level languages to execute on any compatible architecture.",
+        "category": ".NET Standard",
+        "week": "Week 2"
+      },
+      {
+        "term": "CSHTML",
+        "expansion": "C-Sharp HTML Template File",
+        "purpose": "File format combining HTML markup with server-side C# code parsed and executed on the web server using Razor syntax.",
+        "category": "Razor Views",
+        "week": "Week 5"
+      },
+      {
+        "term": "POCO",
+        "expansion": "Plain Old CLR Object",
+        "purpose": "Clean C# class containing properties and data models without inheriting from framework-specific base classes or interfaces.",
+        "category": "Data Models",
+        "week": "Week 4"
+      },
+      {
+        "term": "DI",
+        "expansion": "Dependency Injection",
+        "purpose": "Software engineering technique in ASP.NET Core where dependencies are passed into classes via constructors rather than hardcoded.",
+        "category": "Architecture",
+        "week": "Week 3"
+      },
+      {
+        "term": "REPL",
+        "expansion": "Read - Eval - Print Loop",
+        "purpose": "Interactive programming environment (such as python interactive prompt) that executes statements line-by-line and returns immediate output.",
+        "category": "Python Tools",
+        "week": "Week 1"
+      },
+      {
+        "term": "HtmlHelper",
+        "expansion": "ASP.NET MVC View HTML Helper",
+        "purpose": "C# extension class providing methods like @Html.TextBox() and @Html.ActionLink() to generate standard HTML controls cleanly.",
+        "category": "Razor Views",
+        "week": "Week 6"
+      }
+    ],
+    "SIA101": [
+      {
+        "term": "SIA",
+        "expansion": "Systems Integration and Architecture",
+        "purpose": "The discipline of connecting disparate subsystem components into a cohesive enterprise system and designing its formal conceptual model.",
+        "category": "Architecture",
+        "week": "Week 2"
+      },
+      {
+        "term": "EAI",
+        "expansion": "Enterprise Application Integration",
+        "purpose": "Integration framework facilitating communication, data synchronization, and process automation between heterogeneous enterprise systems.",
+        "category": "Integration",
+        "week": "Week 2"
+      },
+      {
+        "term": "EDI",
+        "expansion": "Electronic Data Interchange",
+        "purpose": "Automated computer-to-computer exchange of standard business documents (invoices, purchase orders) between trading partners.",
+        "category": "Integration",
+        "week": "Week 2"
+      },
+      {
+        "term": "UN/EDIFACT",
+        "expansion": "United Nations EDI for Administration, Commerce and Transport",
+        "purpose": "International standard set of syntax rules and structured directories for electronic data interchange across global trade.",
+        "category": "Standards",
+        "week": "Week 2"
+      },
+      {
+        "term": "BPMN",
+        "expansion": "Business Process Model and Notation",
+        "purpose": "Standardized graphical representation for mapping business process workflows, governed by the Object Management Group (OMG).",
+        "category": "Process Modeling",
+        "week": "Week 3"
+      },
+      {
+        "term": "DFD",
+        "expansion": "Data Flow Diagram",
+        "purpose": "Graphical model illustrating the flow and transformation of information from external entities through processes and data stores.",
+        "category": "Process Modeling",
+        "week": "Week 3"
+      },
+      {
+        "term": "UML",
+        "expansion": "Unified Modeling Language",
+        "purpose": "General-purpose visual modeling standard in software engineering for specifying, visualizing, and documenting system artifacts.",
+        "category": "Modeling",
+        "week": "Week 3"
+      },
+      {
+        "term": "IDEF0",
+        "expansion": "Integration Definition for Function Modeling",
+        "purpose": "Structured modeling technique analyzing functions via ICOM cells (Inputs, Controls, Outputs, Mechanisms).",
+        "category": "Process Modeling",
+        "week": "Week 3"
+      },
+      {
+        "term": "PMI",
+        "expansion": "Project Management Institute",
+        "purpose": "Global professional organization administering the PMP certification and publishing the standard PMBOK Guide.",
+        "category": "Project Management",
+        "week": "Week 4"
+      },
+      {
+        "term": "PMLC",
+        "expansion": "Project Management Life Cycle",
+        "purpose": "The 5 universal project management phases: 1. Initiation, 2. Planning, 3. Execution, 4. Monitoring & Controlling, 5. Project Closure.",
+        "category": "Project Management",
+        "week": "Week 4"
+      },
+      {
+        "term": "WBS",
+        "expansion": "Work Breakdown Structure",
+        "purpose": "Hierarchical, deliverable-oriented decomposition of total project scope into manageable, assignable work packages.",
+        "category": "Project Management",
+        "week": "Week 4"
+      },
+      {
+        "term": "SMART",
+        "expansion": "Specific, Measurable, Actionable, Realistic, Timebound",
+        "purpose": "Goal-setting methodology ensuring operational project objectives are quantifiable and attainable.",
+        "category": "Project Management",
+        "week": "Week 4"
+      },
+      {
+        "term": "RFP",
+        "expansion": "Request for Proposal",
+        "purpose": "Formal procurement solicitation document sent to vendors outlining system requirements and bidding terms.",
+        "category": "Procurement",
+        "week": "Week 6"
+      },
+      {
+        "term": "RFQ",
+        "expansion": "Request for Quotation",
+        "purpose": "Procurement document soliciting itemized price quotations for clearly defined commodities and standard hardware.",
+        "category": "Procurement",
+        "week": "Week 6"
+      }
+    ]
+  },
+  "circuits": [
+    {
+      "id": "circ-logic-gates-ref",
+      "title": "Complete Logic Gates Graphical Reference & Master Truth Tables",
+      "equation": "Buffer • Inverter • AND • NAND • OR • NOR • XOR • XNOR",
+      "gate_type": "Standard Gates Reference",
+      "category": "Basic Logic Gates",
+      "week": "Week 7",
+      "subject": "AR101",
+      "description": "Standard IEEE/ANSI graphical schematic symbols and binary truth tables for all 8 fundamental digital logic gates: Buffer, Inverter (NOT), AND, NAND, OR, NOR, XOR, and XNOR. Notice that an inversion bubble at the output/input signifies NOT or active-low operation across Inverter, NAND, NOR, and XNOR.",
+      "image": "assets/logic_gates_reference.jpg",
+      "note": "Authoritative graphical reference for AR101 computer architecture. Fundamental to understanding Half Adders, Full Adders, and Carry-Lookahead generation networks.",
+      "truth_table": {
+        "headers": ["Gate Name", "Type", "Input A", "Input B", "Output", "Active-1 (High) Condition"],
+        "rows": [
+          ["Buffer", "1-Input", "0", "—", "0", "When Input = 1"],
+          ["Buffer", "1-Input", "1", "—", "1", "When Input = 1"],
+          ["Inverter (NOT)", "1-Input", "0", "—", "1", "When Input = 0 (Inverts input)"],
+          ["Inverter (NOT)", "1-Input", "1", "—", "0", "When Input = 0"],
+          ["AND", "2-Input", "0", "0", "0", "Both A and B are 1"],
+          ["AND", "2-Input", "1", "0", "0", "Both A and B are 1"],
+          ["AND", "2-Input", "0", "1", "0", "Both A and B are 1"],
+          ["AND", "2-Input", "1", "1", "1", "Both A and B are 1"],
+          ["NAND", "2-Input", "0", "0", "1", "At least one input is 0 (Universal Gate)"],
+          ["NAND", "2-Input", "1", "0", "1", "At least one input is 0"],
+          ["NAND", "2-Input", "0", "1", "1", "At least one input is 0"],
+          ["NAND", "2-Input", "1", "1", "0", "At least one input is 0"],
+          ["OR", "2-Input", "0", "0", "0", "At least one input is 1"],
+          ["OR", "2-Input", "1", "0", "1", "At least one input is 1"],
+          ["OR", "2-Input", "0", "1", "1", "At least one input is 1"],
+          ["OR", "2-Input", "1", "1", "1", "At least one input is 1"],
+          ["NOR", "2-Input", "0", "0", "1", "Both inputs are 0 (Universal Gate)"],
+          ["NOR", "2-Input", "1", "0", "0", "Both inputs are 0"],
+          ["NOR", "2-Input", "0", "1", "0", "Both inputs are 0"],
+          ["NOR", "2-Input", "1", "1", "0", "Both inputs are 0"],
+          ["XOR", "2-Input", "0", "0", "0", "Inputs are different (Sum bit / Odd Parity)"],
+          ["XOR", "2-Input", "1", "0", "1", "Inputs are different"],
+          ["XOR", "2-Input", "0", "1", "1", "Inputs are different"],
+          ["XOR", "2-Input", "1", "1", "0", "Inputs are different"],
+          ["XNOR", "2-Input", "0", "0", "1", "Inputs are identical (Equivalence / Even Parity)"],
+          ["XNOR", "2-Input", "1", "0", "0", "Inputs are identical"],
+          ["XNOR", "2-Input", "0", "1", "0", "Inputs are identical"],
+          ["XNOR", "2-Input", "1", "1", "1", "Inputs are identical"]
+        ]
+      }
+    },
+    {
+      "id": "circ-halfadder",
+      "title": "Half Adder (HA) Logic Circuit",
+      "equation": "Sum: S = A ⊕ B  |  Carry: C = A · B",
+      "gate_type": "Basic Arithmetic Circuit",
+      "category": "Adder Circuitry",
+      "week": "Week 7",
+      "subject": "AR101",
+      "description": "Fundamental arithmetic combinational circuit that adds two single-bit inputs (A and B). Produces Sum via an XOR gate and Carry via an AND gate. Critical limitation: has NO carry-in terminal, meaning it cannot accept carries from preceding lower-order stages.",
+      "svg": "<svg viewBox=\"0 0 380 180\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"haGradXOR\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#a855f7\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#7e22ce\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n    <linearGradient id=\"haGradAND\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#818cf8\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#4f46e5\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n  </defs>\n  <!-- Inputs -->\n  <line x1=\"30\" y1=\"50\" x2=\"130\" y2=\"50\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <line x1=\"30\" y1=\"80\" x2=\"130\" y2=\"80\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"30\" cy=\"50\" r=\"3.5\" fill=\"#38bdf8\"/>\n  <circle cx=\"30\" cy=\"80\" r=\"3.5\" fill=\"#38bdf8\"/>\n  <text x=\"14\" y=\"55\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">A</text>\n  <text x=\"14\" y=\"85\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">B</text>\n  <!-- Taps for AND gate -->\n  <line x1=\"70\" y1=\"50\" x2=\"70\" y2=\"130\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <line x1=\"70\" y1=\"130\" x2=\"140\" y2=\"130\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <circle cx=\"70\" cy=\"50\" r=\"3\" fill=\"#818cf8\"/>\n  <line x1=\"90\" y1=\"80\" x2=\"90\" y2=\"155\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <line x1=\"90\" y1=\"155\" x2=\"140\" y2=\"155\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <circle cx=\"90\" cy=\"80\" r=\"3\" fill=\"#818cf8\"/>\n  <!-- XOR Gate for Sum -->\n  <g transform=\"translate(130, 30)\">\n    <path d=\"M 0,0 Q 25,35 0,70\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <path d=\"M 12,0 Q 37,35 12,70 Q 75,70 105,35 Q 75,0 12,0 Z\" fill=\"url(#haGradXOR)\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n    <line x1=\"105\" y1=\"35\" x2=\"170\" y2=\"35\" stroke=\"#34d399\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"170\" cy=\"35\" r=\"3.5\" fill=\"#34d399\"/>\n    <text x=\"178\" y=\"40\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">S = A ⊕ B</text>\n  </g>\n  <!-- AND Gate for Carry -->\n  <g transform=\"translate(140, 115)\">\n    <path d=\"M 0,0 L 40,0 A 25,25 0 0,1 40,50 L 0,50 Z\" fill=\"url(#haGradAND)\" stroke=\"#818cf8\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n    <line x1=\"65\" y1=\"25\" x2=\"160\" y2=\"25\" stroke=\"#f59e0b\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"160\" cy=\"25\" r=\"3.5\" fill=\"#f59e0b\"/>\n    <text x=\"168\" y=\"30\" fill=\"#f59e0b\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">C = A · B</text>\n  </g>\n</svg>",
+      "note": "A Half Adder cannot be cascaded for multi-bit binary addition because it lacks a Carry-In terminal. It is only suitable for bit-0 (the LSB).",
+      "truth_table": {
+        "headers": ["Input A", "Input B", "Sum (S = A ⊕ B)", "Carry (C = A · B)", "Arithmetic Meaning"],
+        "rows": [
+          ["0", "0", "0", "0", "0 + 0 = 0"],
+          ["0", "1", "1", "0", "0 + 1 = 1"],
+          ["1", "0", "1", "0", "1 + 0 = 1"],
+          ["1", "1", "0", "1", "1 + 1 = 2 (Sum 0, Carry 1)"]
+        ]
+      }
+    },
+    {
+      "id": "circ-fulladder-ha",
+      "title": "Full Adder using Two Half Adders & OR Gate (Figure 3)",
+      "equation": "Sum: S = (A ⊕ B) ⊕ Cin  |  Carry: Cout = AB + (A ⊕ B)·Cin",
+      "gate_type": "Modular Combinational Circuit",
+      "category": "Adder Circuitry",
+      "week": "Week 7",
+      "subject": "AR101",
+      "description": "Standard modular architecture from M. Morris Mano's *Digital Design* and TutorialsPoint. Uses two cascaded Half Adders (HA1 and HA2) plus an OR gate to add three 1-bit binary inputs (A, B, Cin) with complete carry propagation.",
+      "image": "assets/full_adder_using_half_adders.jpg",
+      "note": "CRITICAL EXAM DOCTRINE: The carries C1 = AB and C2 = (A⊕B)Cin are mutually exclusive; they can NEVER both be 1 simultaneously. Hence, the carry combiner OR gate can be replaced with an XOR gate without changing circuit functionality! Delay: Sum = 2*t_XOR, Cout = t_XOR + t_AND + t_OR.",
+      "truth_table": {
+        "headers": ["A", "B", "Cin", "HA1 Sum (A⊕B)", "HA1 Carry (AB)", "HA2 Carry ((A⊕B)Cin)", "Sum (S)", "Cout (Carry-Out)"],
+        "rows": [
+          ["0", "0", "0", "0", "0", "0", "0", "0"],
+          ["0", "0", "1", "0", "0", "0", "1", "0"],
+          ["0", "1", "0", "1", "0", "0", "1", "0"],
+          ["0", "1", "1", "1", "0", "1", "0", "1"],
+          ["1", "0", "0", "1", "0", "0", "1", "0"],
+          ["1", "0", "1", "1", "0", "1", "0", "1"],
+          ["1", "1", "0", "0", "1", "0", "0", "1"],
+          ["1", "1", "1", "0", "1", "0", "1", "1"]
+        ]
+      }
+    },
+    {
+      "id": "circ-or",
+      "title": "OR Gate (Logical Disjunction)",
+      "equation": "F = A + B",
+      "category": "Basic Logic Gates",
+      "description": "Output is 1 if AT LEAST ONE input is 1. Output is 0 only when both inputs are 0. Serves as the summation collector in 2-level AND-OR adder logic.",
+      "svg": "<svg viewBox=\"0 0 280 140\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"gateGradOR\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#38bdf8\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#0284c7\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n  </defs>\n  <!-- Input wires -->\n  <line x1=\"30\" y1=\"45\" x2=\"90\" y2=\"45\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <line x1=\"30\" y1=\"95\" x2=\"90\" y2=\"95\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"30\" cy=\"45\" r=\"3.5\" fill=\"#38bdf8\"/>\n  <circle cx=\"30\" cy=\"95\" r=\"3.5\" fill=\"#38bdf8\"/>\n  <text x=\"14\" y=\"50\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">A</text>\n  <text x=\"14\" y=\"100\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">B</text>\n  \n  <!-- OR Gate Body -->\n  <path d=\"M 80,30 Q 115,70 80,110 Q 150,110 185,70 Q 150,30 80,30 Z\" \n        fill=\"url(#gateGradOR)\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n  \n  <!-- Output wire -->\n  <line x1=\"185\" y1=\"70\" x2=\"245\" y2=\"70\" stroke=\"#34d399\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"245\" cy=\"70\" r=\"3.5\" fill=\"#34d399\"/>\n  <text x=\"252\" y=\"75\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">F = A + B</text>\n</svg>",
+      "truthTable": [
+        {
+          "a": 0,
+          "b": 0,
+          "out": 0
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "out": 1
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "out": 1
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "out": 1
+        }
+      ]
+    },
+    {
+      "id": "circ-and",
+      "title": "AND Gate (Logical Conjunction)",
+      "equation": "F = A · B",
+      "category": "Basic Logic Gates",
+      "description": "Output is 1 ONLY if BOTH inputs A and B are 1. Used in ALUs to compute the Generate function Gi = xi * yi and evaluate bitwise conjunction.",
+      "svg": "<svg viewBox=\"0 0 280 140\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"gateGradAND\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#818cf8\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#4f46e5\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n  </defs>\n  <!-- Input wires -->\n  <line x1=\"30\" y1=\"45\" x2=\"90\" y2=\"45\" stroke=\"#818cf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <line x1=\"30\" y1=\"95\" x2=\"90\" y2=\"95\" stroke=\"#818cf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"30\" cy=\"45\" r=\"3.5\" fill=\"#818cf8\"/>\n  <circle cx=\"30\" cy=\"95\" r=\"3.5\" fill=\"#818cf8\"/>\n  <text x=\"14\" y=\"50\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">A</text>\n  <text x=\"14\" y=\"100\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">B</text>\n  \n  <!-- AND Gate Body -->\n  <path d=\"M 90,30 L 135,30 A 40,40 0 0,1 135,110 L 90,110 Z\" \n        fill=\"url(#gateGradAND)\" stroke=\"#818cf8\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n  \n  <!-- Output wire -->\n  <line x1=\"175\" y1=\"70\" x2=\"245\" y2=\"70\" stroke=\"#34d399\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"245\" cy=\"70\" r=\"3.5\" fill=\"#34d399\"/>\n  <text x=\"252\" y=\"75\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">F = A · B</text>\n</svg>",
+      "truthTable": [
+        {
+          "a": 0,
+          "b": 0,
+          "out": 0
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "out": 0
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "out": 0
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "out": 1
+        }
+      ]
+    },
+    {
+      "id": "circ-xor",
+      "title": "XOR Gate (Exclusive-OR)",
+      "equation": "F = A ⊕ B = A'B + AB'",
+      "category": "Basic Logic Gates",
+      "description": "Output is 1 if inputs are DIFFERENT; output is 0 if inputs are identical. The fundamental building block of binary addition (Sum bit computation).",
+      "svg": "<svg viewBox=\"0 0 280 140\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"gateGradXOR\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#a855f7\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#7e22ce\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n  </defs>\n  <!-- Input wires -->\n  <line x1=\"25\" y1=\"45\" x2=\"72\" y2=\"45\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <line x1=\"25\" y1=\"95\" x2=\"72\" y2=\"95\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"25\" cy=\"45\" r=\"3.5\" fill=\"#a855f7\"/>\n  <circle cx=\"25\" cy=\"95\" r=\"3.5\" fill=\"#a855f7\"/>\n  <text x=\"10\" y=\"50\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">A</text>\n  <text x=\"10\" y=\"100\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">B</text>\n  \n  <!-- Double Curved Arc for XOR -->\n  <path d=\"M 68,30 Q 95,70 68,110\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <!-- XOR Body -->\n  <path d=\"M 80,30 Q 107,70 80,110 Q 150,110 185,70 Q 150,30 80,30 Z\" \n        fill=\"url(#gateGradXOR)\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n  \n  <!-- Output wire -->\n  <line x1=\"185\" y1=\"70\" x2=\"245\" y2=\"70\" stroke=\"#34d399\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"245\" cy=\"70\" r=\"3.5\" fill=\"#34d399\"/>\n  <text x=\"252\" y=\"75\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">F = A ⊕ B</text>\n</svg>",
+      "truthTable": [
+        {
+          "a": 0,
+          "b": 0,
+          "out": 0
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "out": 1
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "out": 1
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "out": 0
+        }
+      ]
+    },
+    {
+      "id": "circ-not",
+      "title": "NOT Gate (Inverter)",
+      "equation": "F = A' (Inversion)",
+      "category": "Basic Logic Gates",
+      "description": "Inverts binary state: turns 1 into 0, and 0 into 1. Used in bitwise complementing and 1's/2's complement negation circuits.",
+      "svg": "<svg viewBox=\"0 0 280 140\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"gateGradNOT\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#f43f5e\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#be123c\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n  </defs>\n  <!-- Input wire -->\n  <line x1=\"40\" y1=\"70\" x2=\"95\" y2=\"70\" stroke=\"#f43f5e\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"40\" cy=\"70\" r=\"3.5\" fill=\"#f43f5e\"/>\n  <text x=\"22\" y=\"75\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">A</text>\n  \n  <!-- Triangle -->\n  <polygon points=\"95,35 95,105 160,70\" fill=\"url(#gateGradNOT)\" stroke=\"#f43f5e\" stroke-width=\"2.5\"/>\n  <!-- Bubble -->\n  <circle cx=\"166\" cy=\"70\" r=\"6\" fill=\"#0f172a\" stroke=\"#f43f5e\" stroke-width=\"2.5\"/>\n  \n  <!-- Output wire -->\n  <line x1=\"172\" y1=\"70\" x2=\"245\" y2=\"70\" stroke=\"#34d399\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"245\" cy=\"70\" r=\"3.5\" fill=\"#34d399\"/>\n  <text x=\"252\" y=\"75\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">F = A'</text>\n</svg>",
+      "truthTable": [
+        {
+          "a": 0,
+          "b": "-",
+          "out": 1
+        },
+        {
+          "a": 1,
+          "b": "-",
+          "out": 0
+        }
+      ]
+    },
+    {
+      "id": "circ-fulladder",
+      "title": "Full Adder (2-Level Combinational Circuit)",
+      "equation": "Sum: si = xi ⊕ yi ⊕ ci  |  Carry: ci+1 = xi*yi + (xi + yi)*ci",
+      "category": "Adder Circuitry",
+      "description": "The exact 2-level combinational AND-OR logic circuit from Week 7 Slide 12. Adds two operand bits (xi, yi) and an incoming carry (ci) to produce Sum (si) and Carry-out (ci+1).",
+      "svg": "<svg viewBox=\"0 0 540 260\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"faGrad1\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#38bdf8\" stop-opacity=\"0.15\"/>\n      <stop offset=\"100%\" stop-color=\"#6366f1\" stop-opacity=\"0.3\"/>\n    </linearGradient>\n  </defs>\n  <!-- Background Card -->\n  <rect x=\"10\" y=\"10\" width=\"520\" height=\"240\" rx=\"10\" fill=\"#0a101d\" stroke=\"rgba(255,255,255,0.1)\" stroke-width=\"1.5\"/>\n  \n  <!-- LEFT: SUM SECTION (4 AND -> 1 OR) -->\n  <text x=\"35\" y=\"32\" fill=\"#38bdf8\" font-family=\"Consolas, monospace\" font-size=\"12\" font-weight=\"700\">SUM LOGIC (si)</text>\n  \n  <!-- 4 AND gates for Sum -->\n  <g transform=\"translate(60, 42)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(56,189,248,0.2)\" stroke=\"#38bdf8\" stroke-width=\"1.5\"/>\n    <text x=\"-35\" y=\"16\" fill=\"#94a3b8\" font-size=\"9\" font-family=\"monospace\">x'y'c</text>\n  </g>\n  <g transform=\"translate(60, 76)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(56,189,248,0.2)\" stroke=\"#38bdf8\" stroke-width=\"1.5\"/>\n    <text x=\"-35\" y=\"16\" fill=\"#94a3b8\" font-size=\"9\" font-family=\"monospace\">x'yc'</text>\n  </g>\n  <g transform=\"translate(60, 110)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(56,189,248,0.2)\" stroke=\"#38bdf8\" stroke-width=\"1.5\"/>\n    <text x=\"-35\" y=\"16\" fill=\"#94a3b8\" font-size=\"9\" font-family=\"monospace\">xy'c'</text>\n  </g>\n  <g transform=\"translate(60, 144)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(56,189,248,0.2)\" stroke=\"#38bdf8\" stroke-width=\"1.5\"/>\n    <text x=\"-35\" y=\"16\" fill=\"#94a3b8\" font-size=\"9\" font-family=\"monospace\">xyc</text>\n  </g>\n\n  <!-- Connectors to OR -->\n  <path d=\"M 97,54 L 140,54 L 140,88\" stroke=\"#38bdf8\" stroke-width=\"1.2\" fill=\"none\"/>\n  <path d=\"M 97,88 L 140,88\" stroke=\"#38bdf8\" stroke-width=\"1.2\" fill=\"none\"/>\n  <path d=\"M 97,122 L 140,122\" stroke=\"#38bdf8\" stroke-width=\"1.2\" fill=\"none\"/>\n  <path d=\"M 97,156 L 140,156 L 140,122\" stroke=\"#38bdf8\" stroke-width=\"1.2\" fill=\"none\"/>\n\n  <!-- 4-Input OR Gate for Sum -->\n  <g transform=\"translate(140, 80)\">\n    <path d=\"M 0,0 Q 20,25 0,50 Q 40,50 60,25 Q 40,0 0,0 Z\" fill=\"rgba(16,185,129,0.25)\" stroke=\"#34d399\" stroke-width=\"2\"/>\n    <line x1=\"60\" y1=\"25\" x2=\"95\" y2=\"25\" stroke=\"#34d399\" stroke-width=\"2\"/>\n    <circle cx=\"95\" cy=\"25\" r=\"3\" fill=\"#34d399\"/>\n    <text x=\"102\" y=\"29\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">si (Sum)</text>\n  </g>\n\n  <!-- VERTICAL DIVIDER -->\n  <line x1=\"260\" y1=\"25\" x2=\"260\" y2=\"235\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/>\n\n  <!-- RIGHT: CARRY SECTION (3 AND -> 1 OR) -->\n  <text x=\"290\" y=\"32\" fill=\"#f59e0b\" font-family=\"Consolas, monospace\" font-size=\"12\" font-weight=\"700\">CARRY-OUT LOGIC (ci+1)</text>\n\n  <!-- 3 AND gates for Carry -->\n  <g transform=\"translate(320, 58)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(245,158,11,0.2)\" stroke=\"#f59e0b\" stroke-width=\"1.5\"/>\n    <text x=\"-26\" y=\"16\" fill=\"#94a3b8\" font-size=\"10\" font-family=\"monospace\">y · c</text>\n  </g>\n  <g transform=\"translate(320, 102)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(245,158,11,0.2)\" stroke=\"#f59e0b\" stroke-width=\"1.5\"/>\n    <text x=\"-26\" y=\"16\" fill=\"#94a3b8\" font-size=\"10\" font-family=\"monospace\">x · c</text>\n  </g>\n  <g transform=\"translate(320, 146)\">\n    <path d=\"M 0,0 L 25,0 A 12,12 0 0,1 25,24 L 0,24 Z\" fill=\"rgba(245,158,11,0.2)\" stroke=\"#f59e0b\" stroke-width=\"1.5\"/>\n    <text x=\"-26\" y=\"16\" fill=\"#94a3b8\" font-size=\"10\" font-family=\"monospace\">x · y</text>\n  </g>\n\n  <!-- Connectors to OR -->\n  <path d=\"M 357,70 L 395,70 L 395,95\" stroke=\"#f59e0b\" stroke-width=\"1.2\" fill=\"none\"/>\n  <path d=\"M 357,114 L 395,114\" stroke=\"#f59e0b\" stroke-width=\"1.2\" fill=\"none\"/>\n  <path d=\"M 357,158 L 395,158 L 395,125\" stroke=\"#f59e0b\" stroke-width=\"1.2\" fill=\"none\"/>\n\n  <!-- 3-Input OR Gate for Carry -->\n  <g transform=\"translate(395, 88)\">\n    <path d=\"M 0,0 Q 18,22 0,44 Q 38,44 55,22 Q 38,0 0,0 Z\" fill=\"rgba(245,158,11,0.25)\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n    <line x1=\"55\" y1=\"22\" x2=\"90\" y2=\"22\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n    <circle cx=\"90\" cy=\"22\" r=\"3\" fill=\"#f59e0b\"/>\n    <text x=\"96\" y=\"26\" fill=\"#f59e0b\" font-family=\"Consolas, monospace\" font-size=\"12\" font-weight=\"700\">ci+1</text>\n  </g>\n\n  <!-- Subtitle -->\n  <text x=\"270\" y=\"242\" text-anchor=\"middle\" fill=\"#64748b\" font-size=\"10\" font-family=\"sans-serif\">2-Level Combinational Logic: Gate Delay = 1.0 ns (Carry) | 1.5 ns (Sum)</text>\n</svg>",
+      "truthTable": [
+        {
+          "xi": 0,
+          "yi": 0,
+          "ci": 0,
+          "sum": 0,
+          "carry": 0
+        },
+        {
+          "xi": 0,
+          "yi": 0,
+          "ci": 1,
+          "sum": 1,
+          "carry": 0
+        },
+        {
+          "xi": 0,
+          "yi": 1,
+          "ci": 0,
+          "sum": 1,
+          "carry": 0
+        },
+        {
+          "xi": 0,
+          "yi": 1,
+          "ci": 1,
+          "sum": 0,
+          "carry": 1
+        },
+        {
+          "xi": 1,
+          "yi": 0,
+          "ci": 0,
+          "sum": 1,
+          "carry": 0
+        },
+        {
+          "xi": 1,
+          "yi": 0,
+          "ci": 1,
+          "sum": 0,
+          "carry": 1
+        },
+        {
+          "xi": 1,
+          "yi": 1,
+          "ci": 0,
+          "sum": 0,
+          "carry": 1
+        },
+        {
+          "xi": 1,
+          "yi": 1,
+          "ci": 1,
+          "sum": 1,
+          "carry": 1
+        }
+      ]
+    },
+    {
+      "id": "circ-ripple",
+      "title": "N-Bit Ripple-Carry Adder Cascade",
+      "equation": "Total Delay = (n - 1) * 1.0 ns + 1.5 ns",
+      "category": "Adder Circuitry",
+      "description": "Cascaded connection of n Full Adder blocks (Week 7 Slide 13). Carries ripple from LSB to MSB. For 32-bit addition: (31 * 1.0 ns) + 1.5 ns = 32.5 ns.",
+      "svg": "<svg viewBox=\"0 0 540 180\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Stage 0 -->\n  <g transform=\"translate(380, 40)\">\n    <rect width=\"80\" height=\"90\" rx=\"6\" fill=\"#1e293b\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"40\" y=\"28\" fill=\"#38bdf8\" font-weight=\"700\" font-size=\"12\" text-anchor=\"middle\">Adder 0</text>\n    <text x=\"40\" y=\"44\" fill=\"#94a3b8\" font-size=\"10\" text-anchor=\"middle\">(LSB)</text>\n    <line x1=\"25\" y1=\"-20\" x2=\"25\" y2=\"0\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <line x1=\"55\" y1=\"-20\" x2=\"55\" y2=\"0\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"25\" y=\"-24\" fill=\"#cbd5e1\" font-size=\"10\" text-anchor=\"middle\">x0</text>\n    <text x=\"55\" y=\"-24\" fill=\"#cbd5e1\" font-size=\"10\" text-anchor=\"middle\">y0</text>\n    <!-- Carry In -->\n    <line x1=\"120\" y1=\"45\" x2=\"80\" y2=\"45\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n    <text x=\"110\" y=\"40\" fill=\"#f59e0b\" font-size=\"10\">c0</text>\n    <!-- Sum Out -->\n    <line x1=\"40\" y1=\"90\" x2=\"40\" y2=\"120\" stroke=\"#34d399\" stroke-width=\"2\"/>\n    <text x=\"40\" y=\"134\" fill=\"#34d399\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">s0</text>\n  </g>\n\n  <!-- Ripple Wire 0 -> 1 -->\n  <line x1=\"380\" y1=\"85\" x2=\"310\" y2=\"85\" stroke=\"#f59e0b\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  <text x=\"345\" y=\"80\" fill=\"#f59e0b\" font-size=\"10\" text-anchor=\"middle\">c1</text>\n\n  <!-- Stage 1 -->\n  <g transform=\"translate(230, 40)\">\n    <rect width=\"80\" height=\"90\" rx=\"6\" fill=\"#1e293b\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"40\" y=\"28\" fill=\"#38bdf8\" font-weight=\"700\" font-size=\"12\" text-anchor=\"middle\">Adder 1</text>\n    <line x1=\"25\" y1=\"-20\" x2=\"25\" y2=\"0\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <line x1=\"55\" y1=\"-20\" x2=\"55\" y2=\"0\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"25\" y=\"-24\" fill=\"#cbd5e1\" font-size=\"10\" text-anchor=\"middle\">x1</text>\n    <text x=\"55\" y=\"-24\" fill=\"#cbd5e1\" font-size=\"10\" text-anchor=\"middle\">y1</text>\n    <line x1=\"40\" y1=\"90\" x2=\"40\" y2=\"120\" stroke=\"#34d399\" stroke-width=\"2\"/>\n    <text x=\"40\" y=\"134\" fill=\"#34d399\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">s1</text>\n  </g>\n\n  <!-- Ripple Dots -->\n  <text x=\"195\" y=\"88\" fill=\"#64748b\" font-size=\"20\" font-weight=\"900\" letter-spacing=\"4\">···</text>\n\n  <!-- Stage n-1 -->\n  <g transform=\"translate(70, 40)\">\n    <rect width=\"80\" height=\"90\" rx=\"6\" fill=\"#1e293b\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"40\" y=\"28\" fill=\"#38bdf8\" font-weight=\"700\" font-size=\"12\" text-anchor=\"middle\">Adder n-1</text>\n    <text x=\"40\" y=\"44\" fill=\"#94a3b8\" font-size=\"10\" text-anchor=\"middle\">(MSB)</text>\n    <line x1=\"25\" y1=\"-20\" x2=\"25\" y2=\"0\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <line x1=\"55\" y1=\"-20\" x2=\"55\" y2=\"0\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"25\" y=\"-24\" fill=\"#cbd5e1\" font-size=\"10\" text-anchor=\"middle\">xn-1</text>\n    <text x=\"55\" y=\"-24\" fill=\"#cbd5e1\" font-size=\"10\" text-anchor=\"middle\">yn-1</text>\n    <line x1=\"0\" y1=\"45\" x2=\"-35\" y2=\"45\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n    <text x=\"-40\" y=\"40\" fill=\"#f59e0b\" font-size=\"10\" font-weight=\"700\">cn</text>\n    <line x1=\"40\" y1=\"90\" x2=\"40\" y2=\"120\" stroke=\"#34d399\" stroke-width=\"2\"/>\n    <text x=\"40\" y=\"134\" fill=\"#34d399\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">sn-1</text>\n  </g>\n</svg>"
+    },
+    {
+      "id": "circ-mem-banks",
+      "title": "8086 Even & Odd Memory Banks (1 MB Physical RAM)",
+      "equation": "Even Bank: A0 = 0 (D0-D7) | Odd Bank: BHE# = 0 (D8-D15)",
+      "category": "Microprocessor Memory",
+      "description": "The 1MB physical address space is divided into two 512KB banks. 16-bit aligned words (at even addresses) are transferred in ONE cycle. Unaligned words require TWO cycles.",
+      "svg": "<svg viewBox=\"0 0 540 200\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Odd Bank -->\n  <g transform=\"translate(60, 30)\">\n    <rect width=\"180\" height=\"130\" rx=\"8\" fill=\"#111827\" stroke=\"#38bdf8\" stroke-width=\"2\"/>\n    <text x=\"90\" y=\"30\" fill=\"#38bdf8\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">ODD BANK</text>\n    <text x=\"90\" y=\"50\" fill=\"#94a3b8\" font-size=\"11\" text-anchor=\"middle\">512K Bytes</text>\n    <text x=\"90\" y=\"75\" fill=\"#f59e0b\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">BHE# = 0 (Active)</text>\n    <text x=\"90\" y=\"95\" fill=\"#cbd5e1\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">Data Bus: D8 - D15</text>\n    <text x=\"90\" y=\"115\" fill=\"#64748b\" font-size=\"10\" font-family=\"monospace\" text-anchor=\"middle\">Addrs: 00001H, 00003H...</text>\n  </g>\n\n  <!-- Even Bank -->\n  <g transform=\"translate(300, 30)\">\n    <rect width=\"180\" height=\"130\" rx=\"8\" fill=\"#111827\" stroke=\"#34d399\" stroke-width=\"2\"/>\n    <text x=\"90\" y=\"30\" fill=\"#34d399\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">EVEN BANK</text>\n    <text x=\"90\" y=\"50\" fill=\"#94a3b8\" font-size=\"11\" text-anchor=\"middle\">512K Bytes</text>\n    <text x=\"90\" y=\"75\" fill=\"#f59e0b\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">A0 = 0 (Active)</text>\n    <text x=\"90\" y=\"95\" fill=\"#cbd5e1\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">Data Bus: D0 - D7</text>\n    <text x=\"90\" y=\"115\" fill=\"#64748b\" font-size=\"10\" font-family=\"monospace\" text-anchor=\"middle\">Addrs: 00000H, 00002H...</text>\n  </g>\n  \n  <text x=\"270\" y=\"185\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"11\">Total: 1,048,576 Bytes (1 MB) • Aligned Word: 1 Cycle | Misaligned: 2 Cycles</text>\n</svg>"
+    },
+    {
+      "id": "circ-stack-tower",
+      "title": "8086 LIFO Stack Memory Architecture",
+      "equation": "Bottom: SS x 10H + FFFFH | TOS: SS x 10H + SP | PUSH: SP ← SP - 2 | POP: SP ← SP + 2",
+      "category": "Stack Architecture",
+      "description": "Visual diagram of the 8086 stack memory showing downward growth toward lower addresses. PUSH decrements SP by 2, storing High byte at SP+1 and Low byte at SP.",
+      "svg": "<svg viewBox=\"0 0 540 220\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <!-- Memory Tower -->\n  <g transform=\"translate(180, 20)\">\n    <rect x=\"0\" y=\"0\" width=\"180\" height=\"175\" rx=\"6\" fill=\"#0f172a\" stroke=\"#6366f1\" stroke-width=\"2\"/>\n    \n    <!-- Slots -->\n    <rect x=\"5\" y=\"5\" width=\"170\" height=\"26\" fill=\"rgba(99,102,241,0.15)\" stroke=\"rgba(255,255,255,0.06)\"/>\n    <text x=\"90\" y=\"22\" fill=\"#cbd5e1\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">Bottom of Stack (FFFFH)</text>\n\n    <rect x=\"5\" y=\"34\" width=\"170\" height=\"26\" fill=\"rgba(99,102,241,0.2)\" stroke=\"rgba(255,255,255,0.06)\"/>\n    <text x=\"90\" y=\"51\" fill=\"#cbd5e1\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">Occupied Word 1</text>\n\n    <rect x=\"5\" y=\"63\" width=\"170\" height=\"26\" fill=\"rgba(99,102,241,0.2)\" stroke=\"rgba(255,255,255,0.06)\"/>\n    <text x=\"90\" y=\"80\" fill=\"#cbd5e1\" font-size=\"11\" font-family=\"monospace\" text-anchor=\"middle\">Occupied Word 2</text>\n\n    <!-- Top of Stack slot -->\n    <rect x=\"5\" y=\"92\" width=\"170\" height=\"26\" fill=\"rgba(6,182,212,0.3)\" stroke=\"#06b6d4\" stroke-width=\"1.5\"/>\n    <text x=\"90\" y=\"109\" fill=\"#38bdf8\" font-size=\"11\" font-weight=\"700\" font-family=\"monospace\" text-anchor=\"middle\">Top of Stack (TOS)</text>\n\n    <rect x=\"5\" y=\"121\" width=\"170\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" stroke=\"rgba(255,255,255,0.04)\"/>\n    <text x=\"90\" y=\"137\" fill=\"#64748b\" font-size=\"10\" font-family=\"monospace\" text-anchor=\"middle\">Free Space (Next PUSH)</text>\n\n    <rect x=\"5\" y=\"148\" width=\"170\" height=\"22\" fill=\"rgba(255,255,255,0.02)\" stroke=\"rgba(255,255,255,0.04)\"/>\n    <text x=\"90\" y=\"163\" fill=\"#64748b\" font-size=\"10\" font-family=\"monospace\" text-anchor=\"middle\">Lower Memory Addrs</text>\n  </g>\n\n  <!-- Left Indicators -->\n  <g transform=\"translate(60, 112)\">\n    <text x=\"100\" y=\"5\" fill=\"#38bdf8\" font-size=\"12\" font-weight=\"700\" text-anchor=\"end\">SP Pointer →</text>\n    <text x=\"100\" y=\"20\" fill=\"#94a3b8\" font-size=\"10\" text-anchor=\"end\">TOS: SS:SP</text>\n  </g>\n\n  <!-- Right Growth Indicator -->\n  <g transform=\"translate(380, 50)\">\n    <line x1=\"20\" y1=\"20\" x2=\"20\" y2=\"120\" stroke=\"#f43f5e\" stroke-width=\"2.5\" stroke-dasharray=\"4 4\"/>\n    <polygon points=\"20,130 14,118 26,118\" fill=\"#f43f5e\"/>\n    <text x=\"35\" y=\"70\" fill=\"#f43f5e\" font-size=\"11\" font-weight=\"700\">STACK GROWS</text>\n    <text x=\"35\" y=\"85\" fill=\"#f43f5e\" font-size=\"11\" font-weight=\"700\">DOWNWARD ↓</text>\n    <text x=\"35\" y=\"102\" fill=\"#94a3b8\" font-size=\"10\">PUSH decrements SP</text>\n  </g>\n</svg>"
+    }
+  ],
+  "sources": {
+    "AR101": [
+      {
+        "title": "Computer Organization and Architecture: Designing for Performance",
+        "authors": "William Stallings",
+        "publisher": "Prentice Hall / Pearson (8th & 10th Editions)",
+        "year": "2010 / 2016",
+        "type": "Primary Course Textbook",
+        "alignment": "Directly cited in lecture slides (Week 7 Slide 21); covers ALU 2-level combinational logic, Ripple-Carry delay formulas, and Carry-Lookahead generation.",
+        "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-organization-and-architecture/P200000003290"
+      },
+      {
+        "title": "Computer Organization and Design: The Hardware/Software Interface",
+        "authors": "David A. Patterson & John L. Hennessy",
+        "publisher": "Morgan Kaufmann / Elsevier",
+        "year": "2020",
+        "type": "Standard Academic Reference",
+        "alignment": "Turing Award-winning foundational architecture text; covers Stored Program Von-Neumann model, 0/1/2/3-address instruction formats, and gate fan-in constraints.",
+        "url": "https://www.elsevier.com/books/computer-organization-and-design-mips-edition/patterson/978-0-12-820109-1"
+      },
+      {
+        "title": "Intel 8086 Family User's Manual & Architecture Guide",
+        "authors": "Intel Corporation",
+        "publisher": "Intel Literature Center (Order No. 9800722-03)",
+        "year": "1979",
+        "type": "Official Hardware Specification",
+        "alignment": "Authoritative hardware reference for 8086 EU/BIU structure, Even/Odd memory banks, 20-bit address generation, and LIFO stack SP decrement mechanics.",
+        "url": "https://archive.org/details/bitsavers_intel80869UsersManualOct79_59960965"
+      },
+      {
+        "title": "Microprocessor Architecture, Programming, and Applications with the 8085/8086",
+        "authors": "Ramesh S. Gaonkar",
+        "publisher": "Penram International Publishing",
+        "year": "2013",
+        "type": "Microprocessor Reference",
+        "alignment": "Covers 8086 instruction set data transfers (MOV, XCHG, PUSH, POP, LEA) and memory segment offset mapping.",
+        "url": "https://www.worldcat.org/title/microprocessor-architecture-programming-and-applications-with-the-8085/oclc/49247169"
+      },
+      {
+        "title": "Digital Design: With an Introduction to the Verilog HDL",
+        "authors": "M. Morris R. Mano & Michael D. Ciletti",
+        "publisher": "Pearson Education / Prentice Hall (5th & 6th Editions)",
+        "year": "2013 / 2018",
+        "type": "Authoritative Digital Logic Reference",
+        "alignment": "Foundational academic textbook for combinational adder circuits; details Half Adder and Full Adder gate implementations, mathematical proof of Full Adder construction using two Half Adders with an OR gate, gate delay bounds, and ALU design.",
+        "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-design-with-an-introduction-to-the-verilog-hdl/P200000003500"
+      }
+    ],
+    "SPI101": [
+      {
+        "title": "Ethical Insights: A Brief Introduction",
+        "authors": "Douglas Birsch",
+        "publisher": "McGraw-Hill Higher Education",
+        "year": "2002",
+        "type": "Primary Course Reference",
+        "alignment": "Primary reference cited in Week 2 lecture; covers Subjective Relativism, Cultural Relativism, Divine Command, and Ethical Egoism.",
+        "url": "https://www.mheducation.com"
+      },
+      {
+        "title": "The Elements of Moral Philosophy",
+        "authors": "James Rachels & Stuart Rachels",
+        "publisher": "McGraw-Hill",
+        "year": "2003 / 2019",
+        "type": "Classical Philosophy Reference",
+        "alignment": "Covers Utilitarianism (Jeremy Bentham) and Kantian Deontology / duty ethics cited in Week 2.",
+        "url": "https://www.mheducation.com/highered/product/elements-moral-philosophy-rachels-rachels/M9781259914256.html"
+      },
+      {
+        "title": "The 1987 Constitution of the Republic of the Philippines",
+        "authors": "Constitutional Commission of 1986",
+        "publisher": "Official Gazette of the Republic of the Philippines",
+        "year": "1987",
+        "type": "Philippine Supreme Law",
+        "alignment": "Article III (Bill of Rights Sections 1, 2, 3) privacy provisions and Article II Section 26 political dynasty prohibition.",
+        "url": "https://www.officialgazette.gov.ph/constitutions/1987-constitution/"
+      },
+      {
+        "title": "Republic Act No. 10173: Data Privacy Act of 2012",
+        "authors": "Congress of the Philippines",
+        "publisher": "National Privacy Commission (NPC)",
+        "year": "2012",
+        "type": "Philippine Statutory Law",
+        "alignment": "Governs Section 11 privacy principles, personal data controllers (PIC), processors (PIP), and citizen rights.",
+        "url": "https://privacy.gov.ph/data-privacy-act/"
+      }
+    ],
+    "MS101": [
+      {
+        "title": "Discrete Mathematics and Its Applications",
+        "authors": "Kenneth H. Rosen",
+        "publisher": "McGraw-Hill Education (7th & 8th Editions)",
+        "year": "2019",
+        "type": "Standard Academic Textbook",
+        "alignment": "Covers Propositional Logic, Truth Tables (2^n formula), Quantifiers, Set Cardinality, and the Division Algorithm.",
+        "url": "https://www.mheducation.com"
+      },
+      {
+        "title": "Discrete Mathematics with Applications",
+        "authors": "Susanna S. Epp",
+        "publisher": "Cengage Learning (5th Edition)",
+        "year": "2020",
+        "type": "Standard Academic Textbook",
+        "alignment": "Covers Number Theory, prime numbers, divisibility theorems, and Euclidean GCD algorithms.",
+        "url": "https://www.cengage.com"
+      }
+    ],
+    "IPT102": [
+      {
+        "title": "ASP.NET Core Application Architecture & Razor Pages Guide",
+        "authors": "Microsoft Learn Documentation Team",
+        "publisher": "Microsoft Corporation",
+        "year": "2024",
+        "type": "Official Framework Documentation",
+        "alignment": "Official guide for MVC pattern, Model binding, Controller actions, Razor @Html helpers, and Kestrel server.",
+        "url": "https://learn.microsoft.com/en-us/aspnet/core/"
+      },
+      {
+        "title": "The Python Language Reference & Standard Library",
+        "authors": "Python Software Foundation (Guido van Rossum et al.)",
+        "publisher": "Python Software Foundation",
+        "year": "2024",
+        "type": "Official Language Specification",
+        "alignment": "Authoritative reference for Python dynamic typing, memory management, data types, and REPL operations.",
+        "url": "https://docs.python.org/3/"
+      }
+    ],
+    "SIA101": [
+      {
+        "title": "A Guide to the Project Management Body of Knowledge (PMBOK Guide)",
+        "authors": "Project Management Institute (PMI)",
+        "publisher": "Project Management Institute (6th & 7th Editions)",
+        "year": "2021",
+        "type": "Global Industry Standard",
+        "alignment": "Standard for the 5 Project Management Life Cycle phases (Initiation, Planning, Execution, Monitoring, Closure) and WBS.",
+        "url": "https://www.pmi.org/pmbok-guide-standards"
+      },
+      {
+        "title": "BPMN 2.0: Business Process Model and Notation Specification",
+        "authors": "Object Management Group (OMG)",
+        "publisher": "Object Management Group",
+        "year": "2014",
+        "type": "International Technical Standard",
+        "alignment": "Specification for BPMN 4 building blocks (Flow objects, Connecting objects, Swimlanes, Artifacts).",
+        "url": "https://www.omg.org/spec/BPMN/2.0/"
+      }
+    ]
+  }
 };
 
 // Expose globally for browser

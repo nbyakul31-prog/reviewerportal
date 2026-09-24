@@ -164,10 +164,10 @@ Formulated by the **Project Management Institute (PMI)**, the standard lifecycle
 Details the organization's risk management methodology, identifying risk events across 5 severity levels evaluated against 3 project dimensions:
 | Severity Level | Risk Impact Description | Technical Performance Impact | Cost Impact | Schedule Impact |
 | :---: | :--- | :--- | :--- | :--- |
-| **5 (Severe)** | Outcome objectives will not be achieved. | Performance unacceptable; fails Key Performance Parameters. | Budget impacted by > $20 Million. | Milestone delayed by > 3 months. |
-| **4 (Significant)** | Desired results significantly impacted; falls below acceptable levels. | Significant changes required; does not meet threshold. | Budget impacted by $10M – $20M. | Critical path delayed by 2–3 months. |
-| **3 (Moderate)** | Moderate impact; outcome falls well below goals but above minimum acceptable. | Moderate changes required; does not meet a threshold. | Budget impacted by $2M – $10M; requires reserve funds. | Schedule slips by 1–2 months. |
-| **2 (Minor)** | Minor impact; results fall slightly below goals but well above minimum acceptable. | Minor changes required; does not meet an objective. | Minor budget increase (< $2M); development cost exceeded by 1–5%. | Non-critical tasks slip; critical path delayed < 1 month. |
+| **5 (Severe)** | Outcome objectives will not be achieved. | Performance unacceptable; fails Key Performance Parameters. | Budget impacted by > 20 Million. | Milestone delayed by > 3 months. |
+| **4 (Significant)** | Desired results significantly impacted; falls below acceptable levels. | Significant changes required; does not meet threshold. | Budget impacted by 10M – 20M. | Critical path delayed by 2–3 months. |
+| **3 (Moderate)** | Moderate impact; outcome falls well below goals but above minimum acceptable. | Moderate changes required; does not meet a threshold. | Budget impacted by 2M – 10M; requires reserve funds. | Schedule slips by 1–2 months. |
+| **2 (Minor)** | Minor impact; results fall slightly below goals but well above minimum acceptable. | Minor changes required; does not meet an objective. | Minor budget increase (< 2M); development cost exceeded by 1–5%. | Non-critical tasks slip; critical path delayed < 1 month. |
 | **1 (Minimal)** | Little or no impact on achieving outcome objectives. | Requires minor trades within threshold; no impact on program. | Budget not affected; cost absorbed in plan. | Schedule unaffected; milestone float absorbs variations. |
 
 ### 5. Key Performance Indicators (KPIs) in Monitoring

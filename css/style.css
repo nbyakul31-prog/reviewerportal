@@ -1094,6 +1094,7 @@ code.inline-code,
 
 .nav-item {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1101,17 +1102,21 @@ code.inline-code,
   background: transparent;
   border: none;
   color: var(--text-subtle);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  gap: 4px;
+  gap: 3px;
   cursor: pointer;
-  padding: 6px 0;
+  padding: 4px 1px;
   transition: var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-item svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
@@ -1529,5 +1534,729 @@ code.inline-code,
   70% { opacity: 1; transform: translateY(-12px) scale(1.0); }
   100% { opacity: 0; transform: translateY(-22px) scale(0.9); }
 }
+
+/* ==============================================================================
+   TABULAR GLOSSARY, ELECTRICAL SCHEMATICS & VERIFIED SOURCES (v2.8.0)
+   ============================================================================== */
+
+/* Sub-view Navigation Toggles */
+.glossary-subview-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 12px 0;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.glossary-subview-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.glossary-toggle-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 9px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: var(--surface-card);
+  color: var(--text-muted);
+  border: 1px solid var(--surface-glass-border);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.glossary-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.glossary-toggle-btn.active {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px var(--accent-indigo-glow);
+}
+
+/* Subject Filter Pills */
+.glossary-subject-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.glossary-subject-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.glossary-sub-pill {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: var(--surface-card);
+  color: var(--text-muted);
+  border: 1px solid var(--surface-glass-border);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.glossary-sub-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.glossary-sub-pill.active {
+  background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 10px var(--accent-indigo-glow);
+  font-weight: 700;
+}
+
+/* Search Bar */
+.glossary-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  margin-bottom: 14px;
+  transition: var(--transition-fast);
+}
+
+.glossary-search-bar:focus-within {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 14px var(--accent-cyan-glow);
+}
+
+.glossary-search-bar svg {
+  color: var(--text-subtle);
+  flex-shrink: 0;
+}
+
+.glossary-search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-size: 0.86rem;
+  font-family: inherit;
+}
+
+.glossary-search-bar input::placeholder {
+  color: var(--text-subtle);
+}
+
+.glossary-count-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  white-space: nowrap;
+}
+
+/* Tabular Glossary Layout */
+.glossary-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-glass-border);
+  background: var(--surface-card);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+}
+
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.84rem;
+}
+
+.glossary-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #0f172a;
+}
+
+.glossary-table th {
+  padding: 12px 14px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+}
+
+.glossary-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.glossary-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.glossary-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.term-cell-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.term-badge {
+  font-family: 'Consolas', 'Fira Code', 'Monaco', monospace;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.copy-term-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-subtle);
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.copy-term-btn:hover {
+  color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.expansion-cell {
+  font-weight: 700;
+  color: #f1f5f9;
+  min-width: 140px;
+}
+
+.purpose-cell {
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  line-height: 1.48;
+  min-width: 240px;
+}
+
+.category-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  white-space: nowrap;
+}
+
+.week-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
+}
+
+/* Electrical Circuit Cards */
+.circuits-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.circuit-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  transition: var(--transition-fast);
+}
+
+.circuit-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.circuit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.circuit-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circuit-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.circuit-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.circuit-svg-wrap {
+  background: #080d1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  margin-bottom: 14px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.circuit-svg-wrap svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Truth Tables */
+.truth-table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.truth-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+}
+
+.truth-table th {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 8px 10px;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.truth-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.truth-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.truth-table td.output-one {
+  color: #34d399;
+  font-weight: 800;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.truth-table td.output-zero {
+  color: #94a3b8;
+}
+
+.circuit-note {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(99, 102, 241, 0.08);
+  border-left: 3px solid var(--accent-indigo);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+/* Verified Academic Sources Cards */
+.sources-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.source-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  transition: var(--transition-fast);
+}
+
+.source-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.source-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.source-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+.source-type-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.source-type-pill.type-textbook {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.source-type-pill.type-spec {
+  background: rgba(6, 182, 212, 0.15);
+  color: #67e8f9;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.source-type-pill.type-statute {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.source-author-line {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.source-author-line strong {
+  color: #e2e8f0;
+}
+
+.source-scope {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.45;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 12px;
+}
+
+.source-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.source-biblio {
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+}
+
+.source-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-full);
+  padding: 5px 12px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.source-link-btn:hover {
+  background: var(--accent-cyan);
+  color: #0a0e17;
+  border-color: transparent;
+  box-shadow: 0 2px 10px var(--accent-cyan-glow);
+}
+
+/* Empty State */
+.glossary-empty-state {
+  text-align: center;
+  padding: 36px 16px;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+
+.glossary-empty-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* Lightbox Modal for Full-Resolution Schematics & Reference Graphics */
+.image-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
+}
+
+.image-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-modal-content {
+  background: var(--surface-card);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(6, 182, 212, 0.2);
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.image-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--surface-glass-border);
+  background: rgba(17, 24, 39, 0.8);
+}
+
+.image-modal-header h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.image-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.image-modal-close:hover {
+  background: rgba(244, 63, 94, 0.2);
+  color: #ff6b81;
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+.image-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #060911;
+}
+
+.image-modal-body img {
+  max-width: 100%;
+  max-height: calc(85vh - 70px);
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Circuit Graphic / Image Presentation */
+.circuit-image-wrap {
+  background: #080d1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: var(--transition-fast);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.circuit-image-wrap:hover {
+  border-color: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.15);
+}
+
+.circuit-reference-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast);
+}
+
+.circuit-image-wrap:hover .circuit-reference-img {
+  transform: scale(1.008);
+}
+
+.circuit-image-caption {
+  margin-top: 10px;
+  font-size: 0.74rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Digest Graphic Reference Box */
+.digest-diagram-wrapper {
+  margin: 14px 0;
+}
+
+.digest-ref-graphic-box {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.digest-ref-graphic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  color: #ffffff;
+  gap: 8px;
+}
+
+.digest-ref-img-wrapper {
+  background: #080d1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.digest-ref-img-wrapper:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+}
+
+.digest-ref-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.digest-ref-hint {
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  margin-top: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 
 

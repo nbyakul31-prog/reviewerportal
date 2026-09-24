@@ -54,10 +54,10 @@
 
 ### Checkpoint 3: Week 4 — Intel Microprocessors, Logical & Physical Memory
 - **Intel Milestones**: 4004 (1971, 4-bit, 2KB), 8008 (1972, 8-bit, 16KB), 8080 (1973), 8085 (1978), 8086 (1978, 16-bit, 1MB), 8088 (1979, 8-bit external bus).
-- **Physical Memory Organization**: Even Bank ($A_0 = 0$, $D_0-D_7$) and Odd Bank ($\overline{\text{BHE}} = 0$, $D_8-D_{15}$).
+- **Physical Memory Organization**: Even Bank (A_0 = 0, D_0-D_7) and Odd Bank (BHE# = 0, D_8-D_15).
 - **EU vs BIU**: Execution Unit (ALU, CU, Registers, Flags) vs Bus Interface Unit (Segment Regs, IP, 6-byte/4-byte prefetch queue).
 - **PSW / Flags**: 6 Status Flags (CF, PF, AF, ZF, SF, OF) and 3 Control Flags (TF, IF, DF).
-- **Physical Address Formula**: $\text{PA} = (\text{Segment Base} \times 10\text{H}) + \text{Offset}$.
+- **Physical Address Formula**: PA = (Segment Base  ×  10H) + Offset.
 
 ### Checkpoint 4: Week 5 — Memory Segments, Stack Operations & 7 Addressing Modes
 - **64KB Segments**: CS, DS, SS, ES (65,536 bytes each).
@@ -74,11 +74,13 @@
 
 ### Checkpoint 6: Week 7 — The Arithmetic Unit (Part 1)
 - **ALU Fundamentals**: Addition and subtraction form the basis of all digital computation.
-- **Signed Numbers**: Sign-Magnitude (dual zeros: +0, -0), 1's Complement (dual zeros), 2's Complement (single zero, range $-2^{n-1} \text{ to } +2^{n-1}-1$).
-- **Full Adder Equations**: Sum $s_i = x_i \oplus y_i \oplus c_i$, Carry $c_{i+1} = x_i y_i + (x_i + y_i) c_i$.
-- **Ripple-Carry Delay**: $(n-1) \times 1\text{ ns} + 1.5\text{ ns}$ (32-bit = 32.5 ns).
-- **Carry-Lookahead Adder (CLA)**: Generate $G_i = x_i y_i$, Propagate $P_i = x_i + y_i$; all carries generated in 3 gate delays.
-- **Gate Fan-In Constraint**: $i+2$ inputs to largest AND/OR gate (fan-in of 9 for 8-bit CLA); solved via Block/Hierarchical CLAs.
+- **Signed Numbers**: Sign-Magnitude (dual zeros: +0, -0), 1's Complement (dual zeros), 2's Complement (single zero, range -2^n-1  to  +2^n-1-1).
+- **Full Adder Equations**: Sum s_i = x_i  XOR  y_i  XOR  c_i, Carry c_i+1 = x_i y_i + (x_i + y_i) c_i.
+- **Ripple-Carry Delay**: (n-1)  ×  1 ns + 1.5 ns (32-bit = 32.5 ns).
+- **Carry-Lookahead Adder (CLA)**: Generate G_i = x_i y_i, Propagate P_i = x_i + y_i; all carries generated in 3 gate delays.
+- **Gate Fan-In Constraint**: i+2 inputs to largest AND/OR gate (fan-in of 9 for 8-bit CLA); solved via Block/Hierarchical CLAs.
+- **Logic Gates Master Graphical Reference**: Schematic symbols and complete truth tables for all 8 standard digital gates (Buffer, Inverter, AND, NAND, OR, NOR, XOR, XNOR).
+- **Half Adder & Full Adder Architectures**: Single-bit Half Adder ($S = A \oplus B, C = AB$), modular Full Adder via Two Half Adders and one OR gate ($C_{out} = AB + (A \oplus B)C_{in}$), and 2-level high-speed combinational ALU circuits.
 
 ---
 
@@ -102,7 +104,7 @@
 - **PMI 5-Phase PMLC**: 1. Conception & Initiation (Project Charter, Business Case), 2. Definition & Planning (Scope, WBS, Schedule, Risk), 3. Launch & Execution (Deliverables development), 4. Performance & Control (KPIs, quality, budget burn), 5. Project Close (Deliverable handover, contract termination, retrospectives).
 - **Goal Setting**: SMART (Specific, Measurable, Actionable, Realistic, Timebound) vs CLEAR (Collaborative, Limited, Emotional, Appreciable, Refinable).
 - **Planning Documents**: Scope Statement, Work Breakdown Structure (WBS), Milestones (zero duration), Gantt Charts, Stakeholder Communication Plan.
-- **Risk Severity Matrix**: 5 severity levels evaluated across Technical Performance, Cost (up to > $20M), and Schedule (up to > 3 months delay).
+- **Risk Severity Matrix**: 5 severity levels evaluated across Technical Performance, Cost (up to > 20M), and Schedule (up to > 3 months delay).
 - **4 Monitoring KPIs & 5 Closure Steps**: Tracking Objectives, Quality Deliverables, Cost/Effort, Performance; handover, contracts, retrospective, disbanding, and documenting learnings.
 
 ### Checkpoint 4: Week 5 — Organizational Context & IT Environments
@@ -166,20 +168,20 @@
 ### Checkpoint 1: Weeks 2–4 — Logic and Sets
 - Propositional Logic: Propositions vs Non-propositions (questions, exclamations, open variables).
 - 5 Connectives & Precedence: NOT (~) > AND (∧) > OR (∨) > IF-THEN (→) > IFF (↔).
-- Truth Tables ($R = 2^n$): Tautology (always T), Contradiction (always F), Contingency (mixed).
+- Truth Tables (R = 2^n): Tautology (always T), Contradiction (always F), Contingency (mixed).
 - Predicates and Quantifiers: Universal (∀x) vs Existential (∃x).
-- Set Theory: Roster vs Rule method, Cardinality, Empty Set ($\emptyset$), Power Set ($|P(A)| = 2^{|A|}$), Union, Intersection, Difference, Complement, Venn Diagrams.
+- Set Theory: Roster vs Rule method, Cardinality, Empty Set (emptyset), Power Set (|P(A)| = 2^|A|), Union, Intersection, Difference, Complement, Venn Diagrams.
 
 ### Checkpoint 2: Week 5 — Applications of Number Theory
 - Divisibility Rules: 2, 3, 4, 5, 6, 8, 9, 10 without full division.
-- Divisibility Theorems: Linear combinations and transitivity ($a \mid b \land a \mid c \implies a \mid (b+c)$).
+- Divisibility Theorems: Linear combinations and transitivity (a mid b land a mid c → a mid (b+c)).
 - Primes vs Composites: 0 and 1 are **neither prime nor composite**!
-- Euclid's Division Algorithm: $a = dq + r$, where $0 \le r < d$.
-- Greatest Common Divisor (GCD) & LCM: Identity $\gcd(a, b) \times \text{lcm}(a, b) = a \times b$.
+- Euclid's Division Algorithm: a = dq + r, where 0 ≤ r < d.
+- Greatest Common Divisor (GCD) & LCM: Identity gcd(a, b)  ×  lcm(a, b) = a  ×  b.
 
 ### Checkpoint 3: Week 6 — Mathematical Theory & Proofs
 - Terminologies: Axiom, Proof, Theorem, Lemma (helper), Corollary, Conjecture.
-- Methods of Proof: Direct proof ($p \implies q$), Indirect proof by contrapositive ($p \to q \equiv \neg q \to \neg p$).
+- Methods of Proof: Direct proof (p → q), Indirect proof by contrapositive (p → q equiv neg q → neg p).
 - Mathematical Induction: Basis step, inductive step, and limitation (proves, cannot discover theorems).
 
 ---

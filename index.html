@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2.7.0">
+  <link rel="stylesheet" href="css/style.css?v=2.9.0">
 </head>
 <body>
 
@@ -349,6 +349,62 @@
       </div>
     </section>
 
+    <!-- VIEW 7: TABULAR GLOSSARY, CIRCUITS & SOURCES -->
+    <section id="view-glossary" class="view-panel">
+      <div class="glossary-header-wrap">
+        <div>
+          <h2 style="font-size: 1.15rem; font-weight: 700;">📖 Tabular Glossary & Schematics</h2>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">Subject-focused abbreviations, electrical logic circuits, and verified academic references</p>
+        </div>
+      </div>
+
+      <!-- Sub-view navigation toggles -->
+      <div class="glossary-subview-nav">
+        <button class="glossary-toggle-btn active" id="gtoggle-terms" onclick="window.reviewerApp.setGlossarySubView('terms')">
+          📋 Tabular Glossary
+        </button>
+        <button class="glossary-toggle-btn" id="gtoggle-circuits" onclick="window.reviewerApp.setGlossarySubView('circuits')">
+          ⚡ Electrical Schematics
+        </button>
+        <button class="glossary-toggle-btn" id="gtoggle-sources" onclick="window.reviewerApp.setGlossarySubView('sources')">
+          📚 Legit Sources
+        </button>
+      </div>
+
+      <!-- Subject Filter for Glossary & Sources -->
+      <div class="glossary-subject-nav" id="glossary-subject-selector">
+        <button class="glossary-sub-pill active" id="gsub-ALL" onclick="window.reviewerApp.setGlossarySubject('ALL')">🌟 All Subjects</button>
+        <button class="glossary-sub-pill" id="gsub-AR101" onclick="window.reviewerApp.setGlossarySubject('AR101')">🏛️ AR101</button>
+        <button class="glossary-sub-pill" id="gsub-SPI101" onclick="window.reviewerApp.setGlossarySubject('SPI101')">⚖️ SPI101</button>
+        <button class="glossary-sub-pill" id="gsub-MS101" onclick="window.reviewerApp.setGlossarySubject('MS101')">📐 MS101</button>
+        <button class="glossary-sub-pill" id="gsub-IPT102" onclick="window.reviewerApp.setGlossarySubject('IPT102')">💻 IPT102</button>
+        <button class="glossary-sub-pill" id="gsub-SIA101" onclick="window.reviewerApp.setGlossarySubject('SIA101')">🌐 SIA101</button>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="glossary-search-bar" id="glossary-search-container">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="glossary-search-input" placeholder="Search abbreviation, expansion, purpose, or circuit..." oninput="window.reviewerApp.handleGlossarySearch(this.value)">
+        <span id="glossary-count-badge" class="glossary-count-badge">0 results</span>
+      </div>
+
+      <!-- Dynamic Content Containers -->
+      <div id="glossary-table-container" class="glossary-content-panel">
+        <!-- Rendered Tabular Glossary -->
+      </div>
+
+      <div id="circuits-container" class="glossary-content-panel" style="display: none;">
+        <!-- Rendered Electrical Circuits -->
+      </div>
+
+      <div id="sources-container" class="glossary-content-panel" style="display: none;">
+        <!-- Rendered Academic Sources -->
+      </div>
+    </section>
+
   </main>
 
   <!-- Mobile-First Bottom Navigation Bar -->
@@ -385,6 +441,23 @@
       <span>Quiz</span>
     </button>
 
+    <button class="nav-item" id="nav-cram" onclick="window.reviewerApp.switchView('cram')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      <span>Cram</span>
+    </button>
+
+    <button class="nav-item" id="nav-glossary" onclick="window.reviewerApp.switchView('glossary')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        <line x1="9" y1="7" x2="15" y2="7"/>
+        <line x1="9" y1="11" x2="15" y2="11"/>
+      </svg>
+      <span>Glossary</span>
+    </button>
+
     <button class="nav-item" id="nav-slides" onclick="window.reviewerApp.switchView('slides')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -393,18 +466,24 @@
       </svg>
       <span>Slides</span>
     </button>
-
-    <button class="nav-item" id="nav-cram" onclick="window.reviewerApp.switchView('cram')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-      </svg>
-      <span>Cram</span>
-    </button>
   </nav>
+
+  <!-- Lightbox Modal for Full-Resolution Schematics & Reference Graphics -->
+  <div id="image-modal" class="image-modal-backdrop" onclick="window.reviewerApp.closeImageModal(event)">
+    <div class="image-modal-content" onclick="event.stopPropagation()">
+      <div class="image-modal-header">
+        <h4 id="image-modal-title">⚡ Logic Gates Graphical Reference</h4>
+        <button class="image-modal-close" onclick="window.reviewerApp.closeImageModal()" aria-label="Close">✕</button>
+      </div>
+      <div class="image-modal-body">
+        <img id="image-modal-img" src="" alt="Full-Resolution Graphical Reference" />
+      </div>
+    </div>
+  </div>
 
   <!-- JSZip for Client-Side Zero-Server PPTX Extraction -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="js/data.js?v=2.7.0"></script>
-  <script src="js/app.js?v=2.7.0"></script>
+  <script src="js/data.js?v=2.9.0"></script>
+  <script src="js/app.js?v=2.9.0"></script>
 </body>
 </html>
