@@ -37,7 +37,8 @@
     cramSubject: 'ALL',
     glossarySubView: 'terms', // 'terms' | 'circuits' | 'sources'
     glossarySubject: 'ALL',   // 'ALL' | 'AR101' | 'SPI101' | 'MS101' | 'IPT102' | 'SIA101'
-    glossarySearchQuery: ''
+    glossarySearchQuery: '',
+    glossaryViewMode: 'table' // 'table' | 'cards'
   };
 
   // Chess.com-style Time Control presets
@@ -1541,10 +1542,16 @@
     const sourcesPanel = document.getElementById('sources-container');
     const subjectSelector = document.getElementById('glossary-subject-selector');
     const searchInput = document.getElementById('glossary-search-input');
+    const viewModeBar = document.getElementById('glossary-view-mode-bar');
 
     if (tablePanel) tablePanel.style.display = subView === 'terms' ? 'block' : 'none';
     if (circuitsPanel) circuitsPanel.style.display = subView === 'circuits' ? 'block' : 'none';
     if (sourcesPanel) sourcesPanel.style.display = subView === 'sources' ? 'block' : 'none';
+
+    // Show layout toggle only in terms mode
+    if (viewModeBar) {
+      viewModeBar.style.display = subView === 'terms' ? 'flex' : 'none';
+    }
 
     // Circuits are AR101 hardware specific; hide subject bar on circuits
     if (subjectSelector) {
@@ -1561,6 +1568,15 @@
       }
     }
 
+    renderGlossary();
+  }
+
+  function setGlossaryViewMode(mode) {
+    state.glossaryViewMode = mode;
+    const btnTable = document.getElementById('btn-gmode-table');
+    const btnCards = document.getElementById('btn-gmode-cards');
+    if (btnTable) btnTable.classList.toggle('active', mode === 'table');
+    if (btnCards) btnCards.classList.toggle('active', mode === 'cards');
     renderGlossary();
   }
 
@@ -1647,6 +1663,12 @@
 
     const showSubjectCol = state.glossarySubject === 'ALL';
 
+    // Check if user prefers Mobile Cards view
+    if (state.glossaryViewMode === 'cards') {
+      renderGlossaryCards(filtered, showSubjectCol, container);
+      return;
+    }
+
     const rowsHtml = filtered.map(t => `
       <tr>
         <td>
@@ -1669,6 +1691,12 @@
     `).join('');
 
     container.innerHTML = `
+      <div class="table-scroll-hint">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 16l-4-4m0 0l4-4m-4 4h18m-4 4l4-4m0 0l-4-4"/>
+        </svg>
+        <span>Swipe horizontally for all columns. Term column is pinned on the left.</span>
+      </div>
       <div class="glossary-table-wrapper">
         <table class="glossary-table">
           <thead>
@@ -1689,23 +1717,85 @@
     `;
   }
 
+  function renderGlossaryCards(terms, showSubjectCol, container) {
+    const cardsHtml = terms.map(t => `
+      <div class="glossary-card">
+        <div class="glossary-card-header">
+          <div class="glossary-card-term-wrap">
+            <span class="term-badge">${escapeHtml(t.term)}</span>
+            <button class="copy-term-btn" onclick="window.reviewerApp.copyGlossaryTerm('${escapeHtml(t.term)}')" title="Copy term">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
+          <div class="glossary-card-badges">
+            <span class="category-pill">${escapeHtml(t.category || 'General')}</span>
+            <span class="week-pill">${escapeHtml(t.week || '-')}</span>
+            ${showSubjectCol ? `<span class="category-pill" style="background: rgba(6, 182, 212, 0.15); color: #67e8f9; border-color: rgba(6, 182, 212, 0.3);">${escapeHtml(t.subject)}</span>` : ''}
+          </div>
+        </div>
+        <div class="glossary-card-title">${escapeHtml(t.expansion)}</div>
+        <div class="glossary-card-purpose">${formatMarkdown(t.purpose)}</div>
+      </div>
+    `).join('');
+
+    container.innerHTML = `
+      <div class="glossary-cards-grid">
+        ${cardsHtml}
+      </div>
+    `;
+  }
+
   function renderCircuitTruthTable(c) {
     if (c.truth_table && Array.isArray(c.truth_table.headers) && Array.isArray(c.truth_table.rows)) {
+      const headers = c.truth_table.headers;
+      let firstOutputIdx = -1;
+      headers.forEach((h, idx) => {
+        const lower = h.toLowerCase();
+        if (firstOutputIdx === -1 && (lower.includes('output') || lower.includes('sum') || lower.includes('carry') || lower.includes('cout') || lower.includes('active-1'))) {
+          firstOutputIdx = idx;
+        }
+      });
+      if (firstOutputIdx === -1) {
+        firstOutputIdx = Math.max(0, headers.length - 2);
+      }
+      const isWide = headers.length > 4;
+
       return `
+        ${isWide ? `
+          <div class="table-scroll-hint">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 16l-4-4m0 0l4-4m-4 4h18m-4 4l4-4m0 0l-4-4"/>
+            </svg>
+            <span>Swipe truth table horizontally for all ${headers.length} stage columns</span>
+          </div>
+        ` : ''}
         <div class="truth-table-wrap">
           <table class="truth-table">
             <thead>
               <tr>
-                ${c.truth_table.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}
+                ${headers.map((h, idx) => {
+                  const isOutput = idx >= firstOutputIdx;
+                  const isDivider = idx === firstOutputIdx && idx > 0;
+                  return `<th class="${isOutput ? 'th-output' : ''} ${isDivider ? 'col-divider' : ''}">${escapeHtml(h)}</th>`;
+                }).join('')}
               </tr>
             </thead>
             <tbody>
               ${c.truth_table.rows.map(row => `
                 <tr>
                   ${row.map((cell, idx) => {
-                    const isOutput = idx >= row.length - 2;
-                    const cls = isOutput ? (String(cell).trim() === '1' ? 'output-one' : String(cell).trim() === '0' ? 'output-zero' : '') : '';
-                    return `<td class="${cls}">${escapeHtml(String(cell))}</td>`;
+                    const isOutput = idx >= firstOutputIdx;
+                    const isDivider = idx === firstOutputIdx && idx > 0;
+                    const cellStr = String(cell).trim();
+                    let cls = '';
+                    if (isOutput) {
+                      if (cellStr === '1') cls = 'output-one';
+                      else if (cellStr === '0') cls = 'output-zero';
+                    }
+                    return `<td class="${cls} ${isDivider ? 'col-divider' : ''}">${escapeHtml(cellStr)}</td>`;
                   }).join('')}
                 </tr>
               `).join('')}
@@ -1716,12 +1806,34 @@
     }
     if (Array.isArray(c.truthTable) && c.truthTable.length > 0) {
       const keys = Object.keys(c.truthTable[0]);
+      let firstOutputIdx = -1;
+      keys.forEach((k, idx) => {
+        const lower = k.toLowerCase();
+        if (firstOutputIdx === -1 && (lower.includes('out') || lower.includes('sum') || lower.includes('carry') || lower.includes('cout') || idx === keys.length - 1)) {
+          firstOutputIdx = idx;
+        }
+      });
+      if (firstOutputIdx === -1) firstOutputIdx = keys.length - 1;
+      const isWide = keys.length > 4;
+
       return `
+        ${isWide ? `
+          <div class="table-scroll-hint">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 16l-4-4m0 0l4-4m-4 4h18m-4 4l4-4m0 0l-4-4"/>
+            </svg>
+            <span>Swipe truth table horizontally for all columns</span>
+          </div>
+        ` : ''}
         <div class="truth-table-wrap">
           <table class="truth-table">
             <thead>
               <tr>
-                ${keys.map(k => `<th>${escapeHtml(k.toUpperCase())}</th>`).join('')}
+                ${keys.map((k, idx) => {
+                  const isOutput = idx >= firstOutputIdx;
+                  const isDivider = idx === firstOutputIdx && idx > 0;
+                  return `<th class="${isOutput ? 'th-output' : ''} ${isDivider ? 'col-divider' : ''}">${escapeHtml(k.toUpperCase())}</th>`;
+                }).join('')}
               </tr>
             </thead>
             <tbody>
@@ -1729,9 +1841,15 @@
                 <tr>
                   ${keys.map((k, idx) => {
                     const val = rowObj[k];
-                    const isOutput = idx === keys.length - 1 || k.toLowerCase().includes('out') || k.toLowerCase().includes('sum') || k.toLowerCase().includes('carry');
-                    const cls = isOutput ? (String(val).trim() === '1' ? 'output-one' : String(val).trim() === '0' ? 'output-zero' : '') : '';
-                    return `<td class="${cls}">${escapeHtml(String(val))}</td>`;
+                    const valStr = String(val).trim();
+                    const isOutput = idx >= firstOutputIdx;
+                    const isDivider = idx === firstOutputIdx && idx > 0;
+                    let cls = '';
+                    if (isOutput) {
+                      if (valStr === '1') cls = 'output-one';
+                      else if (valStr === '0') cls = 'output-zero';
+                    }
+                    return `<td class="${cls} ${isDivider ? 'col-divider' : ''}">${escapeHtml(valStr)}</td>`;
                   }).join('')}
                 </tr>
               `).join('')}
@@ -1947,7 +2065,7 @@
         caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
       }
     } catch (e) {}
-    showToast('Clearing cache and loading v2.9.0...');
+    showToast('Clearing cache and loading v2.9.1...');
     setTimeout(() => {
       const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
       window.location.href = cleanUrl;
@@ -2013,6 +2131,7 @@
     createCardFromCurrentSlide,
     handlePptxUpload,
     setGlossarySubView,
+    setGlossaryViewMode,
     setGlossarySubject,
     handleGlossarySearch,
     copyGlossaryTerm,
