@@ -78,24 +78,24 @@ const REVIEWER_DATA = {
       "title": "The Contemporary World",
       "schedule": "Friday 6:00PM - 9:00PM",
       "units": 3,
-      "status": "upcoming",
+      "status": "active",
       "color": "rose",
-      "badge": "Slot Ready",
-      "checkpointsCount": 0,
-      "questionsCount": 0,
-      "flashcardsCount": 0
+      "badge": "Current Materials Ready",
+      "checkpointsCount": 4,
+      "questionsCount": 40,
+      "flashcardsCount": 45
     },
     {
       "code": "RIZAL",
       "title": "The Life and Works of Rizal",
       "schedule": "Friday 2:30PM - 5:30PM",
       "units": 3,
-      "status": "upcoming",
+      "status": "active",
       "color": "orange",
-      "badge": "Slot Ready",
-      "checkpointsCount": 0,
-      "questionsCount": 0,
-      "flashcardsCount": 0
+      "badge": "Current Materials Ready",
+      "checkpointsCount": 4,
+      "questionsCount": 40,
+      "flashcardsCount": 45
     }
   ],
   "checkpoints": [
@@ -3514,6 +3514,709 @@ const REVIEWER_DATA = {
           ]
         }
       ]
+    },
+    {
+      "id": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "title": "RA 1425 (The Rizal Law) & The Selection of National Hero",
+      "badge": "Checkpoint 1",
+      "description": "Legislative battle of Senate Bill 438, Recto vs Catholic Opposition, Laurel's compromise amendment, statutory provisions of RA 1425, and the 1901 Taft Commission criteria.",
+      "digest": [
+        {
+          "heading": "1. Post-WWII Context & Need for Nationalism",
+          "points": [
+            "Following World War II and the 1946 grant of independence, the Philippines was marked by pervasive economic, military, and political dependence on the United States.",
+            "Filipino youth were increasingly alienated from national identity and seduced by foreign culture and colonial mentality.",
+            "Nationalist leaders believed that studying the sacrifices of Filipino patriots—specifically Dr. José Rizal—was essential to revive civic pride, moral discipline, and patriotism."
+          ],
+          "tldr": "Post-war foreign domination catalyzed the push for a statutory mandate to teach Rizal's life and ideals."
+        },
+        {
+          "heading": "2. The Legislative Battle: Recto & Laurel vs. Catholic Opposition",
+          "points": [
+            "**Senate Bill No. 438** was filed on **April 17, 1956** by **Senator Jose P. Laurel** (Chairman of the Senate Committee on Education), but its original author was the staunch nationalist **Senator Claro M. Recto**.",
+            "Original text mandated the **compulsory reading** of the unexpurgated editions of *Noli Me Tangere* and *El Filibusterismo* in all public and private colleges and universities.",
+            "**Conservative Catholic Opposition:** Led by Senators **Decoroso Rosales**, **Mariano Cuenco**, and **Francisco Rodrigo**.",
+            "**Catholic Action of Manila (CAM):** Converted its newspaper, *The Sentinel*, into a daily release urging Catholics to petition lawmakers to reject the bill.",
+            "**Fr. Jesus Cavanna:** Alleged at a CAM symposium that out of 333 pages in the *Noli*, only **25 pages** were patriotic, while **120 pages** were anti-Catholic attacks.",
+            "**Senator Francisco Rodrigo:** Famously stated on the floor: *'I cannot allow my son who is now 16 to read the Noli Me Tangere and the El Filibusterismo lest he lose his faith.'*",
+            "**Radio Commentators:** Jesus Paredes claimed Catholics had a right to refuse reading heresy to save their souls; Narciso Pimentel Jr. claimed the bill was Recto's political revenge for his poor showing in the 1955 elections."
+          ],
+          "trap": "Exam Trap: Sen. Claro M. Recto was the ORIGINAL AUTHOR, while Sen. Jose P. Laurel was the COMMITTEE SPONSOR/CHAIRMAN who presented and defended it."
+        },
+        {
+          "heading": "3. The Church's Ultimatum & Recto's Counter-Strike",
+          "points": [
+            "Catholic authorities issued an ultimatum threatening to close down all Catholic educational institutions across the Philippines if the bill became law.",
+            "Recto fiercely countered that a shutdown would be a blessing, allowing the State to **nationalize all private schools** to advance genuine Filipino education.",
+            "Recto dismissed the closure threat as a bluff: *'They [the Catholic Church] are making too much profit which they can ill-afford to give up.'*",
+            "Recto clarified: *'Rizal did not pretend to teach religion or theology... He aimed at inculcating civic consciousness in the Filipinos, national dignity, personal pride, and PATRIOTISM.'*"
+          ]
+        },
+        {
+          "heading": "4. Laurel's Compromise & Enactment of RA 1425",
+          "points": [
+            "To break a bitter two-week deadlock, Sen. Jose P. Laurel drafted a substitute compromise bill:",
+            "1. Removed the explicit term **'compulsory'** in general contexts.",
+            "2. Mandated that collegiate courses use the original or unexpurgated editions (or English translations) as basic texts.",
+            "3. Created a **Religious Exemption Clause**: Students objecting on religious grounds can request exemption from reading the unexpurgated novels by submitting a **sworn written statement**.",
+            "⚠️ **CRITICAL EXAM POINT**: The exemption excuses the student **ONLY from reading the novels**, NOT from taking the collegiate Rizal course itself!",
+            "Approved by Senate (23 in favor) and House (71 for, 9 against, 2 abstentions on HB 5564).",
+            "Signed into law by President **Ramon Magsaysay** on **June 12, 1956** as **Republic Act No. 1425** (The Rizal Law)."
+          ],
+          "trap": "Exam Trap: Religious objection only exempts a student from reading the unexpurgated novels, NEVER from enrolling in or passing the Rizal course!"
+        },
+        {
+          "heading": "5. Legal Provisions of RA 1425 (Sections 1–6)",
+          "points": [
+            "**Section 1**: Compulsory inclusion of courses on the life, works, and writings of Jose Rizal, particularly *Noli* and *Fili*, in all public and private schools, colleges, and universities. Unexpurgated collegiate text requirement with sworn exemption mechanism.",
+            "**Section 2**: Obligatory maintenance of adequate unexpurgated copies in school libraries, determined by the Board of National Education according to enrollment.",
+            "**Section 3**: Directs translation of *Noli* and *Fili* into English, Tagalog, and principal dialects; printing of cheap popular editions; free distribution via *Purok* organizations and Barrio Councils.",
+            "**Section 4**: Clarifies no repeal of Section 927 of the Administrative Code (prohibiting public school teachers from discussing religious doctrines).",
+            "**Section 5**: Authorizes an appropriation of **₱300,000** from the National Treasury.",
+            "**Section 6**: Immediate effectivity upon approval on June 12, 1956."
+          ]
+        },
+        {
+          "heading": "6. 1990s Reinforcements: FVR Memo Order 246 & CHED Memos",
+          "points": [
+            "**Memorandum Order No. 246 (Dec 26, 1994)**: Issued by President **Fidel V. Ramos**, ordering DECS and CHED to strictly monitor and enforce RA 1425.",
+            "**CHED Memo No. 3 (1995) & CHED Memo No. 6 (1996)**: Re-enforced RA 1425 as a mandatory 3-unit prerequisite course for all collegiate undergraduate programs in the Philippines."
+          ]
+        },
+        {
+          "heading": "7. The Taft Commission (1901) & National Hero Selection",
+          "points": [
+            "In 1901, Civil Governor **William Howard Taft** convened a commission to select a National Hero as a model for the Filipino citizenry.",
+            "**Commission Members**: Taft, Morgan Shuster, Bernard Moses, Dean Worcester, Henry Clay Ide, Trinidad Pardo H. de Tavera, Gregorio Araneta, Cayetano Arellano, and Jose Luzurriaga.",
+            "**4 Rigorous Criteria**:",
+            "1. **Isang Pilipino** (Must be a Filipino).",
+            "2. **Yumao na** (Must be deceased—avoiding ongoing political biases).",
+            "3. **May matayog na pagmamahal sa bayan** (Must have possessed towering patriotism).",
+            "4. **May mahinahong damdamin** (Must have possessed a calm, peaceful, restrained temperament)."
+          ]
+        },
+        {
+          "heading": "8. Candidates & Why Rizal was Chosen",
+          "points": [
+            "**Nominees Considered**:",
+            "- **Graciano Lopez-Jaena**: Orator, founder of *La Solidaridad*; rejected due to erratic habits.",
+            "- **Marcelo H. del Pilar**: Satirist and editor of *La Solidaridad*; held radical anti-friar and armed revolution leanings.",
+            "- **Antonio Luna**: Brilliant general; disqualified due to fierce temper.",
+            "- **Emilio Jacinto**: *Brain of the Katipunan*; purely military/revolutionary operative.",
+            "- **Dr. José Rizal**: Selected as the National Hero.",
+            "**Reasons for Choosing Rizal**:",
+            "1. He was the first to unify the entire archipelago in opposition to colonial Spain through his writings.",
+            "2. He was a model of peace and non-violent reform through education.",
+            "3. His tragic martyrdom touched the sentimental nature (*maramdaming damdamin*) of the Filipino people."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "title": "The 19th Century Global & Philippine Context",
+      "badge": "Checkpoint 2",
+      "description": "Three Great Global Revolutions, Age of Enlightenment, Suez Canal inauguration, Gov-Gen De la Torre's liberal regime, 1872 Cavite Mutiny & GOMBURZA, and the 11 Colonial Evils.",
+      "digest": [
+        {
+          "heading": "1. The Three Great Global Revolutions",
+          "points": [
+            "**1. Industrial Revolution (England & Europe)**: Replaced agrarian feudalism with industrial capitalism. Introduction of steam engines and factories shifted rural populations to urban industrial centers. Created a wealthy commercial bourgeoisie and modernized global shipping.",
+            "**2. French Revolution (1789–1799)**: Overthrew absolute divine-right monarchy. Proclaimed the egalitarian motto: **Freedom, Fairness, and Fraternity** (*Liberté, Égalité, Fraternité*). Exported liberal ideas across Europe and directly inspired political agitation in Spain.",
+            "**3. American Revolution (1776)**: Established the first modern anti-colonial democratic republic. Popularized political treatises by Montesquieu, Rousseau, Locke, and Jefferson regarding human rights and constitutional checks on power."
+          ],
+          "tldr": "Global revolutions shattered feudalism and divine monarchy, transmitting democratic concepts to colonies."
+        },
+        {
+          "heading": "2. Age of Enlightenment & Rise of Social Sciences",
+          "points": [
+            "The emergence of Sociology, Anthropology, and modern History shifted intellectual inquiry toward **human reason and empirical science**.",
+            "Debunked medieval superstitions and authoritarian church dogmas.",
+            "**Michel de Montaigne** and Enlightenment thinkers emphasized human reason as an instrument to combat ignorance, autocracy, and inherited class privilege.",
+            "**Anti-Clericalism in Europe & Spain**: Spanish liberals fought to strip Catholic friars of political, judicial, and educational monopolies, considering the Church an enemy of modernization."
+          ]
+        },
+        {
+          "heading": "3. Opening of the Suez Canal (November 17, 1869)",
+          "points": [
+            "Constructed by French diplomat-engineer **Ferdinand de Lesseps**; 103 miles long linking the Mediterranean Sea to the Gulf of Suez and Red Sea.",
+            "**Dramatic Travel Compression**: Before 1869, steamers had to sail around the Cape of Good Hope (Africa), taking **more than 3 months** (90–120 days). The canal shortened travel to **only 32 days**!",
+            "Accelerated trade, brought Europe closer to Manila, and unleashed a massive influx of liberal literature (Rousseau's *Social Contract*, Locke's *Treatises of Government*, Paine's *Common Sense*).",
+            "Permitted affluent Filipino families to send their sons (*Ilustrados*) to study in European universities."
+          ],
+          "trap": "Exam Trap: Travel time between Barcelona and Manila was reduced from over 3 months to 32 days, NOT 3 months to 2 weeks!"
+        },
+        {
+          "heading": "4. Democratic Rule of Gov. Gen. Carlos María de la Torre (1869–1871)",
+          "points": [
+            "Appointed following the Spanish liberal revolution of 1868.",
+            "Avoided luxury; lived simply, walked without military escorts, and entertained native Filipinos in Malacañang.",
+            "**Abolished press censorship** and recognized freedom of speech and peaceful assembly.",
+            "Gave Filipinos a memorable **foretaste of democratic rule**.",
+            "Encouraged the Filipino secularization movement led by **Fr. José Burgos**, which sought to replace Spanish friars with native Filipino secular priests."
+          ]
+        },
+        {
+          "heading": "5. The Cavite Mutiny (1872) & Martyrdom of GOMBURZA",
+          "points": [
+            "Reactionary governor **Rafael de Izquierdo** revoked traditional tax exemptions and forced labor privileges of arsenal workers at Fort San Felipe, Cavite.",
+            "On **January 20, 1872**, Sgt. Lamadrid led around 200 soldiers and workers in mutiny.",
+            "Colonial authorities used the mutiny to arrest prominent secular priests: **Fathers Mariano Gomez, José Burgos, and Jacinto Zamora** (**GOMBURZA**).",
+            "Executed by **garrote** at Bagumbayan on **February 17, 1872** on fabricated charges.",
+            "**Impact on Rizal**: Paciano Rizal was a student and boarder of Fr. Burgos. He witnessed the execution and inspired 11-year-old José Rizal to dedicate his life to the patriotic cause. Rizal later dedicated his second masterpiece, *El Filibusterismo*, to GOMBURZA."
+          ],
+          "trap": "Exam Trap: Rizal dedicated NOLI ME TANGERE to the Fatherland (Inang Bayan), and EL FILIBUSTERISMO to GOMBURZA!"
+        },
+        {
+          "heading": "6. Discontent with Spanish Institutions: Polo, Tributo & Monopolies",
+          "points": [
+            "**Polo y servicio**: Compulsory 40-day manual labor imposed on native males (16–60 years old) on public roads and bridges without compensation.",
+            "**Tributo & Bandala**: Heavy direct personal tributes, income taxes, and forced requisitioning of agricultural products (*bandala*) paid with IOUs.",
+            "**Monopolies (*Rentas estancadas*)**: State monopolies over tobacco, betel nut, spirituous liquors, explosives, and opium heavily enriched the Spanish crown while impoverishing native farmers."
+          ]
+        },
+        {
+          "heading": "7. Abuses of Friars & The 11 Evils of 19th-Century Spanish Rule",
+          "points": [
+            "**Frailocracy (*Frailocracia*)**: Friars held total hegemony over town politics, parish registries, education, and civil censorship. Satirized by Graciano Lopez-Jaena as *Fray Botod* (the fat, abusive friar).",
+            "**The 11 Evils Cited by Historians**:",
+            "1. Instability of colonial administration (Madrid political chaos)",
+            "2. Corrupt colonial officials",
+            "3. Denial of Philippine representation in the Spanish Cortes (revoked 1837)",
+            "4. Denial of basic human rights (speech, press, assembly)",
+            "5. No equality before the law",
+            "6. Maladministration of justice (glacial, venal courts)",
+            "7. Racial discrimination (branding brown natives as *Indios*)",
+            "8. Frailocracy",
+            "9. Forced labor (*polo y servicio*)",
+            "10. Friar-owned agrarian haciendas",
+            "11. Abusive *Guardia Civil* (feared constabulary notorious for brutality)"
+          ]
+        },
+        {
+          "heading": "8. 19th-Century Social Stratification",
+          "points": [
+            "**Peninsulares**: Pure Spaniards born in the Iberian Peninsula (Spain); held highest political and church posts.",
+            "**Insulares**: Pure Spaniards born in the Philippine islands (derisively called *Filipinos* in the 19th century).",
+            "**Mestizos**: Mixed Spanish-Filipino or Chinese-Filipino parentage; economically prosperous merchant class.",
+            "**Principalia**: Educated, land-owning native nobility, municipal elites, and town mayors/cabezas (Rizal's family belonged to this class).",
+            "**Indios**: Native Austronesian Filipinos; majority population, disenfranchised, burdened by tributes and forced labor."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "title": "Secret Mission, Early Travels & Madrid Academic Life (1882–1885)",
+      "badge": "Checkpoint 3",
+      "description": "Secret departure aboard SS Salvadora under Jose Mercado alias, travel route through Singapore, Ceylon, Suez, Naples, Marseilles to Barcelona, Amor Patrio, and Madrid university honors.",
+      "digest": [
+        {
+          "heading": "1. Rizal's Secret Mission & Departure (May 3, 1882)",
+          "points": [
+            "**Disillusionment with UST**: Rizal felt constrained by the obsolete, discriminatory scholastic teaching methods of Dominican professors.",
+            "**The Secret Mission**: To keen observe the culture, life, languages, customs, industries, and governments of European nations to prepare himself to liberate his oppressed motherland.",
+            "**Absolute Secrecy**: Concealed from Spanish authorities, friars, and his own parents. Known only to brother Paciano, uncle Antonio Rivera, and sisters Saturnina and Lucia.",
+            "**Departure**: May 3, 1882. Boarded Spanish steamer **SS Salvadora** bound for Singapore using a passport in the name of **José Mercado**."
+          ],
+          "trap": "Exam Trap: José Mercado was the passport alias used for departure; Laong Laan was his literary pen-name; Dimasalang was his Masonic name."
+        },
+        {
+          "heading": "2. Voyage Across Asia & Middle East (May 1882)",
+          "points": [
+            "**May 9, 1882 — Singapore**: SS Salvadora docked. Rizal stayed at the **Hotel de la Paz** for 2 days.",
+            "**May 11, 1882 — Djemnah**: Transferred to the French passenger steamer **Djemnah** sailing for Europe. Practiced conversational French.",
+            "**May 17, 1882 — Punta de Gales (Point Galle, Ceylon)**: Recorded in his travel diary: *'The general appearance of Point Galle is picturesque but lonely and quiet and at the same time sad.'*",
+            "**May 18, 1882 — Colombo (Ceylon)**: Resumed journey after afternoon arrival; admired its boulevards.",
+            "**May 27, 1882 — Aden (Yemen)**: Landed at 8:30 AM. Rizal observed that Aden was **'a city hotter than Manila'** and was amused to see camels for the first time in his life."
+          ]
+        },
+        {
+          "heading": "3. The Suez Canal & First European Soil (June 1882)",
+          "points": [
+            "**June 2, 1882 — City of Suez**: Red Sea terminal of the Suez Canal. Impressed by the romantic moonlight over the Gulf of Suez, which reminded him of Calamba.",
+            "Traversed the 103-mile canal to **Port Said** (Mediterranean terminal).",
+            "**June 11, 1882 — Naples, Italy**: Disembarked and toured the city with a guide for one hour. **This was the very first European ground Rizal ever set foot upon!** Praised its business vitality and lively people.",
+            "**June 12, 1882 — Marseilles, France**: Djemnah docked at 10 PM. Rizal stayed 2.5 days. Visited the famous **Château d'If**, where Edmond Dantès (*Count of Monte Cristo*) was imprisoned.",
+            "**June 15, 1882 — Port Bou**: Left Marseilles by train, crossed the Pyrenees mountains, and stopped at the frontier town of Port Bou for passport inspection.",
+            "**June 16, 1882 (12:00 Noon) — Barcelona**: Arrived and lodged at **Fonda de España** on Calle San Pablo. Initial impression was unfavorable, but he soon embraced its liberal freedom."
+          ],
+          "trap": "Exam Trap: Naples was Rizal's first European ground visited (June 11, 1882), NOT Marseilles or Barcelona!"
+        },
+        {
+          "heading": "4. Life in Barcelona: Debut of Amor Patrio (1882)",
+          "points": [
+            "***Amor Patrio* (Love of Country)**: First nationalistic essay written on Spanish soil.",
+            "Penned under the pen-name **Laong Laan** (*Ever Prepared*).",
+            "Published on **August 20, 1882** in the bilingual Manila paper ***Diarong Tagalog*** (founded by Basilio Teodoro Moran).",
+            "Published in two versions: original Spanish by Rizal, and Tagalog translation by **Marcelo H. del Pilar**.",
+            "Subsequent articles: *Los Viajes* (Travels) and *Revista de Madrid* (returned unpublished due to lack of funds)."
+          ]
+        },
+        {
+          "heading": "5. Universidad Central de Madrid (1882–1885)",
+          "points": [
+            "On **November 3, 1882**, Rizal formally enrolled at the **Universidad Central de Madrid** in two concurrent degree courses: **Medicine** and **Philosophy and Letters**.",
+            "Also studied painting and sculpture at the **Academy of Fine Arts of San Fernando**.",
+            "Took private lessons in French, German, and English.",
+            "Practiced fencing and shooting at the **Hall of Arms of Sanz y Carbonell**.",
+            "Lived an austere, disciplined student life, budgeting every centavo for second-hand textbooks."
+          ]
+        },
+        {
+          "heading": "6. Círculo Hispano-Filipino & 'Me Piden Versos'",
+          "points": [
+            "Joined the **Círculo Hispano-Filipino**, an association of progressive Filipino students and Spanish liberals in Madrid.",
+            "Wrote the poem ***Me Piden Versos* (They Ask Me For Verses)** upon request of member compatriots.",
+            "Declaimed it in person during the New Year's Eve reception of Madrid Filipinos on **December 31, 1882**."
+          ]
+        },
+        {
+          "heading": "7. Freemasonry: Lodge Acacia & Lodge Solidaridad",
+          "points": [
+            "**March 1883**: Joined Masonic Lodge **Acacia** in Madrid. Core motivation: to secure the international backing of Freemasonry in the Filipino struggle against friar tyranny.",
+            "**November 1883**: Transferred to **Lodge Solidaridad No. 53**, where he later rose to become a **Master Mason**."
+          ]
+        },
+        {
+          "heading": "8. Academic Degrees & Graduation Honors",
+          "points": [
+            "**June 1884**: Conferred the degree of **Licentiate in Medicine** (*Licenciado en Medicina*).",
+            "Passed all subjects for the Doctor of Medicine degree (1884–1885); only received his Doctor's Diploma in **1887** after paying the corresponding graduation fees (*derechos de grado*).",
+            "**June 1885**: Conferred the degree of **Licentiate in Philosophy and Letters** (*Licenciado en Filosofia y Letras*) by Universidad Central de Madrid with the highest academic rating of **'Sobresaliente' (Excellent)**."
+          ],
+          "trap": "Exam Trap: Rizal achieved the rating of 'Sobresaliente' (Excellent) in Philosophy and Letters, NOT in Medicine!"
+        }
+      ]
+    },
+    {
+      "id": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "title": "Ophthalmology Specialization, Publishing Noli & Grand Tour (1885–1887)",
+      "badge": "Checkpoint 4",
+      "description": "Clinical training in Paris and Heidelberg, darkest winter of 1886 in Berlin, Maximo Viola's loan, publication of Noli Me Tangere, and the Grand Tour across Europe.",
+      "digest": [
+        {
+          "heading": "1. Ophthalmology Specialization: Paris & Dr. Louis de Weckert",
+          "points": [
+            "Rizal chose to specialize in **ophthalmology** specifically to **cure the failing eyesight / cataract of his mother (Doña Teodora)**.",
+            "In Paris (October 1885 – February 1886), worked as a clinical assistant to **Dr. Louis de Weckert** (1832–1904), the leading French ophthalmologist.",
+            "Gained master-level surgical skills in ophthalmic operations.",
+            "Socialized with the Pardo de Tavera family (Trinidad, Felix, and Paz) and painter **Juan Luna**."
+          ]
+        },
+        {
+          "heading": "2. Modeling for Juan Luna & Sojourn in Heidelberg",
+          "points": [
+            "**Posed for Juan Luna's historic canvases**:",
+            "- In ***The Blood Compact* (El Pacto de Sangre)**: Posed as chieftain **Sikatuna** (Trinidad Pardo de Tavera posed as Legazpi).",
+            "- In ***The Death of Cleopatra***: Posed dressed as an ancient Egyptian priest.",
+            "**Heidelberg, Germany (Feb 3, 1886)**: Worked at the **University Eye Hospital** under distinguished German ophthalmologist **Dr. Otto Becker**.",
+            "Penned the lyrical poem *A Las Flores de Heidelberg* on April 22, 1886."
+          ]
+        },
+        {
+          "heading": "3. Letter to Sister Trinidad: German Womanhood (March 11, 1886)",
+          "points": [
+            "Rizal wrote a celebrated letter to his sister **Trinidad** expressing immense admiration for **German womanhood**.",
+            "Observed that German women are: **serious, diligent, educated, and friendly—not gossipy, frivolous, or quarrelsome**.",
+            "Urged Filipino women to combine intellectual diligence and moral fortitude with traditional sweetness."
+          ]
+        },
+        {
+          "heading": "4. Berlin Sojourn & Induction into Scientific Circles (Nov 1886)",
+          "points": [
+            "Arrived in Berlin in **November 1886**; enchanted by its scientific atmosphere and complete absence of racial prejudice.",
+            "Met **Dr. Feodor Jagor**, author of *Travels in the Philippines*, a book Rizal admired as a youth.",
+            "Met **Dr. Rudolf Virchow** (famous German anthropologist/pathologist), his son **Dr. Hans Virchow** (professor of anatomy), and **Dr. W. Joest** (geographer).",
+            "**5 Reasons for Staying in Berlin**:",
+            "1. Gain advanced ophthalmology knowledge.",
+            "2. Further scientific and linguistic studies.",
+            "3. Observe economic and political conditions of the German nation.",
+            "4. Associate with famous German scholars.",
+            "5. **Publish his masterpiece novel, *Noli Me Tangere*!**"
+          ]
+        },
+        {
+          "heading": "5. The Bleak Winter of 1886 & Pawned Ring",
+          "points": [
+            "The bleak winter of 1886 in Berlin was Rizal's **darkest winter**.",
+            "No funds arrived from Calamba; Rizal was flat broke, shivering in unheated quarters, and starving on one meal a day.",
+            "Pawned the **diamond ring** given to him by his eldest sister, **Saturnina**, to survive.",
+            "Inspired to write a novel exposing colonial agony after reading Harriet Beecher Stowe's ***Uncle Tom's Cabin***."
+          ]
+        },
+        {
+          "heading": "6. Dr. Máximo Viola: Savior of the Noli",
+          "points": [
+            "**Dr. Máximo Viola**, a wealthy medical friend from San Miguel, Bulacan, arrived in Berlin at the peak of Rizal's despondency.",
+            "Viola loaned Rizal the necessary living expenses and printing funds to publish the novel, earning the historic title **'Savior of the Noli'**.",
+            "Manuscript finished: **February 21, 1887**."
+          ],
+          "trap": "Exam Trap: Dr. Máximo Viola was the savior of Noli Me Tangere; Valentin Ventura was the savior who financed El Filibusterismo!"
+        },
+        {
+          "heading": "7. Berliner Buchdruckerei & Release of Noli Me Tangere (March 21, 1887)",
+          "points": [
+            "Printed at ***Berliner Buchdruckerei-Actien-Gesellschaft***, which offered the lowest rate of **₱300 for 2,000 copies**.",
+            "**March 21, 1887**: *Noli Me Tangere* came off the press!",
+            "Title is a Latin phrase meaning **'Touch Me Not'**, taken from the Bible (Gospel of St. John 20:13–17).",
+            "Rizal gratefully gifted Viola the novel's original galley proofs and pen."
+          ]
+        },
+        {
+          "heading": "8. The Grand European Tour with Viola (May–June 1887)",
+          "points": [
+            "**May 11, 1887**: Left Berlin by train with Viola.",
+            "**Dresden**: Admired the painting *Prometheus Bound*; visited Teschen (Děčín).",
+            "**Leitmeritz, Bohemia (May 13–16, 1887)**: Met **Prof. Ferdinand Blumentritt** in person for the first time. Met town Burgomaster, spoke fluent German at the Tourist's Club, met Dr. Carlos Czepelak and Prof. Robert Klutschak.",
+            "**Prague**: Visited Dr. Willkomm (Viola noted 'nothing of importance happened').",
+            "**Vienna (May 20, 1887)**: 'Queen of the Danube'; met novelist Norfentals; stayed at Hotel Metropole where Rizal recovered his **lost diamond stickpin**.",
+            "**Danubian Voyage to Linz (May 24)**: Observed paper napkins used during boat meals (Viola: 'more hygienic and economical').",
+            "**Munich, Nuremberg & Ulm**: Savoring Munich beer; admiring tallest Cathedral of Ulm; Rheinfall ('most beautiful waterfall in Europe').",
+            "**Switzerland (Geneva)**: Celebrated his **26th birthday (June 19, 1887)** with a blow-out. Outraged by the Madrid Exposition displaying native Igorots of Northern Luzon.",
+            "**June 23, 1887**: Viola returned to Barcelona; Rizal proceeded to Italy.",
+            "**Rome & The Vatican (June 27–29, 1887)**: Visited Rome ('Eternal City', wrote to Blumentritt: *'I am tired as a dog, but I will sleep as a God'*). Visited Vatican City on the Feast of St. Peter and Paul (June 29). Prepared to return home to the Philippines."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "title": "Introduction & Structure of Globalization: Metaphors, Flows, and Scapes",
+      "badge": "Checkpoint 1",
+      "description": "Foundational definitions (Steger, Robertson, Giddens), Four Dimensions, Epochal Metaphors (Solidity, Liquidity, Gaseousness), Arjun Appadurai's 5 Scapes, and Global Friction.",
+      "digest": [
+        {
+          "heading": "1. Defining Globalization: Conceptual Foundations",
+          "points": [
+            "**Globalization** is the multidimensional set of social processes that create, multiply, stretch, and intensify worldwide social interdependencies and exchanges.",
+            "**Manfred Steger's Triad**: Distinguishes **Globality** (the social condition of global interconnectedness), **Globalization** (the dynamic set of processes that transform nationality into globality), and the **Global Imaginary** (growing consciousness of global belonging).",
+            "**Anthony Giddens (Time-Space Distanciation)**: The intensification of worldwide social relations which link distant localities such that local happenings are shaped by events miles away and vice versa.",
+            "**David Harvey (Time-Space Compression)**: Technological acceleration shrinking geographical distance and reducing the time required for capital, information, and people to traverse the globe.",
+            "**Roland Robertson**: *'The compression of the world and the intensification of consciousness of the world as a whole.'*"
+          ],
+          "tldr": "Globalization compresses time and space, intertwining distant local events with global planetary networks."
+        },
+        {
+          "heading": "2. The Four Core Dimensions of Globalization",
+          "points": [
+            "**1. Economic**: Free trade, transnational supply chains, multinational corporate dominance, foreign direct investment (FDI), and hyper-speed digital capital.",
+            "**2. Cultural**: Global flows of ideas, cinema, gastronomy, lifestyle trends, and languages; tension between cultural homogenization and glocalization.",
+            "**3. Political**: Multilateral governance, intergovernmental bodies (UN, WTO, EU, ASEAN), transnational NGOs, and the restructuring of sovereign state authority.",
+            "**4. Technological**: Planetary telecommunications, subsea fiber-optic cables, satellite arrays, microelectronics, and algorithmic platforms that eliminate latency."
+          ]
+        },
+        {
+          "heading": "3. Epochs of Globalization: The Great Metaphorical Shift",
+          "points": [
+            "Sociologists rely on **physical metaphors of matter** to categorize abstract historical epochs:",
+            "**A. SOLIDITY (Pre-Modern Era)**: Heavy physical barriers, fixed geographic territories, strict border checkpoints, high travel friction, and rigid state sovereignty.",
+            "**B. LIQUIDITY (Modern Era - Zygmunt Bauman)**: Fluidity, adaptability, high velocity, bypassing containers, digital financial capital, viral information, and remote work.",
+            "**C. GASEOUSNESS (Contemporary Era)**: Hyper-mobility, weightlessness, near-zero friction, cloud storage, ambient wireless spectrums, and airborne transboundary hazards."
+          ],
+          "trap": "Exam Trap: Zygmunt Bauman authored 'Liquid Modernity'. Liquid phenomena do NOT keep their shape—they flow around boundaries!"
+        },
+        {
+          "heading": "4. Metaphor 1: Solidity (The Heavy World)",
+          "points": [
+            "Solids are characterized by permanence, fixed locations, and hard boundaries.",
+            "**Physical Fortifications**: The Great Wall of China, the Berlin Wall, castle moats, and fortified national fences.",
+            "**Heavy Infrastructure**: Steel mills, coal-fired power plants, locomotive roundhouses, and physical bank vaults.",
+            "**State Controls**: Strict paper passport requirements, quarantine manifests, and physical customs inspection stations.",
+            "**Print Media**: Physical libraries, newspapers, and localized book distribution."
+          ]
+        },
+        {
+          "heading": "5. Metaphor 2: Liquidity (The Fluid World — Bauman)",
+          "points": [
+            "Formulated by Polish sociologist **Zygmunt Bauman** in *Liquid Modernity* (2000).",
+            "**Fluidity & Adaptability**: Liquid phenomena take the shape of whatever container they enter and cannot be easily held or halted.",
+            "**High Velocity**: Financial capital, cultural trends, and data move around the world in fractions of a second.",
+            "**Transience**: Relationships, careers, and cultural norms become flexible, precarious, and short-lived.",
+            "**Examples**: Digital capital (EFT, crypto), viral memes, streaming media (Netflix, Spotify), and remote freelance labor."
+          ]
+        },
+        {
+          "heading": "6. Arjun Appadurai's 5 Dimensions of Global Flows ('Scapes')",
+          "points": [
+            "Formulated by **Arjun Appadurai** (1990, *Disjuncture and Difference in the Global Cultural Economy*):",
+            "**1. Ethnoscapes (Flow of People)**: Shifting landscapes of tourists, immigrants, refugees, guest workers, and **Overseas Filipino Workers (OFWs)** moving across borders.",
+            "**2. Technoscapes (Flow of Technology)**: Mechanical, high-tech, and informational technologies moving rapidly across national boundaries.",
+            "**3. Financescapes (Flow of Capital)**: Rapid transit of megabucks through currency markets, stock exchanges, cryptocurrency, and cross-border remittances.",
+            "**4. Mediascapes (Flow of Images)**: Distribution of electronic capabilities to produce and circulate images and narratives (Hollywood, K-Dramas, BBC/CNN, streaming platforms).",
+            "**5. Ideoscapes (Flow of Ideologies)**: Political images, values, and ideologies (democracy, sovereignty, universal human rights, environmentalism).",
+            "⚠️ **Concept of Disjuncture**: These 5 scapes do **not** move at the same speed or in the same direction (e.g., financescapes move instantly, while ethnoscapes face strict walls)."
+          ],
+          "trap": "Exam Trap: There is NO 'Econoscape' in Appadurai's 5 scapes! The 5 scapes are Ethnoscapes, Technoscapes, Financescapes, Mediascapes, and Ideoscapes."
+        },
+        {
+          "heading": "7. Structural Support: Heavy vs. Light Globalization",
+          "points": [
+            "**Heavy Structures (Physical Hardware)**: Mega-container ports, transcontinental railways, deep-water canals (Suez, Panama), and cargo air transport creating physical channels for goods.",
+            "**Light Structures (Digital Infrastructure)**: Subsea fiber-optic cables carrying 99% of global data, satellite arrays, server farms, cloud operating systems, and banking protocols (SWIFT)."
+          ]
+        },
+        {
+          "heading": "8. Barriers & Friction: The Limits of Liquidity",
+          "points": [
+            "**Anna Tsing's Concept of Friction**: Globalization is not a smooth, frictionless plane. **Friction** refers to the obstacles, resistance, and sticky institutions that slow down, redirect, or halt global flows.",
+            "**Inequality of Mobility**: The global elite enjoys visa-free travel and priority lanes, while refugees and undocumented migrants face razor-wire walls and detention camps.",
+            "**Re-Solidification**: When liquid flows threaten state sovereignty, governments re-impose solid structures (e.g., the Great Firewall of China, trade tariffs, tech export sanctions, and border militarization)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "title": "History of Modern Global Economy & The Fourth Industrial Revolution (4IR)",
+      "badge": "Checkpoint 2",
+      "description": "Evolution from Silk Road & Galleon Trade to Industrial Revolutions 1-3, Bretton Woods System, Neoliberalism, and the 4IR (Cyber-Physical Systems, AI, Platform Economy, and Global Value Chains).",
+      "digest": [
+        {
+          "heading": "1. Pre-Industrial Origins: Silk Road & The Galleon Trade",
+          "points": [
+            "**The Silk Road (130 BCE – 1453 CE)**: Overland trade network linking China, Central Asia, India, and the Mediterranean; ended with the Ottoman fall of Constantinople.",
+            "**The Manila-Acapulco Galleon Trade (1565–1815)**: Inaugurated under Andrés de Urdaneta and Miguel López de Legazpi. Spanish galleons linked Manila (Asian silk, porcelain, and spices) with Acapulco, Mexico (New World silver).",
+            "🌟 **Historical Landmark**: Recognized by economic historians as the **birth of the first truly planetary, continuous global economy**, directly linking Asia, the Americas, and Europe across the Pacific."
+          ],
+          "tldr": "The Manila-Acapulco Galleon Trade was the first continuous planetary trade system spanning across the Pacific Ocean."
+        },
+        {
+          "heading": "2. The First Three Industrial Revolutions",
+          "points": [
+            "**1st Industrial Revolution (1IR, ~1784)**: Powered by the **steam engine** (James Watt) and water power. Mechanized textile factories, metallurgy, coal mining, and early railways.",
+            "**2nd Industrial Revolution (2IR, ~1870)**: Powered by **electricity**, the internal combustion engine, steel, chemicals, and the **assembly line** (*Fordism*). Mass manufacturing of consumer goods.",
+            "**3rd Industrial Revolution (3IR / Digital Revolution, ~1969)**: Powered by **electronics, semiconductors**, mainframe computers, personal computing, automated logic, and the birth of the Internet."
+          ]
+        },
+        {
+          "heading": "3. The Fourth Industrial Revolution (4IR / FIRe)",
+          "points": [
+            "Coined by **Professor Klaus Schwab**, Founder and Executive Chairman of the **World Economic Forum (WEF)** in 2016.",
+            "**Core Definition**: A **fusion of technologies** that blurs the boundaries between the **physical, digital, and biological spheres**.",
+            "**Key Characteristics**: Characterized by exponential velocity, unprecedented scope across industries, and total systems transformation.",
+            "**Technological Pillars**: Cyber-Physical Systems (CPS), Artificial Intelligence (AI/ML), Internet of Things (IoT), Big Data Analytics, Cloud Computing, Autonomous Robotics, 3D Additive Printing, Gene Editing (CRISPR), and Blockchain."
+          ],
+          "trap": "Exam Trap: 3IR was the Digital Revolution (computers and internet). 4IR is the FUSION of digital, biological, and physical systems!"
+        },
+        {
+          "heading": "4. 4IR Economic Realities: Platform Capitalism & Labor",
+          "points": [
+            "**The Platform Economy**: Dominance of multisided digital platforms (Uber, Grab, Airbnb, Amazon, Shopee) that extract value from data and network externalities without owning physical assets.",
+            "**The Gig Economy & Algorithmic Labor**: Flexible but precarious employment where tasks are matched, supervised, and evaluated by algorithms with minimal worker protections.",
+            "**Labor Polarization**: Surging rewards for high-skilled technical/creative workers; stagnation, de-skilling, and displacement for routine cognitive and manual jobs.",
+            "**The New Digital Divide**: Global inequality between nations possessing AI compute/IP (US, China) and peripheral nations performing low-margin data annotation and assembly."
+          ]
+        },
+        {
+          "heading": "5. Modern Global Financial Architecture: Gold Standard to Bretton Woods",
+          "points": [
+            "**Classical Gold Standard (1870–1914)**: Currencies pegged to gold at fixed exchange rates; collapsed during WWI due to inflationary war spending.",
+            "**Interwar Chaos & 1929 Great Depression**: Stock market collapse; beggar-thy-neighbor protectionist tariffs (US Smoot-Hawley Tariff Act); competitive currency devaluations.",
+            "**The Bretton Woods Conference (July 1944)**: 44 Allied nations met in New Hampshire. Established the **International Monetary Fund (IMF)** and the **World Bank (IBRD)**.",
+            "**Gold-Dollar Peg**: US Dollar became the global reserve currency, pegged to gold at **$35 per ounce**; other currencies pegged to the Dollar."
+          ]
+        },
+        {
+          "heading": "6. From GATT (1947) to the WTO (1995)",
+          "points": [
+            "**General Agreement on Tariffs and Trade (GATT, 1947)**: Multilateral agreement focused on reducing tariff barriers on manufactured goods.",
+            "**Uruguay Round (1986–1994)**: Led to the signing of the Marrakesh Agreement, establishing the **World Trade Organization (WTO)** on **January 1, 1995**.",
+            "**WTO Advancements**: Permanent institutional body with binding dispute settlement mechanisms, covering services (GATS) and intellectual property (TRIPS)."
+          ],
+          "trap": "Exam Trap: The WTO was NOT created at Bretton Woods in 1944! Bretton Woods created the IMF and World Bank. The WTO was created on Jan 1, 1995 to replace GATT."
+        },
+        {
+          "heading": "7. The Nixon Shock (1971) & The Neoliberal Turn",
+          "points": [
+            "**The Nixon Shock (August 15, 1971)**: US President Richard Nixon unilaterally terminated the convertibility of the US Dollar into gold, ending the Bretton Woods monetary system.",
+            "Ushered in the modern era of **fiat floating currencies** and speculative foreign exchange markets.",
+            "**The Neoliberal Turn (1980s)**: Championed by Ronald Reagan and Margaret Thatcher. Shifted focus from Keynesian state intervention to market fundamentalism.",
+            "**The Washington Consensus (John Williamson, 1989)**: 10 economic policy prescriptions imposed on developing nations: fiscal discipline, tax reform, trade liberalization, privatization of state enterprises, deregulation, and property rights."
+          ]
+        },
+        {
+          "heading": "8. Global Value Chains (GVCs)",
+          "points": [
+            "**GVC Reality**: Products are no longer made in a single country; about **80% of all international trade** occurs through Global Value Chains.",
+            "Manufacturing is fragmented across multiple nations based on comparative advantage.",
+            "**Smartphone Supply Chain Example**: Designed in California (US), advanced microchips fabricated in Taiwan (TSMC), camera sensors from Japan (Sony), OLED screens from South Korea (Samsung), assembled in China/Vietnam (Foxconn), and distributed globally."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "title": "Theories of Globalization: Macro-Paradigms & Cultural Dynamics",
+      "badge": "Checkpoint 3",
+      "description": "The Three Schools of Thought (Hyperglobalists, Skeptics, Transformationalists), World-Systems Theory (Wallerstein), Modernization vs Dependency Theory, and Cultural Dynamics (McDonaldization, Glocalization).",
+      "digest": [
+        {
+          "heading": "1. The Three Great Schools of Thought (Held & McGrew)",
+          "points": [
+            "Formulated by political scientists **David Held and Anthony McGrew** (*Global Transformations*, 1999):",
+            "**1. HYPERGLOBALIST / GLOBALIST SCHOOL (Kenichi Ohmae, Thomas Friedman)**:",
+            "- Argues we live in a borderless world ('The World is Flat') driven by unstoppable economic and technological forces.",
+            "- **Decline of the Nation-State**: National governments have become obsolete, powerless transmission belts for transnational capital.",
+            "- Triumphant spread of global capitalism, free markets, and cosmopolitan culture."
+          ],
+          "tldr": "Hyperglobalists believe the nation-state is dying in a borderless global market."
+        },
+        {
+          "heading": "2. The Skeptical School (Hirst & Thompson)",
+          "points": [
+            "**2. SKEPTICAL SCHOOL (Paul Hirst & Grahame Thompson, 'Globalization in Question')**:",
+            "- Argues that globalization is largely an ideological myth and exaggerated.",
+            "- Current economic integration is not unprecedented (comparable to the 1870–1914 Gold Standard era).",
+            "- What exists is **Regionalization**, not true globalization; trade is concentrated within three regional blocs (North America, Europe, East Asia).",
+            "- **Nation-States Remain Central**: Governments maintain monopoly on armed force, control borders, and protect their home corporations."
+          ]
+        },
+        {
+          "heading": "3. The Transformationalist School (Held, Giddens, Rosenau)",
+          "points": [
+            "**3. TRANSFORMATIONALIST SCHOOL (David Held, Anthony Giddens)**:",
+            "- Rejects both hyperglobalist dogmatism and skeptical cynicism.",
+            "- Globalization is an unprecedented, powerful driving force transforming modern societies, but with **no predetermined end-state**.",
+            "- Complex, non-linear, and contradictory: simultaneously integrates and fragments societies.",
+            "- **State Transformation**: The power of the nation-state is being **recast, restructured, and recalibrated**, not abolished."
+          ],
+          "trap": "Exam Trap: Transformationalists believe states are being RESTRUCTURED, not eliminated (Hyperglobalists) or unchanged (Skeptics)."
+        },
+        {
+          "heading": "4. Immanuel Wallerstein's World-Systems Theory",
+          "points": [
+            "Formulated by American sociologist **Immanuel Wallerstein** (1974, 2004).",
+            "The modern world is a single capitalist world-economy with an unequal global division of labor across three structural tiers:",
+            "**1. The Core**: High-income, industrialized nations with advanced capital-intensive production, military hegemony, and high wages (US, Western Europe, Japan). Exploits periphery.",
+            "**2. The Semi-Periphery**: Intermediate, industrializing economies (Brazil, Russia, India, China, South Africa / BRICS; Mexico). Acts as a geopolitical buffer zone.",
+            "**3. The Periphery**: Low-income, agrarian, raw-material-exporting nations with low wages and weak state institutions (sub-Saharan Africa, parts of Latin America and Asia)."
+          ]
+        },
+        {
+          "heading": "5. Modernization Theory vs. Dependency Theory",
+          "points": [
+            "**Modernization Theory (Walt Rostow, 1960)**: Proposes that all societies progress through 5 linear stages: Traditional Society -> Preconditions for Takeoff -> Takeoff -> Drive to Maturity -> Age of High Mass Consumption. Blames underdevelopment on internal traditional cultural deficiencies.",
+            "**Dependency Theory (Raúl Prebisch, Andre Gunder Frank)**: Direct critique of Modernization Theory. Argues underdevelopment is caused by external exploitation (**'The Development of Underdevelopment'**). Resources flow from the periphery to the core through unequal terms of trade, keeping the periphery permanently impoverished."
+          ]
+        },
+        {
+          "heading": "6. Neoliberalism & The Washington Consensus",
+          "points": [
+            "**Neoliberalism**: Free-market ideology asserting that individual liberty and economic prosperity are best advanced through unfettered markets, privatization, and minimal state intervention.",
+            "**Structural Adjustment Programs (SAPs)**: Austerity measures enforced by the IMF and World Bank on debt-distressed developing countries as conditions for bailout loans.",
+            "**Joseph Stiglitz's Critique**: Nobel laureate economist Stiglitz argued in *Globalization and Its Discontents* (2002) that IMF market fundamentalism devastated developing nations by dismantling social safety nets."
+          ]
+        },
+        {
+          "heading": "7. Cultural Theory 1: Cultural Differentialism (The Clash of Civilizations)",
+          "points": [
+            "Formulated by political scientist **Samuel Huntington** (1993, 1996).",
+            "Argues that cultural and religious identities are enduring and impervious to global assimilation.",
+            "Post-Cold War conflicts occur along **civilizational fault lines** (Western, Islamic, Sinic, Orthodox civilizations) rather than ideological or economic lines."
+          ]
+        },
+        {
+          "heading": "8. Cultural Theory 2 & 3: McDonaldization vs. Glocalization",
+          "points": [
+            "**Cultural Homogenization / McDonaldization (George Ritzer, 1993)**: The process by which the principles of fast-food restaurants come to dominate society. 4 Pillars: **Efficiency**, **Calculability** (quantity over quality), **Predictability**, and **Control** (substituting technology for humans).",
+            "**Cultural Heterogenization / Glocalization (Roland Robertson)**: The blending of the **global** and the **local** to create unique hybrid cultural forms.",
+            "**Real-World Examples**: Jollibee serving Filipino sweet-style spaghetti globally; McDonald's offering McRice and McSpaghetti in the Philippines, and Teriyaki burgers in Japan."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "title": "Facilitators, Drivers, and Governance of the Contemporary World",
+      "badge": "Checkpoint 4",
+      "description": "Triad of facilitators (Transportation & Containerization, Technology & Digital Networks, Policies & Institutional Frameworks), TNCs/MNEs, Labor Migration & OFWs, and Deglobalization.",
+      "digest": [
+        {
+          "heading": "1. The Triad of Facilitators",
+          "points": [
+            "Globalization is actively accelerated through the dynamic synergy between three structural pillars:",
+            "**1. Transportation**: The physical infrastructure moving goods and people across continents.",
+            "**2. Technology**: The communication, algorithmic, and production tools enabling real-time global coordination.",
+            "**3. Policies**: The legal, institutional, and regulatory frameworks standardizing and liberalizing cross-border trade."
+          ],
+          "tldr": "Transportation provides the vessels, technology provides the coordination, and policies provide the legal framework."
+        },
+        {
+          "heading": "2. Transportation: The Container Revolution (Malcolm McLean)",
+          "points": [
+            "In 1956, American transport innovator **Malcolm McLean** patented the standardized intermodal shipping container.",
+            "Before 1956, cargo was handled piece by piece (**break-bulk shipping**), taking weeks in port and consuming up to 50% of shipping costs.",
+            "Standardized 20-foot and 40-foot containers (TEUs) enabled automated crane transfer between ships, trains, and trucks without opening cargo.",
+            "🌟 **Economic Impact**: Slashed freight handling costs by **over 90%**, laying the logistical groundwork for global supply chains."
+          ],
+          "trap": "Exam Trap: Malcolm McLean is the Father of Containerization (1956), which reduced freight costs by over 90%!"
+        },
+        {
+          "heading": "3. Technological Facilitators: Subsea Cables & Digital Protocols",
+          "points": [
+            "**Subsea Fiber-Optic Cables**: Over 550 submarine cables spanning 1.4 million kilometers carry **99% of all transoceanic internet traffic** (satellites carry less than 1%).",
+            "**Global Information Protocols**: TCP/IP, the World Wide Web (Tim Berners-Lee), and real-time electronic fund networks (**SWIFT**).",
+            "**FinTech Platforms**: Mobile financial services, e-commerce payment gateways, and blockchain consensus mechanisms facilitating frictionless micro-transactions."
+          ]
+        },
+        {
+          "heading": "4. Policy Facilitators: Liberalization, SEZs, and Trading Blocs",
+          "points": [
+            "**Trade Liberalization**: Bilateral and multilateral agreements removing protective tariffs, quotas, and customs red tape under WTO oversight.",
+            "**Special Economic Zones (SEZs)**: Industrial parks offering tax holidays, duty-free imports, and accelerated customs to attract Foreign Direct Investment (e.g., PEZA zones in the Philippines).",
+            "**Regional Trading Blocs**: ASEAN Economic Community (AEC), Regional Comprehensive Economic Partnership (RCEP), and the European Union (EU single market)."
+          ]
+        },
+        {
+          "heading": "5. Corporate Drivers: TNCs, MNEs, and the Philippine IT-BPM Industry",
+          "points": [
+            "**Transnational Corporations (TNCs)**: Enterprises commanding international production chains with revenues frequently surpassing the GDP of sovereign nations.",
+            "**Offshore Outsourcing**: Relocating business functions to countries with competitive, educated labor forces.",
+            "**The Philippine IT-BPM / BPO Sector**: Employs over 1.7 million direct workers and generates over **$35 billion annually**, making the Philippines a premier global capital for customer contact and IT services alongside India."
+          ]
+        },
+        {
+          "heading": "6. Socio-Demographic Drivers: The OFW Phenomenon & Remittances",
+          "points": [
+            "**Overseas Filipino Workers (OFWs)**: Over 2.3 million Filipinos deployed worldwide as seafarers, healthcare workers, domestic professionals, and engineers.",
+            "**Macroeconomic Anchor**: Annual cash remittances exceed **$37 billion** (accounting for ~9% of Philippine GDP).",
+            "Remittances stimulate domestic consumer spending, finance education and housing, and provide essential foreign currency reserves protecting the Philippine Peso."
+          ]
+        },
+        {
+          "heading": "7. Global Governance & The 'Democratic Deficit'",
+          "points": [
+            "**The Democratic Deficit**: International economic bodies (IMF, World Bank, WTO, WEF) make far-reaching planetary policy decisions without direct electoral accountability to national populations.",
+            "**Transboundary Crises ('Problems Without Passports')**: Challenges exceeding the capacity of any single state: anthropogenic climate change, oceanic pollution, pandemics (COVID-19), and international tax evasion via offshore secrecy havens."
+          ]
+        },
+        {
+          "heading": "8. The Counter-Current: Deglobalization & Rising Nationalism",
+          "points": [
+            "**Deglobalization / Slowbalization**: The deceleration of global economic integration observed following the 2008 financial crisis and the COVID-19 pandemic.",
+            "**US-China Economic Decoupling**: Geopolitical tensions leading to technology export controls (semiconductors) and national security blacklists.",
+            "**Reshoring & Nearshoring ('Friendshoring')**: Corporations pulling manufacturing closer to home territory to insulate supply chains against external shocks.",
+            "**Rise of Economic Nationalism**: Populist political movements enacting protectionist tariffs, tightening immigration quotas, and rejecting multilateral global agreements."
+          ]
+        }
+      ]
     }
   ],
   "flashcards": [
@@ -5523,6 +6226,816 @@ const REVIEWER_DATA = {
       "question": "Why can the carry combiner OR gate in a Full Adder built with two Half Adders be replaced by an XOR gate?",
       "answer": "Because the stage carries C1 = AB and C2 = (A ⊕ B)Cin are mutually exclusive; they can NEVER both be 1 simultaneously (C1 · C2 = 0). Thus, C1 + C2 ≡ C1 ⊕ C2.",
       "tag": "Adders"
+    },
+    {
+      "id": "fc-rz-1",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "Who was the original author of the Rizal Bill (Senate Bill 438)?",
+      "answer": "Senator Claro M. Recto (Sen. Jose P. Laurel was the Senate Committee Chairman who formally sponsored it).",
+      "tag": "RA 1425"
+    },
+    {
+      "id": "fc-rz-2",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "On what date was Republic Act No. 1425 signed into law by President Ramon Magsaysay?",
+      "answer": "June 12, 1956 (Philippine Independence Day).",
+      "tag": "RA 1425"
+    },
+    {
+      "id": "fc-rz-3",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "Does the religious belief exemption in RA 1425 excuse a student from enrolling in the Rizal course?",
+      "answer": "NO. It only exempts the student from reading the unexpurgated editions of Noli and Fili, NEVER from taking the course itself.",
+      "tag": "Exam Trap"
+    },
+    {
+      "id": "fc-rz-4",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "How much was authorized to be appropriated from the National Treasury under Section 5 of RA 1425?",
+      "answer": "₱300,000 (Three hundred thousand pesos).",
+      "tag": "RA 1425"
+    },
+    {
+      "id": "fc-rz-5",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "What claim did Fr. Jesus Cavanna make regarding the patriotism of Noli Me Tangere?",
+      "answer": "That out of 333 pages, only 25 pages were patriotic, while 120 pages were devoted to anti-Catholic attacks.",
+      "tag": "Opposition Arguments"
+    },
+    {
+      "id": "fc-rz-6",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "What official newspaper of the Catholic Action of Manila (CAM) campaigned daily against the Rizal Bill?",
+      "answer": "The Sentinel.",
+      "tag": "Opposition Organs"
+    },
+    {
+      "id": "fc-rz-7",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "What 1994 executive directive was issued by President Fidel V. Ramos to enforce RA 1425?",
+      "answer": "Memorandum Order No. 246 (issued December 26, 1994).",
+      "tag": "Post-Enactment"
+    },
+    {
+      "id": "fc-rz-8",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "What were the 4 criteria established by the 1901 Taft Commission for choosing the National Hero?",
+      "answer": "1) A Filipino; 2) Deceased; 3) Towering patriotism; 4) Calm and peaceful temperament (mahinahong damdamin).",
+      "tag": "Taft Commission"
+    },
+    {
+      "id": "fc-rz-9",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "Why was Marcelo H. del Pilar not selected as National Hero by the Taft Commission?",
+      "answer": "Due to his militant anti-friar stance and revolutionary leanings, whereas Rizal advocated peaceful reform through education.",
+      "tag": "Taft Commission"
+    },
+    {
+      "id": "fc-rz-10",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "Who was known as the 'Brain of the Katipunan' considered by the Taft Commission?",
+      "answer": "Emilio Jacinto (author of the Kartilya ng Katipunan).",
+      "tag": "Taft Commission"
+    },
+    {
+      "id": "fc-rz-11",
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "question": "Which House Bill merged with Senate Bill 438 to become Republic Act 1425?",
+      "answer": "House Bill No. 5564 (passed 71 in favor, 9 against, 2 abstentions).",
+      "tag": "Legislative History"
+    },
+    {
+      "id": "fc-rz-12",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "What was the egalitarian motto of the French Revolution that influenced 19th-century Europe?",
+      "answer": "Freedom, Fairness, and Fraternity (Liberté, Égalité, Fraternité).",
+      "tag": "Global Context"
+    },
+    {
+      "id": "fc-rz-13",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "On what exact date was the Suez Canal inaugurated, and who designed it?",
+      "answer": "November 17, 1869; constructed by French diplomat-engineer Ferdinand de Lesseps.",
+      "tag": "Suez Canal"
+    },
+    {
+      "id": "fc-rz-14",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "How many days did the journey between Barcelona and Manila take after the opening of the Suez Canal?",
+      "answer": "Only 32 days (shortened from more than 3 months around the Cape of Good Hope).",
+      "tag": "Suez Canal"
+    },
+    {
+      "id": "fc-rz-15",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "Who was the first liberal Governor-General who gave Filipinos a foretaste of democratic governance?",
+      "answer": "Carlos María de la Torre (1869–1871; lived simply, abolished censorship).",
+      "tag": "Spanish Rule"
+    },
+    {
+      "id": "fc-rz-16",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "When did the Cavite Mutiny take place, and who led it?",
+      "answer": "January 20, 1872; led by Sergeant Lamadrid at Fort San Felipe.",
+      "tag": "Cavite Mutiny"
+    },
+    {
+      "id": "fc-rz-17",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "On what date were Fathers Gomez, Burgos, and Zamora (GOMBURZA) executed at Bagumbayan?",
+      "answer": "February 17, 1872 (executed by garrote).",
+      "tag": "GOMBURZA"
+    },
+    {
+      "id": "fc-rz-18",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "Which brother of José Rizal personally witnessed the GOMBURZA execution and was a student of Fr. Burgos?",
+      "answer": "Paciano Rizal.",
+      "tag": "Rizal Biography"
+    },
+    {
+      "id": "fc-rz-19",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "To whom did José Rizal dedicate his second novel, El Filibusterismo (1891)?",
+      "answer": "GOMBURZA (Fathers Mariano Gomez, José Burgos, and Jacinto Zamora).",
+      "tag": "Exam Trap"
+    },
+    {
+      "id": "fc-rz-20",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "What was 'Polo y servicio' in Spanish colonial society?",
+      "answer": "Compulsory forced manual labor of 40 days per year required of native males aged 16–60.",
+      "tag": "Colonial Evils"
+    },
+    {
+      "id": "fc-rz-21",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "What is the term for Spanish friars' excessive political, judicial, and educational control?",
+      "answer": "Frailocracy (Frailocracia).",
+      "tag": "Colonial Evils"
+    },
+    {
+      "id": "fc-rz-22",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "What social class did pure Spaniards born in Spain belong to?",
+      "answer": "Peninsulares (highest social hierarchy).",
+      "tag": "Social Stratification"
+    },
+    {
+      "id": "fc-rz-23",
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "question": "To which social stratum did José Rizal's affluent, educated land-owning family belong?",
+      "answer": "Principalia (the native town aristocracy and elite).",
+      "tag": "Social Stratification"
+    },
+    {
+      "id": "fc-rz-24",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "On what date did Rizal depart Manila for his secret mission to Spain?",
+      "answer": "May 3, 1882.",
+      "tag": "First Travel Abroad"
+    },
+    {
+      "id": "fc-rz-25",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What ship did Rizal board departing Manila, and what passport alias did he use?",
+      "answer": "SS Salvadora, using the passport name José Mercado.",
+      "tag": "First Travel Abroad"
+    },
+    {
+      "id": "fc-rz-26",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What French passenger streamer did Rizal transfer to in Singapore on May 11, 1882?",
+      "answer": "Djemnah.",
+      "tag": "First Travel Abroad"
+    },
+    {
+      "id": "fc-rz-27",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What city in Yemen did Rizal observe was 'hotter than Manila' where he saw camels for the first time?",
+      "answer": "Aden (May 27, 1882).",
+      "tag": "First Travel Abroad"
+    },
+    {
+      "id": "fc-rz-28",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What was the very first European soil José Rizal ever set foot upon?",
+      "answer": "Naples, Italy on June 11, 1882 (where he disembarked for an hour tour).",
+      "tag": "Exam Trap"
+    },
+    {
+      "id": "fc-rz-29",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What famous island fortress prison did Rizal visit in Marseilles, France?",
+      "answer": "Château d'If (where Edmond Dantès, hero of The Count of Monte Cristo, was imprisoned).",
+      "tag": "First Travel Abroad"
+    },
+    {
+      "id": "fc-rz-30",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What was the first nationalistic article written by Rizal on Spanish soil?",
+      "answer": "Amor Patrio (Love of Country), published in Diarong Tagalog under pen-name Laong Laan.",
+      "tag": "Literary Works"
+    },
+    {
+      "id": "fc-rz-31",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "Who translated Rizal's Spanish essay Amor Patrio into Tagalog for Diarong Tagalog?",
+      "answer": "Marcelo H. del Pilar (published August 20, 1882).",
+      "tag": "Literary Works"
+    },
+    {
+      "id": "fc-rz-32",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "In what two concurrent degrees did Rizal enroll at Universidad Central de Madrid on Nov 3, 1882?",
+      "answer": "Medicine and Philosophy & Letters.",
+      "tag": "Madrid Life"
+    },
+    {
+      "id": "fc-rz-33",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "What poem did Rizal declaim at the Círculo Hispano-Filipino on New Year's Eve 1882?",
+      "answer": "Me Piden Versos (They Ask Me For Verses).",
+      "tag": "Madrid Life"
+    },
+    {
+      "id": "fc-rz-34",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "Why did Rizal join Masonic Lodge Acacia in Madrid in March 1883?",
+      "answer": "To secure Freemasonry's international aid in the fight against Spanish friar tyranny.",
+      "tag": "Freemasonry"
+    },
+    {
+      "id": "fc-rz-35",
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "question": "In which academic degree was Rizal awarded the highest rating of 'Sobresaliente' (Excellent)?",
+      "answer": "Licentiate in Philosophy and Letters (conferred June 1885 by Universidad Central de Madrid).",
+      "tag": "Academic Honors"
+    },
+    {
+      "id": "fc-rz-36",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "Why did Rizal specifically choose to specialize in ophthalmology?",
+      "answer": "To operate on and cure his mother's (Doña Teodora Alonso) failing eyesight and cataracts.",
+      "tag": "Ophthalmology"
+    },
+    {
+      "id": "fc-rz-37",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "Who was the leading French ophthalmologist Rizal served as clinical assistant to in Paris?",
+      "answer": "Dr. Louis de Weckert.",
+      "tag": "Ophthalmology"
+    },
+    {
+      "id": "fc-rz-38",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "In Juan Luna's canvas 'The Blood Compact' (El Pacto de Sangre), what character did Rizal pose as?",
+      "answer": "Chieftain Sikatuna (Trinidad Pardo de Tavera posed as Legazpi).",
+      "tag": "Juan Luna"
+    },
+    {
+      "id": "fc-rz-39",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "Under which German ophthalmologist did Rizal work at the University Eye Hospital in Heidelberg?",
+      "answer": "Dr. Otto Becker.",
+      "tag": "Heidelberg"
+    },
+    {
+      "id": "fc-rz-40",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "How did Rizal describe German women in his March 11, 1886 letter to his sister Trinidad?",
+      "answer": "Serious, diligent, educated, and friendly; not gossipy, frivolous, or quarrelsome.",
+      "tag": "Letters"
+    },
+    {
+      "id": "fc-rz-41",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "What novel by Harriet Beecher Stowe inspired Rizal to depict the miseries of his people?",
+      "answer": "Uncle Tom's Cabin.",
+      "tag": "Noli Me Tangere"
+    },
+    {
+      "id": "fc-rz-42",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "Who is heralded as the 'Savior of the Noli' for loaning Rizal the funds to print his novel?",
+      "answer": "Dr. Máximo Viola (from San Miguel, Bulacan).",
+      "tag": "Noli Me Tangere"
+    },
+    {
+      "id": "fc-rz-43",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "What printing shop produced the first 2,000 copies of Noli Me Tangere for 300 pesos?",
+      "answer": "Berliner Buchdruckerei-Actien-Gesellschaft (came off press March 21, 1887).",
+      "tag": "Noli Me Tangere"
+    },
+    {
+      "id": "fc-rz-44",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "In what city did Rizal and Ferdinand Blumentritt meet in person for the very first time?",
+      "answer": "Leitmeritz, Bohemia on May 13, 1887 at 1:30 PM.",
+      "tag": "Grand Tour"
+    },
+    {
+      "id": "fc-rz-45",
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "question": "What event at the Madrid Exposition in 1887 deeply outraged Rizal during his Geneva stay?",
+      "answer": "The deplorable exhibition and mistreatment of native Igorots from Northern Luzon.",
+      "tag": "Geneva Tour"
+    },
+    {
+      "id": "fc-ct-1",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What is Manfred Steger's term for the social condition characterized by thick global connections?",
+      "answer": "Globality (distinguished from Globalization, which refers to the dynamic processes leading to globality).",
+      "tag": "Core Definitions"
+    },
+    {
+      "id": "fc-ct-2",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "Which sociologist coined the term 'Liquid Modernity' to describe modern fluid globalization?",
+      "answer": "Zygmunt Bauman (2000).",
+      "tag": "Metaphors"
+    },
+    {
+      "id": "fc-ct-3",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What are the 3 metaphorical states of matter used to explain epochs of globalization?",
+      "answer": "Solidity (Pre-Modern), Liquidity (Modern), and Gaseousness (Contemporary).",
+      "tag": "Metaphors"
+    },
+    {
+      "id": "fc-ct-4",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "Name the 5 dimensions of global cultural flows ('Scapes') formulated by Arjun Appadurai.",
+      "answer": "Ethnoscapes, Technoscapes, Financescapes, Mediascapes, and Ideoscapes.",
+      "tag": "Global Scapes"
+    },
+    {
+      "id": "fc-ct-5",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What does Arjun Appadurai mean by the concept of 'Disjuncture' between global scapes?",
+      "answer": "The 5 scapes do not move at the same speed or in the same direction (e.g., capital moves instantly while human migration is blocked).",
+      "tag": "Global Scapes"
+    },
+    {
+      "id": "fc-ct-6",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What is Anna Tsing's concept of 'Friction' in globalization?",
+      "answer": "The obstacles, resistance, tariffs, and sticky institutional borders that slow down, divert, or halt global flows.",
+      "tag": "Global Limits"
+    },
+    {
+      "id": "fc-ct-7",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "Give two examples of 'Heavy Structures' and two examples of 'Light Structures' in globalization.",
+      "answer": "Heavy: Container ports, railways, airports. Light: Subsea fiber cables, cloud software, SWIFT protocol.",
+      "tag": "Structures"
+    },
+    {
+      "id": "fc-ct-8",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What is David Harvey's term for the shrinking of distance and time caused by technology?",
+      "answer": "Time-Space Compression.",
+      "tag": "Core Definitions"
+    },
+    {
+      "id": "fc-ct-9",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What is Anthony Giddens' concept of 'Time-Space Distanciation'?",
+      "answer": "The stretching of social relations so local events are shaped by happenings thousands of miles away and vice versa.",
+      "tag": "Core Definitions"
+    },
+    {
+      "id": "fc-ct-10",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What is the distinction between Ethnoscapes and Technoscapes?",
+      "answer": "Ethnoscapes are the movement of persons (migrants, tourists, OFWs); Technoscapes are the movement of mechanical and digital technology.",
+      "tag": "Global Scapes"
+    },
+    {
+      "id": "fc-ct-11",
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "question": "What phenomenon occurs when governments re-impose hard physical structures against fluid flows?",
+      "answer": "Re-solidification (e.g., border walls, national digital firewalls, export bans).",
+      "tag": "Metaphors"
+    },
+    {
+      "id": "fc-ct-12",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "Which trade route (1565–1815) is hailed as the birth of the first truly planetary, continuous global economy?",
+      "answer": "The Manila-Acapulco Galleon Trade (connecting Asia, the Americas, and Europe).",
+      "tag": "Economic History"
+    },
+    {
+      "id": "fc-ct-13",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "Who coined and popularized 'The Fourth Industrial Revolution' (4IR) at the World Economic Forum in 2016?",
+      "answer": "Professor Klaus Schwab.",
+      "tag": "4IR"
+    },
+    {
+      "id": "fc-ct-14",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "What is the core definition of the Fourth Industrial Revolution (4IR)?",
+      "answer": "The fusion of technologies blurring the lines between the physical, digital, and biological spheres.",
+      "tag": "4IR"
+    },
+    {
+      "id": "fc-ct-15",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "What were the primary energy sources and key inventions of 1IR and 2IR?",
+      "answer": "1IR (~1784): Steam engine and water power. 2IR (~1870): Electricity, steel, chemicals, and the assembly line.",
+      "tag": "Industrial History"
+    },
+    {
+      "id": "fc-ct-16",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "What two Bretton Woods institutions were created in July 1944 in New Hampshire?",
+      "answer": "The International Monetary Fund (IMF) and the World Bank (IBRD).",
+      "tag": "Financial Architecture"
+    },
+    {
+      "id": "fc-ct-17",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "Under the Bretton Woods system, what was the fixed peg between the US Dollar and gold?",
+      "answer": "$35 per ounce of gold.",
+      "tag": "Financial Architecture"
+    },
+    {
+      "id": "fc-ct-18",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "What historic event occurred on August 15, 1971 that dismantled the Bretton Woods monetary system?",
+      "answer": "The Nixon Shock (President Richard Nixon ended the convertibility of the US dollar into gold).",
+      "tag": "Exam Trap"
+    },
+    {
+      "id": "fc-ct-19",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "On what date did the World Trade Organization (WTO) officially replace GATT?",
+      "answer": "January 1, 1995 (following the Uruguay Round and Marrakesh Agreement).",
+      "tag": "WTO"
+    },
+    {
+      "id": "fc-ct-20",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "Who formulated the 'Washington Consensus' in 1989, and what did it prescribe?",
+      "answer": "Economist John Williamson; prescribed 10 neoliberal policies: fiscal austerity, privatization, deregulation, and free trade.",
+      "tag": "Neoliberalism"
+    },
+    {
+      "id": "fc-ct-21",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "What percentage of international trade is estimated to take place within Global Value Chains (GVCs)?",
+      "answer": "Approximately 80% of all international trade.",
+      "tag": "GVCs"
+    },
+    {
+      "id": "fc-ct-22",
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "question": "What is 'Platform Capitalism' in the context of the Fourth Industrial Revolution?",
+      "answer": "Business models (Uber, Airbnb, Shopee) that extract value from digital data and network matchmaking without owning physical production assets.",
+      "tag": "4IR Economy"
+    },
+    {
+      "id": "fc-ct-23",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "What is the primary argument of the Hyperglobalist (Globalist) school of globalization?",
+      "answer": "We live in a borderless world ('The World is Flat'); market forces dominate and the nation-state is becoming obsolete.",
+      "tag": "Theories"
+    },
+    {
+      "id": "fc-ct-24",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "What do scholars of the Skeptical school (Hirst & Thompson) argue about globalization?",
+      "answer": "Globalization is an exaggerated myth; economic integration is primarily regional (trade blocs), and nation-states remain as powerful as ever.",
+      "tag": "Theories"
+    },
+    {
+      "id": "fc-ct-25",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "How do Transformationalists (Held & Giddens) view the effect of globalization on the nation-state?",
+      "answer": "The state is neither dead nor unchanged; state power is being transformed, restructured, and recalibrated in response to global forces.",
+      "tag": "Theories"
+    },
+    {
+      "id": "fc-ct-26",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "Name the three structural strata of Immanuel Wallerstein's World-Systems Theory.",
+      "answer": "1) The Core (exploiter), 2) The Semi-Periphery (buffer zone), 3) The Periphery (exploited).",
+      "tag": "World-Systems"
+    },
+    {
+      "id": "fc-ct-27",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "What role does the 'Semi-Periphery' play in Wallerstein's World-Systems Theory?",
+      "answer": "It serves as an economic and geopolitical buffer zone that prevents direct polarization and conflict between core and periphery.",
+      "tag": "World-Systems"
+    },
+    {
+      "id": "fc-ct-28",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "What is the core difference between Modernization Theory and Dependency Theory?",
+      "answer": "Modernization blames internal cultural backwardness; Dependency argues underdevelopment is actively caused by core exploitation and unequal trade.",
+      "tag": "Macro Theories"
+    },
+    {
+      "id": "fc-ct-29",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "Who authored the 5 stages of economic growth in Modernization Theory?",
+      "answer": "Walt Rostow (1960).",
+      "tag": "Macro Theories"
+    },
+    {
+      "id": "fc-ct-30",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "What are the 4 dimensions of George Ritzer's concept of 'McDonaldization'?",
+      "answer": "1) Efficiency, 2) Calculability, 3) Predictability, 4) Control (via non-human technology).",
+      "tag": "Cultural Theories"
+    },
+    {
+      "id": "fc-ct-31",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "Who coined the term 'Glocalization' to describe the blending of global and local cultures?",
+      "answer": "Roland Robertson.",
+      "tag": "Cultural Theories"
+    },
+    {
+      "id": "fc-ct-32",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "What thesis did Samuel Huntington propose in 'The Clash of Civilizations'?",
+      "answer": "Cultural and religious identities are enduring and will be the primary source of conflict in the post-Cold War world.",
+      "tag": "Cultural Theories"
+    },
+    {
+      "id": "fc-ct-33",
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "question": "Which Nobel laureate economist wrote 'Globalization and Its Discontents' (2002) critiquing IMF market fundamentalism?",
+      "answer": "Joseph Stiglitz.",
+      "tag": "Critiques"
+    },
+    {
+      "id": "fc-ct-34",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "Who is heralded as the 'Father of Containerization', and in what year did he introduce it?",
+      "answer": "Malcolm McLean in 1956 (with the container ship Ideal X).",
+      "tag": "Transportation"
+    },
+    {
+      "id": "fc-ct-35",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "By approximately what percentage did standardized container shipping slash freight handling costs?",
+      "answer": "By over 90% (drastically reducing the cost of shipping manufactured goods globally).",
+      "tag": "Transportation"
+    },
+    {
+      "id": "fc-ct-36",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What carries 99% of all international internet and telecommunications traffic across oceans?",
+      "answer": "Subsea fiber-optic cables (satellites carry less than 1%).",
+      "tag": "Technology"
+    },
+    {
+      "id": "fc-ct-37",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What does SWIFT stand for in the context of international banking?",
+      "answer": "Society for Worldwide Interbank Financial Telecommunication.",
+      "tag": "Finance"
+    },
+    {
+      "id": "fc-ct-38",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What is the difference between a Multinational Enterprise (MNE) and a Transnational Corporation (TNC)?",
+      "answer": "MNEs maintain a clear home national base; TNCs transcend national borders with decentralized global operations.",
+      "tag": "Corporate Drivers"
+    },
+    {
+      "id": "fc-ct-39",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "How much annual revenue does the Philippine IT-BPM (BPO) industry generate?",
+      "answer": "Over $35 billion annually (employing over 1.7 million direct Filipino professionals).",
+      "tag": "Philippine Context"
+    },
+    {
+      "id": "fc-ct-40",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What is the macroeconomic significance of Overseas Filipino Worker (OFW) remittances to the Philippines?",
+      "answer": "Over $37 billion annually, contributing approximately 9% of Philippine GDP and stabilizing foreign reserves.",
+      "tag": "Philippine Context"
+    },
+    {
+      "id": "fc-ct-41",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What is the 'Democratic Deficit' in global governance?",
+      "answer": "The criticism that global institutions (IMF, WTO, World Bank) make far-reaching decisions without direct electoral accountability to citizens.",
+      "tag": "Global Governance"
+    },
+    {
+      "id": "fc-ct-42",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "Give 3 examples of 'Problems Without Passports' (transboundary crises).",
+      "answer": "Climate change, global viral pandemics (COVID-19), and international cyberwarfare.",
+      "tag": "Global Governance"
+    },
+    {
+      "id": "fc-ct-43",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What term describes the post-2008 slowdown and retreat of global economic integration?",
+      "answer": "Deglobalization (or 'Slowbalization').",
+      "tag": "Deglobalization"
+    },
+    {
+      "id": "fc-ct-44",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What is the difference between 'Reshoring' and 'Nearshoring' / 'Friendshoring'?",
+      "answer": "Reshoring returns manufacturing to the domestic homeland; nearshoring/friendshoring moves it to geographically proximate or politically allied nations.",
+      "tag": "Supply Chains"
+    },
+    {
+      "id": "fc-ct-45",
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "question": "What is the world's largest Free Trade Agreement covering 30% of global GDP across Asia-Pacific?",
+      "answer": "RCEP (Regional Comprehensive Economic Partnership).",
+      "tag": "Trade Agreements"
     }
   ],
   "quizzes": [
@@ -8774,6 +10287,1102 @@ const REVIEWER_DATA = {
           "explanation": "Carries C1 = AB and C2 = (A ⊕ B)Cin can never be 1 at the same time: if AB = 1, then A ⊕ B = 0 forcing C2 = 0; if C2 = 1, then A ⊕ B = 1 forcing AB = 0. Since C1 · C2 = 0 always holds, C1 + C2 ≡ C1 ⊕ C2."
         }
       ]
+    },
+    {
+      "checkpointId": "rizal-cp1",
+      "subject": "RIZAL",
+      "week": "Module 1",
+      "questions": [
+        {
+          "id": "q-rz1-1",
+          "type": "multiple",
+          "question": "Who was the original author of the legislative bill that eventually became Republic Act No. 1425?",
+          "options": [
+            "Senator Jose P. Laurel",
+            "Senator Claro M. Recto",
+            "President Ramon Magsaysay",
+            "Senator Francisco Rodrigo"
+          ],
+          "correct": 1,
+          "explanation": "Senator Claro M. Recto was the brilliant nationalist author who drafted the bill. Sen. Jose P. Laurel was the Chairman of the Senate Committee on Education who sponsored and defended it on the floor."
+        },
+        {
+          "id": "q-rz1-2",
+          "type": "multiple",
+          "question": "Under Republic Act 1425, which educational level is explicitly required to use the original or unexpurgated editions of Noli Me Tangere and El Filibusterismo?",
+          "options": [
+            "Elementary grade schools",
+            "Secondary junior and senior high schools",
+            "Collegiate undergraduate courses",
+            "Post-graduate doctoral programs"
+          ],
+          "correct": 2,
+          "explanation": "Section 1 of RA 1425 specifically provides: 'Provided, That in the collegiate courses, the original or unexpurgated editions of the Noli Me Tangere and El Filibusterismo or their English translation shall be used as basic texts.'"
+        },
+        {
+          "id": "q-rz1-3",
+          "type": "multiple",
+          "question": "What is the legal effect of the Religious Exemption Clause under Section 1 of RA 1425 for a student with sworn religious objections?",
+          "options": [
+            "The student is exempted from taking the Rizal course entirely",
+            "The student is exempted only from reading the unexpurgated novels, but must still take the Rizal course",
+            "The student is awarded an automatic passing grade in Philippine History",
+            "The student must pay a penalty fee to the Board of National Education"
+          ],
+          "correct": 1,
+          "explanation": "A major exam trap! The law provides exemption for religious belief via a sworn statement from reading the unexpurgated novels, 'but not from taking the course provided for in the first part of said paragraph.'"
+        },
+        {
+          "id": "q-rz1-4",
+          "type": "multiple",
+          "question": "What financial sum was authorized to be appropriated from the National Treasury to carry out RA 1425 under Section 5?",
+          "options": [
+            "₱50,000",
+            "₱150,000",
+            "₱300,000",
+            "₱1,000,000"
+          ],
+          "correct": 2,
+          "explanation": "Section 5 of RA 1425 states: 'The sum of three hundred thousand pesos (₱300,000) is hereby authorized to be appropriated out of any fund not otherwise appropriated in the National Treasury.'"
+        },
+        {
+          "id": "q-rz1-5",
+          "type": "multiple",
+          "question": "During the congressional debates on SB 438, which priest claimed that out of 333 pages in the Noli, only 25 were patriotic while 120 were anti-Catholic attacks?",
+          "options": [
+            "Fr. José Burgos",
+            "Fr. Jesus Cavanna",
+            "Fr. Pedro Pelaez",
+            "Fr. Rufino Collantes"
+          ],
+          "correct": 1,
+          "explanation": "Fr. Jesus Cavanna, speaking at a symposium organized by the Catholic Action of Manila (CAM), made this statistical attack against Rizal's Noli Me Tangere."
+        },
+        {
+          "id": "q-rz1-6",
+          "type": "multiple",
+          "question": "When Catholic schools threatened to close if the Rizal Bill passed, what bold counter-proposal did Senator Claro M. Recto advocate?",
+          "options": [
+            "Expelling Spanish friars from the country",
+            "Nationalization of all private schools in the Philippines",
+            "Expropriating Catholic Church lands without compensation",
+            "Abolishing religious freedom in the constitution"
+          ],
+          "correct": 1,
+          "explanation": "Recto welcomed the threat of closure, stating that it would allow the state to nationalize private schools and foster true Filipino nationalism, quipping that the Church made too much profit to ever actually shut down."
+        },
+        {
+          "id": "q-rz1-7",
+          "type": "multiple",
+          "question": "Which Philippine President signed Memorandum Order No. 246 on December 26, 1994, strictly directing DECS and CHED to enforce RA 1425?",
+          "options": [
+            "Ferdinand E. Marcos",
+            "Corazon C. Aquino",
+            "Fidel V. Ramos",
+            "Joseph E. Estrada"
+          ],
+          "correct": 2,
+          "explanation": "President Fidel V. Ramos issued Memorandum Order 246 in December 1994 to revitalize compliance with RA 1425 ahead of the 1996 martyrdom centennial and 1998 independence centennial."
+        },
+        {
+          "id": "q-rz1-8",
+          "type": "multiple",
+          "question": "Which of the following was NOT one of the 4 criteria set by the 1901 Taft Commission in choosing the National Hero?",
+          "options": [
+            "Must be a Filipino",
+            "Must be currently living to guide the revolutionary government",
+            "Must have possessed a towering love for country",
+            "Must have possessed a calm, peaceful temperament (mahinahong damdamin)"
+          ],
+          "correct": 1,
+          "explanation": "The criterion was that the candidate must be DECEASED ('yumao na'), not living, to ensure that future controversies or political ambitions would not taint the symbol."
+        },
+        {
+          "id": "q-rz1-9",
+          "type": "multiple",
+          "question": "Why was General Antonio Luna eliminated from consideration as the National Hero by the Taft Commission?",
+          "options": [
+            "He was not a pure Filipino",
+            "He possessed a fierce temper and favored armed military conflict rather than peaceful reform",
+            "He wrote in French rather than Spanish",
+            "He refused to support the Propaganda Movement"
+          ],
+          "correct": 1,
+          "explanation": "Antonio Luna was eliminated because of his fiery, hot-tempered personality and military approach, violating the Taft Commission's criterion of 'may mahinahong damdamin' (calm and peaceful temperament)."
+        },
+        {
+          "id": "q-rz1-10",
+          "type": "multiple",
+          "question": "Who was the Filipino revolutionary hero known as the 'Brain of the Katipunan' who died of malaria in Laguna and was considered by the Taft Commission?",
+          "options": [
+            "Andres Bonifacio",
+            "Emilio Jacinto",
+            "Apolinario Mabini",
+            "Marcelo H. del Pilar"
+          ],
+          "correct": 1,
+          "explanation": "Emilio Jacinto (1875–1899) was known as 'The Brain of the Katipunan' (author of the Kartilya). He died of malaria in Magdalena, Laguna at the age of 23."
+        }
+      ]
+    },
+    {
+      "checkpointId": "rizal-cp2",
+      "subject": "RIZAL",
+      "week": "Module 2",
+      "questions": [
+        {
+          "id": "q-rz2-1",
+          "type": "multiple",
+          "question": "Which global 19th-century revolution replaced feudal agrarianism with industrial capitalism and mechanized production?",
+          "options": [
+            "The French Revolution",
+            "The Industrial Revolution",
+            "The American Revolution",
+            "The Bolshevik Revolution"
+          ],
+          "correct": 1,
+          "explanation": "The Industrial Revolution in England and Europe introduced steam engines and factory manufacturing, transitioning societies from feudalism into industrial capitalism."
+        },
+        {
+          "id": "q-rz2-2",
+          "type": "multiple",
+          "question": "What French engineer was responsible for constructing the Suez Canal, inaugurated on November 17, 1869?",
+          "options": [
+            "Gustave Eiffel",
+            "Ferdinand de Lesseps",
+            "Louis Pasteur",
+            "Dr. Louis de Weckert"
+          ],
+          "correct": 1,
+          "explanation": "Ferdinand de Lesseps, a French diplomat and engineer, directed the construction of the 103-mile Suez Canal."
+        },
+        {
+          "id": "q-rz2-3",
+          "type": "multiple",
+          "question": "How significantly did the opening of the Suez Canal reduce the travel time from Barcelona to Manila?",
+          "options": [
+            "From 1 year to 6 months",
+            "From over 3 months to 32 days",
+            "From 6 months to 15 days",
+            "From 60 days to 10 days"
+          ],
+          "correct": 1,
+          "explanation": "Prior to 1869, steamships rounding the Cape of Good Hope took over 3 months; the Suez Canal shortened the journey to just 32 days."
+        },
+        {
+          "id": "q-rz2-4",
+          "type": "multiple",
+          "question": "Which Governor-General was loved for his simple, democratic lifestyle, abolition of censorship, and support for native secular priests?",
+          "options": [
+            "Rafael de Izquierdo",
+            "Carlos María de la Torre",
+            "Valeriano Weyler",
+            "Fermin Jaudenes"
+          ],
+          "correct": 1,
+          "explanation": "Gov. Gen. Carlos María de la Torre (1869–1871) governed with liberal, egalitarian principles, walked without armed guards, and abolished press censorship."
+        },
+        {
+          "id": "q-rz2-5",
+          "type": "multiple",
+          "question": "On what date in 1872 were Fathers Gomez, Burgos, and Zamora executed by garrote at Bagumbayan?",
+          "options": [
+            "January 20, 1872",
+            "February 17, 1872",
+            "June 19, 1872",
+            "December 30, 1872"
+          ],
+          "correct": 1,
+          "explanation": "The Cavite Mutiny occurred on January 20, 1872; GOMBURZA were executed on February 17, 1872."
+        },
+        {
+          "id": "q-rz2-6",
+          "type": "multiple",
+          "question": "What was the term for the system of forced labor required of native Filipino males under Spanish colonial rule?",
+          "options": [
+            "Bandala",
+            "Polo y servicio",
+            "Encomienda",
+            "Rentas estancadas"
+          ],
+          "correct": 1,
+          "explanation": "Polo y servicio was the compulsory 40-day manual labor imposed on native males aged 16 to 60 for public works."
+        },
+        {
+          "id": "q-rz2-7",
+          "type": "multiple",
+          "question": "In Graciano Lopez-Jaena's famous satirical work, how did he personify the abusive, greedy friar?",
+          "options": [
+            "Padre Damaso",
+            "Fray Botod",
+            "Padre Sibyla",
+            "Padre Salvi"
+          ],
+          "correct": 1,
+          "explanation": "Graciano Lopez-Jaena authored 'Fray Botod' ('botod' means big-bellied in Hiligaynon) to satirize the immorality, gluttony, and abuses of the Spanish friars."
+        },
+        {
+          "id": "q-rz2-8",
+          "type": "multiple",
+          "question": "In the 19th-century Philippine social hierarchy, what term designated pure-blooded Spaniards born in the Philippines?",
+          "options": [
+            "Peninsulares",
+            "Insulares",
+            "Principalia",
+            "Indios"
+          ],
+          "correct": 1,
+          "explanation": "Spaniards born in the Philippines were called Insulares (also referred to as 'Filipinos' during that era), while Spaniards born in Spain were Peninsulares."
+        },
+        {
+          "id": "q-rz2-9",
+          "type": "multiple",
+          "question": "Which Spanish constabulary force, established to maintain peace and pursue bandits, became feared for arbitrary brutality and oppression of civilians?",
+          "options": [
+            "Carabineros de Seguridad",
+            "The Guardia Civil",
+            "Tercios Civiles",
+            "Regimiento Cantabria"
+          ],
+          "correct": 1,
+          "explanation": "The Guardia Civil was notorious for extortion, arbitrary arrests, and brutality against innocent Filipino civilians."
+        },
+        {
+          "id": "q-rz2-10",
+          "type": "multiple",
+          "question": "What derogatory term did Spanish colonial authorities use to refer to native brown Filipinos to imply racial inferiority?",
+          "options": [
+            "Criollos",
+            "Indios",
+            "Sangleyes",
+            "Moros"
+          ],
+          "correct": 1,
+          "explanation": "Spanish authorities derisively labeled native Filipinos as 'Indios' (Indians), practicing pervasive racial prejudice across society."
+        }
+      ]
+    },
+    {
+      "checkpointId": "rizal-cp3",
+      "subject": "RIZAL",
+      "week": "Module 3",
+      "questions": [
+        {
+          "id": "q-rz3-1",
+          "type": "multiple",
+          "question": "Under what alias name did José Rizal depart the Philippines aboard the SS Salvadora on May 3, 1882?",
+          "options": [
+            "Laong Laan",
+            "José Mercado",
+            "Dimasalang",
+            "P. Jacinto"
+          ],
+          "correct": 1,
+          "explanation": "To evade detection by Spanish authorities and Dominican friars, Rizal used a passport provided under the name of his cousin, José Mercado."
+        },
+        {
+          "id": "q-rz3-2",
+          "type": "multiple",
+          "question": "What was the French steamer Rizal boarded in Singapore on May 11, 1882 to continue his voyage to Europe?",
+          "options": [
+            "SS Salvadora",
+            "Djemnah",
+            "Isla de Panay",
+            "España"
+          ],
+          "correct": 1,
+          "explanation": "Rizal boarded the French mail steamer Djemnah in Singapore, where he practiced speaking conversational French with the passengers."
+        },
+        {
+          "id": "q-rz3-3",
+          "type": "multiple",
+          "question": "What observation did Rizal record regarding Aden (Yemen) upon landing on May 27, 1882?",
+          "options": [
+            "It was colder than Madrid and covered in snow",
+            "It was a city hotter than Manila and he saw camels for the first time",
+            "It had the tallest cathedral in the Middle East",
+            "It was completely abandoned due to plague"
+          ],
+          "correct": 1,
+          "explanation": "Rizal noted in his travel journal that Aden was 'hotter than Manila' and expressed amusement at seeing real camels for the first time."
+        },
+        {
+          "id": "q-rz3-4",
+          "type": "multiple",
+          "question": "What Italian city was the very first European ground José Rizal set foot upon on June 11, 1882?",
+          "options": [
+            "Rome",
+            "Venice",
+            "Naples",
+            "Milan"
+          ],
+          "correct": 2,
+          "explanation": "Naples, Italy was the first European ground Rizal stepped onto. Accompanied by a guide, he explored the city for one hour on June 11, 1882."
+        },
+        {
+          "id": "q-rz3-5",
+          "type": "multiple",
+          "question": "In Marseilles, France, which historic fortress prison made famous by Alexandre Dumas' The Count of Monte Cristo did Rizal visit?",
+          "options": [
+            "The Bastille",
+            "Château d'If",
+            "Tower of London",
+            "Castel Sant'Angelo"
+          ],
+          "correct": 1,
+          "explanation": "Rizal visited Château d'If, where Edmond Dantès, hero of Alexandre Dumas' famous novel The Count of Monte Cristo, was imprisoned."
+        },
+        {
+          "id": "q-rz3-6",
+          "type": "multiple",
+          "question": "What was the title of Rizal's first patriotic essay written on Spanish soil, published in Diarong Tagalog?",
+          "options": [
+            "A La Juventud Filipina",
+            "Amor Patrio",
+            "Los Viajes",
+            "Filipinas Dentro de Cien Años"
+          ],
+          "correct": 1,
+          "explanation": "Amor Patrio (Love of Country) was Rizal's first essay written on Spanish soil in Barcelona, published on August 20, 1882 under the pen-name Laong Laan."
+        },
+        {
+          "id": "q-rz3-7",
+          "type": "multiple",
+          "question": "Who translated Rizal's essay Amor Patrio from Spanish into Tagalog for Diarong Tagalog?",
+          "options": [
+            "Graciano Lopez-Jaena",
+            "Marcelo H. del Pilar",
+            "Mariano Ponce",
+            "Basilio Teodoro Moran"
+          ],
+          "correct": 1,
+          "explanation": "Marcelo H. del Pilar translated Amor Patrio into Tagalog, published alongside Rizal's Spanish original in Diarong Tagalog."
+        },
+        {
+          "id": "q-rz3-8",
+          "type": "multiple",
+          "question": "What nostalgic poem did Rizal write and declaim at the Círculo Hispano-Filipino in Madrid on New Year's Eve (December 31, 1882)?",
+          "options": [
+            "Mi Ultimo Adios",
+            "Me Piden Versos",
+            "A Las Flores de Heidelberg",
+            "Canto del Viajero"
+          ],
+          "correct": 1,
+          "explanation": "Upon request of fellow members of the Círculo Hispano-Filipino, Rizal wrote 'Me Piden Versos' (They Ask Me For Verses) and declaimed it on Dec 31, 1882."
+        },
+        {
+          "id": "q-rz3-9",
+          "type": "multiple",
+          "question": "In March 1883, which Masonic Lodge did Rizal join in Madrid to secure Freemasonry's aid against Spanish friar rule?",
+          "options": [
+            "Lodge Solidaridad",
+            "Lodge Acacia",
+            "Lodge Nilad",
+            "Lodge Walana"
+          ],
+          "correct": 1,
+          "explanation": "Rizal joined Masonic Lodge Acacia in March 1883 in Madrid, later transferring to Lodge Solidaridad where he became a Master Mason."
+        },
+        {
+          "id": "q-rz3-10",
+          "type": "multiple",
+          "question": "In June 1885, Rizal was awarded the degree of Licentiate in Philosophy and Letters by Universidad Central de Madrid with what top scholastic rating?",
+          "options": [
+            "Aprobado (Passing)",
+            "Bueno (Good)",
+            "Notable (Very Good)",
+            "Sobresaliente (Excellent)"
+          ],
+          "correct": 3,
+          "explanation": "Rizal was awarded the degree of Licentiate in Philosophy and Letters with the highest rating of 'Sobresaliente' (Excellent) in June 1885."
+        }
+      ]
+    },
+    {
+      "checkpointId": "rizal-cp4",
+      "subject": "RIZAL",
+      "week": "Module 4",
+      "questions": [
+        {
+          "id": "q-rz4-1",
+          "type": "multiple",
+          "question": "What primary personal motivation drove Dr. José Rizal to specialize in ophthalmology?",
+          "options": [
+            "To build a lucrative private clinic in Madrid",
+            "To cure his mother Doña Teodora Alonso's failing eyesight and cataracts",
+            "To fulfill an academic scholarship requirement from Ateneo",
+            "To become the royal physician of the Spanish Governor-General"
+          ],
+          "correct": 1,
+          "explanation": "Rizal chose ophthalmology specifically to treat and operate on his mother's failing eyesight caused by advancing cataracts."
+        },
+        {
+          "id": "q-rz4-2",
+          "type": "multiple",
+          "question": "In Paris, under which leading French ophthalmologist of the era did Rizal work as a clinical assistant?",
+          "options": [
+            "Dr. Otto Becker",
+            "Dr. Louis de Weckert",
+            "Dr. Rudolf Virchow",
+            "Dr. Feodor Jagor"
+          ],
+          "correct": 1,
+          "explanation": "Dr. Louis de Weckert was the foremost French ophthalmologist in Paris, under whom Rizal trained as an assistant from October 1885 to February 1886."
+        },
+        {
+          "id": "q-rz4-3",
+          "type": "multiple",
+          "question": "In Juan Luna's masterpiece painting 'The Blood Compact' (El Pacto de Sangre), which historical figure did Rizal pose as?",
+          "options": [
+            "Miguel López de Legazpi",
+            "Chieftain Sikatuna",
+            "Fray Andrés de Urdaneta",
+            "Rajah Sulayman"
+          ],
+          "correct": 1,
+          "explanation": "Rizal posed as the Bohol chieftain Sikatuna, while Trinidad Pardo de Tavera posed as the Spanish conquistador Miguel López de Legazpi."
+        },
+        {
+          "id": "q-rz4-4",
+          "type": "multiple",
+          "question": "At the University Eye Hospital in Heidelberg, Germany, which prominent ophthalmologist mentored Rizal?",
+          "options": [
+            "Dr. Otto Becker",
+            "Dr. Louis de Weckert",
+            "Dr. Hans Virchow",
+            "Dr. W. Joest"
+          ],
+          "correct": 0,
+          "explanation": "Dr. Otto Becker was the distinguished German ophthalmology professor who directed the University Eye Hospital in Heidelberg where Rizal practiced."
+        },
+        {
+          "id": "q-rz4-5",
+          "type": "multiple",
+          "question": "What prized personal belonging, gifted by his sister Saturnina, did Rizal pawn during the bleak winter of 1886 in Berlin?",
+          "options": [
+            "A gold pocket watch",
+            "A diamond ring",
+            "An ivory crucifix",
+            "A silver medical stethoscope"
+          ],
+          "correct": 1,
+          "explanation": "During the bleak winter of 1886 in Berlin, when no money arrived from Calamba, Rizal was forced to pawn the diamond ring given by his sister Saturnina."
+        },
+        {
+          "id": "q-rz4-6",
+          "type": "multiple",
+          "question": "Who is revered as the 'Savior of the Noli' for loaning Rizal the funds needed to print Noli Me Tangere in Berlin?",
+          "options": [
+            "Valentin Ventura",
+            "Dr. Máximo Viola",
+            "Ferdinand Blumentritt",
+            "Juan Luna"
+          ],
+          "correct": 1,
+          "explanation": "Dr. Máximo Viola of San Miguel, Bulacan loaned Rizal the money to pay for his living expenses and the printing of Noli Me Tangere. Valentin Ventura financed El Filibusterismo."
+        },
+        {
+          "id": "q-rz4-7",
+          "type": "multiple",
+          "question": "What was the printing cost charged by Berliner Buchdruckerei-Actien-Gesellschaft for the first 2,000 copies of Noli Me Tangere?",
+          "options": [
+            "100 pesos",
+            "300 pesos",
+            "500 pesos",
+            "1,000 pesos"
+          ],
+          "correct": 1,
+          "explanation": "The Berlin printing press charged the lowest rate: 300 pesos for 2,000 copies of Noli Me Tangere (which came off the press March 21, 1887)."
+        },
+        {
+          "id": "q-rz4-8",
+          "type": "multiple",
+          "question": "What is the English translation and biblical origin of the Latin title 'Noli Me Tangere'?",
+          "options": [
+            "'Love of Country' from Proverbs",
+            "'Touch Me Not' from the Gospel of St. John",
+            "'The Reign of Greed' from Ecclesiastes",
+            "'Awaken My People' from Isaiah"
+          ],
+          "correct": 1,
+          "explanation": "Noli Me Tangere is Latin for 'Touch Me Not', spoken by Jesus to Mary Magdalene in the Gospel of St. John (Chapter 20, Verses 13–17)."
+        },
+        {
+          "id": "q-rz4-9",
+          "type": "multiple",
+          "question": "On May 13, 1887, at Leitmeritz, Bohemia, Rizal met which Austrian scholar and lifelong intellectual correspondent in person for the first time?",
+          "options": [
+            "Dr. Feodor Jagor",
+            "Professor Ferdinand Blumentritt",
+            "Dr. Rudolf Virchow",
+            "Dr. Adolph Meyer"
+          ],
+          "correct": 1,
+          "explanation": "Rizal and Prof. Ferdinand Blumentritt met in person for the first time at the Leitmeritz railroad station on May 13, 1887 at 1:30 PM."
+        },
+        {
+          "id": "q-rz4-10",
+          "type": "multiple",
+          "question": "What quote did Rizal write to Blumentritt describing his exhaustion and awe upon touring Rome on June 27, 1887?",
+          "options": [
+            "'I came, I saw, I conquered.'",
+            "'I am tired as a dog, but I will sleep as a God.'",
+            "'Rome is the graveyard of Spanish tyrants.'",
+            "'The waltzes of the Danube follow me everywhere.'"
+          ],
+          "correct": 1,
+          "explanation": "Rizal wrote to Blumentritt from Rome: 'I am tired as a dog, but I will sleep as a God' after a full day of sightseeing in the Eternal City."
+        }
+      ]
+    },
+    {
+      "checkpointId": "contempo-cp1",
+      "subject": "SOCSCI3",
+      "week": "Module 1",
+      "questions": [
+        {
+          "id": "q-ct1-1",
+          "type": "multiple",
+          "question": "According to Manfred Steger, what term designates the actual social condition of thick global interconnectedness, as distinct from the processes creating it?",
+          "options": [
+            "Global Imaginary",
+            "Globality",
+            "Globalism",
+            "Time-Space Compression"
+          ],
+          "correct": 1,
+          "explanation": "Manfred Steger defines 'Globality' as the social condition of interconnectedness, 'Globalization' as the dynamic set of processes that transform nationality into globality, and 'Global Imaginary' as the growing consciousness of belonging to a global community."
+        },
+        {
+          "id": "q-ct1-2",
+          "type": "multiple",
+          "question": "Which sociologist formulated the concept of 'Liquid Modernity' to describe how contemporary institutions, capital, and cultures lose their fixed shapes?",
+          "options": [
+            "Zygmunt Bauman",
+            "George Ritzer",
+            "Arjun Appadurai",
+            "Anthony Giddens"
+          ],
+          "correct": 0,
+          "explanation": "Polish sociologist Zygmunt Bauman authored 'Liquid Modernity' (2000), using the metaphor of liquidity to describe rapid movement, transience, and resistance to containment."
+        },
+        {
+          "id": "q-ct1-3",
+          "type": "multiple",
+          "question": "Which of Arjun Appadurai's five global 'Scapes' deals specifically with the movement of tourists, immigrants, refugees, and Overseas Filipino Workers across borders?",
+          "options": [
+            "Technoscapes",
+            "Ethnoscapes",
+            "Financescapes",
+            "Ideoscapes"
+          ],
+          "correct": 1,
+          "explanation": "Ethnoscapes represent the shifting landscape of persons who move across the world (migrants, tourists, refugees, guest workers, OFWs)."
+        },
+        {
+          "id": "q-ct1-4",
+          "type": "multiple",
+          "question": "Which of the following is NOT one of Arjun Appadurai's five dimensions of global cultural flows?",
+          "options": [
+            "Mediascapes",
+            "Econoscapes",
+            "Financescapes",
+            "Ideoscapes"
+          ],
+          "correct": 1,
+          "explanation": "A classic exam trap! Appadurai identified Ethnoscapes, Technoscapes, Financescapes, Mediascapes, and Ideoscapes. There is no such category as 'Econoscapes'."
+        },
+        {
+          "id": "q-ct1-5",
+          "type": "multiple",
+          "question": "What concept does anthropologist Anna Tsing use to describe the obstacles, resistance, and borders that slow down or redirect global flows?",
+          "options": [
+            "Inertia",
+            "Friction",
+            "Viscosity",
+            "Stagnation"
+          ],
+          "correct": 1,
+          "explanation": "Anna Tsing introduced the concept of 'Friction' to explain how globalization is not a smooth, frictionless plane, but is impeded by borders, tariffs, regulations, and inequalities."
+        },
+        {
+          "id": "q-ct1-6",
+          "type": "multiple",
+          "question": "Which metaphorical state of globalization is best exemplified by the Berlin Wall, physical gold vaults, and strict paper passports?",
+          "options": [
+            "Liquidity",
+            "Solidity",
+            "Gaseousness",
+            "Plasma"
+          ],
+          "correct": 1,
+          "explanation": "Solidity represents the pre-modern and heavy industrial era of fixed geographic barriers, physical fortifications, and rigid territorial sovereignty."
+        },
+        {
+          "id": "q-ct1-7",
+          "type": "multiple",
+          "question": "What is the primary characteristic of the 'Gaseousness' metaphor in contemporary globalization?",
+          "options": [
+            "Heavy physical border checkpoints",
+            "Hyper-mobility, weightlessness, and ambient wireless/cloud networks",
+            "Slow maritime voyages across oceans",
+            "Permanent lifetime employment structures"
+          ],
+          "correct": 1,
+          "explanation": "Gaseousness captures the contemporary hyper-mobile, weightless era of cloud data, satellite signals, ambient connectivity, and airborne risks."
+        },
+        {
+          "id": "q-ct1-8",
+          "type": "multiple",
+          "question": "What term describes the phenomenon when governments respond to liquid global flows by erecting new physical walls, digital firewalls, and tariffs?",
+          "options": [
+            "Re-solidification",
+            "Condensation",
+            "Vaporization",
+            "Sublimation"
+          ],
+          "correct": 0,
+          "explanation": "Re-solidification refers to the re-imposition of solid structures (tariffs, border walls, internet censorship) by states seeking to reassert sovereign control over fluid global flows."
+        },
+        {
+          "id": "q-ct1-9",
+          "type": "multiple",
+          "question": "What percentage of transoceanic internet and communication traffic is carried by subsea fiber-optic cables lining the ocean floor?",
+          "options": [
+            "About 25%",
+            "About 50%",
+            "About 75%",
+            "Over 99%"
+          ],
+          "correct": 3,
+          "explanation": "Over 99% of all international internet data is carried by subsea fiber-optic cables; satellites handle less than 1% of global bandwidth."
+        },
+        {
+          "id": "q-ct1-10",
+          "type": "multiple",
+          "question": "What did David Harvey mean by the phrase 'Time-Space Compression'?",
+          "options": [
+            "Physical continents are drifting closer together geologically",
+            "Technological innovations reduce the time and perceived distance required to move people, goods, and information",
+            "Clocks in different time zones are being synchronized into a single world hour",
+            "Work hours in modern offices are becoming increasingly compressed"
+          ],
+          "correct": 1,
+          "explanation": "Time-Space Compression refers to how communications and transportation technology dramatically speed up global interactions, making the world feel physically smaller and faster."
+        }
+      ]
+    },
+    {
+      "checkpointId": "contempo-cp2",
+      "subject": "SOCSCI3",
+      "week": "Module 2",
+      "questions": [
+        {
+          "id": "q-ct2-1",
+          "type": "multiple",
+          "question": "Which historic maritime trade route (1565–1815) across the Pacific is recognized by economic historians as the birth of the first truly planetary global economy?",
+          "options": [
+            "The Trans-Saharan Caravan Route",
+            "The Manila-Acapulco Galleon Trade",
+            "The Dutch East India Spice Monopoly",
+            "The Hanseatic League"
+          ],
+          "correct": 1,
+          "explanation": "The Manila-Acapulco Galleon Trade linked Asia (Chinese silks, spices) with the Americas (Mexican silver) and Europe across the Pacific Ocean, establishing the first continuous planetary trading system."
+        },
+        {
+          "id": "q-ct2-2",
+          "type": "multiple",
+          "question": "Who coined the phrase 'The Fourth Industrial Revolution' and authored the seminal 2016 book on the topic?",
+          "options": [
+            "Bill Gates",
+            "Klaus Schwab",
+            "Thomas Friedman",
+            "Joseph Stiglitz"
+          ],
+          "correct": 1,
+          "explanation": "Professor Klaus Schwab, Founder and Executive Chairman of the World Economic Forum (WEF), formulated and popularized 'The Fourth Industrial Revolution' (4IR) in 2016."
+        },
+        {
+          "id": "q-ct2-3",
+          "type": "multiple",
+          "question": "What is the defining hallmark of the Fourth Industrial Revolution (4IR) that distinguishes it from the 3rd (Digital) Revolution?",
+          "options": [
+            "The introduction of steam power and mechanized looms",
+            "The widespread adoption of assembly lines and electricity",
+            "The fusion of technologies blurring the lines between physical, digital, and biological spheres",
+            "The initial development of mainframe computers and email"
+          ],
+          "correct": 2,
+          "explanation": "4IR is defined by Cyber-Physical Systems (CPS) that blur the physical, digital, and biological domains (AI, IoT, robotics, genetic engineering, 3D printing)."
+        },
+        {
+          "id": "q-ct2-4",
+          "type": "multiple",
+          "question": "Which two major international financial institutions were created during the Bretton Woods Conference in July 1944?",
+          "options": [
+            "World Trade Organization and the Federal Reserve",
+            "International Monetary Fund (IMF) and the World Bank (IBRD)",
+            "Bank for International Settlements and GATT",
+            "Asian Development Bank and UNESCO"
+          ],
+          "correct": 1,
+          "explanation": "The Bretton Woods Conference created the International Monetary Fund (IMF) and the World Bank (IBRD). The WTO was NOT created at Bretton Woods; it was established in 1995."
+        },
+        {
+          "id": "q-ct2-5",
+          "type": "multiple",
+          "question": "What was the 'Nixon Shock' of August 15, 1971?",
+          "options": [
+            "The introduction of the gold standard across Latin America",
+            "The unilateral termination of the US Dollar's convertibility into gold by President Richard Nixon",
+            "The signing of the North American Free Trade Agreement",
+            "The expulsion of China from the United Nations"
+          ],
+          "correct": 1,
+          "explanation": "On August 15, 1971, President Nixon announced the US would no longer redeem dollars for gold, ending the Bretton Woods fixed exchange rate system and initiating modern floating fiat currencies."
+        },
+        {
+          "id": "q-ct2-6",
+          "type": "multiple",
+          "question": "What international body officially succeeded the General Agreement on Tariffs and Trade (GATT) on January 1, 1995?",
+          "options": [
+            "The World Bank",
+            "The World Trade Organization (WTO)",
+            "The International Trade Organization",
+            "UNCTAD"
+          ],
+          "correct": 1,
+          "explanation": "The World Trade Organization (WTO) officially began operations on January 1, 1995, following the Uruguay Round negotiations, incorporating binding dispute settlement mechanisms."
+        },
+        {
+          "id": "q-ct2-7",
+          "type": "multiple",
+          "question": "What term describes the 10 neoliberal economic policy prescriptions formulated by John Williamson in 1989 for crisis-wracked developing countries?",
+          "options": [
+            "The Keynesian Consensus",
+            "The Washington Consensus",
+            "The Beijing Consensus",
+            "The Geneva Accords"
+          ],
+          "correct": 1,
+          "explanation": "The Washington Consensus refers to the 10 neoliberal policy reforms (fiscal discipline, trade liberalization, privatization, deregulation) promoted by the IMF, World Bank, and US Treasury."
+        },
+        {
+          "id": "q-ct2-8",
+          "type": "multiple",
+          "question": "Approximately what percentage of all global trade is estimated to take place within Global Value Chains (GVCs)?",
+          "options": [
+            "20%",
+            "40%",
+            "60%",
+            "80%"
+          ],
+          "correct": 3,
+          "explanation": "According to the World Bank and UNCTAD, roughly 80% of all international trade is integrated into Global Value Chains (GVCs), where goods are produced through multi-country input networks."
+        },
+        {
+          "id": "q-ct2-9",
+          "type": "multiple",
+          "question": "Which of the following is an example of 'Platform Capitalism' in the contemporary 4IR economy?",
+          "options": [
+            "A traditional steel foundry manufacturing railway rails",
+            "A state-owned coal mining conglomerate",
+            "A digital platform like Grab or Airbnb that coordinates transactions and extracts value from data without owning physical transport or hotel assets",
+            "A local farmer selling produce directly at a village bazaar"
+          ],
+          "correct": 2,
+          "explanation": "Platform capitalism refers to multisided digital intermediaries (Grab, Uber, Airbnb, Shopee) that leverage algorithms, network effects, and user data rather than physical production assets."
+        },
+        {
+          "id": "q-ct2-10",
+          "type": "multiple",
+          "question": "What economic phenomenon occurred during the 1930s Great Depression when countries raised import tariffs on each other, deepening global economic collapse?",
+          "options": [
+            "Quantitative Easing",
+            "Beggar-Thy-Neighbor Protectionism",
+            "Supply-Side Economics",
+            "Structural Adjustment"
+          ],
+          "correct": 1,
+          "explanation": "Beggar-Thy-Neighbor policies (such as the US Smoot-Hawley Tariff Act of 1930) involved competitive protectionist barriers and currency devaluations that deepened the Great Depression."
+        }
+      ]
+    },
+    {
+      "checkpointId": "contempo-cp3",
+      "subject": "SOCSCI3",
+      "week": "Module 3",
+      "questions": [
+        {
+          "id": "q-ct3-1",
+          "type": "multiple",
+          "question": "Which school of thought on globalization claims that the world is completely borderless ('The World is Flat') and that the nation-state is becoming obsolete?",
+          "options": [
+            "The Skeptical School",
+            "The Hyperglobalist (Globalist) School",
+            "The Transformationalist School",
+            "The Neo-Marxist School"
+          ],
+          "correct": 1,
+          "explanation": "The Hyperglobalist School (championed by Kenichi Ohmae and Thomas Friedman) argues that global markets and technology have made the nation-state an obsolete, powerless transmission belt."
+        },
+        {
+          "id": "q-ct3-2",
+          "type": "multiple",
+          "question": "What is the central argument of the Skeptical school (Paul Hirst & Grahame Thompson) regarding the global economy?",
+          "options": [
+            "The nation-state has completely dissolved",
+            "Globalization is exaggerated; economic integration is primarily regional (trade blocs), and nation-states remain as powerful as ever",
+            "A single one-world government will form by the year 2030",
+            "Cultural differences between nations have completely vanished"
+          ],
+          "correct": 1,
+          "explanation": "Skeptics argue that globalization is an ideological myth, that current trade levels are comparable to the pre-1914 Gold Standard, that economic activity is regionalized, and that nation-states remain supreme."
+        },
+        {
+          "id": "q-ct3-3",
+          "type": "multiple",
+          "question": "How does the Transformationalist school (David Held & Anthony Giddens) understand the trajectory of globalization?",
+          "options": [
+            "It has a fixed, inevitable end-state of universal harmony",
+            "It is completely non-existent and a mere fantasy of journalists",
+            "It is an unprecedented, complex, and non-linear dynamic that transforms and restructures state power without eliminating it",
+            "It is solely an American corporate conspiracy"
+          ],
+          "correct": 2,
+          "explanation": "Transformationalists argue globalization has no predetermined end-state; it is a contradictory, non-linear force that recalibrates and restructures state authority rather than simply destroying it."
+        },
+        {
+          "id": "q-ct3-4",
+          "type": "multiple",
+          "question": "In Immanuel Wallerstein's World-Systems Theory, which stratum acts as a vital geopolitical buffer zone between the wealthy Core and the exploited Periphery?",
+          "options": [
+            "The Fourth World",
+            "The Semi-Periphery",
+            "The Second World",
+            "The Outer Ring"
+          ],
+          "correct": 1,
+          "explanation": "The Semi-Periphery (nations like Brazil, Russia, India, China, South Africa, and Mexico) serves as a buffer zone that prevents direct bipolar class conflict between core and periphery."
+        },
+        {
+          "id": "q-ct3-5",
+          "type": "multiple",
+          "question": "How does Dependency Theory (Raúl Prebisch, Andre Gunder Frank) explain the persistent poverty of developing nations?",
+          "options": [
+            "Developing nations have lazy populations that refuse to adopt industrial values",
+            "Developing nations lack natural resources and fertile agricultural land",
+            "Underdevelopment is actively generated because resources flow from the periphery to the wealthy core through unequal terms of trade",
+            "Developing nations suffer from excessive government spending on space exploration"
+          ],
+          "correct": 2,
+          "explanation": "Dependency Theory argues that underdevelopment is not a natural starting point, but the structural outcome of core-periphery exploitation and unequal exchange ('The Development of Underdevelopment')."
+        },
+        {
+          "id": "q-ct3-6",
+          "type": "multiple",
+          "question": "Who authored the 5 universal stages of economic growth in Modernization Theory (1960)?",
+          "options": [
+            "Walt Rostow",
+            "Immanuel Wallerstein",
+            "Karl Marx",
+            "John Maynard Keynes"
+          ],
+          "correct": 0,
+          "explanation": "Walt Rostow proposed the five stages of economic growth: Traditional Society, Preconditions for Takeoff, Takeoff, Drive to Maturity, and Age of High Mass Consumption."
+        },
+        {
+          "id": "q-ct3-7",
+          "type": "multiple",
+          "question": "What term coined by George Ritzer describes how the operating principles of fast-food restaurants come to dominate sectors of global society?",
+          "options": [
+            "Americanization",
+            "McDonaldization",
+            "Disneyization",
+            "Fordism"
+          ],
+          "correct": 1,
+          "explanation": "George Ritzer coined 'McDonaldization' (1993) to describe society's rationalization through efficiency, calculability, predictability, and control via non-human technology."
+        },
+        {
+          "id": "q-ct3-8",
+          "type": "multiple",
+          "question": "Which of the following is NOT one of George Ritzer's four pillars of McDonaldization?",
+          "options": [
+            "Efficiency",
+            "Calculability",
+            "Affordability",
+            "Predictability"
+          ],
+          "correct": 2,
+          "explanation": "The 4 pillars are Efficiency, Calculability, Predictability, and Control. 'Affordability' is an exam distractor (Calculability emphasizes quantifiable speed and volume, not price)."
+        },
+        {
+          "id": "q-ct3-9",
+          "type": "multiple",
+          "question": "What is Roland Robertson's concept of 'Glocalization'?",
+          "options": [
+            "The complete wiping out of local traditions by Western pop music",
+            "The blending and mutual adaptation of global and local cultures to produce hybrid cultural forms",
+            "The nationalization of all multinational companies by local governments",
+            "The prohibition of global trade to protect village markets"
+          ],
+          "correct": 1,
+          "explanation": "Glocalization (global + local) describes how global products and ideas are re-interpreted and hybridized with local traditions (e.g., McSpaghetti or Jollibee overseas menu adaptations)."
+        },
+        {
+          "id": "q-ct3-10",
+          "type": "multiple",
+          "question": "In 'The Clash of Civilizations', what did Samuel Huntington predict would be the primary source of global conflict in the post-Cold War world?",
+          "options": [
+            "Class warfare between industrial workers and capitalists",
+            "Territorial disputes over deep-sea mineral rights",
+            "Cultural and religious differences along civilizational fault lines",
+            "Competition over orbital satellite frequencies"
+          ],
+          "correct": 2,
+          "explanation": "Samuel Huntington argued that cultural and religious fault lines between civilizations (Western, Islamic, Sinic, Hindu, etc.) would be the battle lines of the future."
+        }
+      ]
+    },
+    {
+      "checkpointId": "contempo-cp4",
+      "subject": "SOCSCI3",
+      "week": "Module 4",
+      "questions": [
+        {
+          "id": "q-ct4-1",
+          "type": "multiple",
+          "question": "Who revolutionized global logistics in 1956 by patenting and launching the standardized intermodal shipping container?",
+          "options": [
+            "Ferdinand de Lesseps",
+            "Malcolm McLean",
+            "Henry Ford",
+            "Andrew Carnegie"
+          ],
+          "correct": 1,
+          "explanation": "American transport entrepreneur Malcolm McLean introduced standardized container shipping in 1956, slashing loading costs and transit turnaround times."
+        },
+        {
+          "id": "q-ct4-2",
+          "type": "multiple",
+          "question": "By approximately how much did the introduction of containerization reduce maritime freight handling costs compared to traditional break-bulk shipping?",
+          "options": [
+            "By about 10%",
+            "By about 30%",
+            "By about 60%",
+            "By over 90%"
+          ],
+          "correct": 3,
+          "explanation": "Containerization reduced freight handling and port stevedoring costs by over 90%, transforming maritime shipping into an ultra-low-cost global supply line."
+        },
+        {
+          "id": "q-ct4-3",
+          "type": "multiple",
+          "question": "What is the primary physical conduit carrying over 99% of all international internet data and interbank communications across continents?",
+          "options": [
+            "Low-Earth orbit satellites (Starlink)",
+            "Submarine fiber-optic cables",
+            "High-frequency radio transmission towers",
+            "Microwave relay stations"
+          ],
+          "correct": 1,
+          "explanation": "Submarine fiber-optic cables on the ocean floor carry over 99% of all transoceanic internet traffic due to their immense bandwidth, reliability, and low latency."
+        },
+        {
+          "id": "q-ct4-4",
+          "type": "multiple",
+          "question": "What international secure financial messaging network connects over 11,000 banks worldwide to execute cross-border wire transfers?",
+          "options": [
+            "NASDAQ",
+            "SWIFT",
+            "INTERPOL",
+            "OPEC"
+          ],
+          "correct": 1,
+          "explanation": "SWIFT (Society for Worldwide Interbank Financial Telecommunication) is the global messaging backbone connecting thousands of banking institutions across 200+ countries."
+        },
+        {
+          "id": "q-ct4-5",
+          "type": "multiple",
+          "question": "How much annual revenue does the Philippine IT-BPM (Business Process Outsourcing) industry generate as a premier destination for offshore services?",
+          "options": [
+            "Around $2 billion",
+            "Around $10 billion",
+            "Over $35 billion",
+            "Over $100 billion"
+          ],
+          "correct": 2,
+          "explanation": "The Philippine IT-BPM sector generates over $35 billion annually, directly employing over 1.7 million professionals and serving as a massive economic pillar alongside India."
+        },
+        {
+          "id": "q-ct4-6",
+          "type": "multiple",
+          "question": "What is the annual macroeconomic value of remittances sent by Overseas Filipino Workers (OFWs) back to the Philippines?",
+          "options": [
+            "Over $37 billion (roughly 9% of Philippine GDP)",
+            "Around $5 billion (roughly 1% of Philippine GDP)",
+            "Around $12 billion (roughly 3% of Philippine GDP)",
+            "Over $80 billion (roughly 25% of Philippine GDP)"
+          ],
+          "correct": 0,
+          "explanation": "Annual OFW cash remittances exceed $37 billion, contributing approximately 9% of Philippine GDP, providing vital foreign exchange reserves and driving domestic consumer spending."
+        },
+        {
+          "id": "q-ct4-7",
+          "type": "multiple",
+          "question": "What is the 'Democratic Deficit' commonly cited in critiques of global governance?",
+          "options": [
+            "Democracies have higher government debt than dictatorships",
+            "International bodies (IMF, WTO, World Bank) make sweeping economic decisions without direct democratic voting or accountability to the citizens affected",
+            "Elections in European countries are held too frequently",
+            "Citizens are losing interest in voting for local municipal councilors"
+          ],
+          "correct": 1,
+          "explanation": "The Democratic Deficit refers to the reality that technocrats and unelected officials in global institutions (IMF, WTO, World Bank) make crucial planetary policy decisions without direct electoral accountability."
+        },
+        {
+          "id": "q-ct4-8",
+          "type": "multiple",
+          "question": "Which of the following is a classic example of a 'Problem Without Passports' (transboundary crisis)?",
+          "options": [
+            "A localized city zoning dispute",
+            "Anthropogenic climate change and global carbon emissions",
+            "A municipal speed limit regulation",
+            "A domestic property inheritance lawsuit"
+          ],
+          "correct": 1,
+          "explanation": "Problems Without Passports are transboundary crises (climate change, pandemics, international cyber-attacks) that cross borders effortlessly and cannot be resolved by any single nation-state."
+        },
+        {
+          "id": "q-ct4-9",
+          "type": "multiple",
+          "question": "What term describes the post-2008 deceleration and retreat of global trade integration and supply chain fragmentation?",
+          "options": [
+            "Hyperglobalization",
+            "Deglobalization (or 'Slowbalization')",
+            "Global Convergence",
+            "Multilateral Expansion"
+          ],
+          "correct": 1,
+          "explanation": "Deglobalization (or Slowbalization) describes the plateauing and retreat of global trade and investment flows following the 2008 financial crisis, protectionist trade wars, and COVID-19."
+        },
+        {
+          "id": "q-ct4-10",
+          "type": "multiple",
+          "question": "What is the strategic corporate practice of moving supply chains to geographically close or politically friendly allied nations called?",
+          "options": [
+            "Offshoring",
+            "Nearshoring / Friendshoring",
+            "Import Substitution",
+            "Mercantilism"
+          ],
+          "correct": 1,
+          "explanation": "Nearshoring and friendshoring involve relocating production chains to neighboring countries or geopolitical allies to protect against trade wars, geopolitical conflict, and logistical shocks."
+        }
+      ]
     }
   ],
   "glossaries": {
@@ -9451,6 +12060,430 @@ const REVIEWER_DATA = {
         "category": "Procurement",
         "week": "Week 6"
       }
+    ],
+    "RIZAL": [
+      {
+        "term": "Republic Act No. 1425",
+        "expansion": "The Rizal Law",
+        "purpose": "Philippine law enacted on June 12, 1956 mandating the inclusion of courses on the life, works, and writings of Jose Rizal (especially unexpurgated Noli and Fili) in all school curricula.",
+        "category": "Legislation",
+        "week": "Module 1"
+      },
+      {
+        "term": "Senate Bill No. 438",
+        "expansion": "Original Rizal Bill",
+        "purpose": "Legislative bill filed by Sen. Jose P. Laurel and authored by Sen. Claro M. Recto on April 17, 1956 that sparked fierce national debate with the Catholic Church.",
+        "category": "Legislation",
+        "week": "Module 1"
+      },
+      {
+        "term": "House Bill No. 5564",
+        "expansion": "House Counterpart of the Rizal Bill",
+        "purpose": "The lower house bill that approved the Rizal law with 71 in favor, 9 against, and 2 abstentions.",
+        "category": "Legislation",
+        "week": "Module 1"
+      },
+      {
+        "term": "Unexpurgated Edition",
+        "expansion": "Edición Completa / Sin Censura",
+        "purpose": "The complete, uncensored original text of Noli Me Tangere and El Filibusterismo mandated as basic textbooks for tertiary/collegiate degree programs.",
+        "category": "Legislation",
+        "week": "Module 1"
+      },
+      {
+        "term": "Religious Exemption Clause",
+        "expansion": "Sworn Statement Provision of RA 1425 Sec 1",
+        "purpose": "Legal provision allowing students with conscientious religious objections to be exempted from reading the unexpurgated novels upon submitting an affidavit, without exempting them from the course.",
+        "category": "Legislation",
+        "week": "Module 1"
+      },
+      {
+        "term": "The Sentinel",
+        "expansion": "Official Organ of Catholic Action of Manila",
+        "purpose": "Catholic newspaper that was transformed from a weekly into a daily publication to spearhead media opposition against the passage of the Rizal Bill in 1956.",
+        "category": "Media",
+        "week": "Module 1"
+      },
+      {
+        "term": "Taft Commission",
+        "expansion": "Philippine Commission (1901)",
+        "purpose": "Colonial body headed by William Howard Taft that established the 4 criteria and officially chose Dr. José Rizal as the National Hero of the Philippines.",
+        "category": "Historical Body",
+        "week": "Module 1"
+      },
+      {
+        "term": "Memorandum Order No. 246",
+        "expansion": "FVR Rizal Law Enforcement Order (1994)",
+        "purpose": "Executive order issued by President Fidel V. Ramos directing strict enforcement of and compliance with RA 1425 in all schools across the country.",
+        "category": "Legislation",
+        "week": "Module 1"
+      },
+      {
+        "term": "Suez Canal",
+        "expansion": "Maritime Waterway across Isthmus of Suez",
+        "purpose": "103-mile canal engineered by Ferdinand de Lesseps and opened on Nov 17, 1869; cut travel time from Spain to Manila from over 3 months to 32 days, accelerating liberal ideas.",
+        "category": "Geography",
+        "week": "Module 2"
+      },
+      {
+        "term": "Carlos María de la Torre",
+        "expansion": "Liberal Governor-General of the Philippines (1869–1871)",
+        "purpose": "First liberal governor-general who lived simply, abolished censorship, recognized free speech, and stimulated the secularization movement led by Fr. Jose Burgos.",
+        "category": "Historical Figure",
+        "week": "Module 2"
+      },
+      {
+        "term": "GOMBURZA",
+        "expansion": "Fathers Mariano Gomez, José Burgos, & Jacinto Zamora",
+        "purpose": "Three secular Filipino priests executed by garrote in Bagumbayan on Feb 17, 1872 following the Cavite Mutiny; inspired Rizal's lifelong struggle and El Filibusterismo.",
+        "category": "Martyrs",
+        "week": "Module 2"
+      },
+      {
+        "term": "Frailocracy",
+        "expansion": "Frailocracia / Rule of the Friars",
+        "purpose": "The dominant political, economic, and cultural supremacy of Spanish religious orders over municipal governments and colonial administration in the 19th-century Philippines.",
+        "category": "Colonial System",
+        "week": "Module 2"
+      },
+      {
+        "term": "Polo y servicio",
+        "expansion": "Spanish Colonial Forced Labor System",
+        "purpose": "Compulsory uncompensated manual labor of 40 days per year imposed on native Filipino males aged 16 to 60 for community infrastructure.",
+        "category": "Colonial Policy",
+        "week": "Module 2"
+      },
+      {
+        "term": "Bandala",
+        "expansion": "Forced Agricultural Requisition System",
+        "purpose": "Colonial practice of coercively buying agricultural produce from native farmers at nominal prices, often paying only with promissory notes.",
+        "category": "Economic Policy",
+        "week": "Module 2"
+      },
+      {
+        "term": "Peninsulares",
+        "expansion": "Spaniards Born in the Iberian Peninsula",
+        "purpose": "The highest caste in the 19th-century colonial hierarchy, holding the supreme government offices, bishoprics, and judicial positions.",
+        "category": "Social Class",
+        "week": "Module 2"
+      },
+      {
+        "term": "Insulares",
+        "expansion": "Spaniards Born in the Philippines",
+        "purpose": "Second tier of the colonial hierarchy; pure-blooded Spaniards born in the colony, derisively termed 'Filipinos' before the term came to include native brown people.",
+        "category": "Social Class",
+        "week": "Module 2"
+      },
+      {
+        "term": "Principalia",
+        "expansion": "Educated Native Elite & Landholders",
+        "purpose": "The prominent native town aristocracy (mayors, cabezas, educated landholders) from which Dr. José Rizal's family originated.",
+        "category": "Social Class",
+        "week": "Module 2"
+      },
+      {
+        "term": "Indios",
+        "expansion": "Native Austronesian Filipinos",
+        "purpose": "Derogatory term used by Spanish colonizers to designate native brown Filipinos, subjecting them to severe social and legal discrimination.",
+        "category": "Social Class",
+        "week": "Module 2"
+      },
+      {
+        "term": "Guardia Civil",
+        "expansion": "Spanish Paramilitary Constabulary Force",
+        "purpose": "Armed police unit established to suppress bandits, but which became infamous for harassing, torturing, and murdering innocent Filipino civilians.",
+        "category": "Military",
+        "week": "Module 2"
+      },
+      {
+        "term": "Fray Botod",
+        "expansion": "Satirical Work by Graciano Lopez-Jaena",
+        "purpose": "Famous literary critique portraying the big-bellied, immoral, and abusive Spanish friar, exposing religious hypocrisy in the colony.",
+        "category": "Literature",
+        "week": "Module 2"
+      },
+      {
+        "term": "SS Salvadora",
+        "expansion": "Spanish Passenger Steamer",
+        "purpose": "The vessel José Rizal boarded on May 3, 1882 in Manila bound for Singapore at the start of his secret mission to Europe.",
+        "category": "Maritime",
+        "week": "Module 3"
+      },
+      {
+        "term": "Djemnah",
+        "expansion": "French Mail Steamer",
+        "purpose": "The French ship Rizal boarded in Singapore on May 11, 1882 to traverse the Indian Ocean, Suez Canal, and Mediterranean to Marseilles.",
+        "category": "Maritime",
+        "week": "Module 3"
+      },
+      {
+        "term": "Château d'If",
+        "expansion": "Island Fortress Prison in Marseilles",
+        "purpose": "Historic French prison visited by Rizal on June 12, 1882; famous setting where Edmond Dantès of The Count of Monte Cristo was incarcerated.",
+        "category": "Historical Site",
+        "week": "Module 3"
+      },
+      {
+        "term": "Amor Patrio",
+        "expansion": "Love of Country",
+        "purpose": "Rizal's first nationalistic essay written abroad (Barcelona), published August 20, 1882 in Diarong Tagalog under pen-name Laong Laan.",
+        "category": "Literature",
+        "week": "Module 3"
+      },
+      {
+        "term": "Laong Laan",
+        "expansion": "Rizal's Literary Pen-Name",
+        "purpose": "Tagalog pen-name meaning 'Ever Prepared' used by Rizal when publishing articles for Diarong Tagalog and La Solidaridad.",
+        "category": "Biography",
+        "week": "Module 3"
+      },
+      {
+        "term": "Círculo Hispano-Filipino",
+        "expansion": "Spanish-Filipino Student Society in Madrid",
+        "purpose": "Organization of Filipino students and liberal Spaniards in Madrid where Rizal declaimed his poem 'Me Piden Versos' on New Year's Eve 1882.",
+        "category": "Organization",
+        "week": "Module 3"
+      },
+      {
+        "term": "Sobresaliente",
+        "expansion": "Excellent / Highest Academic Rating",
+        "purpose": "The top distinction awarded to Dr. José Rizal upon earning his Licentiate in Philosophy and Letters from Universidad Central de Madrid in June 1885.",
+        "category": "Academic",
+        "week": "Module 3"
+      },
+      {
+        "term": "Dr. Louis de Weckert",
+        "expansion": "Foremost French Ophthalmologist (Paris)",
+        "purpose": "Leading French eye specialist under whom Rizal served as a clinical assistant from October 1885 to February 1886 to master eye surgery.",
+        "category": "Historical Figure",
+        "week": "Module 4"
+      },
+      {
+        "term": "Dr. Máximo Viola",
+        "expansion": "Savior of Noli Me Tangere",
+        "purpose": "Filipino physician from San Miguel, Bulacan who loaned Rizal ₱300 to print 2,000 copies of Noli Me Tangere in Berlin in March 1887.",
+        "category": "Historical Figure",
+        "week": "Module 4"
+      },
+      {
+        "term": "Berliner Buchdruckerei-Actien-Gesellschaft",
+        "expansion": "Printing Press of Noli Me Tangere",
+        "purpose": "The Berlin printing establishment that charged ₱300 to print the first 2,000 copies of Noli Me Tangere, finished March 21, 1887.",
+        "category": "Historical Site",
+        "week": "Module 4"
+      }
+    ],
+    "SOCSCI3": [
+      {
+        "term": "Globality",
+        "expansion": "Social Condition of Global Interconnection",
+        "purpose": "Manfred Steger's concept defining an omnipresent social state characterized by tight economic, political, and cultural interconnections.",
+        "category": "Theory",
+        "week": "Module 1"
+      },
+      {
+        "term": "Time-Space Compression",
+        "expansion": "Harvey's Spatial Acceleration Concept",
+        "purpose": "David Harvey's concept explaining how communication and transportation technologies shrink geographic distance and speed up transactions.",
+        "category": "Theory",
+        "week": "Module 1"
+      },
+      {
+        "term": "Time-Space Distanciation",
+        "expansion": "Giddens' Transnational Social Relation Concept",
+        "purpose": "Anthony Giddens' concept describing the stretching of social relations across geographical distances so remote events shape local realities.",
+        "category": "Theory",
+        "week": "Module 1"
+      },
+      {
+        "term": "Solidity",
+        "expansion": "Pre-Modern Heavy Metaphor of Matter",
+        "purpose": "A metaphorical state characterized by fixed boundaries, physical barriers (Berlin Wall), and high spatial resistance to mobility.",
+        "category": "Metaphor",
+        "week": "Module 1"
+      },
+      {
+        "term": "Liquidity",
+        "expansion": "Zygmunt Bauman's Modern Fluid Metaphor",
+        "purpose": "The condition where social phenomena, capital, and data become fluid, highly mobile, transient, and incapable of keeping a fixed shape.",
+        "category": "Metaphor",
+        "week": "Module 1"
+      },
+      {
+        "term": "Gaseousness",
+        "expansion": "Contemporary Hyper-Mobile Metaphor",
+        "purpose": "The weightless state of globalization characterized by cloud computing, satellite wireless signals, ambient networks, and airborne risks.",
+        "category": "Metaphor",
+        "week": "Module 1"
+      },
+      {
+        "term": "Ethnoscapes",
+        "expansion": "Appadurai's Landscape of Shifting Persons",
+        "purpose": "The flow of moving persons across borders—tourists, refugees, immigrants, and Overseas Filipino Workers (OFWs).",
+        "category": "Global Scapes",
+        "week": "Module 1"
+      },
+      {
+        "term": "Technoscapes",
+        "expansion": "Appadurai's Landscape of Technology",
+        "purpose": "The rapid transit of high and low mechanical, digital, and computing technologies across previously impervious national borders.",
+        "category": "Global Scapes",
+        "week": "Module 1"
+      },
+      {
+        "term": "Financescapes",
+        "expansion": "Appadurai's Landscape of Global Capital",
+        "purpose": "The hyper-accelerated movement of megabucks through international currency exchanges, stock markets, crypto, and remittances.",
+        "category": "Global Scapes",
+        "week": "Module 1"
+      },
+      {
+        "term": "Mediascapes",
+        "expansion": "Appadurai's Landscape of Image Production",
+        "purpose": "The worldwide distribution of electronic capabilities to produce, broadcast, and consume visual narratives, films, and streaming media.",
+        "category": "Global Scapes",
+        "week": "Module 1"
+      },
+      {
+        "term": "Ideoscapes",
+        "expansion": "Appadurai's Landscape of Political Ideologies",
+        "purpose": "Chains of political symbols, state values, and counter-ideologies (democracy, human rights, environmentalism) circulating globally.",
+        "category": "Global Scapes",
+        "week": "Module 1"
+      },
+      {
+        "term": "Global Friction",
+        "expansion": "Anna Tsing's Concept of Flow Impediment",
+        "purpose": "The obstacles, resistance, regulations, and sticky institutions that slow down, redirect, or halt smooth global movement.",
+        "category": "Theory",
+        "week": "Module 1"
+      },
+      {
+        "term": "Galleon Trade",
+        "expansion": "Manila-Acapulco Maritime Trade (1565–1815)",
+        "purpose": "The transpacific trading system connecting Asia, the Americas, and Europe, widely recognized as the birth of the first continuous global economy.",
+        "category": "Economic History",
+        "week": "Module 2"
+      },
+      {
+        "term": "4IR / FIRe",
+        "expansion": "The Fourth Industrial Revolution",
+        "purpose": "Klaus Schwab's framework denoting the fusion of technologies blurring the lines between physical, digital, and biological spheres (AI, IoT, CPS).",
+        "category": "Technology & Economy",
+        "week": "Module 2"
+      },
+      {
+        "term": "Cyber-Physical Systems (CPS)",
+        "expansion": "Integrated Digital-Physical Mechanism",
+        "purpose": "Engineered systems that orchestrate physical mechanisms through computer algorithms, sensors, and network actuation.",
+        "category": "Technology",
+        "week": "Module 2"
+      },
+      {
+        "term": "Bretton Woods System",
+        "expansion": "Post-WWII Global Financial Order (1944)",
+        "purpose": "The international monetary framework established in New Hampshire in 1944 that created the IMF and World Bank and pegged the US Dollar to gold.",
+        "category": "Financial Architecture",
+        "week": "Module 2"
+      },
+      {
+        "term": "Nixon Shock",
+        "expansion": "August 15, 1971 Gold Window Closure",
+        "purpose": "President Richard Nixon's unilateral termination of the US Dollar's gold convertibility, initiating modern floating fiat currencies.",
+        "category": "Financial History",
+        "week": "Module 2"
+      },
+      {
+        "term": "World Trade Organization (WTO)",
+        "expansion": "Global Intergovernmental Trade Body",
+        "purpose": "Organization founded on January 1, 1995 to replace GATT, administering multilateral trade agreements and binding dispute resolution.",
+        "category": "Institutions",
+        "week": "Module 2"
+      },
+      {
+        "term": "Washington Consensus",
+        "expansion": "John Williamson's Neoliberal Prescriptions (1989)",
+        "purpose": "Set of 10 market-oriented policy reforms (fiscal austerity, privatization, deregulation, free trade) imposed on developing nations.",
+        "category": "Economic Policy",
+        "week": "Module 2"
+      },
+      {
+        "term": "Global Value Chain (GVC)",
+        "expansion": "Geographically Fragmented Production Network",
+        "purpose": "Production model where individual stages of manufacturing and assembly are distributed across multiple nations based on comparative advantage (~80% of trade).",
+        "category": "Trade",
+        "week": "Module 2"
+      },
+      {
+        "term": "Hyperglobalist School",
+        "expansion": "The Borderless World Paradigm",
+        "purpose": "Theoretical camp (Ohmae, Friedman) claiming the nation-state is becoming obsolete in the face of unstoppable global market integration.",
+        "category": "Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "Skeptical School",
+        "expansion": "The Regionalization & Strong State Paradigm",
+        "purpose": "Theoretical camp (Hirst & Thompson) arguing that globalization is an exaggerated myth and that trade is primarily regionalized among powerful nation-states.",
+        "category": "Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "Transformationalist School",
+        "expansion": "The State Restructuring Paradigm",
+        "purpose": "Theoretical camp (Held & Giddens) asserting that globalization is an unprecedented force that transforms and recalibrates state power with no fixed end-point.",
+        "category": "Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "World-Systems Theory",
+        "expansion": "Immanuel Wallerstein's Macro-Sociological Model",
+        "purpose": "Structural theory dividing the capitalist world economy into three unequal strata: Core, Semi-Periphery, and Periphery.",
+        "category": "Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "Dependency Theory",
+        "expansion": "Core-Periphery Exploitation Framework",
+        "purpose": "Critique of modernization theory arguing that resources flow from poor peripheral nations to wealthy core nations via unequal terms of trade.",
+        "category": "Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "McDonaldization",
+        "expansion": "George Ritzer's Rationalization Theory (1993)",
+        "purpose": "The process by which the principles of the fast-food restaurant dominate global society through Efficiency, Calculability, Predictability, and Control.",
+        "category": "Cultural Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "Glocalization",
+        "expansion": "Roland Robertson's Hybridization Concept",
+        "purpose": "The creative blending of global and local cultural forces, producing unique hybrid cultural practices and commercial adaptations.",
+        "category": "Cultural Theory",
+        "week": "Module 3"
+      },
+      {
+        "term": "Containerization",
+        "expansion": "Malcolm McLean's Intermodal Shipping System (1956)",
+        "purpose": "Standardized shipping container system (TEUs) that mechanized cargo transfer between ships, rail, and trucks, reducing freight costs by over 90%.",
+        "category": "Logistics",
+        "week": "Module 4"
+      },
+      {
+        "term": "SWIFT",
+        "expansion": "Society for Worldwide Interbank Financial Telecommunication",
+        "purpose": "Secure financial messaging network linking over 11,000 banking institutions worldwide to authorize and process cross-border fund transfers.",
+        "category": "Financial Technology",
+        "week": "Module 4"
+      },
+      {
+        "term": "Democratic Deficit",
+        "expansion": "Governance Accountability Gap",
+        "purpose": "The lack of direct democratic oversight and public electoral accountability in international institutions (IMF, WTO, World Bank) affecting national citizens.",
+        "category": "Governance",
+        "week": "Module 4"
+      }
     ]
   },
   "circuits": [
@@ -9466,36 +12499,239 @@ const REVIEWER_DATA = {
       "image": "assets/logic_gates_reference.jpg",
       "note": "Authoritative graphical reference for AR101 computer architecture. Fundamental to understanding Half Adders, Full Adders, and Carry-Lookahead generation networks.",
       "truth_table": {
-        "headers": ["Gate Name", "Type", "Input A", "Input B", "Output", "Active-1 (High) Condition"],
+        "headers": [
+          "Gate Name",
+          "Type",
+          "Input A",
+          "Input B",
+          "Output",
+          "Active-1 (High) Condition"
+        ],
         "rows": [
-          ["Buffer", "1-Input", "0", "—", "0", "When Input = 1"],
-          ["Buffer", "1-Input", "1", "—", "1", "When Input = 1"],
-          ["Inverter (NOT)", "1-Input", "0", "—", "1", "When Input = 0 (Inverts input)"],
-          ["Inverter (NOT)", "1-Input", "1", "—", "0", "When Input = 0"],
-          ["AND", "2-Input", "0", "0", "0", "Both A and B are 1"],
-          ["AND", "2-Input", "1", "0", "0", "Both A and B are 1"],
-          ["AND", "2-Input", "0", "1", "0", "Both A and B are 1"],
-          ["AND", "2-Input", "1", "1", "1", "Both A and B are 1"],
-          ["NAND", "2-Input", "0", "0", "1", "At least one input is 0 (Universal Gate)"],
-          ["NAND", "2-Input", "1", "0", "1", "At least one input is 0"],
-          ["NAND", "2-Input", "0", "1", "1", "At least one input is 0"],
-          ["NAND", "2-Input", "1", "1", "0", "At least one input is 0"],
-          ["OR", "2-Input", "0", "0", "0", "At least one input is 1"],
-          ["OR", "2-Input", "1", "0", "1", "At least one input is 1"],
-          ["OR", "2-Input", "0", "1", "1", "At least one input is 1"],
-          ["OR", "2-Input", "1", "1", "1", "At least one input is 1"],
-          ["NOR", "2-Input", "0", "0", "1", "Both inputs are 0 (Universal Gate)"],
-          ["NOR", "2-Input", "1", "0", "0", "Both inputs are 0"],
-          ["NOR", "2-Input", "0", "1", "0", "Both inputs are 0"],
-          ["NOR", "2-Input", "1", "1", "0", "Both inputs are 0"],
-          ["XOR", "2-Input", "0", "0", "0", "Inputs are different (Sum bit / Odd Parity)"],
-          ["XOR", "2-Input", "1", "0", "1", "Inputs are different"],
-          ["XOR", "2-Input", "0", "1", "1", "Inputs are different"],
-          ["XOR", "2-Input", "1", "1", "0", "Inputs are different"],
-          ["XNOR", "2-Input", "0", "0", "1", "Inputs are identical (Equivalence / Even Parity)"],
-          ["XNOR", "2-Input", "1", "0", "0", "Inputs are identical"],
-          ["XNOR", "2-Input", "0", "1", "0", "Inputs are identical"],
-          ["XNOR", "2-Input", "1", "1", "1", "Inputs are identical"]
+          [
+            "Buffer",
+            "1-Input",
+            "0",
+            "—",
+            "0",
+            "When Input = 1"
+          ],
+          [
+            "Buffer",
+            "1-Input",
+            "1",
+            "—",
+            "1",
+            "When Input = 1"
+          ],
+          [
+            "Inverter (NOT)",
+            "1-Input",
+            "0",
+            "—",
+            "1",
+            "When Input = 0 (Inverts input)"
+          ],
+          [
+            "Inverter (NOT)",
+            "1-Input",
+            "1",
+            "—",
+            "0",
+            "When Input = 0"
+          ],
+          [
+            "AND",
+            "2-Input",
+            "0",
+            "0",
+            "0",
+            "Both A and B are 1"
+          ],
+          [
+            "AND",
+            "2-Input",
+            "1",
+            "0",
+            "0",
+            "Both A and B are 1"
+          ],
+          [
+            "AND",
+            "2-Input",
+            "0",
+            "1",
+            "0",
+            "Both A and B are 1"
+          ],
+          [
+            "AND",
+            "2-Input",
+            "1",
+            "1",
+            "1",
+            "Both A and B are 1"
+          ],
+          [
+            "NAND",
+            "2-Input",
+            "0",
+            "0",
+            "1",
+            "At least one input is 0 (Universal Gate)"
+          ],
+          [
+            "NAND",
+            "2-Input",
+            "1",
+            "0",
+            "1",
+            "At least one input is 0"
+          ],
+          [
+            "NAND",
+            "2-Input",
+            "0",
+            "1",
+            "1",
+            "At least one input is 0"
+          ],
+          [
+            "NAND",
+            "2-Input",
+            "1",
+            "1",
+            "0",
+            "At least one input is 0"
+          ],
+          [
+            "OR",
+            "2-Input",
+            "0",
+            "0",
+            "0",
+            "At least one input is 1"
+          ],
+          [
+            "OR",
+            "2-Input",
+            "1",
+            "0",
+            "1",
+            "At least one input is 1"
+          ],
+          [
+            "OR",
+            "2-Input",
+            "0",
+            "1",
+            "1",
+            "At least one input is 1"
+          ],
+          [
+            "OR",
+            "2-Input",
+            "1",
+            "1",
+            "1",
+            "At least one input is 1"
+          ],
+          [
+            "NOR",
+            "2-Input",
+            "0",
+            "0",
+            "1",
+            "Both inputs are 0 (Universal Gate)"
+          ],
+          [
+            "NOR",
+            "2-Input",
+            "1",
+            "0",
+            "0",
+            "Both inputs are 0"
+          ],
+          [
+            "NOR",
+            "2-Input",
+            "0",
+            "1",
+            "0",
+            "Both inputs are 0"
+          ],
+          [
+            "NOR",
+            "2-Input",
+            "1",
+            "1",
+            "0",
+            "Both inputs are 0"
+          ],
+          [
+            "XOR",
+            "2-Input",
+            "0",
+            "0",
+            "0",
+            "Inputs are different (Sum bit / Odd Parity)"
+          ],
+          [
+            "XOR",
+            "2-Input",
+            "1",
+            "0",
+            "1",
+            "Inputs are different"
+          ],
+          [
+            "XOR",
+            "2-Input",
+            "0",
+            "1",
+            "1",
+            "Inputs are different"
+          ],
+          [
+            "XOR",
+            "2-Input",
+            "1",
+            "1",
+            "0",
+            "Inputs are different"
+          ],
+          [
+            "XNOR",
+            "2-Input",
+            "0",
+            "0",
+            "1",
+            "Inputs are identical (Equivalence / Even Parity)"
+          ],
+          [
+            "XNOR",
+            "2-Input",
+            "1",
+            "0",
+            "0",
+            "Inputs are identical"
+          ],
+          [
+            "XNOR",
+            "2-Input",
+            "0",
+            "1",
+            "0",
+            "Inputs are identical"
+          ],
+          [
+            "XNOR",
+            "2-Input",
+            "1",
+            "1",
+            "1",
+            "Inputs are identical"
+          ]
         ]
       }
     },
@@ -9511,12 +12747,42 @@ const REVIEWER_DATA = {
       "svg": "<svg viewBox=\"0 0 380 180\" class=\"circuit-svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"haGradXOR\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#a855f7\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#7e22ce\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n    <linearGradient id=\"haGradAND\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#818cf8\" stop-opacity=\"0.25\"/>\n      <stop offset=\"100%\" stop-color=\"#4f46e5\" stop-opacity=\"0.4\"/>\n    </linearGradient>\n  </defs>\n  <!-- Inputs -->\n  <line x1=\"30\" y1=\"50\" x2=\"130\" y2=\"50\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <line x1=\"30\" y1=\"80\" x2=\"130\" y2=\"80\" stroke=\"#38bdf8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  <circle cx=\"30\" cy=\"50\" r=\"3.5\" fill=\"#38bdf8\"/>\n  <circle cx=\"30\" cy=\"80\" r=\"3.5\" fill=\"#38bdf8\"/>\n  <text x=\"14\" y=\"55\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">A</text>\n  <text x=\"14\" y=\"85\" fill=\"#e2e8f0\" font-family=\"Consolas, monospace\" font-size=\"14\" font-weight=\"700\">B</text>\n  <!-- Taps for AND gate -->\n  <line x1=\"70\" y1=\"50\" x2=\"70\" y2=\"130\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <line x1=\"70\" y1=\"130\" x2=\"140\" y2=\"130\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <circle cx=\"70\" cy=\"50\" r=\"3\" fill=\"#818cf8\"/>\n  <line x1=\"90\" y1=\"80\" x2=\"90\" y2=\"155\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <line x1=\"90\" y1=\"155\" x2=\"140\" y2=\"155\" stroke=\"#818cf8\" stroke-width=\"2\"/>\n  <circle cx=\"90\" cy=\"80\" r=\"3\" fill=\"#818cf8\"/>\n  <!-- XOR Gate for Sum -->\n  <g transform=\"translate(130, 30)\">\n    <path d=\"M 0,0 Q 25,35 0,70\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <path d=\"M 12,0 Q 37,35 12,70 Q 75,70 105,35 Q 75,0 12,0 Z\" fill=\"url(#haGradXOR)\" stroke=\"#a855f7\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n    <line x1=\"105\" y1=\"35\" x2=\"170\" y2=\"35\" stroke=\"#34d399\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"170\" cy=\"35\" r=\"3.5\" fill=\"#34d399\"/>\n    <text x=\"178\" y=\"40\" fill=\"#34d399\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">S = A ⊕ B</text>\n  </g>\n  <!-- AND Gate for Carry -->\n  <g transform=\"translate(140, 115)\">\n    <path d=\"M 0,0 L 40,0 A 25,25 0 0,1 40,50 L 0,50 Z\" fill=\"url(#haGradAND)\" stroke=\"#818cf8\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n    <line x1=\"65\" y1=\"25\" x2=\"160\" y2=\"25\" stroke=\"#f59e0b\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"160\" cy=\"25\" r=\"3.5\" fill=\"#f59e0b\"/>\n    <text x=\"168\" y=\"30\" fill=\"#f59e0b\" font-family=\"Consolas, monospace\" font-size=\"13\" font-weight=\"700\">C = A · B</text>\n  </g>\n</svg>",
       "note": "A Half Adder cannot be cascaded for multi-bit binary addition because it lacks a Carry-In terminal. It is only suitable for bit-0 (the LSB).",
       "truth_table": {
-        "headers": ["Input A", "Input B", "Sum (S = A ⊕ B)", "Carry (C = A · B)", "Arithmetic Meaning"],
+        "headers": [
+          "Input A",
+          "Input B",
+          "Sum (S = A ⊕ B)",
+          "Carry (C = A · B)",
+          "Arithmetic Meaning"
+        ],
         "rows": [
-          ["0", "0", "0", "0", "0 + 0 = 0"],
-          ["0", "1", "1", "0", "0 + 1 = 1"],
-          ["1", "0", "1", "0", "1 + 0 = 1"],
-          ["1", "1", "0", "1", "1 + 1 = 2 (Sum 0, Carry 1)"]
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0 + 0 = 0"
+          ],
+          [
+            "0",
+            "1",
+            "1",
+            "0",
+            "0 + 1 = 1"
+          ],
+          [
+            "1",
+            "0",
+            "1",
+            "0",
+            "1 + 0 = 1"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "1",
+            "1 + 1 = 2 (Sum 0, Carry 1)"
+          ]
         ]
       }
     },
@@ -9532,16 +12798,97 @@ const REVIEWER_DATA = {
       "image": "assets/full_adder_using_half_adders.jpg",
       "note": "CRITICAL EXAM DOCTRINE: The carries C1 = AB and C2 = (A⊕B)Cin are mutually exclusive; they can NEVER both be 1 simultaneously. Hence, the carry combiner OR gate can be replaced with an XOR gate without changing circuit functionality! Delay: Sum = 2*t_XOR, Cout = t_XOR + t_AND + t_OR.",
       "truth_table": {
-        "headers": ["A", "B", "Cin", "HA1 Sum (A⊕B)", "HA1 Carry (AB)", "HA2 Carry ((A⊕B)Cin)", "Sum (S)", "Cout (Carry-Out)"],
+        "headers": [
+          "A",
+          "B",
+          "Cin",
+          "HA1 Sum (A⊕B)",
+          "HA1 Carry (AB)",
+          "HA2 Carry ((A⊕B)Cin)",
+          "Sum (S)",
+          "Cout (Carry-Out)"
+        ],
         "rows": [
-          ["0", "0", "0", "0", "0", "0", "0", "0"],
-          ["0", "0", "1", "0", "0", "0", "1", "0"],
-          ["0", "1", "0", "1", "0", "0", "1", "0"],
-          ["0", "1", "1", "1", "0", "1", "0", "1"],
-          ["1", "0", "0", "1", "0", "0", "1", "0"],
-          ["1", "0", "1", "1", "0", "1", "0", "1"],
-          ["1", "1", "0", "0", "1", "0", "0", "1"],
-          ["1", "1", "1", "0", "1", "0", "1", "1"]
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "1",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "1",
+            "1",
+            "0",
+            "1",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "1",
+            "1",
+            "0",
+            "1",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "1",
+            "1",
+            "0",
+            "1",
+            "0",
+            "1",
+            "1"
+          ]
         ]
       }
     },
@@ -9890,6 +13237,100 @@ const REVIEWER_DATA = {
         "type": "International Technical Standard",
         "alignment": "Specification for BPMN 4 building blocks (Flow objects, Connecting objects, Swimlanes, Artifacts).",
         "url": "https://www.omg.org/spec/BPMN/2.0/"
+      }
+    ],
+    "RIZAL": [
+      {
+        "title": "RA 1425: Ang Batas Rizal (Kasaysayan at Konteksto)",
+        "authors": "Roland Lorenzo M. Ruben",
+        "publisher": "University Lecture Series & Historical Documents",
+        "year": "2011",
+        "type": "Primary Course Reference",
+        "alignment": "Covers the complete legislative debates of Senate Bill 438, Recto vs Catholic Opposition, Laurel's Compromise, and the 1901 Taft Commission hero criteria.",
+        "url": "https://www.officialgazette.gov.ph"
+      },
+      {
+        "title": "The Philippines in the 19th Century in the Context of Dr. Jose Rizal's Era",
+        "authors": "Dr. Gregorio F. Zaide & Sonia M. Zaide",
+        "publisher": "All-Nations Publishing Co.",
+        "year": "1999",
+        "type": "Standard Academic Textbook",
+        "alignment": "Details the Three Great Revolutions, the opening of the Suez Canal, Gov-Gen De La Torre, the 1872 Cavite Mutiny & GOMBURZA, and the 11 colonial evils.",
+        "url": "https://www.worldcat.org"
+      },
+      {
+        "title": "History of the Filipino People (8th Edition)",
+        "authors": "Teodoro A. Agoncillo",
+        "publisher": "Garotech Publishing",
+        "year": "1990",
+        "type": "National History Standard",
+        "alignment": "Authoritative analysis of Spanish colonial institutions: polo y servicio, bandala, encomienda, rentas estancadas, and frailocracy.",
+        "url": "https://www.worldcat.org"
+      },
+      {
+        "title": "Brief History of the Filipino People and Colonial Struggles",
+        "authors": "Maguigad & Muhi",
+        "publisher": "Manila Historical Review",
+        "year": "2001",
+        "type": "Scholarly Treatise",
+        "alignment": "Cites ideological transmission of Enlightenment thought (Rousseau, Locke, Paine) and the democratic rule of Gov. Gen. Carlos Maria de la Torre.",
+        "url": "https://www.worldcat.org"
+      },
+      {
+        "title": "Republic Act No. 1425 (The Rizal Law Full Text & Provisions)",
+        "authors": "Third Congress of the Republic of the Philippines",
+        "publisher": "Official Gazette of the Republic of the Philippines, Vol. 52, No. 6",
+        "year": "1956",
+        "type": "Official Government Statute",
+        "alignment": "Official statutory text of Sections 1 through 6 enacted into law on June 12, 1956.",
+        "url": "https://www.officialgazette.gov.ph/1956/06/12/republic-act-no-1425/"
+      }
+    ],
+    "SOCSCI3": [
+      {
+        "title": "The Contemporary World",
+        "authors": "Lisandro E. Claudio & Patricio N. Abinales",
+        "publisher": "C & E Publishing, Inc.",
+        "year": "2018",
+        "type": "Primary Course Reference",
+        "alignment": "Foundational collegiate textbook for CHED General Education; covers global economy, market integration, global governance, and the OFW phenomenon.",
+        "url": "https://www.cebookshop.com"
+      },
+      {
+        "title": "Globalization: A Very Short Introduction (5th Edition)",
+        "authors": "Manfred B. Steger",
+        "publisher": "Oxford University Press",
+        "year": "2020",
+        "type": "Authoritative Scholarly Monograph",
+        "alignment": "Canonical source for definitions of globality, globalization, global imaginary, and the economic, political, and cultural dimensions of globalization.",
+        "url": "https://global.oup.com"
+      },
+      {
+        "title": "The Fourth Industrial Revolution",
+        "authors": "Klaus Schwab",
+        "publisher": "World Economic Forum / Crown Business",
+        "year": "2016",
+        "type": "Global Economic Standard",
+        "alignment": "Authoritative treatise on 4IR technological pillars (AI, IoT, CPS, blockchain, biotech) and its systemic impact on global labor and economic platforms.",
+        "url": "https://www.weforum.org/about/the-fourth-industrial-revolution-by-klaus-schwab/"
+      },
+      {
+        "title": "Globalization: A Basic Text (3rd Edition)",
+        "authors": "George Ritzer & Paul Dean",
+        "publisher": "Wiley-Blackwell",
+        "year": "2019",
+        "type": "Standard Academic Textbook",
+        "alignment": "Primary source for the physical metaphors of globalization (solidity, liquidity, gaseousness), global flows, McDonaldization, and cultural glocalization.",
+        "url": "https://www.wiley.com"
+      },
+      {
+        "title": "World-Systems Analysis: An Introduction",
+        "authors": "Immanuel Wallerstein",
+        "publisher": "Duke University Press",
+        "year": "2004",
+        "type": "Theoretical Macro-Sociology Reference",
+        "alignment": "Definitive formulation of the modern capitalist world-system, global division of labor, Core, Semi-Periphery, and Periphery dynamics.",
+        "url": "https://www.dukeupress.edu/world-systems-analysis"
       }
     ]
   }

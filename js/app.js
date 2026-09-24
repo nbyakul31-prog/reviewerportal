@@ -792,7 +792,9 @@
       'MS101': 'MS101 (Discrete Mathematics)',
       'IPT102': 'IPT102 (Integrative Programming & ASP.NET)',
       'SIA101': 'SIA101 (Systems Integration & Architecture)',
-      'AR101': 'AR101 (Computer Architecture & Organization)'
+      'AR101': 'AR101 (Computer Architecture & Organization)',
+      'RIZAL': 'RIZAL (The Life and Works of Rizal)',
+      'SOCSCI3': 'SOCSCI3 (The Contemporary World)'
     };
     const subLabel = labels[code] || code;
 
@@ -1087,6 +1089,94 @@
   // SLIDES & PPTX VIEWER ENGINE
   // ==============================================================================
   const PRELOADED_DECKS = {
+    'contempo-w1': {
+      title: "SOCSCI3: Module 1 - Structure & Metaphors of Globalization",
+      slides: [
+        { title: "MODULE 1: STRUCTURE OF GLOBALIZATION", bullets: ["The Contemporary World (SOCSCI3)", "Quezon City University - College of Computer Studies", "Metaphors, Epochs, and Global Scapes"] },
+        { title: "Defining Globalization", bullets: ["Multidimensional set of social processes creating and stretching worldwide interdependencies", "Manfred Steger: Globality (the condition), Globalization (the process), Global Imaginary (the consciousness)", "David Harvey: Time-Space Compression; Anthony Giddens: Time-Space Distanciation", "Four Dimensions: Economic, Cultural, Political, and Technological"] },
+        { title: "The Three Metaphors of Matter", bullets: ["1. Solidity (Pre-Modern): Fixed, heavy, physical fortifications (Berlin Wall), high spatial friction, strict state sovereignty", "2. Liquidity (Modern - Zygmunt Bauman): Fluidity, adaptability, high velocity, digital capital (EFT, crypto), transience", "3. Gaseousness (Contemporary): Weightlessness, hyper-mobility, cloud data, wireless radio spectrums, airborne risks"] },
+        { title: "Arjun Appadurai's 5 Global Scapes", bullets: ["1. Ethnoscapes: Flow of shifting people (migrants, tourists, refugees, OFWs)", "2. Technoscapes: Flow of technology (hardware, microelectronics, cloud)", "3. Financescapes: Flow of megabucks (currency markets, stock exchanges, remittances)", "4. Mediascapes: Flow of electronic images and narratives (cinema, streaming, news)", "5. Ideoscapes: Flow of political images and ideologies (democracy, human rights)", "Disjuncture: The 5 scapes move at different speeds and directions!"] },
+        { title: "Structural Conduits & Friction", bullets: ["Heavy Structures: Deep-water ports, transcontinental railways, mega-airports", "Light Structures: Subsea fiber-optic cables (carry 99% of data), SWIFT, TCP/IP", "Anna Tsing's Concept of Friction: Barriers, tariffs, and borders that impede and halt flows", "Inequality of Mobility: Visa-free global elites vs. razor-wire walls for refugees", "Re-solidification: States re-imposing digital firewalls and protectionist tariffs"] }
+      ]
+    },
+
+    'contempo-w2': {
+      title: "SOCSCI3: Module 2 - Global Economy & The 4th Industrial Revolution",
+      slides: [
+        { title: "MODULE 2: MODERN GLOBAL ECONOMY & 4IR", bullets: ["From Pre-Industrial Trade to Cyber-Physical Platforms", "The Evolution of Global Production and Finance"] },
+        { title: "Pre-Industrial Roots & The Industrial Revolutions", bullets: ["Manila-Acapulco Galleon Trade (1565-1815): The birth of the first continuous global economy linking Asia, Americas, and Europe", "1IR (~1784): Steam engine, mechanization, textiles, coal, and railways", "2IR (~1870): Electricity, mass production, assembly line (Fordism), steel, and petroleum", "3IR (~1969): Digital Revolution, microprocessors, automated logic, semiconductors, internet"] },
+        { title: "The Fourth Industrial Revolution (4IR)", bullets: ["Coined by Klaus Schwab (World Economic Forum, 2016)", "Core Definition: Fusion of technologies blurring lines between physical, digital, and biological spheres", "Technological Pillars: Cyber-Physical Systems (CPS), Artificial Intelligence, IoT, Cloud, Robotics, Gene Editing (CRISPR), Blockchain", "Economic Disruptions: Platform capitalism (Grab, Uber), algorithmic gig labor, skills polarization, and the digital divide"] },
+        { title: "Bretton Woods & The Global Financial Architecture", bullets: ["Classical Gold Standard (1870-1914) collapsed during WWI; 1930s Beggar-Thy-Neighbor protectionism", "Bretton Woods Conference (July 1944, NH): Created the IMF and World Bank; pegged Dollar to gold at $35/oz", "Nixon Shock (August 15, 1971): Terminated dollar gold convertibility, initiating modern floating fiat currencies", "GATT (1947) evolved into the World Trade Organization (WTO) on January 1, 1995 with binding dispute panels"] },
+        { title: "The Neoliberal Turn & Global Value Chains", bullets: ["Washington Consensus (John Williamson, 1989): Free markets, fiscal discipline, deregulation, privatization", "Global Value Chains (GVCs): Account for approximately 80% of all international trade", "Products are made by the world: Smartphone designed in US, chips in Taiwan, sensors in Japan, screens in Korea, assembled in China/Vietnam"] }
+      ]
+    },
+
+    'contempo-w3': {
+      title: "SOCSCI3: Module 3 - Theories of Globalization & Cultural Dynamics",
+      slides: [
+        { title: "MODULE 3: THEORIES OF GLOBALIZATION", bullets: ["Macro-Paradigms, World-Systems, and Cultural Dynamics", "Held, McGrew, Wallerstein, Rostow, and Ritzer"] },
+        { title: "The Three Schools of Thought (Held & McGrew)", bullets: ["1. Hyperglobalists (Ohmae, Friedman): Borderless world ('The World is Flat'), market triumph, decline of the nation-state", "2. Skeptics (Hirst & Thompson): Globalization is an exaggerated myth; economy is regionalized; nation-states remain supreme", "3. Transformationalists (Held, Giddens): Unprecedented, contradictory, non-linear dynamic; states are being restructured and transformed"] },
+        { title: "Immanuel Wallerstein's World-Systems Theory", bullets: ["Single capitalist world-economy with an unequal international division of labor", "1. The Core: High-income, capital-intensive, high-tech nations (US, W. Europe, Japan); exploits periphery", "2. The Semi-Periphery: Industrializing buffer zone (BRICS, Mexico) preventing direct bipolar global conflict", "3. The Periphery: Low-income, raw-material-exporting, labor-intensive nations subject to unequal exchange"] },
+        { title: "Modernization Theory vs. Dependency Theory", bullets: ["Modernization Theory (Walt Rostow, 1960): 5 linear stages of growth; blames poverty on internal traditional deficiencies", "Dependency Theory (Prebisch, Frank): Underdevelopment is actively generated by colonial/core exploitation ('Development of Underdevelopment')", "Neoliberal Austerity: IMF/World Bank Structural Adjustment Programs (SAPs) critiqued by Joseph Stiglitz"] },
+        { title: "Cultural Dynamics of Globalization", bullets: ["1. Cultural Differentialism: Samuel Huntington's 'Clash of Civilizations'; enduring cultural barriers cause conflict", "2. Cultural Convergence: George Ritzer's 'McDonaldization' (Efficiency, Calculability, Predictability, Control)", "3. Cultural Hybridization: Roland Robertson's 'Glocalization'; blending of global and local to form hybrid cultures (e.g., Jollibee, McSpaghetti)"] }
+      ]
+    },
+
+    'contempo-w4': {
+      title: "SOCSCI3: Module 4 - Facilitators, Drivers, and Global Governance",
+      slides: [
+        { title: "MODULE 4: FACILITATORS & GOVERNANCE", bullets: ["Logistics, Technology, Policy Drivers, and Deglobalization"] },
+        { title: "The Triad of Facilitators", bullets: ["Transportation: Moving physical materials and labor across oceans and borders", "Technology: Real-time information, communications, and digital production networks", "Policies: Legal, customs, and trade liberalization frameworks (WTO, FTAs, SEZs)"] },
+        { title: "The Container Revolution (Malcolm McLean, 1956)", bullets: ["Before 1956: Break-bulk shipping took weeks in port and consumed 50% of maritime transport costs", "Standardized intermodal shipping container (TEU) mechanized cargo transfer between ships, trains, and trucks", "Slashed freight handling costs by over 90%, enabling globalized manufacturing and rapid consumer supply chains"] },
+        { title: "Philippine Role: BPO & The OFW Remittance Economy", bullets: ["Philippine IT-BPM Industry: Generates over $35 billion annually, directly employing over 1.7 million professionals", "Overseas Filipino Workers (OFWs): Over 2.3 million workers globally deployed as seafarers, nurses, and engineers", "Cash Remittances: Exceed $37 billion annually (~9% of Philippine GDP), buffering foreign exchange reserves and domestic consumption"] },
+        { title: "Global Governance, Democratic Deficit & Deglobalization", bullets: ["The Democratic Deficit: Technocratic global bodies (IMF, WTO, WB) make policies without direct democratic accountability", "Problems Without Passports: Transboundary crises (climate change, pandemics, cyberwarfare, tax evasion) requiring multilateral solutions", "Deglobalization / Slowbalization: Deceleration of trade, US-China decoupling, reshoring/friendshoring, and rising economic nationalism"] }
+      ]
+    },
+
+    'rizal-w1': {
+      title: "RIZAL: Module 1 - RA 1425 & National Hero Selection",
+      slides: [
+        { title: "MODULE 1: RA 1425 & THE RIZAL LAW", bullets: ["The Life and Works of Rizal", "Quezon City University", "Senator Claro M. Recto & Sen. Jose P. Laurel"] },
+        { title: "Post-WWII Context (1950s)", bullets: ["US economic, political, and military domination after WWII", "Filipino youth seduced by foreign culture and colonial mindset", "Urgent necessity to revive national dignity and patriotism through Rizal's sacrifice"] },
+        { title: "Legislative Controversy: Senate Bill 438", bullets: ["Authored by nationalist Senator Claro M. Recto; sponsored by Sen. Jose P. Laurel", "Mandated compulsory reading of unexpurgated Noli & Fili", "Fierce opposition by Catholic Senators Decoroso Rosales, Mariano Cuenco, and Francisco Rodrigo", "Catholic Action of Manila (CAM) mobilized daily Sentinel newspapers against the bill", "Fr. Jesus Cavanna claimed 333 pp of Noli had only 25 patriotic pages vs 120 anti-Catholic pages"] },
+        { title: "The Compromise & Enactment", bullets: ["Catholic schools threatened shutdown; Recto countered by proposing nationalization of schools", "Sen. Laurel formulated substitute compromise bill: removed 'compulsion' in general courses", "Collegiate level mandated unexpurgated editions as basic texts", "Religious Exemption Clause: Sworn statement exempts student ONLY from reading novels, NOT from taking the course!", "Signed by President Ramon Magsaysay on June 12, 1956 as Republic Act No. 1425"] },
+        { title: "The 1901 Taft Commission & National Hero Criteria", bullets: ["Civil Governor William Howard Taft convened commission in 1901", "4 Criteria: 1) Filipino; 2) Deceased; 3) Towering patriotism; 4) Calm/peaceful temperament", "Candidates considered: Graciano Lopez-Jaena, Marcelo H. del Pilar, Antonio Luna, Emilio Jacinto, Jose Rizal", "Why Rizal Won: First to awaken national unity through literature; paragon of peace; touched Filipino sentimentality"] }
+      ]
+    },
+
+    'rizal-w2': {
+      title: "RIZAL: Module 2 - 19th Century Global Context & Colonial Evils",
+      slides: [
+        { title: "MODULE 2: 19TH CENTURY GLOBAL & PH CONTEXT", bullets: ["The World and the Philippines during Rizal's Era", "Global Revolutions & Spanish Colonial Injustices"] },
+        { title: "The Three Great Global Revolutions", bullets: ["1. Industrial Revolution (England): Steam engines, shift from feudalism to capitalism, urban factory migration", "2. French Revolution (1789): Liberty, Equality, Fraternity; shattered divine-right monarchy and spread to Spain", "3. American Revolution (1776): First anti-colonial democratic republic; popularized constitutional liberties"] },
+        { title: "The Opening of the Suez Canal (Nov 17, 1869)", bullets: ["Engineered by French diplomat Ferdinand de Lesseps; 103 miles connecting Mediterranean and Red Sea", "Slashed Barcelona-to-Manila steamer voyage from over 3 months to only 32 days", "Massive inflow of liberal books (Rousseau, Locke, Paine) and enabled Ilustrados to study in Europe"] },
+        { title: "Gov. Gen. Carlos María de la Torre & 1872 GOMBURZA", bullets: ["Carlos María de la Torre (1869-1871): First liberal governor, abolished censorship, simple lifestyle", "Cavite Mutiny (Jan 20, 1872) led by Sgt. Lamadrid after Rafael de Izquierdo abolished tax privileges", "Fathers Gomez, Burgos, and Zamora executed by garrote on Feb 17, 1872", "Paciano witnessed execution; inspired 11-year-old Jose; Rizal dedicated El Filibusterismo to GOMBURZA"] },
+        { title: "11 Evils of 19th-Century Spanish Colonial Rule", bullets: ["1. Instability of colonial administration; 2. Corrupt officials; 3. Denial of Cortes representation", "4. Human rights denied; 5. No equality before law; 6. Maladministration of justice; 7. Racial discrimination (Indios)", "8. Frailocracy; 9. Forced labor (Polo y servicio); 10. Friar haciendas; 11. Abusive Guardia Civil", "Social classes: Peninsulares, Insulares, Mestizos, Principalia (Rizal family), and Indios"] }
+      ]
+    },
+
+    'rizal-w3': {
+      title: "RIZAL: Module 3 - Secret Mission & Madrid Academic Life",
+      slides: [
+        { title: "MODULE 3: SECRET MISSION & MADRID YEARS", bullets: ["Departure, Voyage Across Continents, and University Studies (1882-1885)"] },
+        { title: "Rizal's Secret Mission (May 3, 1882)", bullets: ["Disillusionment with discriminatory Dominican professors at UST", "Secret Mission: Observe European culture, sciences, languages, and laws to prepare for liberating the motherland", "Departed Manila aboard SS Salvadora under the alias passport of José Mercado", "Known only to brother Paciano, uncle Antonio Rivera, and sisters Saturnina and Lucia"] },
+        { title: "The Voyage: Singapore to First European Soil", bullets: ["Singapore: Stayed at Hotel de la Paz; boarded French streamer Djemnah on May 11, 1882", "Ceylon: Punta de Gales ('picturesque but lonely and sad') and Colombo", "Aden: 'Hotter than Manila'; observed camels for the first time", "June 11, 1882: Naples, Italy - First European ground Rizal ever set foot upon! (1-hour guided tour)", "Marseilles: Visited historic Château d'If (Count of Monte Cristo prison)"] },
+        { title: "Barcelona Debut: Amor Patrio (Aug 20, 1882)", bullets: ["Arrived in Barcelona on June 16, 1882; lodged at Fonda de España", "Wrote Amor Patrio (Love of Country) under pen-name Laong Laan", "Published in bilingual Manila newspaper Diarong Tagalog; Tagalog translation by Marcelo H. del Pilar"] },
+        { title: "Madrid University Honors & Freemasonry", bullets: ["Enrolled Nov 3, 1882 at Universidad Central de Madrid in Medicine and Philosophy & Letters", "Círculo Hispano-Filipino: Declaimed poem 'Me Piden Versos' on New Year's Eve Dec 31, 1882", "Joined Masonic Lodge Acacia (March 1883) to secure international backing; became Master Mason at Lodge Solidaridad", "Conferred Licentiate in Medicine (1884) and Licentiate in Philosophy & Letters (June 1885) with rating 'Sobresaliente' (Excellent)!"] }
+      ]
+    },
+
+    'rizal-w4': {
+      title: "RIZAL: Module 4 - Publishing Noli & The Grand European Tour",
+      slides: [
+        { title: "MODULE 4: PUBLISHING NOLI & GRAND TOUR", bullets: ["Ophthalmology Specialization, Berlin Publication, and Tour with Viola (1885-1887)"] },
+        { title: "Ophthalmology in Paris & Heidelberg", bullets: ["Chose ophthalmology to operate on and cure his mother Doña Teodora's failing eyesight/cataract", "Paris (Oct 1885-Feb 1886): Assistant to leading French ophthalmologist Dr. Louis de Weckert", "Modeled for Juan Luna's paintings: Sikatuna in 'The Blood Compact' and Egyptian priest in 'Death of Cleopatra'", "Heidelberg (Feb 1886): Worked at University Eye Hospital under Dr. Otto Becker; wrote poem 'A Las Flores de Heidelberg'", "March 11, 1886 Letter to sister Trinidad: Praised German women as serious, diligent, educated, and not gossipy"] },
+        { title: "Bleak Winter of 1886 & Dr. Máximo Viola", bullets: ["Berlin (Nov 1886): Welcomed by world-famous scientists Dr. Feodor Jagor, Dr. Rudolf Virchow, and Dr. W. Joest", "Darkest winter: No funds arrived from Calamba; starved on one meal a day; pawned Saturnina's diamond ring", "Inspired to write novel by Harriet Beecher Stowe's Uncle Tom's Cabin", "Dr. Máximo Viola of San Miguel, Bulacan arrived and loaned funds for living and printing; hailed as 'Savior of the Noli'"] },
+        { title: "Printing of Noli Me Tangere (March 21, 1887)", bullets: ["Manuscript finished Feb 21, 1887; printed by Berliner Buchdruckerei-Actien-Gesellschaft for 300 pesos (2,000 copies)", "Came off the press on March 21, 1887; Latin title means 'Touch Me Not' (Gospel of St. John 20:13-17)", "Gratefully gifted original manuscript proofs and pen to Máximo Viola"] },
+        { title: "The Grand European Tour with Viola (May-June 1887)", bullets: ["Leitmeritz, Bohemia (May 13-16, 1887): Historic first in-person meeting with Prof. Ferdinand Blumentritt", "Vienna: 'Queen of the Danube'; met novelist Norfentals; stayed at Hotel Metropole and recovered lost diamond stickpin", "Danube voyage to Linz: Noticed paper napkins ('more hygienic and economical'); visited Munich beer and Ulm Cathedral", "Geneva (June 1887): Celebrated 26th birthday with a blow-out; outraged by Madrid Expo degrading native Igorots", "Rome & Vatican (June 27-29): 'Tired as a dog, sleep as a God'; visited Vatican on Feast of St. Peter & Paul before returning home"] }
+      ]
+    },
+
     'ar-w2': {
       title: "AR101: Week 2 - Intro to Computer Architecture",
       slides: [
@@ -2065,7 +2155,7 @@
         caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
       }
     } catch (e) {}
-    showToast('Clearing cache and loading v2.9.1...');
+    showToast('Clearing cache and loading v3.0.0...');
     setTimeout(() => {
       const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
       window.location.href = cleanUrl;
